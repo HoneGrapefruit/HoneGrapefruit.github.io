@@ -6,11 +6,15 @@
   
   <title>宗志雄的技术专栏</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+  <meta name="description" content="MySQL 简易学生选课系统查询语句1. 创建school数据库12345如果存在名为school的数据库就删除它drop database if exists &#96;school&#96;;创建名为school的数据库并设置默认的字符集和排序方式create database &#96;school&#96; default character set utf8mb4;  2. 创建学院表、学生表、教师表、课程表、选课记录">
+<meta property="og:type" content="article">
 <meta property="og:title" content="宗志雄的技术专栏">
-<meta property="og:url" content="http://babybear.top/index.html">
+<meta property="og:url" content="http://babybear.top/2021/09/24/MySQL%20%E7%AE%80%E6%98%93%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/index.html">
 <meta property="og:site_name" content="宗志雄的技术专栏">
+<meta property="og:description" content="MySQL 简易学生选课系统查询语句1. 创建school数据库12345如果存在名为school的数据库就删除它drop database if exists &#96;school&#96;;创建名为school的数据库并设置默认的字符集和排序方式create database &#96;school&#96; default character set utf8mb4;  2. 创建学院表、学生表、教师表、课程表、选课记录">
 <meta property="og:locale">
+<meta property="article:published_time" content="2021-09-24T01:23:29.565Z">
+<meta property="article:modified_time" content="2021-08-28T03:34:03.518Z">
 <meta property="article:author" content="HoneyGrapefruit">
 <meta name="twitter:card" content="summary">
   
@@ -73,9 +77,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-MySQL 简易学生选课系统查询语句" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-MySQL 简易学生选课系统查询语句" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/09/24/MySQL%20%E7%AE%80%E6%98%93%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" class="article-date">
   <time class="dt-published" datetime="2021-09-24T01:23:29.565Z" itemprop="datePublished">2021-09-24</time>
@@ -104,128 +106,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-代码版本管理工具Git基本命令(基本使用)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/09/11/%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4(%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)/" class="article-date">
-  <time class="dt-published" datetime="2021-09-11T07:45:48.612Z" itemprop="datePublished">2021-09-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="代码版本管理工具Git基本命令-基本使用"><a href="#代码版本管理工具Git基本命令-基本使用" class="headerlink" title="代码版本管理工具Git基本命令(基本使用)"></a>代码版本管理工具Git基本命令(基本使用)</h1><p>git命令：注：&lt;&gt;表示占位实际命令不需要</p>
-<p>1、git – version                    查看版本信息</p>
-<p>2、pwd                    查看当前路径</p>
-<p>3、ls                    查看当前目录所有文件夹</p>
-<p>4、mkdir <dir-name>                    创建文件夹</p>
-<p>5、git init                    初始化本地仓库(会创建一个.git的隐藏文件夹，不可删除)</p>
-<p>6、ls -a                    查看隐藏文件夹</p>
-<p>7、git add <file-name>                    添加文件至缓存区(.表示添加所有未加入缓存区的文件)</p>
-<p>8、git status                    查看状态</p>
-<p>9、git commit -m ‘提交名称(可中文)’              将文件提交至仓库<br>第一次提交时设置<br>(<br>10、  git config –global user.email “<a href="mailto:&#121;&#111;&#x75;&#114;&#64;&#101;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#x2e;&#x63;&#111;&#109;">&#121;&#111;&#x75;&#114;&#64;&#101;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#x2e;&#x63;&#111;&#109;</a>“                    设置提交者邮箱</p>
-<p>11、 git config –global user.name “Your Name”                    设置提交者名称<br>)<br>12、git log                    查看提交日志</p>
-<p>13、git restore <file-name>                    用缓存区恢复工作区</p>
-<p>14、git restore –staged <file-name>                    用仓库恢复暂存区</p>
-<p>15、git log –abbrev-commit –pretty=oneline                    日志同行显示</p>
-<p>16、git reflog                    查看过去和未来的日志</p>
-<p>17、git reset <commit-ID>                 –hard：让仓库、缓存区、工作区都回退到指定版本(三者一致)<br>                    –mixed：默认选项，让仓库、缓存区回退到指定版本，工作区保持现状<br>                    –soft：让仓库回退到指定版本，缓存区和工作区保持现状</p>
-<p>18、git remote add origin <url>                  添加远端仓库</p>
-<p>19、git remote remove origin                  移除远端仓库</p>
-<p>20、git remote -v                  查看远端仓库</p>
-<p>21、git push -u origin master                 上推代码(向服务器推代码)</p>
-<p>22、git pull                  下拉(从服务器获取代码) git fetch + git merge</p>
-<p>23、git clone –depth 1 <url>                  从服务器克隆代码</p>
-<p>24、 ssh-keygen -t rsa -b 2048 -C ‘<a href="mailto:&#x31;&#x32;&#x33;&#52;&#x35;&#x36;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#109;">&#x31;&#x32;&#x33;&#52;&#x35;&#x36;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#109;</a>‘                  生成密钥对   ssh开头邮箱(终止符)结尾</p>
-<p>25、notepad ~/.ssh/id_rsa.pub                  以记事本打开查看密钥(cat:在命令行查看)</p>
-<p>26、git config user.name                  查看用户名</p>
-<p>​        —–        分支操作        ——<br>27、git branch <branch-name>                  新建名为name分支<br>28、git checkout/switch <branch-name>                  切换到名为name分支<br>29、git merge –no–ff  <branch-name>                 合并名为name与当前分支，(–no-ff：禁用快速合并)<br>30、git branch                  查看分支<br>31、git branch -a                  查看所有分支(包括远端分支)<br>32、git branch -d <branch-name>                  删除名为name的分支<br>33、git switch -c <branch-name> / git checkout -b <branch-name>                  创建切换分支<br>34、变基：<br>​    git rebase <target-branch><br>​    git switch <target-branch><br>​    git merge <branch-name></p>
-<p>35、git merge –abort                  取消合并</p>
-<p>push时产生冲突解决办法：<br>遇到冲突如何解决<br>1．从服务器fetch最新的代码，放到一个临时分支</p>
-<ul>
-<li>git fetch origin master:temp<br>2．查看哪里有冲突</li>
-<li>git diff temp<br>3．尝试将临时分支合并到当前分支—&gt;CONFLICT</li>
-<li>git merge temp</li>
-<li>合并虽然是失败的，但是有冲突的代码已经被标记了<br>~取消合并:git merge –abort<br>4．解决代码冲突(找到当事人进行沟通，确定保留谁的代码)<br>5．重新提交解决冲突后的代码并上推到服务器</li>
-<li>git add <filename></li>
-<li>git commit -m ‘…’</li>
-<li>git push -u origin <branch-name><br>6．删除临时分支</li>
-<li>git branch -d temp<br>7．重新发起Pull Request</li>
-</ul>
+  
+    <a href="/2021/09/11/%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4(%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://babybear.top/2021/09/11/%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4(%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)/" data-id="cktwr7i0d0001oc8vhabn400l" data-title="" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/09/11/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-09-11T03:04:15.975Z" itemprop="datePublished">2021-09-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/09/11/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://babybear.top/2021/09/11/hello-world/" data-id="cktwr7i070000oc8v5w5y3fth" data-title="Hello World" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>
