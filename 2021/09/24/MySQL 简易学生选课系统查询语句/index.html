@@ -1,212 +1,402 @@
+
+
+
+
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>宗志雄的技术专栏</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="MySQL 简易学生选课系统查询语句1. 创建school数据库12345如果存在名为school的数据库就删除它drop database if exists &#96;school&#96;;创建名为school的数据库并设置默认的字符集和排序方式create database &#96;school&#96; default character set utf8mb4;  2. 创建学院表、学生表、教师表、课程表、选课记录">
-<meta property="og:type" content="article">
-<meta property="og:title" content="宗志雄的技术专栏">
-<meta property="og:url" content="http://babybear.top/2021/09/24/MySQL%20%E7%AE%80%E6%98%93%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/index.html">
-<meta property="og:site_name" content="宗志雄的技术专栏">
-<meta property="og:description" content="MySQL 简易学生选课系统查询语句1. 创建school数据库12345如果存在名为school的数据库就删除它drop database if exists &#96;school&#96;;创建名为school的数据库并设置默认的字符集和排序方式create database &#96;school&#96; default character set utf8mb4;  2. 创建学院表、学生表、教师表、课程表、选课记录">
-<meta property="og:locale">
-<meta property="article:published_time" content="2021-09-24T01:23:29.565Z">
-<meta property="article:modified_time" content="2021-08-28T03:34:03.518Z">
-<meta property="article:author" content="HoneyGrapefruit">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="宗志雄的技术专栏" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="宗志雄的技术专栏" href="http://babybear.top/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="宗志雄的技术专栏" href="http://babybear.top/atom.xml" />
+<link rel="alternate" type="application/json" title="宗志雄的技术专栏" href="http://babybear.top/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-  
-<link rel="stylesheet" href="/css/style.css">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="canonical" href="http://babybear.top/2021/09/24/MySQL%20%E7%AE%80%E6%98%93%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/">
 
-  
+
+
+  <title>
+ |
+Yume Shoka = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
 <meta name="generator" content="Hexo 5.4.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">宗志雄的技术专栏</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">人生苦短，我用Python</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://babybear.top"></form>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
       </div>
     </div>
   </div>
-</header>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2021-09-24 09:23:29">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-09-24T09:23:29+08:00">2021-09-24</time>
+  </span>
+</div>
 
-      <div class="outer">
-        <section id="main"><article id="post-MySQL 简易学生选课系统查询语句" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/09/24/MySQL%20%E7%AE%80%E6%98%93%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" class="article-date">
-  <time class="dt-published" datetime="2021-09-24T01:23:29.565Z" itemprop="datePublished">2021-09-24</time>
-</a>
-    
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
   </div>
-  <div class="article-inner">
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4lm9i7j20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclfw2t96j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciryrr3rj20zk0m8nhk.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclip4jbpj20zk0m87cv.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciub8ja1j20zk0m81ky.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
     
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh">
+  <link itemprop="mainEntityOfPage" href="http://babybear.top/2021/09/24/MySQL%20%E7%AE%80%E6%98%93%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="HoneyGrapefruit">
+    <meta itemprop="description" content="人生苦短，我用Python, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="宗志雄的技术专栏">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
     
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="MySQL-简易学生选课系统查询语句"><a href="#MySQL-简易学生选课系统查询语句" class="headerlink" title="MySQL 简易学生选课系统查询语句"></a>MySQL 简易学生选课系统查询语句</h1><h4 id="1-创建school数据库"><a href="#1-创建school数据库" class="headerlink" title="1. 创建school数据库"></a>1. 创建school数据库</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">如果存在名为school的数据库就删除它</span><br><span class="line">drop database if exists `school`;</span><br><span class="line"></span><br><span class="line">创建名为school的数据库并设置默认的字符集和排序方式</span><br><span class="line">create database `school` default character set utf8mb4;</span><br></pre></td></tr></table></figure>
+
+    <h1 id="MySQL-简易学生选课系统查询语句"><a href="#MySQL-简易学生选课系统查询语句" class="headerlink" title="MySQL 简易学生选课系统查询语句"></a>MySQL 简易学生选课系统查询语句</h1><h4 id="1-创建school数据库"><a href="#1-创建school数据库" class="headerlink" title="1. 创建school数据库"></a>1. 创建school数据库</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">如果存在名为school的数据库就删除它</span><br><span class="line">drop database if exists `school`;</span><br><span class="line"></span><br><span class="line">创建名为school的数据库并设置默认的字符集和排序方式</span><br><span class="line">create database `school` default character set utf8mb4;</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-创建学院表、学生表、教师表、课程表、选课记录表："><a href="#2-创建学院表、学生表、教师表、课程表、选课记录表：" class="headerlink" title="2. 创建学院表、学生表、教师表、课程表、选课记录表："></a>2. 创建学院表、学生表、教师表、课程表、选课记录表：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">-- 创建学院表</span><br><span class="line">create table `tb_college`</span><br><span class="line">(</span><br><span class="line">`col_id` int unsigned auto_increment comment &#x27;编号&#x27;,</span><br><span class="line">`col_name` varchar(50) not null comment &#x27;名称&#x27;,</span><br><span class="line">`col_intro` varchar(500) default &#x27;&#x27; comment &#x27;介绍&#x27;,</span><br><span class="line">primary key (`col_id`)</span><br><span class="line">) engine=innodb auto_increment=1 comment &#x27;学院表&#x27;;</span><br><span class="line"></span><br><span class="line">-- 创建学生表</span><br><span class="line">create table `tb_student`</span><br><span class="line">(</span><br><span class="line">`stu_id` int unsigned not null comment &#x27;学号&#x27;,</span><br><span class="line">`stu_name` varchar(20) not null comment &#x27;姓名&#x27;,</span><br><span class="line">`stu_sex` boolean default 1 not null comment &#x27;性别&#x27;,</span><br><span class="line">`stu_birth` date not null comment &#x27;出生日期&#x27;,</span><br><span class="line">`stu_addr` varchar(255) default &#x27;&#x27; comment &#x27;籍贯&#x27;,</span><br><span class="line">`col_id` int unsigned not null comment &#x27;所属学院&#x27;,</span><br><span class="line">primary key (`stu_id`),</span><br><span class="line">constraint `fk_student_col_id` foreign key (`col_id`) references `tb_college` (`col_id`)</span><br><span class="line">) engine=innodb comment &#x27;学生表&#x27;;</span><br><span class="line"></span><br><span class="line">-- 创建教师表</span><br><span class="line">create table `tb_teacher`</span><br><span class="line">(</span><br><span class="line">`tea_id` int unsigned not null comment &#x27;工号&#x27;,</span><br><span class="line">`tea_name` varchar(20) not null comment &#x27;姓名&#x27;,</span><br><span class="line">`tea_title` varchar(10) default &#x27;助教&#x27; comment &#x27;职称&#x27;,</span><br><span class="line">`col_id` int unsigned not null comment &#x27;所属学院&#x27;,</span><br><span class="line">primary key (`tea_id`),</span><br><span class="line">constraint `fk_teacher_col_id` foreign key (`col_id`) references `tb_college` (`col_id`)</span><br><span class="line">) engine=innodb comment &#x27;老师表&#x27;;</span><br><span class="line"></span><br><span class="line">-- 创建课程表</span><br><span class="line">create table `tb_course`</span><br><span class="line">(</span><br><span class="line">`cou_id` int unsigned not null comment &#x27;编号&#x27;,</span><br><span class="line">`cou_name` varchar(50) not null comment &#x27;名称&#x27;,</span><br><span class="line">`cou_credit` int not null comment &#x27;学分&#x27;,</span><br><span class="line">`tea_id` int unsigned not null comment &#x27;授课老师&#x27;,</span><br><span class="line">primary key (`cou_id`),</span><br><span class="line">constraint `fk_course_tea_id` foreign key (`tea_id`) references `tb_teacher` (`tea_id`)</span><br><span class="line">) engine=innodb comment &#x27;课程表&#x27;;</span><br><span class="line"></span><br><span class="line">-- 创建选课记录表</span><br><span class="line">create table `tb_record`</span><br><span class="line">(</span><br><span class="line">`rec_id` bigint unsigned auto_increment comment &#x27;选课记录号&#x27;,</span><br><span class="line">`stu_id` int unsigned not null comment &#x27;学号&#x27;,</span><br><span class="line">`cou_id` int unsigned not null comment &#x27;课程编号&#x27;,</span><br><span class="line">`sel_date` date not null comment &#x27;选课日期&#x27;,</span><br><span class="line">`score` decimal(4,1) comment &#x27;考试成绩&#x27;,</span><br><span class="line">primary key (`rec_id`),</span><br><span class="line">constraint `fk_record_stu_id` foreign key (`stu_id`) references `tb_student` (`stu_id`),</span><br><span class="line">constraint `fk_record_cou_id` foreign key (`cou_id`) references `tb_course` (`cou_id`),</span><br><span class="line">constraint `uk_record_stu_cou` unique (`stu_id`, `cou_id`)</span><br><span class="line">) engine=innodb comment &#x27;选课记录表&#x27;;</span><br></pre></td></tr></table></figure>
 
 <h4 id="3-插入数据"><a href="#3-插入数据" class="headerlink" title="3.插入数据"></a>3.插入数据</h4><h4 id="4-查询"><a href="#4-查询" class="headerlink" title="4. 查询"></a>4. 查询</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br></pre></td><td class="code"><pre><span class="line">use school;</span><br><span class="line"></span><br><span class="line">-- 查询所有学生信息</span><br><span class="line">select * from `tb_student`;  -- 效率低</span><br><span class="line">select `stu_id`,`stu_name`,`stu_sex`,`stu_birth`,`stu_addr`,`col_id` from `tb_student`;</span><br><span class="line"></span><br><span class="line">-- 查询所有课程名称及学分(投影和别名)</span><br><span class="line">select `cou_name` as 课程名称,`cou_credit` as 学分 from `tb_course`;</span><br><span class="line"></span><br><span class="line">-- 查询所有女学生的姓名和出生日期(筛选)</span><br><span class="line">select `stu_name` as 姓名,`stu_birth` as 出生日期 from `tb_student`</span><br><span class="line">where `stu_sex`=0;</span><br><span class="line"></span><br><span class="line">-- 查询所有80后学生的姓名、性别和出生日期(筛选)</span><br><span class="line">-- 法一：</span><br><span class="line">select `stu_name` as 姓名, </span><br><span class="line">	case `stu_sex` when 1 then &#x27;男&#x27; else &#x27;女&#x27; end as 性别, -- case 属性 when 条件 then 名称 else 名称 end</span><br><span class="line">	`stu_birth` as 出生日期</span><br><span class="line">	from `tb_student` </span><br><span class="line">	where `stu_birth` between &#x27;1980-1-1&#x27; and &#x27;1989-12-31&#x27;; -- （必须先写小的）</span><br><span class="line">-- 法二：</span><br><span class="line">select `stu_name` as 姓名, </span><br><span class="line">	case `stu_sex` when 1 then &#x27;男&#x27; else &#x27;女&#x27; end as 性别, </span><br><span class="line">	`stu_birth` as 出生日期</span><br><span class="line">	from `tb_student` </span><br><span class="line">	where `stu_birth` &gt;= &#x27;1980-1-1&#x27; and `stu_birth` &lt;=&#x27;1989-12-31&#x27;;</span><br><span class="line">-- SQL方言</span><br><span class="line">select `stu_name` as 姓名, </span><br><span class="line">	if(`stu_sex`,&#x27;男&#x27; ,&#x27;女&#x27;) as 性别, </span><br><span class="line">	`stu_birth` as 出生日期</span><br><span class="line">	from `tb_student` </span><br><span class="line">	where `stu_birth` &gt;= &#x27;1980-1-1&#x27; and `stu_birth` &lt;=&#x27;1989-12-31&#x27;;</span><br><span class="line"></span><br><span class="line">-- 查询姓”杨“的学生姓名和性别(模糊)</span><br><span class="line">-- 通配符 %   模糊查询 like</span><br><span class="line">select `stu_name` as 姓名,</span><br><span class="line">	case `stu_sex` when 1 then &#x27;男&#x27; else &#x27;女&#x27; end as 性别 </span><br><span class="line">    from `tb_student` </span><br><span class="line">	where `stu_name` like&#x27;杨%&#x27;;</span><br><span class="line">    </span><br><span class="line">-- 查询姓”杨“名字两个字的学生姓名和性别(模糊)</span><br><span class="line">-- 精确匹配  _</span><br><span class="line">select `stu_name` as 姓名,</span><br><span class="line">	case `stu_sex` when 1 then &#x27;男&#x27; else &#x27;女&#x27; end as 性别</span><br><span class="line">    from `tb_student`</span><br><span class="line">    where `stu_name` like &#x27;杨_&#x27;;</span><br><span class="line"></span><br><span class="line">-- 基于正则表达式的模糊查询</span><br><span class="line">select `stu_name` from `tb_student` </span><br><span class="line">	where `stu_name` regexp &#x27;^杨.$&#x27;;</span><br><span class="line">    </span><br><span class="line">-- 查询姓”杨“名字三个字的学生姓名和性别(模糊)</span><br><span class="line">select `stu_name` as 姓名,</span><br><span class="line">	case `stu_sex` when 1 then &#x27;男&#x27; else &#x27;女&#x27; end as 性别</span><br><span class="line">    from `tb_student`</span><br><span class="line">    where `stu_name` like &#x27;杨__&#x27;;</span><br><span class="line">    </span><br><span class="line">-- 查询名字中有”不“字或“嫣”字的学生的姓名(模糊)</span><br><span class="line">-- where后的条件族中越靠右的条件应该放置数据量最大越有说服力的条件</span><br><span class="line">-- 法一：</span><br><span class="line">select `stu_name` from `tb_student`</span><br><span class="line">	where `stu_name` like &#x27;%不%&#x27; or `stu_name` like &#x27;%嫣%&#x27;;</span><br><span class="line">-- 法二：求并集</span><br><span class="line">select `stu_name` from `tb_student` where `stu_name` like &#x27;%不%&#x27;</span><br><span class="line">union -- (all) 当名字中同时有 &#x27;不&#x27; 和 &#x27;嫣&#x27; 时all不去重</span><br><span class="line">select `stu_name` from `tb_student` where `stu_name` like &#x27;%嫣%&#x27;;</span><br><span class="line"></span><br><span class="line">-- 查询没有录入家庭住址的学生姓名(空值)</span><br><span class="line">-- 不等于：&lt;&gt;   专门判断等于null：&lt;=&gt;</span><br><span class="line">-- 法一:(推荐)</span><br><span class="line">select `stu_name` from `tb_student`</span><br><span class="line">	where `stu_addr` is null or `stu_addr`=&#x27;&#x27;;</span><br><span class="line">-- 法二：</span><br><span class="line">select `stu_name` from `tb_student`</span><br><span class="line">	where `stu_addr` &lt;=&gt; null or `stu_addr`=&#x27;&#x27;;</span><br><span class="line"></span><br><span class="line">-- 查询录入了家庭住址的学生姓名(空值)</span><br><span class="line">select `stu_name` from `tb_student`</span><br><span class="line">	where `stu_addr` is not null and `stu_addr`&lt;&gt;&#x27;&#x27;;</span><br><span class="line">    </span><br><span class="line">-- 查询学生选课的所有日期(去重)</span><br><span class="line">-- 去重关键字 distinct</span><br><span class="line">select distinct `sel_date` from `tb_record`;</span><br><span class="line"></span><br><span class="line">-- 查询学生的家庭住址(去重)</span><br><span class="line">select distinct `stu_addr` from `tb_student`;</span><br><span class="line"></span><br><span class="line">-- 查询男学生的姓名和生日按年龄从大到小排列(排序)</span><br><span class="line">-- 排序：order by 排序方式;默认为升序(asc) 降序(desc)</span><br><span class="line">-- order by 后面可以跟多列，当第一列无法排序时(相等)采用下一列</span><br><span class="line">select `stu_name` as 姓名,</span><br><span class="line">	`stu_birth` as 出生日期,</span><br><span class="line">-- floor()向下取整,向上取整ceil()；datediff(日期1，日期2)计算时间差(返回天数)；curdate()返回现在的日期&#x27;2021-8-27&#x27;</span><br><span class="line">	floor(datediff(curdate() ,`stu_birth`)/365) as 年龄 </span><br><span class="line">	from `tb_student` where `stu_sex`=1</span><br><span class="line">    order by `stu_birth`;</span><br><span class="line"></span><br><span class="line">-- 查询年龄最大的学生的出生日期(聚合函数)</span><br><span class="line">-- 年龄最大出生日期最小</span><br><span class="line">select min(`stu_birth`) as 出生日期 from `tb_student`;</span><br><span class="line"></span><br><span class="line">-- 查询年龄最小的学生的出生日期(聚合函数)</span><br><span class="line">select max(`stu_birth`) as 出生日期 from `tb_student`;</span><br><span class="line"></span><br><span class="line">-- 查询男女学生的人数(分组和聚合函数)</span><br><span class="line">select case `stu_sex` when 1 then &#x27;男&#x27; else &#x27;女&#x27; end as 性别,</span><br><span class="line">	count(*) as 人数 from `tb_student` group by `stu_sex`;</span><br><span class="line"></span><br><span class="line">-- 查询每个学院男女学生人数</span><br><span class="line">select `col_id` as 学院代码,</span><br><span class="line">	case `stu_sex` when 1 then &#x27;男&#x27; else &#x27;女&#x27; end as 性别,</span><br><span class="line">    count(*) as 人数 from `tb_student` group by `col_id`,`stu_sex`;</span><br><span class="line">    </span><br><span class="line">-- 查询课程编号为1111课程的平均成绩</span><br><span class="line">select max(`score`) from `tb_record` where `cou_id`=1111;</span><br><span class="line"></span><br><span class="line">-- 查询学号为1001的学生成绩的最低分</span><br><span class="line">select min(`score`) from `tb_record` where `stu_id`=1001;</span><br><span class="line"></span><br><span class="line">-- 查询学号为1001的学生成绩的平均分（未计算空值）</span><br><span class="line">select avg(`score`) from `tb_record` where `stu_id`=1001;</span><br><span class="line"></span><br><span class="line">-- 查询学号为1001的学生成绩的平均分,若有空值则令空值为0;</span><br><span class="line">select sum(`score`) / count(`cou_id`) as 平均分 from `tb_record` where `stu_id`=1001; </span><br><span class="line"></span><br><span class="line">-- 方言：如果为空则将score置为0</span><br><span class="line">select avg(ifnull(`score`,0)) as 平均分 from `tb_record` where `stu_id`=1001; </span><br><span class="line"></span><br><span class="line">-- 查询学号为1001的学生标准差(成绩波动程度)</span><br><span class="line">select std(`score`) as 标准差 from `tb_record` where `stu_id`=1001;</span><br><span class="line">-- 聚合函数sum(),count(),max(),min(),avg(),std()标准差...会自动忽略null值</span><br><span class="line"></span><br><span class="line">-- 查询每个学生的学号和平均成绩(分组和聚合函数)</span><br><span class="line">select `stu_id` as 学号,</span><br><span class="line">	round(avg(`score`),2) as 平均分  -- round()四舍五入</span><br><span class="line">    from `tb_record` group by `stu_id`;</span><br><span class="line">    </span><br><span class="line">-- 查询平均成绩大于等于90分的学生的学号和平均成绩</span><br><span class="line">select `stu_id` as 学号,</span><br><span class="line">	round(avg(`score`),2) as 平均分</span><br><span class="line">    from `tb_record` group by `stu_id`</span><br><span class="line">    having 平均分 &gt;= 90;</span><br><span class="line">-- 分组以前的数据筛选使用where子句，分组以后的数据筛选使用having子句</span><br><span class="line"></span><br><span class="line">-- 查询年龄最大的学生的姓名(子查询)</span><br><span class="line">-- 法一：命名一个临时变量</span><br><span class="line">-- 两种方式定义临时变量</span><br><span class="line">-- 1、</span><br><span class="line">set @a = (select min(`stu_birth`) from `tb_student`);</span><br><span class="line">-- 2、</span><br><span class="line">-- select @a:= (select min(`stu_birth`) from `tb_student`);</span><br><span class="line">select @a;  -- 先要查询获取到这个值才能用</span><br><span class="line">select `stu_name` from `tb_student` where `stu_birth`= @a;</span><br><span class="line"></span><br><span class="line">-- 法二：嵌套查询</span><br><span class="line">-- 嵌套查询:把一个select的结果作为另一个select的一部分来使用</span><br><span class="line">-- 嵌套查询通常也称之为子查询，在查询语句中有两个或多个select</span><br><span class="line">select `stu_name` from `tb_student`</span><br><span class="line">	where `stu_birth`=(select min(`stu_birth`) from `tb_student`);</span><br><span class="line"></span><br><span class="line">-- 查询年龄最大的学生姓名和年龄(子查询+运算)</span><br><span class="line">set @age = (select min(`stu_birth`) from `tb_student`);</span><br><span class="line">select @age;</span><br><span class="line">select `stu_name` ,</span><br><span class="line">	floor(datediff(curdate(),@age)/365) as 年龄</span><br><span class="line">    from `tb_student`</span><br><span class="line">	where `stu_birth`=@age;</span><br><span class="line">    </span><br><span class="line">-- 查询选了两门以上的课程的学生姓名(子查询/分组条件/集合运算)</span><br><span class="line">-- 先查询选课超过两门的学生学号(以学号分组，选课记录里学号出现的次数就是选择课程的门数)</span><br><span class="line">-- select `stu_id` as 学号 from `tb_record` group by `stu_id` having count(*) &gt; 2;</span><br><span class="line">-- 再把上述结果作为条件查询姓名</span><br><span class="line">select `stu_name` as 姓名 from `tb_student`</span><br><span class="line">	where `stu_id` in(select `stu_id` as 学号 from `tb_record` group by `stu_id` having count(*) &gt; 2);</span><br><span class="line">    </span><br><span class="line">-- 查询学生姓名、生日和所在学院名称</span><br><span class="line">-- 法一:</span><br><span class="line">select `stu_name` as 姓名,</span><br><span class="line">	`stu_birth` as 出生日期,</span><br><span class="line">    `col_name` as 学院名称</span><br><span class="line">from `tb_student`,`tb_college`</span><br><span class="line">where `tb_student`.`col_id` = `tb_college`.`col_id`; </span><br><span class="line">-- 法二：</span><br><span class="line">select `stu_name` as 姓名,</span><br><span class="line">	`stu_birth` as 出生日期,</span><br><span class="line">    `col_name` as 学院名称</span><br><span class="line">from `tb_student` inner join`tb_college`</span><br><span class="line">on `tb_student`.`col_id` = `tb_college`.`col_id`;</span><br><span class="line">-- 法三:(有明确的外键约束时使用)</span><br><span class="line">select `stu_name` as 姓名,</span><br><span class="line">	`stu_birth` as 出生日期,</span><br><span class="line">    `col_name` as 学院名称</span><br><span class="line">from `tb_student`natural join`tb_college`; </span><br><span class="line"></span><br><span class="line">-- 查询学生姓名、课程名称以及成绩(连接查询)</span><br><span class="line">-- 法一：有明确外键约束</span><br><span class="line">select `stu_name` as 学生姓名,</span><br><span class="line">	`cou_name` as 课程名称,</span><br><span class="line">    `score` as 考试成绩</span><br><span class="line">from `tb_student`natural join `tb_course` natural join `tb_record`;</span><br><span class="line">-- 法二：inner join ... on</span><br><span class="line">select `stu_name` as 学生姓名,</span><br><span class="line">	`cou_name` as 课程名称,</span><br><span class="line">    `score` as 考试成绩</span><br><span class="line">from `tb_student` inner join `tb_course` inner join `tb_record`</span><br><span class="line">on `tb_student`.`stu_id`=`tb_record`.`stu_id` and `tb_record`.`cou_id`=`tb_course`.`cou_id`;</span><br><span class="line">-- 法三：</span><br><span class="line">select `stu_name` as 学生成绩,</span><br><span class="line">	`cou_name` as 课程名称,</span><br><span class="line">    `score` as 考试成绩</span><br><span class="line">from `tb_student` , `tb_course` , `tb_record`</span><br><span class="line">where`tb_student`.`stu_id`=`tb_record`.`stu_id` </span><br><span class="line">and `tb_record`.`cou_id`=`tb_course`.`cou_id`;</span><br><span class="line"></span><br><span class="line">-- 分页查询</span><br><span class="line">select `stu_name` as 学生成绩,</span><br><span class="line">	`cou_name` as 课程名称,</span><br><span class="line">    `score` as 考试成绩</span><br><span class="line">from `tb_student` , `tb_course` , `tb_record`</span><br><span class="line">where`tb_student`.`stu_id`=`tb_record`.`stu_id` </span><br><span class="line">and `tb_record`.`cou_id`=`tb_course`.`cou_id`</span><br><span class="line">order by `score` desc limit 5;  -- 按降序排名并且取前五</span><br><span class="line"></span><br><span class="line">select `stu_name` as 学生成绩,</span><br><span class="line">	`cou_name` as 课程名称,</span><br><span class="line">    `score` as 考试成绩</span><br><span class="line">from `tb_student` , `tb_course` , `tb_record`</span><br><span class="line">where`tb_student`.`stu_id`=`tb_record`.`stu_id` </span><br><span class="line">and `tb_record`.`cou_id`=`tb_course`.`cou_id`</span><br><span class="line">order by `score` desc limit 5 offset 5; -- 按降序排名并且取跳过前五(6-10)</span><br><span class="line"></span><br><span class="line">select `stu_name` as 学生成绩,</span><br><span class="line">	`cou_name` as 课程名称,</span><br><span class="line">    `score` as 考试成绩</span><br><span class="line">from `tb_student` , `tb_course` , `tb_record`</span><br><span class="line">where`tb_student`.`stu_id`=`tb_record`.`stu_id` </span><br><span class="line">and `tb_record`.`cou_id`=`tb_course`.`cou_id`</span><br><span class="line">order by `score` desc limit 5,5;  -- 省略offset,按降序排名并且取跳过前五(6-10)</span><br><span class="line"></span><br><span class="line">-- 查询选课学生的姓名和平均成绩(子查询和连接查询)</span><br><span class="line">-- 1、先查询每个学生的平均成绩(tb_record)并将结果作为一个表：</span><br><span class="line">-- (</span><br><span class="line">-- 	select `stu_id`,round(avg(`score`),2) as avg_score</span><br><span class="line">--     from `tb_record` group by `stu_id`</span><br><span class="line">-- ) as temp</span><br><span class="line">-- 2、再将上述查询结果(表)与`tb_student`联查内联 </span><br><span class="line"></span><br><span class="line">select `stu_name` as 学生姓名,</span><br><span class="line">	`tb_student`.`stu_id` as 学生学号,</span><br><span class="line">	`avg_score` as 平均成绩</span><br><span class="line">from</span><br><span class="line">(</span><br><span class="line">	select `stu_id`,round(avg(`score`),2) as avg_score</span><br><span class="line">    from `tb_record` group by `stu_id`</span><br><span class="line">) as temp inner join `tb_student`</span><br><span class="line">on `tb_student`.`stu_id`=`temp`.`stu_id`;</span><br><span class="line"></span><br><span class="line">-- 查询每个学生的姓名和选课数量(左外连接和子查询)</span><br><span class="line">-- 内连接:查询左右两表满足连接条件的数据。</span><br><span class="line">-- 外连接</span><br><span class="line">-- 左外连接:确保左表(写在1oin前面的表)中的所有记录都能查出来，不满足连接条件的补充null。</span><br><span class="line">-- 右外连接:确保右表(写在join后面的表)中的所有记录都能查出来，不满足连接条件的补充null。</span><br><span class="line">-- 全外连接:确保左表和右表中的所有记录都能查出来，不满足连接条件的补充null。</span><br><span class="line"></span><br><span class="line">-- 内连接：只能查询到选了课的学生</span><br><span class="line">select `stu_name` as 学生姓名,total as 选课数量</span><br><span class="line">from</span><br><span class="line">(</span><br><span class="line">	select `stu_id`,count(*) as total from `tb_record` group by `stu_id`</span><br><span class="line">) as t1 inner join `tb_student`</span><br><span class="line">on `tb_student`.`stu_id`=`t1`.`stu_id`;</span><br><span class="line"></span><br><span class="line">-- 右外连接:保留表`tb_student`(右表)所有记录，表`t1`中不存在的记录(null值)用null填充。</span><br><span class="line">select `stu_name` as 学生姓名,ifnull(total,0) as 选课数量</span><br><span class="line">from</span><br><span class="line">(</span><br><span class="line">	select `stu_id`,count(*) as total from `tb_record` group by `stu_id`</span><br><span class="line">) as t1 right outer join `tb_student`</span><br><span class="line">on `tb_student`.`stu_id`=`t1`.`stu_id`;</span><br><span class="line"></span><br><span class="line">-- 左外连接</span><br><span class="line">select `stu_name` as 学生姓名,ifnull(total,0) as 选课数量</span><br><span class="line">from</span><br><span class="line">(</span><br><span class="line">	select `stu_id`,count(*) as total from `tb_record` group by `stu_id`</span><br><span class="line">) as t1 left outer join `tb_student`</span><br><span class="line">on `tb_student`.`stu_id`=`t1`.`stu_id`;</span><br><span class="line"></span><br><span class="line">-- 全外连接（full outer join）MySQL不满足！所以用left union(并集) right表示。</span><br><span class="line">-- select `stu_name` as 学生姓名,ifnull(total,0) as 选课数量</span><br><span class="line">-- from</span><br><span class="line">-- (</span><br><span class="line">-- 	select `stu_id`,count(*) as total from `tb_record` group by `stu_id`</span><br><span class="line">-- ) as t1 full outer join `tb_student`</span><br><span class="line">-- on `tb_student`.`stu_id`=`t1`.`stu_id`;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://babybear.top/2021/09/24/MySQL%20%E7%AE%80%E6%98%93%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" data-id="cktxoky7q00000w8v4tb0cm62" data-title="" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
   </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2021/09/11/%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4(%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title"></div>
-    </a>
-  
-</nav>
 
-  
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2021-08-28 11:34:03" itemprop="dateModified" datetime="2021-08-28T11:34:03+08:00">2021-08-28</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="HoneyGrapefruit WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="HoneyGrapefruit Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="HoneyGrapefruit PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>HoneyGrapefruit <i class="ic i-at"><em>@</em></i>宗志雄的技术专栏
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://babybear.top/2021/09/24/MySQL%20%E7%AE%80%E6%98%93%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" title="">http://babybear.top/2021/09/24/MySQL 简易学生选课系统查询语句/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
 </article>
 
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li></ul>
-    </div>
   </div>
-
-
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/09/24/MySQL%20%E7%AE%80%E6%98%93%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/11/%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4(%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/11/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
+<div class="post-nav">
+    <div class="item left">
       
-      &copy; 2021 HoneyGrapefruit<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
+
+  <a href="/2021/09/11/%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4(%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeybxm1pj20zk0m8niv.jpg" title="Untitled">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Untitled</h3>
+  </a>
 
     </div>
-    <nav id="mobile-nav">
+    <div class="item right">
+    </div>
+</div>
+
   
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL-%E7%AE%80%E6%98%93%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.</span> <span class="toc-text">MySQL 简易学生选课系统查询语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BAschool%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">1. 创建school数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BA%E5%AD%A6%E9%99%A2%E8%A1%A8%E3%80%81%E5%AD%A6%E7%94%9F%E8%A1%A8%E3%80%81%E6%95%99%E5%B8%88%E8%A1%A8%E3%80%81%E8%AF%BE%E7%A8%8B%E8%A1%A8%E3%80%81%E9%80%89%E8%AF%BE%E8%AE%B0%E5%BD%95%E8%A1%A8%EF%BC%9A"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">2. 创建学院表、学生表、教师表、课程表、选课记录表：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">3.插入数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">4. 查询</span></a></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="HoneyGrapefruit"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">HoneyGrapefruit</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">3</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
 </nav>
-    
 
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
+<ul class="menu">
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
 
 
+</ul>
 
-
-<script src="/js/script.js"></script>
-
-
-
-
-
+      </div>
+    </div>
   </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/24/MySQL%20%E7%AE%80%E6%98%93%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/11/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/11/%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4(%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)/" title="Untitled">Untitled</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HoneyGrapefruit @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/09/24/MySQL 简易学生选课系统查询语句/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
 </body>
 </html>
