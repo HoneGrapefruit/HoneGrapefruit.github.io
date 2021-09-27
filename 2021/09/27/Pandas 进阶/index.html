@@ -1,0 +1,7224 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="宗志雄的技术专栏" href="http://babybear.top/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="宗志雄的技术专栏" href="http://babybear.top/atom.xml" />
+<link rel="alternate" type="application/json" title="宗志雄的技术专栏" href="http://babybear.top/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="http://babybear.top/2021/09/27/Pandas%20%E8%BF%9B%E9%98%B6/">
+
+
+
+  <title>
+ |
+Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2021-09-27 10:25:17">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-09-27T10:25:17+08:00">2021-09-27</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Super Bear</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeyvx1d4j20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipet8c1a2j20zk0m8kct.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeu7txpzj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicmnywqgpj20zk0m8dwx.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciryrr3rj20zk0m8nhk.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh">
+  <link itemprop="mainEntityOfPage" href="http://babybear.top/2021/09/27/Pandas%20%E8%BF%9B%E9%98%B6/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="HoneyGrapefruit">
+    <meta itemprop="description" content="人生苦短，我用Python, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="宗志雄的技术专栏">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;STFangsong&#x27;</span>]</span><br><span class="line">plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%config InlineBackend.figure_format = <span class="string">&#x27;svg&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="数据分析的一般流程"><a href="#数据分析的一般流程" class="headerlink" title="数据分析的一般流程"></a>数据分析的一般流程</h3><ol>
+<li><p>提取数据（筛选）</p>
+<ul>
+<li>布尔索引</li>
+<li><code>query()</code>：相当于布尔索引</li>
+<li><code>drop()</code>：删除指定的行或列</li>
+<li><code>rename()</code>：重命名行或列索引</li>
+<li><code>reset_index()</code>：重置索引（将索引变成普通列）</li>
+<li><code>set_index()</code>：设置索引（将一个列或多个列指定为索引）</li>
+<li><code>reindex()</code>：调整行或列索引的顺序（还可以做花式索引）</li>
+</ul>
+</li>
+<li><p>整合和重塑</p>
+<ul>
+<li><code>merge()</code>：实现两个DataFrame对象的内连接或外连接（适用于两张表有关联）。</li>
+<li><code>concat()</code>：将两个或多个DataFrame的数据拼接到一起（适用于多张表结构一致）。</li>
+</ul>
+</li>
+<li><p>数据清洗（缺失值、重复值、异常值）</p>
+<ul>
+<li>缺失值：<ul>
+<li><code>dropna()</code>：删除空值</li>
+<li><code>fillna()</code>：填充空值 &lt;— 均值、中位数、众数</li>
+<li><code>isnull()</code> / <code>notnull()</code>：判断空值</li>
+</ul>
+</li>
+<li>重复值：<ul>
+<li><code>duplicated()</code>：判断是否重复</li>
+<li><code>drop_duplicates()</code>：删除重复值</li>
+</ul>
+</li>
+<li>异常值：<ul>
+<li>异常值 / 极端值 / 离群值</li>
+<li><code>drop()</code>：删除</li>
+<li><code>replace()</code>：替换</li>
+</ul>
+</li>
+<li>预处理：<ul>
+<li><code>apply()</code>：将函数作用到数据上，需要指定在哪个轴上执行</li>
+<li><code>transform()</code>：将（多个）函数作用到数据上</li>
+<li><code>applymap()</code>：对每个元素使用指定的函数进行映射，相当于<code>Series</code>上的<code>map()</code>方法 —&gt; elementwise</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>注意：这三个方法都是高阶函数的用法，<code>apply()</code>方法接受的函数，可以是带归约性质的函数（聚合函数），也可以是没有归约性质的函数。<code>transform()</code>方法接受的函数不能是带归约功能的函数，只能是对数据做变换的函数，简单的说就是函数的执行不会减少数据的量。</p>
+</blockquote>
+</li>
+<li><p>数据透视（排序、分组、聚合）</p>
+<ul>
+<li>透视表：根据A统计B（根据A列对数据进行分组，再对B列上聚合函数）</li>
+<li><code>groupby()</code> —&gt; <code>sum()</code> / <code>mean()</code> / <code>max()</code> / …</li>
+<li><code>pivot_table()</code> —&gt; 专门生成透视表的函数</li>
+<li><code>cut()</code> —&gt;  数据离散化（分箱）</li>
+</ul>
+</li>
+<li><p>数据可视化（统计图表）</p>
+</li>
+<li><p>数据的洞察（发现问题给出建议）</p>
+</li>
+</ol>
+<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;../files/data/bilibili.csv&#x27;</span>,encoding = <span class="string">&#x27;GBK&#x27;</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>url</th>
+      <th>watchnum</th>
+      <th>dm</th>
+      <th>uptime</th>
+      <th>upname</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>阿里云大学课程（云计算、中间件、大数据、云安全）</td>
+      <td>//www.bilibili.com/video/BV1Lv411s7wu?from=search</td>
+      <td>2954</td>
+      <td>4</td>
+      <td>2021/1/21</td>
+      <td>韭菜滚雪球</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>视觉传达设计专业的小朋友大学课程有哪些，强度怎么样，需要什么技能？学姐给新生的解答与建议</td>
+      <td>//www.bilibili.com/video/BV1Ea4y1a7CX?from=search</td>
+      <td>3526</td>
+      <td>8</td>
+      <td>2020/7/25</td>
+      <td>铧仔仔儿的奋斗史</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CAP：适合高中生的大学课程（上大学之前提前学习大学的课程）同济大学《微积分CAP》</td>
+      <td>//www.bilibili.com/video/BV1X4411Y7u8?from=search</td>
+      <td>5597</td>
+      <td>17</td>
+      <td>2019/5/11</td>
+      <td>愚甘杂货铺</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>干货！论文读写系列｜写作风格：例文解析（1）｜人文社科｜教育学｜大学课程、知识</td>
+      <td>//www.bilibili.com/video/BV1VC4y1b7ZA?from=search</td>
+      <td>1.1万</td>
+      <td>29</td>
+      <td>2020/7/26</td>
+      <td>cici西西熙熙</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>《用户体验与心理-第1期》大学课程</td>
+      <td>//www.bilibili.com/video/BV1r7411M7gY?from=search</td>
+      <td>1373</td>
+      <td>9</td>
+      <td>2020/2/24</td>
+      <td>Luka老师</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1902</th>
+      <td>【中国石油大学】构造地质学（第1-2章） ——主讲：李理老师</td>
+      <td>//www.bilibili.com/video/BV1Y4411x7sE?from=search</td>
+      <td>4097</td>
+      <td>5</td>
+      <td>2019/5/2</td>
+      <td>點點滴滴Super</td>
+    </tr>
+    <tr>
+      <th>1903</th>
+      <td>【模电】模拟电子技术基础【四】</td>
+      <td>//www.bilibili.com/video/BV1sb411v7E6?from=search</td>
+      <td>5997</td>
+      <td>11</td>
+      <td>2019/3/8</td>
+      <td>干脆的非洲鼓</td>
+    </tr>
+    <tr>
+      <th>1904</th>
+      <td>【模电】模拟电子技术基础【三】</td>
+      <td>//www.bilibili.com/video/BV1Rb411i7yo?from=search</td>
+      <td>4713</td>
+      <td>8</td>
+      <td>2019/3/5</td>
+      <td>干脆的非洲鼓</td>
+    </tr>
+    <tr>
+      <th>1905</th>
+      <td>结构化学-东北大学-王军</td>
+      <td>//www.bilibili.com/video/BV1yb411t7Mb?from=search</td>
+      <td>5835</td>
+      <td>2</td>
+      <td>2019/2/28</td>
+      <td>万万万万不能怂</td>
+    </tr>
+    <tr>
+      <th>1906</th>
+      <td>《结构化学》南开大学-孙宏伟   重点难点解析</td>
+      <td>//www.bilibili.com/video/BV1yt411t7UG?from=search</td>
+      <td>5287</td>
+      <td>6</td>
+      <td>2019/1/28</td>
+      <td>阿bu爱学习</td>
+    </tr>
+  </tbody>
+</table>
+<p>1907 rows × 6 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">handle_num</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="keyword">if</span> n[-<span class="number">1</span>] == <span class="string">&#x27;万&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">int</span>(<span class="built_in">float</span>(n[:-<span class="number">1</span>]) * <span class="number">10000</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(n)</span><br><span class="line"></span><br><span class="line">df[<span class="string">&#x27;watchnum&#x27;</span>] = df.watchnum.<span class="built_in">map</span>(handle_num)</span><br><span class="line">df[<span class="string">&#x27;dm&#x27;</span>] = df.dm.<span class="built_in">map</span>(handle_num)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>url</th>
+      <th>watchnum</th>
+      <th>dm</th>
+      <th>uptime</th>
+      <th>upname</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>阿里云大学课程（云计算、中间件、大数据、云安全）</td>
+      <td>//www.bilibili.com/video/BV1Lv411s7wu?from=search</td>
+      <td>2954</td>
+      <td>4</td>
+      <td>2021/1/21</td>
+      <td>韭菜滚雪球</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>视觉传达设计专业的小朋友大学课程有哪些，强度怎么样，需要什么技能？学姐给新生的解答与建议</td>
+      <td>//www.bilibili.com/video/BV1Ea4y1a7CX?from=search</td>
+      <td>3526</td>
+      <td>8</td>
+      <td>2020/7/25</td>
+      <td>铧仔仔儿的奋斗史</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CAP：适合高中生的大学课程（上大学之前提前学习大学的课程）同济大学《微积分CAP》</td>
+      <td>//www.bilibili.com/video/BV1X4411Y7u8?from=search</td>
+      <td>5597</td>
+      <td>17</td>
+      <td>2019/5/11</td>
+      <td>愚甘杂货铺</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>干货！论文读写系列｜写作风格：例文解析（1）｜人文社科｜教育学｜大学课程、知识</td>
+      <td>//www.bilibili.com/video/BV1VC4y1b7ZA?from=search</td>
+      <td>11000</td>
+      <td>29</td>
+      <td>2020/7/26</td>
+      <td>cici西西熙熙</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>《用户体验与心理-第1期》大学课程</td>
+      <td>//www.bilibili.com/video/BV1r7411M7gY?from=search</td>
+      <td>1373</td>
+      <td>9</td>
+      <td>2020/2/24</td>
+      <td>Luka老师</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1902</th>
+      <td>【中国石油大学】构造地质学（第1-2章） ——主讲：李理老师</td>
+      <td>//www.bilibili.com/video/BV1Y4411x7sE?from=search</td>
+      <td>4097</td>
+      <td>5</td>
+      <td>2019/5/2</td>
+      <td>點點滴滴Super</td>
+    </tr>
+    <tr>
+      <th>1903</th>
+      <td>【模电】模拟电子技术基础【四】</td>
+      <td>//www.bilibili.com/video/BV1sb411v7E6?from=search</td>
+      <td>5997</td>
+      <td>11</td>
+      <td>2019/3/8</td>
+      <td>干脆的非洲鼓</td>
+    </tr>
+    <tr>
+      <th>1904</th>
+      <td>【模电】模拟电子技术基础【三】</td>
+      <td>//www.bilibili.com/video/BV1Rb411i7yo?from=search</td>
+      <td>4713</td>
+      <td>8</td>
+      <td>2019/3/5</td>
+      <td>干脆的非洲鼓</td>
+    </tr>
+    <tr>
+      <th>1905</th>
+      <td>结构化学-东北大学-王军</td>
+      <td>//www.bilibili.com/video/BV1yb411t7Mb?from=search</td>
+      <td>5835</td>
+      <td>2</td>
+      <td>2019/2/28</td>
+      <td>万万万万不能怂</td>
+    </tr>
+    <tr>
+      <th>1906</th>
+      <td>《结构化学》南开大学-孙宏伟   重点难点解析</td>
+      <td>//www.bilibili.com/video/BV1yt411t7UG?from=search</td>
+      <td>5287</td>
+      <td>6</td>
+      <td>2019/1/28</td>
+      <td>阿bu爱学习</td>
+    </tr>
+  </tbody>
+</table>
+<p>1907 rows × 6 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将表中上传时间(字符串)转换为时间类型</span></span><br><span class="line"><span class="comment"># pd.to_datetime(字符串时间)</span></span><br><span class="line">df[<span class="string">&#x27;uptime&#x27;</span>] = pd.to_datetime(df.uptime)</span><br><span class="line">df.uptime   <span class="comment"># dtype: datetime64[ns]</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0      2021-01-21
+1      2020-07-25
+2      2019-05-11
+3      2020-07-26
+4      2020-02-24
+          ...    
+1902   2019-05-02
+1903   2019-03-08
+1904   2019-03-05
+1905   2019-02-28
+1906   2019-01-28
+Name: uptime, Length: 1907, dtype: datetime64[ns]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.uptime &gt;= datetime(<span class="number">2021</span>,<span class="number">1</span>,<span class="number">1</span>)   <span class="comment"># 布尔数据系列</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0        True
+1       False
+2       False
+3       False
+4       False
+        ...  
+1902    False
+1903    False
+1904    False
+1905    False
+1906    False
+Name: uptime, Length: 1907, dtype: bool
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[df.uptime &gt;= datetime(<span class="number">2021</span>,<span class="number">1</span>,<span class="number">1</span>)] <span class="comment"># 布尔下标</span></span><br><span class="line">temp = df[(df.uptime &gt;= datetime(<span class="number">2021</span>,<span class="number">1</span>,<span class="number">1</span>)) &amp; (df.watchnum &gt; <span class="number">1000</span>)]  <span class="comment">#发布时间为2021年播放量大于1000的帖子</span></span><br><span class="line">temp.info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 92 entries, 0 to 1425
+Data columns (total 6 columns):
+ #   Column    Non-Null Count  Dtype         
+---  ------    --------------  -----         
+ 0   title     92 non-null     object        
+ 1   url       92 non-null     object        
+ 2   watchnum  92 non-null     int64         
+ 3   dm        92 non-null     int64         
+ 4   uptime    92 non-null     datetime64[ns]
+ 5   upname    92 non-null     object        
+dtypes: datetime64[ns](1), int64(2), object(3)
+memory usage: 5.0+ KB
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过表达式筛选</span></span><br><span class="line"><span class="comment"># obj.query(筛选条件)</span></span><br><span class="line">df.query(<span class="string">&#x27;watchnum &gt;= 1000 and uptime &gt;=&quot;2021-1-1&quot;&#x27;</span>).info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 92 entries, 0 to 1425
+Data columns (total 6 columns):
+ #   Column    Non-Null Count  Dtype         
+---  ------    --------------  -----         
+ 0   title     92 non-null     object        
+ 1   url       92 non-null     object        
+ 2   watchnum  92 non-null     int64         
+ 3   dm        92 non-null     int64         
+ 4   uptime    92 non-null     datetime64[ns]
+ 5   upname    92 non-null     object        
+dtypes: datetime64[ns](1), int64(2), object(3)
+memory usage: 5.0+ KB
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 根据播放量排序</span></span><br><span class="line"><span class="comment"># obj.sort_values(by=[列1,列2...],ascending = True/False) 默认为True升序</span></span><br><span class="line">temp.sort_values(by=[<span class="string">&#x27;watchnum&#x27;</span>,<span class="string">&#x27;dm&#x27;</span>],ascending=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>url</th>
+      <th>watchnum</th>
+      <th>dm</th>
+      <th>uptime</th>
+      <th>upname</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>459</th>
+      <td>【公开课】复旦大学：资本论 王德峰（全28讲）</td>
+      <td>//www.bilibili.com/video/BV1Vp4y1x7F9?from=search</td>
+      <td>1099000</td>
+      <td>4299</td>
+      <td>2021-01-19</td>
+      <td>农夫CC</td>
+    </tr>
+    <tr>
+      <th>486</th>
+      <td>【公开课】北京大学：中国经济 林毅夫（全12讲）</td>
+      <td>//www.bilibili.com/video/BV1hK4y157dt?from=search</td>
+      <td>235000</td>
+      <td>561</td>
+      <td>2021-01-14</td>
+      <td>农夫CC</td>
+    </tr>
+    <tr>
+      <th>403</th>
+      <td>【公开课】温铁军：中国经济研究（8讲）</td>
+      <td>//www.bilibili.com/video/BV1kp4y1W7u8?from=search</td>
+      <td>106000</td>
+      <td>523</td>
+      <td>2021-01-27</td>
+      <td>农夫CC</td>
+    </tr>
+    <tr>
+      <th>448</th>
+      <td>【公开课】温铁军：中国经济研究（8讲）</td>
+      <td>//www.bilibili.com/video/BV1kp4y1W7u8?from=search</td>
+      <td>106000</td>
+      <td>523</td>
+      <td>2021-01-27</td>
+      <td>农夫CC</td>
+    </tr>
+    <tr>
+      <th>396</th>
+      <td>【公开课】加州大学洛杉矶分校：亲密关系（全17讲）</td>
+      <td>//www.bilibili.com/video/BV1xU4y147hJ?from=search</td>
+      <td>65000</td>
+      <td>79</td>
+      <td>2021-01-21</td>
+      <td>农夫CC</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>811</th>
+      <td>【芝加哥大学】 理解全球经济 全11讲</td>
+      <td>//www.bilibili.com/video/BV1nr4y1M7Fd?from=search</td>
+      <td>1189</td>
+      <td>0</td>
+      <td>2021-01-24</td>
+      <td>学习党加油站</td>
+    </tr>
+    <tr>
+      <th>923</th>
+      <td>2021年小黑老师计算机二级最新考点----替换考点汇总</td>
+      <td>//www.bilibili.com/video/BV1UU4y1s7Tq?from=search</td>
+      <td>1173</td>
+      <td>0</td>
+      <td>2021-02-01</td>
+      <td>爱家伙的小学习</td>
+    </tr>
+    <tr>
+      <th>1220</th>
+      <td>编程课堂：按键的前世今生学不会，不存在的。</td>
+      <td>//www.bilibili.com/video/BV1nK4y1W7bU?from=search</td>
+      <td>1157</td>
+      <td>3</td>
+      <td>2021-01-12</td>
+      <td>三月课堂</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>【生活篇】UCLA本科生带你了解加州大学课程设置与毕业要求</td>
+      <td>//www.bilibili.com/video/BV1qt4y1r7Y3?from=search</td>
+      <td>1107</td>
+      <td>8</td>
+      <td>2021-01-09</td>
+      <td>未必存在的真理</td>
+    </tr>
+    <tr>
+      <th>1425</th>
+      <td>【文学批评的方法与实践】华中师范大学 胡亚敏（合6讲）</td>
+      <td>//www.bilibili.com/video/BV1jr4y1M7Hd?from=search</td>
+      <td>1003</td>
+      <td>0</td>
+      <td>2021-01-27</td>
+      <td>语文教学助手</td>
+    </tr>
+  </tbody>
+</table>
+<p>92 rows × 6 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">temp1 = temp.drop(columns=<span class="string">&#x27;upname&#x27;</span>)</span><br><span class="line">temp1</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>url</th>
+      <th>watchnum</th>
+      <th>dm</th>
+      <th>uptime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>阿里云大学课程（云计算、中间件、大数据、云安全）</td>
+      <td>//www.bilibili.com/video/BV1Lv411s7wu?from=search</td>
+      <td>2954</td>
+      <td>4</td>
+      <td>2021-01-21</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>【生活篇】UCLA本科生带你了解加州大学课程设置与毕业要求</td>
+      <td>//www.bilibili.com/video/BV1qt4y1r7Y3?from=search</td>
+      <td>1107</td>
+      <td>8</td>
+      <td>2021-01-09</td>
+    </tr>
+    <tr>
+      <th>374</th>
+      <td>【公开课】南开大学：中华诗词 叶嘉莹（20讲）</td>
+      <td>//www.bilibili.com/video/BV1Vo4y1d7Pe?from=search</td>
+      <td>4937</td>
+      <td>4</td>
+      <td>2021-02-10</td>
+    </tr>
+    <tr>
+      <th>384</th>
+      <td>【公开课】南开大学：中华诗词 叶嘉莹（20讲）</td>
+      <td>//www.bilibili.com/video/BV1Vo4y1d7Pe?from=search</td>
+      <td>4937</td>
+      <td>4</td>
+      <td>2021-02-10</td>
+    </tr>
+    <tr>
+      <th>387</th>
+      <td>【公开课】启功：中华书法（全4讲）</td>
+      <td>//www.bilibili.com/video/BV1FV411i7fV?from=search</td>
+      <td>9777</td>
+      <td>12</td>
+      <td>2021-02-11</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1299</th>
+      <td>苏德矿教授谈如何学好微积分—矿爷在丹青有约2021.1.7直播</td>
+      <td>//www.bilibili.com/video/BV1dh41117yy?from=search</td>
+      <td>1196</td>
+      <td>0</td>
+      <td>2021-01-07</td>
+    </tr>
+    <tr>
+      <th>1412</th>
+      <td>【中英字幕】曼彻斯特大学Advanced Microeconomics 课程</td>
+      <td>//www.bilibili.com/video/BV1bX4y1K799?from=search</td>
+      <td>8429</td>
+      <td>2</td>
+      <td>2021-01-19</td>
+    </tr>
+    <tr>
+      <th>1417</th>
+      <td>《数字无线电系统基础》32讲-电子科技大学-陈祝明【通信专题】</td>
+      <td>//www.bilibili.com/video/BV1Ci4y1F7tU?from=search</td>
+      <td>3958</td>
+      <td>14</td>
+      <td>2021-01-05</td>
+    </tr>
+    <tr>
+      <th>1422</th>
+      <td>西安交通大学《电路》赵进全100讲</td>
+      <td>//www.bilibili.com/video/BV1Z54y1x7ZK?from=search</td>
+      <td>2205</td>
+      <td>3</td>
+      <td>2021-01-11</td>
+    </tr>
+    <tr>
+      <th>1425</th>
+      <td>【文学批评的方法与实践】华中师范大学 胡亚敏（合6讲）</td>
+      <td>//www.bilibili.com/video/BV1jr4y1M7Hd?from=search</td>
+      <td>1003</td>
+      <td>0</td>
+      <td>2021-01-27</td>
+    </tr>
+  </tbody>
+</table>
+<p>92 rows × 5 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 判断是否存在重复值</span></span><br><span class="line"><span class="comment"># temp.duplicated(&#x27;url&#x27;)</span></span><br><span class="line"><span class="comment"># 去重</span></span><br><span class="line">temp.drop_duplicates(<span class="string">&#x27;url&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>url</th>
+      <th>watchnum</th>
+      <th>dm</th>
+      <th>uptime</th>
+      <th>upname</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>阿里云大学课程（云计算、中间件、大数据、云安全）</td>
+      <td>//www.bilibili.com/video/BV1Lv411s7wu?from=search</td>
+      <td>2954</td>
+      <td>4</td>
+      <td>2021-01-21</td>
+      <td>韭菜滚雪球</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>【生活篇】UCLA本科生带你了解加州大学课程设置与毕业要求</td>
+      <td>//www.bilibili.com/video/BV1qt4y1r7Y3?from=search</td>
+      <td>1107</td>
+      <td>8</td>
+      <td>2021-01-09</td>
+      <td>未必存在的真理</td>
+    </tr>
+    <tr>
+      <th>374</th>
+      <td>【公开课】南开大学：中华诗词 叶嘉莹（20讲）</td>
+      <td>//www.bilibili.com/video/BV1Vo4y1d7Pe?from=search</td>
+      <td>4937</td>
+      <td>4</td>
+      <td>2021-02-10</td>
+      <td>农夫CC</td>
+    </tr>
+    <tr>
+      <th>387</th>
+      <td>【公开课】启功：中华书法（全4讲）</td>
+      <td>//www.bilibili.com/video/BV1FV411i7fV?from=search</td>
+      <td>9777</td>
+      <td>12</td>
+      <td>2021-02-11</td>
+      <td>农夫CC</td>
+    </tr>
+    <tr>
+      <th>392</th>
+      <td>所以你记住物价这个词了嘛！</td>
+      <td>//www.bilibili.com/video/BV1f54y1Y7JY?from=search</td>
+      <td>2140</td>
+      <td>0</td>
+      <td>2021-02-25</td>
+      <td>大阪外語学院</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1299</th>
+      <td>苏德矿教授谈如何学好微积分—矿爷在丹青有约2021.1.7直播</td>
+      <td>//www.bilibili.com/video/BV1dh41117yy?from=search</td>
+      <td>1196</td>
+      <td>0</td>
+      <td>2021-01-07</td>
+      <td>稳及阁大学士</td>
+    </tr>
+    <tr>
+      <th>1412</th>
+      <td>【中英字幕】曼彻斯特大学Advanced Microeconomics 课程</td>
+      <td>//www.bilibili.com/video/BV1bX4y1K799?from=search</td>
+      <td>8429</td>
+      <td>2</td>
+      <td>2021-01-19</td>
+      <td>杨浦区老实人</td>
+    </tr>
+    <tr>
+      <th>1417</th>
+      <td>《数字无线电系统基础》32讲-电子科技大学-陈祝明【通信专题】</td>
+      <td>//www.bilibili.com/video/BV1Ci4y1F7tU?from=search</td>
+      <td>3958</td>
+      <td>14</td>
+      <td>2021-01-05</td>
+      <td>成电电子科协</td>
+    </tr>
+    <tr>
+      <th>1422</th>
+      <td>西安交通大学《电路》赵进全100讲</td>
+      <td>//www.bilibili.com/video/BV1Z54y1x7ZK?from=search</td>
+      <td>2205</td>
+      <td>3</td>
+      <td>2021-01-11</td>
+      <td>物语终焉2021</td>
+    </tr>
+    <tr>
+      <th>1425</th>
+      <td>【文学批评的方法与实践】华中师范大学 胡亚敏（合6讲）</td>
+      <td>//www.bilibili.com/video/BV1jr4y1M7Hd?from=search</td>
+      <td>1003</td>
+      <td>0</td>
+      <td>2021-01-27</td>
+      <td>语文教学助手</td>
+    </tr>
+  </tbody>
+</table>
+<p>83 rows × 6 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">normalize_url</span>(<span class="params">url</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> url.startswith(<span class="string">&#x27;https&#x27;</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;https:&#x27;</span> + url</span><br><span class="line">    <span class="keyword">return</span> url</span><br><span class="line">df[<span class="string">&#x27;url&#x27;</span>] = df[<span class="string">&#x27;url&#x27;</span>].apply(normalize_url)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>url</th>
+      <th>watchnum</th>
+      <th>dm</th>
+      <th>uptime</th>
+      <th>upname</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>阿里云大学课程（云计算、中间件、大数据、云安全）</td>
+      <td>https://www.bilibili.com/video/BV1Lv411s7wu?fr...</td>
+      <td>2954</td>
+      <td>4</td>
+      <td>2021-01-21</td>
+      <td>韭菜滚雪球</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>视觉传达设计专业的小朋友大学课程有哪些，强度怎么样，需要什么技能？学姐给新生的解答与建议</td>
+      <td>https://www.bilibili.com/video/BV1Ea4y1a7CX?fr...</td>
+      <td>3526</td>
+      <td>8</td>
+      <td>2020-07-25</td>
+      <td>铧仔仔儿的奋斗史</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CAP：适合高中生的大学课程（上大学之前提前学习大学的课程）同济大学《微积分CAP》</td>
+      <td>https://www.bilibili.com/video/BV1X4411Y7u8?fr...</td>
+      <td>5597</td>
+      <td>17</td>
+      <td>2019-05-11</td>
+      <td>愚甘杂货铺</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>干货！论文读写系列｜写作风格：例文解析（1）｜人文社科｜教育学｜大学课程、知识</td>
+      <td>https://www.bilibili.com/video/BV1VC4y1b7ZA?fr...</td>
+      <td>11000</td>
+      <td>29</td>
+      <td>2020-07-26</td>
+      <td>cici西西熙熙</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>《用户体验与心理-第1期》大学课程</td>
+      <td>https://www.bilibili.com/video/BV1r7411M7gY?fr...</td>
+      <td>1373</td>
+      <td>9</td>
+      <td>2020-02-24</td>
+      <td>Luka老师</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1902</th>
+      <td>【中国石油大学】构造地质学（第1-2章） ——主讲：李理老师</td>
+      <td>https://www.bilibili.com/video/BV1Y4411x7sE?fr...</td>
+      <td>4097</td>
+      <td>5</td>
+      <td>2019-05-02</td>
+      <td>點點滴滴Super</td>
+    </tr>
+    <tr>
+      <th>1903</th>
+      <td>【模电】模拟电子技术基础【四】</td>
+      <td>https://www.bilibili.com/video/BV1sb411v7E6?fr...</td>
+      <td>5997</td>
+      <td>11</td>
+      <td>2019-03-08</td>
+      <td>干脆的非洲鼓</td>
+    </tr>
+    <tr>
+      <th>1904</th>
+      <td>【模电】模拟电子技术基础【三】</td>
+      <td>https://www.bilibili.com/video/BV1Rb411i7yo?fr...</td>
+      <td>4713</td>
+      <td>8</td>
+      <td>2019-03-05</td>
+      <td>干脆的非洲鼓</td>
+    </tr>
+    <tr>
+      <th>1905</th>
+      <td>结构化学-东北大学-王军</td>
+      <td>https://www.bilibili.com/video/BV1yb411t7Mb?fr...</td>
+      <td>5835</td>
+      <td>2</td>
+      <td>2019-02-28</td>
+      <td>万万万万不能怂</td>
+    </tr>
+    <tr>
+      <th>1906</th>
+      <td>《结构化学》南开大学-孙宏伟   重点难点解析</td>
+      <td>https://www.bilibili.com/video/BV1yt411t7UG?fr...</td>
+      <td>5287</td>
+      <td>6</td>
+      <td>2019-01-28</td>
+      <td>阿bu爱学习</td>
+    </tr>
+  </tbody>
+</table>
+<p>1907 rows × 6 columns</p>
+</div>
+
+
+
+<h3 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2"></a>Example 2</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df1 = pd.read_csv(<span class="string">&#x27;../files/data/lagou.csv&#x27;</span>,encoding = <span class="string">&#x27;utf-8&#x27;</span>,index_col=<span class="string">&#x27;no&#x27;</span>)</span><br><span class="line">df1.info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 3140 entries, 0 to 3139
+Data columns (total 51 columns):
+ #   Column                 Non-Null Count  Dtype  
+---  ------                 --------------  -----  
+ 0   _id                    3140 non-null   object 
+ 1   adWord                 3140 non-null   int64  
+ 2   appShow                3140 non-null   int64  
+ 3   approve                3140 non-null   int64  
+ 4   businessZones          1544 non-null   object 
+ 5   city                   3140 non-null   object 
+ 6   companyFullName        3140 non-null   object 
+ 7   companyId              3140 non-null   int64  
+ 8   companyLabelList       3140 non-null   object 
+ 9   companyLogo            3139 non-null   object 
+ 10  companyShortName       3140 non-null   object 
+ 11  companySize            3140 non-null   object 
+ 12  createTime             3140 non-null   object 
+ 13  deliver                3140 non-null   int64  
+ 14  district               3133 non-null   object 
+ 15  education              3140 non-null   object 
+ 16  explain                0 non-null      float64
+ 17  financeStage           3140 non-null   object 
+ 18  firstType              3140 non-null   object 
+ 19  formatCreateTime       3140 non-null   object 
+ 20  gradeDescription       0 non-null      float64
+ 21  hitags                 260 non-null    object 
+ 22  imState                3140 non-null   object 
+ 23  industryField          3140 non-null   object 
+ 24  industryLables         3140 non-null   object 
+ 25  isHotHire              3140 non-null   int64  
+ 26  isSchoolJob            3140 non-null   int64  
+ 27  jobNature              3140 non-null   object 
+ 28  lastLogin              3140 non-null   object 
+ 29  latitude               3133 non-null   float64
+ 30  linestaion             2403 non-null   object 
+ 31  longitude              3133 non-null   float64
+ 32  pcShow                 3140 non-null   int64  
+ 33  plus                   0 non-null      float64
+ 34  positionAdvantage      3140 non-null   object 
+ 35  positionId             3140 non-null   int64  
+ 36  positionLables         3140 non-null   object 
+ 37  positionName           3140 non-null   object 
+ 38  promotionScoreExplain  0 non-null      float64
+ 39  publisherId            3140 non-null   int64  
+ 40  resumeProcessDay       3140 non-null   int64  
+ 41  resumeProcessRate      3140 non-null   int64  
+ 42  salary                 3140 non-null   object 
+ 43  score                  3140 non-null   int64  
+ 44  secondType             3140 non-null   object 
+ 45  skillLables            3140 non-null   object 
+ 46  stationname            2403 non-null   object 
+ 47  subwayline             2403 non-null   object 
+ 48  thirdType              3140 non-null   object 
+ 49  workYear               3140 non-null   object 
+ 50  job_detail             1513 non-null   object 
+dtypes: float64(6), int64(13), object(32)
+memory usage: 1.2+ MB
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pd.set_option(<span class="string">&#x27;max_columns&#x27;</span>, <span class="literal">None</span>)</span><br><span class="line">df1.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>_id</th>
+      <th>adWord</th>
+      <th>appShow</th>
+      <th>approve</th>
+      <th>businessZones</th>
+      <th>city</th>
+      <th>companyFullName</th>
+      <th>companyId</th>
+      <th>companyLabelList</th>
+      <th>companyLogo</th>
+      <th>companyShortName</th>
+      <th>companySize</th>
+      <th>createTime</th>
+      <th>deliver</th>
+      <th>district</th>
+      <th>education</th>
+      <th>explain</th>
+      <th>financeStage</th>
+      <th>firstType</th>
+      <th>formatCreateTime</th>
+      <th>gradeDescription</th>
+      <th>hitags</th>
+      <th>imState</th>
+      <th>industryField</th>
+      <th>industryLables</th>
+      <th>isHotHire</th>
+      <th>isSchoolJob</th>
+      <th>jobNature</th>
+      <th>lastLogin</th>
+      <th>latitude</th>
+      <th>linestaion</th>
+      <th>longitude</th>
+      <th>pcShow</th>
+      <th>plus</th>
+      <th>positionAdvantage</th>
+      <th>positionId</th>
+      <th>positionLables</th>
+      <th>positionName</th>
+      <th>promotionScoreExplain</th>
+      <th>publisherId</th>
+      <th>resumeProcessDay</th>
+      <th>resumeProcessRate</th>
+      <th>salary</th>
+      <th>score</th>
+      <th>secondType</th>
+      <th>skillLables</th>
+      <th>stationname</th>
+      <th>subwayline</th>
+      <th>thirdType</th>
+      <th>workYear</th>
+      <th>job_detail</th>
+    </tr>
+    <tr>
+      <th>no</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5de5e75734e608e63026c1bc</td>
+      <td>9</td>
+      <td>0</td>
+      <td>1</td>
+      <td>['亦庄']</td>
+      <td>北京</td>
+      <td>达疆网络科技（上海）有限公司</td>
+      <td>32836</td>
+      <td>['年底双薪', '绩效奖金', '岗位晋升', '定期体检']</td>
+      <td>i/image2/M01/AF/7F/CgotOV3kqOqAZvWrAAAaonXDCck...</td>
+      <td>达达-京东到家</td>
+      <td>2000人以上</td>
+      <td>2019-12-02 20:38:25</td>
+      <td>0</td>
+      <td>大兴区</td>
+      <td>本科</td>
+      <td>NaN</td>
+      <td>D轮及以上</td>
+      <td>产品|需求|项目类</td>
+      <td>1天前发布</td>
+      <td>NaN</td>
+      <td>['免费班车', '新婚红包', '定期调薪', '电脑补贴', '生子红包', '地铁周边...</td>
+      <td>today</td>
+      <td>消费生活</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:33:07</td>
+      <td>39.795747</td>
+      <td>亦庄线_万源街;亦庄线_荣京东街</td>
+      <td>116.510442</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>成长快、氛围好、领导好</td>
+      <td>6638350</td>
+      <td>['BI', '数据分析']</td>
+      <td>数据分析岗</td>
+      <td>NaN</td>
+      <td>7855636</td>
+      <td>1</td>
+      <td>100</td>
+      <td>15k-30k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['BI', '数据分析']</td>
+      <td>万源街</td>
+      <td>亦庄线</td>
+      <td>BI</td>
+      <td>3-5年</td>
+      <td>1 、负责o2o电商日常运营数据的统计, 监控, 梳理指标体系；||2、基于海量用户行为数据...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5de5e75734e608e63026c1bd</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>北京</td>
+      <td>北京音娱时光科技有限公司</td>
+      <td>286568</td>
+      <td>['年底双薪', '绩效奖金', '带薪年假', '免费健身']</td>
+      <td>i/image2/M01/8B/9A/CgotOV15uyKAMCL3AAAvAzXIrFw...</td>
+      <td>音娱时光</td>
+      <td>50-150人</td>
+      <td>2019-12-03 11:23:35</td>
+      <td>0</td>
+      <td>海淀区</td>
+      <td>本科</td>
+      <td>NaN</td>
+      <td>A轮</td>
+      <td>产品|需求|项目类</td>
+      <td>11:23发布</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>today</td>
+      <td>移动互联网</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:23:38</td>
+      <td>39.977555</td>
+      <td>10号线_知春路;10号线_西土城;13号线_大钟寺;13号线_知春路</td>
+      <td>116.352145</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>技术大牛多；免费餐饮；氛围好；</td>
+      <td>6263661</td>
+      <td>['SQL', 'BI', 'SPSS']</td>
+      <td>数据分析</td>
+      <td>NaN</td>
+      <td>12147286</td>
+      <td>1</td>
+      <td>100</td>
+      <td>10k-18k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['SQL', 'BI', 'SPSS']</td>
+      <td>知春路</td>
+      <td>10号线</td>
+      <td>数据分析</td>
+      <td>1-3年</td>
+      <td>职责描述：||1.     完善业务数据监控体系，进行新功能指标埋点逻辑设计，搭建分析框架，...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5de5e75734e608e63026c1be</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>['西北旺']</td>
+      <td>北京</td>
+      <td>北京千喜鹤餐饮管理有限公司</td>
+      <td>278964</td>
+      <td>[]</td>
+      <td>i/image2/M00/15/70/CgotOVn0PGWACXyxAAA4aF7GFgk...</td>
+      <td>千喜鹤</td>
+      <td>2000人以上</td>
+      <td>2019-12-03 10:35:09</td>
+      <td>0</td>
+      <td>海淀区</td>
+      <td>本科</td>
+      <td>NaN</td>
+      <td>未融资</td>
+      <td>产品|需求|项目类</td>
+      <td>10:35发布</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>today</td>
+      <td>消费生活</td>
+      <td>['移动互联网', '视频', 'SQL']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:08:34</td>
+      <td>40.066757</td>
+      <td>16号线_永丰;16号线_永丰南</td>
+      <td>116.249581</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>福利好，五险一金，住房补助</td>
+      <td>6660141</td>
+      <td>['移动互联网', '视频', 'SQL']</td>
+      <td>数据分析</td>
+      <td>NaN</td>
+      <td>6436858</td>
+      <td>0</td>
+      <td>0</td>
+      <td>20k-30k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['SQL', '数据分析']</td>
+      <td>永丰</td>
+      <td>16号线</td>
+      <td>数据分析</td>
+      <td>3-5年</td>
+      <td>工作职责：||1.负责根据业务目标，制定并执行产品或业务的运营数据监控与分析机制。||2.完...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5de5e75734e608e63026c1bf</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>北京</td>
+      <td>吉林省海生电子商务有限公司</td>
+      <td>399744</td>
+      <td>[]</td>
+      <td>images/logo_default.png</td>
+      <td>吉林省海生电子商务有限公司</td>
+      <td>少于15人</td>
+      <td>2019-12-03 10:35:56</td>
+      <td>0</td>
+      <td>朝阳区</td>
+      <td>本科</td>
+      <td>NaN</td>
+      <td>不需要融资</td>
+      <td>产品|需求|项目类</td>
+      <td>10:35发布</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>today</td>
+      <td>电商</td>
+      <td>['其他']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:30:37</td>
+      <td>40.042254</td>
+      <td>NaN</td>
+      <td>116.291027</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>五险一金</td>
+      <td>6660148</td>
+      <td>['其他']</td>
+      <td>数据分析</td>
+      <td>NaN</td>
+      <td>10978749</td>
+      <td>0</td>
+      <td>0</td>
+      <td>33k-50k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['数据分析']</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>数据分析</td>
+      <td>3-5年</td>
+      <td>1.基于对业务的支持和理解，搭建出可以准确反映业务运作状况的数据指标体系；||2.商业嗅觉灵...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5de5e75734e608e63026c1c0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>['大望路', '建外大街', '南磨房']</td>
+      <td>北京</td>
+      <td>韦博网讯科技（北京）有限公司</td>
+      <td>580170</td>
+      <td>[]</td>
+      <td>i/image2/M01/41/6C/CgoB5lz3eJGAYy2MAACd7SzHgKw...</td>
+      <td>WPIC</td>
+      <td>50-150人</td>
+      <td>2019-12-03 12:10:22</td>
+      <td>0</td>
+      <td>朝阳区</td>
+      <td>本科</td>
+      <td>NaN</td>
+      <td>未融资</td>
+      <td>产品|需求|项目类</td>
+      <td>12:10发布</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>today</td>
+      <td>电商,软件开发</td>
+      <td>['电商']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:54:22</td>
+      <td>39.907088</td>
+      <td>1号线_国贸;1号线_大望路;10号线_国贸;14号线东段_大望路</td>
+      <td>116.476390</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>待遇优厚 ，良好的发展前景</td>
+      <td>6590101</td>
+      <td>['电商']</td>
+      <td>数据分析</td>
+      <td>NaN</td>
+      <td>13213101</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10k-15k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['数据分析']</td>
+      <td>国贸</td>
+      <td>1号线</td>
+      <td>产品|需求|项目类</td>
+      <td>1-3年</td>
+      <td>职责描述：||1. 调研工作以客户需求为主导；||2. 根据市场调研计划，进行市场信息的收集...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df1.dropna(axis = <span class="number">1</span>,inplace=<span class="literal">True</span>)</span><br><span class="line">df1</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>_id</th>
+      <th>adWord</th>
+      <th>appShow</th>
+      <th>approve</th>
+      <th>city</th>
+      <th>companyFullName</th>
+      <th>companyId</th>
+      <th>companyLabelList</th>
+      <th>companyShortName</th>
+      <th>companySize</th>
+      <th>createTime</th>
+      <th>deliver</th>
+      <th>education</th>
+      <th>financeStage</th>
+      <th>firstType</th>
+      <th>formatCreateTime</th>
+      <th>imState</th>
+      <th>industryField</th>
+      <th>industryLables</th>
+      <th>isHotHire</th>
+      <th>isSchoolJob</th>
+      <th>jobNature</th>
+      <th>lastLogin</th>
+      <th>pcShow</th>
+      <th>positionAdvantage</th>
+      <th>positionId</th>
+      <th>positionLables</th>
+      <th>positionName</th>
+      <th>publisherId</th>
+      <th>resumeProcessDay</th>
+      <th>resumeProcessRate</th>
+      <th>salary</th>
+      <th>score</th>
+      <th>secondType</th>
+      <th>skillLables</th>
+      <th>thirdType</th>
+      <th>workYear</th>
+    </tr>
+    <tr>
+      <th>no</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5de5e75734e608e63026c1bc</td>
+      <td>9</td>
+      <td>0</td>
+      <td>1</td>
+      <td>北京</td>
+      <td>达疆网络科技（上海）有限公司</td>
+      <td>32836</td>
+      <td>['年底双薪', '绩效奖金', '岗位晋升', '定期体检']</td>
+      <td>达达-京东到家</td>
+      <td>2000人以上</td>
+      <td>2019-12-02 20:38:25</td>
+      <td>0</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>产品|需求|项目类</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>消费生活</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:33:07</td>
+      <td>0</td>
+      <td>成长快、氛围好、领导好</td>
+      <td>6638350</td>
+      <td>['BI', '数据分析']</td>
+      <td>数据分析岗</td>
+      <td>7855636</td>
+      <td>1</td>
+      <td>100</td>
+      <td>15k-30k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['BI', '数据分析']</td>
+      <td>BI</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5de5e75734e608e63026c1bd</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>北京</td>
+      <td>北京音娱时光科技有限公司</td>
+      <td>286568</td>
+      <td>['年底双薪', '绩效奖金', '带薪年假', '免费健身']</td>
+      <td>音娱时光</td>
+      <td>50-150人</td>
+      <td>2019-12-03 11:23:35</td>
+      <td>0</td>
+      <td>本科</td>
+      <td>A轮</td>
+      <td>产品|需求|项目类</td>
+      <td>11:23发布</td>
+      <td>today</td>
+      <td>移动互联网</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:23:38</td>
+      <td>0</td>
+      <td>技术大牛多；免费餐饮；氛围好；</td>
+      <td>6263661</td>
+      <td>['SQL', 'BI', 'SPSS']</td>
+      <td>数据分析</td>
+      <td>12147286</td>
+      <td>1</td>
+      <td>100</td>
+      <td>10k-18k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['SQL', 'BI', 'SPSS']</td>
+      <td>数据分析</td>
+      <td>1-3年</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5de5e75734e608e63026c1be</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>北京</td>
+      <td>北京千喜鹤餐饮管理有限公司</td>
+      <td>278964</td>
+      <td>[]</td>
+      <td>千喜鹤</td>
+      <td>2000人以上</td>
+      <td>2019-12-03 10:35:09</td>
+      <td>0</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>产品|需求|项目类</td>
+      <td>10:35发布</td>
+      <td>today</td>
+      <td>消费生活</td>
+      <td>['移动互联网', '视频', 'SQL']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:08:34</td>
+      <td>0</td>
+      <td>福利好，五险一金，住房补助</td>
+      <td>6660141</td>
+      <td>['移动互联网', '视频', 'SQL']</td>
+      <td>数据分析</td>
+      <td>6436858</td>
+      <td>0</td>
+      <td>0</td>
+      <td>20k-30k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['SQL', '数据分析']</td>
+      <td>数据分析</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5de5e75734e608e63026c1bf</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>北京</td>
+      <td>吉林省海生电子商务有限公司</td>
+      <td>399744</td>
+      <td>[]</td>
+      <td>吉林省海生电子商务有限公司</td>
+      <td>少于15人</td>
+      <td>2019-12-03 10:35:56</td>
+      <td>0</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>产品|需求|项目类</td>
+      <td>10:35发布</td>
+      <td>today</td>
+      <td>电商</td>
+      <td>['其他']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:30:37</td>
+      <td>0</td>
+      <td>五险一金</td>
+      <td>6660148</td>
+      <td>['其他']</td>
+      <td>数据分析</td>
+      <td>10978749</td>
+      <td>0</td>
+      <td>0</td>
+      <td>33k-50k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['数据分析']</td>
+      <td>数据分析</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5de5e75734e608e63026c1c0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>北京</td>
+      <td>韦博网讯科技（北京）有限公司</td>
+      <td>580170</td>
+      <td>[]</td>
+      <td>WPIC</td>
+      <td>50-150人</td>
+      <td>2019-12-03 12:10:22</td>
+      <td>0</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>产品|需求|项目类</td>
+      <td>12:10发布</td>
+      <td>today</td>
+      <td>电商,软件开发</td>
+      <td>['电商']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:54:22</td>
+      <td>0</td>
+      <td>待遇优厚 ，良好的发展前景</td>
+      <td>6590101</td>
+      <td>['电商']</td>
+      <td>数据分析</td>
+      <td>13213101</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10k-15k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['数据分析']</td>
+      <td>产品|需求|项目类</td>
+      <td>1-3年</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3135</th>
+      <td>5de5ea1134e608e63026cdfb</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>天津</td>
+      <td>清博津商（天津）教育科技有限公司</td>
+      <td>260578</td>
+      <td>[]</td>
+      <td>清博津商</td>
+      <td>15-50人</td>
+      <td>2019-11-13 15:55:55</td>
+      <td>0</td>
+      <td>不限</td>
+      <td>不需要融资</td>
+      <td>运营|编辑|客服类</td>
+      <td>2019-11-13</td>
+      <td>overSevenDays</td>
+      <td>数据服务,教育</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>1</td>
+      <td>兼职</td>
+      <td>2019-11-13 15:55:45</td>
+      <td>0</td>
+      <td>大数据行业优势，工作氛围好</td>
+      <td>6579749</td>
+      <td>['审核', '内容审核', '信息']</td>
+      <td>审核实习生（春节短期）</td>
+      <td>8913003</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1k-2k</td>
+      <td>0</td>
+      <td>审核</td>
+      <td>['审核', '内容审核', '信息']</td>
+      <td>信息审核</td>
+      <td>应届毕业生</td>
+    </tr>
+    <tr>
+      <th>3136</th>
+      <td>5de5ea1134e608e63026cdfc</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>天津</td>
+      <td>上海礼紫股权投资基金管理有限公司</td>
+      <td>264817</td>
+      <td>[]</td>
+      <td>礼紫股权投资</td>
+      <td>500-2000人</td>
+      <td>2019-11-04 09:02:04</td>
+      <td>0</td>
+      <td>不限</td>
+      <td>未融资</td>
+      <td>运营|编辑|客服类</td>
+      <td>2019-11-04</td>
+      <td>overSevenDays</td>
+      <td>金融</td>
+      <td>['社交', '运营']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-11-14 16:23:36</td>
+      <td>0</td>
+      <td>旅游团建、内部晋升、待遇优厚、提供住宿</td>
+      <td>6270749</td>
+      <td>['社交', '运营']</td>
+      <td>运营助理</td>
+      <td>9535048</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6k-8k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>['运营']</td>
+      <td>运营助理|专员</td>
+      <td>不限</td>
+    </tr>
+    <tr>
+      <th>3137</th>
+      <td>5de5ea1134e608e63026cdfd</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>天津</td>
+      <td>北京达佳互联信息技术有限公司</td>
+      <td>1880</td>
+      <td>['股票期权', '弹性工作', '定期体检', '岗位晋升']</td>
+      <td>快手</td>
+      <td>2000人以上</td>
+      <td>2019-12-03 10:16:28</td>
+      <td>0</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>运营|编辑|客服类</td>
+      <td>10:16发布</td>
+      <td>today</td>
+      <td>文娱丨内容</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:01:37</td>
+      <td>0</td>
+      <td>五险一金,绩效奖金,餐补,房补</td>
+      <td>5051153</td>
+      <td>['运营', '用户运营']</td>
+      <td>运营编辑团队leader</td>
+      <td>10506720</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8k-15k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>['运营', '用户运营']</td>
+      <td>用户运营</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>3138</th>
+      <td>5de5ea1134e608e63026cdfe</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>天津</td>
+      <td>北京河狸家信息技术有限公司</td>
+      <td>25854</td>
+      <td>['高配福利', '弹性时间', 'BAT￥', '逗逼伙伴']</td>
+      <td>河狸家</td>
+      <td>500-2000人</td>
+      <td>2019-12-02 17:03:54</td>
+      <td>0</td>
+      <td>不限</td>
+      <td>C轮</td>
+      <td>运营|编辑|客服类</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>移动互联网</td>
+      <td>['电商', '商家运营']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:25:10</td>
+      <td>0</td>
+      <td>五险一金</td>
+      <td>6624059</td>
+      <td>['电商', '商家运营']</td>
+      <td>商家运营-天津</td>
+      <td>14725914</td>
+      <td>3</td>
+      <td>1</td>
+      <td>6k-8k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>['商家运营']</td>
+      <td>商家运营</td>
+      <td>不限</td>
+    </tr>
+    <tr>
+      <th>3139</th>
+      <td>5de5ea1134e608e63026cdff</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>天津</td>
+      <td>北京河狸家信息技术有限公司</td>
+      <td>25854</td>
+      <td>['高配福利', '弹性时间', 'BAT￥', '逗逼伙伴']</td>
+      <td>河狸家</td>
+      <td>500-2000人</td>
+      <td>2019-12-02 17:03:56</td>
+      <td>0</td>
+      <td>本科</td>
+      <td>C轮</td>
+      <td>运营|编辑|客服类</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>移动互联网</td>
+      <td>['移动互联网']</td>
+      <td>0</td>
+      <td>1</td>
+      <td>全职</td>
+      <td>2019-12-03 11:25:10</td>
+      <td>0</td>
+      <td>转正机会</td>
+      <td>6633633</td>
+      <td>['移动互联网']</td>
+      <td>运营实习生-天津</td>
+      <td>14725914</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2k-4k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>[]</td>
+      <td>运营助理|专员</td>
+      <td>应届毕业生</td>
+    </tr>
+  </tbody>
+</table>
+<p>3140 rows × 37 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df1.drop(columns = [<span class="string">&#x27;_id&#x27;</span>,<span class="string">&#x27;adWord&#x27;</span>,<span class="string">&#x27;appShow&#x27;</span>,<span class="string">&#x27;approve&#x27;</span>,<span class="string">&#x27;deliver&#x27;</span>],inplace=<span class="literal">True</span>)</span><br><span class="line">df1</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>companyFullName</th>
+      <th>companyId</th>
+      <th>companyLabelList</th>
+      <th>companyShortName</th>
+      <th>companySize</th>
+      <th>createTime</th>
+      <th>education</th>
+      <th>financeStage</th>
+      <th>firstType</th>
+      <th>formatCreateTime</th>
+      <th>imState</th>
+      <th>industryField</th>
+      <th>industryLables</th>
+      <th>isHotHire</th>
+      <th>isSchoolJob</th>
+      <th>jobNature</th>
+      <th>lastLogin</th>
+      <th>pcShow</th>
+      <th>positionAdvantage</th>
+      <th>positionId</th>
+      <th>positionLables</th>
+      <th>positionName</th>
+      <th>publisherId</th>
+      <th>resumeProcessDay</th>
+      <th>resumeProcessRate</th>
+      <th>salary</th>
+      <th>score</th>
+      <th>secondType</th>
+      <th>skillLables</th>
+      <th>thirdType</th>
+      <th>workYear</th>
+    </tr>
+    <tr>
+      <th>no</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>北京</td>
+      <td>达疆网络科技（上海）有限公司</td>
+      <td>32836</td>
+      <td>['年底双薪', '绩效奖金', '岗位晋升', '定期体检']</td>
+      <td>达达-京东到家</td>
+      <td>2000人以上</td>
+      <td>2019-12-02 20:38:25</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>产品|需求|项目类</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>消费生活</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:33:07</td>
+      <td>0</td>
+      <td>成长快、氛围好、领导好</td>
+      <td>6638350</td>
+      <td>['BI', '数据分析']</td>
+      <td>数据分析岗</td>
+      <td>7855636</td>
+      <td>1</td>
+      <td>100</td>
+      <td>15k-30k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['BI', '数据分析']</td>
+      <td>BI</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>北京</td>
+      <td>北京音娱时光科技有限公司</td>
+      <td>286568</td>
+      <td>['年底双薪', '绩效奖金', '带薪年假', '免费健身']</td>
+      <td>音娱时光</td>
+      <td>50-150人</td>
+      <td>2019-12-03 11:23:35</td>
+      <td>本科</td>
+      <td>A轮</td>
+      <td>产品|需求|项目类</td>
+      <td>11:23发布</td>
+      <td>today</td>
+      <td>移动互联网</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:23:38</td>
+      <td>0</td>
+      <td>技术大牛多；免费餐饮；氛围好；</td>
+      <td>6263661</td>
+      <td>['SQL', 'BI', 'SPSS']</td>
+      <td>数据分析</td>
+      <td>12147286</td>
+      <td>1</td>
+      <td>100</td>
+      <td>10k-18k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['SQL', 'BI', 'SPSS']</td>
+      <td>数据分析</td>
+      <td>1-3年</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>北京</td>
+      <td>北京千喜鹤餐饮管理有限公司</td>
+      <td>278964</td>
+      <td>[]</td>
+      <td>千喜鹤</td>
+      <td>2000人以上</td>
+      <td>2019-12-03 10:35:09</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>产品|需求|项目类</td>
+      <td>10:35发布</td>
+      <td>today</td>
+      <td>消费生活</td>
+      <td>['移动互联网', '视频', 'SQL']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:08:34</td>
+      <td>0</td>
+      <td>福利好，五险一金，住房补助</td>
+      <td>6660141</td>
+      <td>['移动互联网', '视频', 'SQL']</td>
+      <td>数据分析</td>
+      <td>6436858</td>
+      <td>0</td>
+      <td>0</td>
+      <td>20k-30k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['SQL', '数据分析']</td>
+      <td>数据分析</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>北京</td>
+      <td>吉林省海生电子商务有限公司</td>
+      <td>399744</td>
+      <td>[]</td>
+      <td>吉林省海生电子商务有限公司</td>
+      <td>少于15人</td>
+      <td>2019-12-03 10:35:56</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>产品|需求|项目类</td>
+      <td>10:35发布</td>
+      <td>today</td>
+      <td>电商</td>
+      <td>['其他']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:30:37</td>
+      <td>0</td>
+      <td>五险一金</td>
+      <td>6660148</td>
+      <td>['其他']</td>
+      <td>数据分析</td>
+      <td>10978749</td>
+      <td>0</td>
+      <td>0</td>
+      <td>33k-50k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['数据分析']</td>
+      <td>数据分析</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>北京</td>
+      <td>韦博网讯科技（北京）有限公司</td>
+      <td>580170</td>
+      <td>[]</td>
+      <td>WPIC</td>
+      <td>50-150人</td>
+      <td>2019-12-03 12:10:22</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>产品|需求|项目类</td>
+      <td>12:10发布</td>
+      <td>today</td>
+      <td>电商,软件开发</td>
+      <td>['电商']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:54:22</td>
+      <td>0</td>
+      <td>待遇优厚 ，良好的发展前景</td>
+      <td>6590101</td>
+      <td>['电商']</td>
+      <td>数据分析</td>
+      <td>13213101</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10k-15k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['数据分析']</td>
+      <td>产品|需求|项目类</td>
+      <td>1-3年</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3135</th>
+      <td>天津</td>
+      <td>清博津商（天津）教育科技有限公司</td>
+      <td>260578</td>
+      <td>[]</td>
+      <td>清博津商</td>
+      <td>15-50人</td>
+      <td>2019-11-13 15:55:55</td>
+      <td>不限</td>
+      <td>不需要融资</td>
+      <td>运营|编辑|客服类</td>
+      <td>2019-11-13</td>
+      <td>overSevenDays</td>
+      <td>数据服务,教育</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>1</td>
+      <td>兼职</td>
+      <td>2019-11-13 15:55:45</td>
+      <td>0</td>
+      <td>大数据行业优势，工作氛围好</td>
+      <td>6579749</td>
+      <td>['审核', '内容审核', '信息']</td>
+      <td>审核实习生（春节短期）</td>
+      <td>8913003</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1k-2k</td>
+      <td>0</td>
+      <td>审核</td>
+      <td>['审核', '内容审核', '信息']</td>
+      <td>信息审核</td>
+      <td>应届毕业生</td>
+    </tr>
+    <tr>
+      <th>3136</th>
+      <td>天津</td>
+      <td>上海礼紫股权投资基金管理有限公司</td>
+      <td>264817</td>
+      <td>[]</td>
+      <td>礼紫股权投资</td>
+      <td>500-2000人</td>
+      <td>2019-11-04 09:02:04</td>
+      <td>不限</td>
+      <td>未融资</td>
+      <td>运营|编辑|客服类</td>
+      <td>2019-11-04</td>
+      <td>overSevenDays</td>
+      <td>金融</td>
+      <td>['社交', '运营']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-11-14 16:23:36</td>
+      <td>0</td>
+      <td>旅游团建、内部晋升、待遇优厚、提供住宿</td>
+      <td>6270749</td>
+      <td>['社交', '运营']</td>
+      <td>运营助理</td>
+      <td>9535048</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6k-8k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>['运营']</td>
+      <td>运营助理|专员</td>
+      <td>不限</td>
+    </tr>
+    <tr>
+      <th>3137</th>
+      <td>天津</td>
+      <td>北京达佳互联信息技术有限公司</td>
+      <td>1880</td>
+      <td>['股票期权', '弹性工作', '定期体检', '岗位晋升']</td>
+      <td>快手</td>
+      <td>2000人以上</td>
+      <td>2019-12-03 10:16:28</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>运营|编辑|客服类</td>
+      <td>10:16发布</td>
+      <td>today</td>
+      <td>文娱丨内容</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:01:37</td>
+      <td>0</td>
+      <td>五险一金,绩效奖金,餐补,房补</td>
+      <td>5051153</td>
+      <td>['运营', '用户运营']</td>
+      <td>运营编辑团队leader</td>
+      <td>10506720</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8k-15k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>['运营', '用户运营']</td>
+      <td>用户运营</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>3138</th>
+      <td>天津</td>
+      <td>北京河狸家信息技术有限公司</td>
+      <td>25854</td>
+      <td>['高配福利', '弹性时间', 'BAT￥', '逗逼伙伴']</td>
+      <td>河狸家</td>
+      <td>500-2000人</td>
+      <td>2019-12-02 17:03:54</td>
+      <td>不限</td>
+      <td>C轮</td>
+      <td>运营|编辑|客服类</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>移动互联网</td>
+      <td>['电商', '商家运营']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:25:10</td>
+      <td>0</td>
+      <td>五险一金</td>
+      <td>6624059</td>
+      <td>['电商', '商家运营']</td>
+      <td>商家运营-天津</td>
+      <td>14725914</td>
+      <td>3</td>
+      <td>1</td>
+      <td>6k-8k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>['商家运营']</td>
+      <td>商家运营</td>
+      <td>不限</td>
+    </tr>
+    <tr>
+      <th>3139</th>
+      <td>天津</td>
+      <td>北京河狸家信息技术有限公司</td>
+      <td>25854</td>
+      <td>['高配福利', '弹性时间', 'BAT￥', '逗逼伙伴']</td>
+      <td>河狸家</td>
+      <td>500-2000人</td>
+      <td>2019-12-02 17:03:56</td>
+      <td>本科</td>
+      <td>C轮</td>
+      <td>运营|编辑|客服类</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>移动互联网</td>
+      <td>['移动互联网']</td>
+      <td>0</td>
+      <td>1</td>
+      <td>全职</td>
+      <td>2019-12-03 11:25:10</td>
+      <td>0</td>
+      <td>转正机会</td>
+      <td>6633633</td>
+      <td>['移动互联网']</td>
+      <td>运营实习生-天津</td>
+      <td>14725914</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2k-4k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>[]</td>
+      <td>运营助理|专员</td>
+      <td>应届毕业生</td>
+    </tr>
+  </tbody>
+</table>
+<p>3140 rows × 32 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 找出热招岗位</span></span><br><span class="line">df1[df1.isHotHire == <span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>companyFullName</th>
+      <th>companyId</th>
+      <th>companyLabelList</th>
+      <th>companyShortName</th>
+      <th>companySize</th>
+      <th>createTime</th>
+      <th>education</th>
+      <th>financeStage</th>
+      <th>firstType</th>
+      <th>formatCreateTime</th>
+      <th>imState</th>
+      <th>industryField</th>
+      <th>industryLables</th>
+      <th>isHotHire</th>
+      <th>isSchoolJob</th>
+      <th>jobNature</th>
+      <th>lastLogin</th>
+      <th>pcShow</th>
+      <th>positionAdvantage</th>
+      <th>positionId</th>
+      <th>positionLables</th>
+      <th>positionName</th>
+      <th>publisherId</th>
+      <th>resumeProcessDay</th>
+      <th>resumeProcessRate</th>
+      <th>salary</th>
+      <th>score</th>
+      <th>secondType</th>
+      <th>skillLables</th>
+      <th>thirdType</th>
+      <th>workYear</th>
+    </tr>
+    <tr>
+      <th>no</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 融资阶段D轮及以上的招聘岗位</span></span><br><span class="line"><span class="comment"># 判断某字符串中是否含有某字符(模糊查询)</span></span><br><span class="line">df1[df1.financeStage.<span class="built_in">str</span>.contains(<span class="string">&#x27;D&#x27;</span>)]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>companyFullName</th>
+      <th>companyId</th>
+      <th>companyLabelList</th>
+      <th>companyShortName</th>
+      <th>companySize</th>
+      <th>createTime</th>
+      <th>education</th>
+      <th>financeStage</th>
+      <th>firstType</th>
+      <th>formatCreateTime</th>
+      <th>imState</th>
+      <th>industryField</th>
+      <th>industryLables</th>
+      <th>isHotHire</th>
+      <th>isSchoolJob</th>
+      <th>jobNature</th>
+      <th>lastLogin</th>
+      <th>pcShow</th>
+      <th>positionAdvantage</th>
+      <th>positionId</th>
+      <th>positionLables</th>
+      <th>positionName</th>
+      <th>publisherId</th>
+      <th>resumeProcessDay</th>
+      <th>resumeProcessRate</th>
+      <th>salary</th>
+      <th>score</th>
+      <th>secondType</th>
+      <th>skillLables</th>
+      <th>thirdType</th>
+      <th>workYear</th>
+    </tr>
+    <tr>
+      <th>no</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>北京</td>
+      <td>达疆网络科技（上海）有限公司</td>
+      <td>32836</td>
+      <td>['年底双薪', '绩效奖金', '岗位晋升', '定期体检']</td>
+      <td>达达-京东到家</td>
+      <td>2000人以上</td>
+      <td>2019-12-02 20:38:25</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>产品|需求|项目类</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>消费生活</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:33:07</td>
+      <td>0</td>
+      <td>成长快、氛围好、领导好</td>
+      <td>6638350</td>
+      <td>['BI', '数据分析']</td>
+      <td>数据分析岗</td>
+      <td>7855636</td>
+      <td>1</td>
+      <td>100</td>
+      <td>15k-30k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['BI', '数据分析']</td>
+      <td>BI</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>北京</td>
+      <td>贝壳找房（北京）科技有限公司</td>
+      <td>55446</td>
+      <td>['股票期权', '带薪年假', '绩效奖金', '扁平管理']</td>
+      <td>贝壳</td>
+      <td>2000人以上</td>
+      <td>2019-12-03 10:29:26</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>开发|测试|运维类</td>
+      <td>10:29发布</td>
+      <td>today</td>
+      <td>房产家居</td>
+      <td>['房产服务', '本地生活', '数据挖掘', '数据分析', '数据处理']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:29:23</td>
+      <td>0</td>
+      <td>福利好，成长高</td>
+      <td>6217427</td>
+      <td>['房产服务', '本地生活', '数据挖掘', '数据分析', '数据处理']</td>
+      <td>数据分析经理</td>
+      <td>9752940</td>
+      <td>1</td>
+      <td>5</td>
+      <td>30k-50k</td>
+      <td>0</td>
+      <td>数据开发</td>
+      <td>['数据挖掘', '数据分析', '数据处理']</td>
+      <td>数据分析</td>
+      <td>5-10年</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>北京</td>
+      <td>贝壳找房（北京）科技有限公司</td>
+      <td>55446</td>
+      <td>['股票期权', '带薪年假', '绩效奖金', '扁平管理']</td>
+      <td>贝壳</td>
+      <td>2000人以上</td>
+      <td>2019-12-03 10:29:28</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>开发|测试|运维类</td>
+      <td>10:29发布</td>
+      <td>today</td>
+      <td>房产家居</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:29:23</td>
+      <td>0</td>
+      <td>福利好，成长高</td>
+      <td>6186927</td>
+      <td>['数据分析', '数据处理']</td>
+      <td>资深数据分析师</td>
+      <td>9752940</td>
+      <td>1</td>
+      <td>5</td>
+      <td>30k-50k</td>
+      <td>0</td>
+      <td>数据开发</td>
+      <td>['数据分析', '数据处理']</td>
+      <td>数据分析</td>
+      <td>5-10年</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>北京</td>
+      <td>达疆网络科技（上海）有限公司</td>
+      <td>32836</td>
+      <td>['年底双薪', '绩效奖金', '岗位晋升', '定期体检']</td>
+      <td>达达-京东到家</td>
+      <td>2000人以上</td>
+      <td>2019-12-02 20:38:25</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>产品|需求|项目类</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>消费生活</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:33:07</td>
+      <td>0</td>
+      <td>成长快、氛围好、领导好</td>
+      <td>6638350</td>
+      <td>['BI', '数据分析']</td>
+      <td>数据分析岗</td>
+      <td>7855636</td>
+      <td>1</td>
+      <td>100</td>
+      <td>15k-30k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['BI', '数据分析']</td>
+      <td>BI</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>北京</td>
+      <td>达疆网络科技（上海）有限公司</td>
+      <td>32836</td>
+      <td>['年底双薪', '绩效奖金', '岗位晋升', '定期体检']</td>
+      <td>达达-京东到家</td>
+      <td>2000人以上</td>
+      <td>2019-12-02 20:38:25</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>产品|需求|项目类</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>消费生活</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:33:07</td>
+      <td>0</td>
+      <td>成长快、氛围好、领导好</td>
+      <td>5828609</td>
+      <td>['BI', 'SQL', 'SPSS']</td>
+      <td>数据分析师</td>
+      <td>7855636</td>
+      <td>1</td>
+      <td>100</td>
+      <td>20k-30k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['BI', 'SQL', 'SPSS']</td>
+      <td>数据分析</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3091</th>
+      <td>天津</td>
+      <td>北京小唱科技有限公司</td>
+      <td>5026</td>
+      <td>['节日礼物', '股票期权', '带薪年假', '员工海外游']</td>
+      <td>唱吧-手机里的KTV</td>
+      <td>150-500人</td>
+      <td>2019-11-29 13:32:23</td>
+      <td>大专</td>
+      <td>D轮及以上</td>
+      <td>运营|编辑|客服类</td>
+      <td>2019-11-29</td>
+      <td>today</td>
+      <td>移动互联网,游戏</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:12:18</td>
+      <td>0</td>
+      <td>年终奖 福利好 弹性工作时间</td>
+      <td>6647762</td>
+      <td>['质检']</td>
+      <td>质检专员</td>
+      <td>49542</td>
+      <td>1</td>
+      <td>40</td>
+      <td>5k-7k</td>
+      <td>0</td>
+      <td>客服</td>
+      <td>['质检']</td>
+      <td>客服</td>
+      <td>不限</td>
+    </tr>
+    <tr>
+      <th>3104</th>
+      <td>天津</td>
+      <td>天津链家宝业房地产经纪有限公司北城街店</td>
+      <td>496665</td>
+      <td>[]</td>
+      <td>天津链家地产</td>
+      <td>2000人以上</td>
+      <td>2019-11-29 17:01:27</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>销售类</td>
+      <td>2019-11-29</td>
+      <td>today</td>
+      <td>其他</td>
+      <td>['房产服务', '大数据', '客户代表', '区域销售', '电话销售', '市场拓展']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-02 19:04:59</td>
+      <td>0</td>
+      <td>底薪5000 全国连锁企业 发展前景大</td>
+      <td>5546662</td>
+      <td>['房产服务', '大数据', '客户代表', '区域销售', '电话销售', '市场拓展']</td>
+      <td>高级经纪人</td>
+      <td>12344930</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6k-12k</td>
+      <td>0</td>
+      <td>销售</td>
+      <td>['客户代表', '区域销售', '电话销售', '市场拓展']</td>
+      <td>销售顾问</td>
+      <td>不限</td>
+    </tr>
+    <tr>
+      <th>3120</th>
+      <td>天津</td>
+      <td>北京每日优鲜电子商务有限公司</td>
+      <td>39934</td>
+      <td>['六险一金', '股票期权', '快速晋升', '年度体检']</td>
+      <td>每日优鲜</td>
+      <td>2000人以上</td>
+      <td>2019-11-13 21:25:02</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>贸易|批发|零售|租赁业</td>
+      <td>2019-11-13</td>
+      <td>sevenDays</td>
+      <td>移动互联网,电商</td>
+      <td>['电商', '移动互联网']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-11-26 21:04:53</td>
+      <td>0</td>
+      <td>五险一金,带薪年假,餐补,节日礼品</td>
+      <td>6484735</td>
+      <td>['电商', '移动互联网']</td>
+      <td>天津商品采购</td>
+      <td>11702595</td>
+      <td>1</td>
+      <td>100</td>
+      <td>15k-25k</td>
+      <td>0</td>
+      <td>采购</td>
+      <td>[]</td>
+      <td>买手</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>3121</th>
+      <td>天津</td>
+      <td>北京每日优鲜电子商务有限公司</td>
+      <td>39934</td>
+      <td>['六险一金', '股票期权', '快速晋升', '年度体检']</td>
+      <td>每日优鲜</td>
+      <td>2000人以上</td>
+      <td>2019-11-13 21:25:02</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>贸易|批发|零售|租赁业</td>
+      <td>2019-11-13</td>
+      <td>sevenDays</td>
+      <td>移动互联网,电商</td>
+      <td>['移动互联网', '本地生活']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-11-26 21:04:53</td>
+      <td>0</td>
+      <td>五险一金,带薪年假,餐补,节日礼品</td>
+      <td>6484666</td>
+      <td>['移动互联网', '本地生活']</td>
+      <td>天津商品采购（果蔬、食材、食品）</td>
+      <td>11702595</td>
+      <td>1</td>
+      <td>100</td>
+      <td>15k-20k</td>
+      <td>0</td>
+      <td>采购</td>
+      <td>[]</td>
+      <td>买手</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>3137</th>
+      <td>天津</td>
+      <td>北京达佳互联信息技术有限公司</td>
+      <td>1880</td>
+      <td>['股票期权', '弹性工作', '定期体检', '岗位晋升']</td>
+      <td>快手</td>
+      <td>2000人以上</td>
+      <td>2019-12-03 10:16:28</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>运营|编辑|客服类</td>
+      <td>10:16发布</td>
+      <td>today</td>
+      <td>文娱丨内容</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:01:37</td>
+      <td>0</td>
+      <td>五险一金,绩效奖金,餐补,房补</td>
+      <td>5051153</td>
+      <td>['运营', '用户运营']</td>
+      <td>运营编辑团队leader</td>
+      <td>10506720</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8k-15k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>['运营', '用户运营']</td>
+      <td>用户运营</td>
+      <td>3-5年</td>
+    </tr>
+  </tbody>
+</table>
+<p>235 rows × 32 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 数据分析岗位</span></span><br><span class="line">temp1 = df1[df1.positionName.<span class="built_in">str</span>.contains(<span class="string">&#x27;数据分析&#x27;</span>)]</span><br><span class="line">temp1</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>companyFullName</th>
+      <th>companyId</th>
+      <th>companyLabelList</th>
+      <th>companyShortName</th>
+      <th>companySize</th>
+      <th>createTime</th>
+      <th>education</th>
+      <th>financeStage</th>
+      <th>firstType</th>
+      <th>formatCreateTime</th>
+      <th>imState</th>
+      <th>industryField</th>
+      <th>industryLables</th>
+      <th>isHotHire</th>
+      <th>isSchoolJob</th>
+      <th>jobNature</th>
+      <th>lastLogin</th>
+      <th>pcShow</th>
+      <th>positionAdvantage</th>
+      <th>positionId</th>
+      <th>positionLables</th>
+      <th>positionName</th>
+      <th>publisherId</th>
+      <th>resumeProcessDay</th>
+      <th>resumeProcessRate</th>
+      <th>salary</th>
+      <th>score</th>
+      <th>secondType</th>
+      <th>skillLables</th>
+      <th>thirdType</th>
+      <th>workYear</th>
+    </tr>
+    <tr>
+      <th>no</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>北京</td>
+      <td>达疆网络科技（上海）有限公司</td>
+      <td>32836</td>
+      <td>['年底双薪', '绩效奖金', '岗位晋升', '定期体检']</td>
+      <td>达达-京东到家</td>
+      <td>2000人以上</td>
+      <td>2019-12-02 20:38:25</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>产品|需求|项目类</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>消费生活</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:33:07</td>
+      <td>0</td>
+      <td>成长快、氛围好、领导好</td>
+      <td>6638350</td>
+      <td>['BI', '数据分析']</td>
+      <td>数据分析岗</td>
+      <td>7855636</td>
+      <td>1</td>
+      <td>100</td>
+      <td>15k-30k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['BI', '数据分析']</td>
+      <td>BI</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>北京</td>
+      <td>北京音娱时光科技有限公司</td>
+      <td>286568</td>
+      <td>['年底双薪', '绩效奖金', '带薪年假', '免费健身']</td>
+      <td>音娱时光</td>
+      <td>50-150人</td>
+      <td>2019-12-03 11:23:35</td>
+      <td>本科</td>
+      <td>A轮</td>
+      <td>产品|需求|项目类</td>
+      <td>11:23发布</td>
+      <td>today</td>
+      <td>移动互联网</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:23:38</td>
+      <td>0</td>
+      <td>技术大牛多；免费餐饮；氛围好；</td>
+      <td>6263661</td>
+      <td>['SQL', 'BI', 'SPSS']</td>
+      <td>数据分析</td>
+      <td>12147286</td>
+      <td>1</td>
+      <td>100</td>
+      <td>10k-18k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['SQL', 'BI', 'SPSS']</td>
+      <td>数据分析</td>
+      <td>1-3年</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>北京</td>
+      <td>北京千喜鹤餐饮管理有限公司</td>
+      <td>278964</td>
+      <td>[]</td>
+      <td>千喜鹤</td>
+      <td>2000人以上</td>
+      <td>2019-12-03 10:35:09</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>产品|需求|项目类</td>
+      <td>10:35发布</td>
+      <td>today</td>
+      <td>消费生活</td>
+      <td>['移动互联网', '视频', 'SQL']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:08:34</td>
+      <td>0</td>
+      <td>福利好，五险一金，住房补助</td>
+      <td>6660141</td>
+      <td>['移动互联网', '视频', 'SQL']</td>
+      <td>数据分析</td>
+      <td>6436858</td>
+      <td>0</td>
+      <td>0</td>
+      <td>20k-30k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['SQL', '数据分析']</td>
+      <td>数据分析</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>北京</td>
+      <td>吉林省海生电子商务有限公司</td>
+      <td>399744</td>
+      <td>[]</td>
+      <td>吉林省海生电子商务有限公司</td>
+      <td>少于15人</td>
+      <td>2019-12-03 10:35:56</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>产品|需求|项目类</td>
+      <td>10:35发布</td>
+      <td>today</td>
+      <td>电商</td>
+      <td>['其他']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:30:37</td>
+      <td>0</td>
+      <td>五险一金</td>
+      <td>6660148</td>
+      <td>['其他']</td>
+      <td>数据分析</td>
+      <td>10978749</td>
+      <td>0</td>
+      <td>0</td>
+      <td>33k-50k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['数据分析']</td>
+      <td>数据分析</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>北京</td>
+      <td>韦博网讯科技（北京）有限公司</td>
+      <td>580170</td>
+      <td>[]</td>
+      <td>WPIC</td>
+      <td>50-150人</td>
+      <td>2019-12-03 12:10:22</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>产品|需求|项目类</td>
+      <td>12:10发布</td>
+      <td>today</td>
+      <td>电商,软件开发</td>
+      <td>['电商']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:54:22</td>
+      <td>0</td>
+      <td>待遇优厚 ，良好的发展前景</td>
+      <td>6590101</td>
+      <td>['电商']</td>
+      <td>数据分析</td>
+      <td>13213101</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10k-15k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['数据分析']</td>
+      <td>产品|需求|项目类</td>
+      <td>1-3年</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3065</th>
+      <td>天津</td>
+      <td>北京达佳互联信息技术有限公司</td>
+      <td>1880</td>
+      <td>['股票期权', '弹性工作', '定期体检', '岗位晋升']</td>
+      <td>快手</td>
+      <td>2000人以上</td>
+      <td>2019-12-03 10:16:29</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>产品|需求|项目类</td>
+      <td>10:16发布</td>
+      <td>today</td>
+      <td>文娱丨内容</td>
+      <td>['视频', '直播', '数据分析', '数据运营', '可视化']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:01:37</td>
+      <td>0</td>
+      <td>福利待遇 平台发展 公司规模</td>
+      <td>5605166</td>
+      <td>['视频', '直播', '数据分析', '数据运营', '可视化']</td>
+      <td>数据分析专员</td>
+      <td>10506720</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8k-10k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['数据分析', '数据运营', '可视化']</td>
+      <td>数据分析</td>
+      <td>1-3年</td>
+    </tr>
+    <tr>
+      <th>3069</th>
+      <td>天津</td>
+      <td>林之尚沃（天津）国际贸易有限公司</td>
+      <td>195673</td>
+      <td>[]</td>
+      <td>林之尚沃</td>
+      <td>15-50人</td>
+      <td>2019-12-03 09:37:31</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>产品|需求|项目类</td>
+      <td>09:37发布</td>
+      <td>today</td>
+      <td>医疗丨健康</td>
+      <td>['大数据', '工具软件', '数据分析', '数据运营', 'BI', '数据库']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 09:31:30</td>
+      <td>0</td>
+      <td>节假日福利 团建活动 零食饮料</td>
+      <td>6654011</td>
+      <td>['大数据', '工具软件', '数据分析', '数据运营', 'BI', '数据库']</td>
+      <td>数据分析专员</td>
+      <td>9208074</td>
+      <td>2</td>
+      <td>78</td>
+      <td>6k-10k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['数据分析', '数据运营', 'BI', '数据库']</td>
+      <td>数据分析</td>
+      <td>1-3年</td>
+    </tr>
+    <tr>
+      <th>3070</th>
+      <td>天津</td>
+      <td>林之尚沃（天津）国际贸易有限公司</td>
+      <td>195673</td>
+      <td>[]</td>
+      <td>林之尚沃</td>
+      <td>15-50人</td>
+      <td>2019-12-03 09:37:31</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>产品|需求|项目类</td>
+      <td>09:37发布</td>
+      <td>today</td>
+      <td>医疗丨健康</td>
+      <td>['新零售', '数据运营', '数据分析']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>兼职</td>
+      <td>2019-12-03 09:31:30</td>
+      <td>0</td>
+      <td>节假日福利 团建活动 零食饮料</td>
+      <td>6485218</td>
+      <td>['新零售', '数据运营', '数据分析']</td>
+      <td>数据分析实习生</td>
+      <td>9208074</td>
+      <td>2</td>
+      <td>78</td>
+      <td>2k-4k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['数据运营', '数据分析']</td>
+      <td>商业</td>
+      <td>不限</td>
+    </tr>
+    <tr>
+      <th>3071</th>
+      <td>天津</td>
+      <td>西安格蒂电力有限公司</td>
+      <td>45678</td>
+      <td>['技能培训', '带薪年假', '绩效奖金', '岗位晋升']</td>
+      <td>格蒂电力</td>
+      <td>500-2000人</td>
+      <td>2019-12-03 07:19:26</td>
+      <td>大专</td>
+      <td>未融资</td>
+      <td>开发|测试|运维类</td>
+      <td>07:19发布</td>
+      <td>today</td>
+      <td>企业服务</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 07:18:23</td>
+      <td>0</td>
+      <td>上市公司，福利待遇优厚，职业发展空间广阔</td>
+      <td>6635415</td>
+      <td>['数据分析', 'Oracle', 'ETL', '数据挖掘']</td>
+      <td>ETL/大数据/数据分析/实施</td>
+      <td>15229043</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6k-12k</td>
+      <td>0</td>
+      <td>数据开发</td>
+      <td>['数据分析', 'Oracle', 'ETL', '数据挖掘']</td>
+      <td>ETL</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>3088</th>
+      <td>天津</td>
+      <td>谷川联行有限公司</td>
+      <td>36984</td>
+      <td>['年底双薪', '技能培训', '带薪年假', '绩效奖金']</td>
+      <td>谷川联行</td>
+      <td>150-500人</td>
+      <td>2019-11-26 08:42:40</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>开发|测试|运维类</td>
+      <td>2019-11-26</td>
+      <td>today</td>
+      <td>软件开发,企业服务</td>
+      <td>['大数据', 'MySQL', '数据仓库', '数据分析', 'ETL']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:15:17</td>
+      <td>0</td>
+      <td>发展空间大 福利待遇高 周末双休</td>
+      <td>6638504</td>
+      <td>['大数据', 'MySQL', '数据仓库', '数据分析', 'ETL']</td>
+      <td>BI工程师/数据分析师（天津）</td>
+      <td>651726</td>
+      <td>1</td>
+      <td>100</td>
+      <td>8k-12k</td>
+      <td>0</td>
+      <td>数据开发</td>
+      <td>['MySQL', '数据仓库', '数据分析', 'ETL']</td>
+      <td>BI工程师</td>
+      <td>不限</td>
+    </tr>
+  </tbody>
+</table>
+<p>1515 rows × 32 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df1[<span class="string">&#x27;year&#x27;</span>] = pd.to_datetime(df1[<span class="string">&#x27;createTime&#x27;</span>]).dt.year</span><br><span class="line">df1[<span class="string">&#x27;month&#x27;</span>] = pd.to_datetime(df1[<span class="string">&#x27;createTime&#x27;</span>]).dt.month</span><br><span class="line">df1[<span class="string">&#x27;day&#x27;</span>] = pd.to_datetime(df1[<span class="string">&#x27;createTime&#x27;</span>]).dt.day</span><br><span class="line">df1[<span class="string">&#x27;weekday&#x27;</span>] = pd.to_datetime(df1[<span class="string">&#x27;createTime&#x27;</span>]).dt.weekday  <span class="comment"># 0 - 星期一</span></span><br><span class="line">df1</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>companyFullName</th>
+      <th>companyId</th>
+      <th>companyLabelList</th>
+      <th>companyShortName</th>
+      <th>companySize</th>
+      <th>createTime</th>
+      <th>education</th>
+      <th>financeStage</th>
+      <th>firstType</th>
+      <th>formatCreateTime</th>
+      <th>imState</th>
+      <th>industryField</th>
+      <th>industryLables</th>
+      <th>isHotHire</th>
+      <th>isSchoolJob</th>
+      <th>jobNature</th>
+      <th>lastLogin</th>
+      <th>pcShow</th>
+      <th>positionAdvantage</th>
+      <th>positionId</th>
+      <th>positionLables</th>
+      <th>positionName</th>
+      <th>publisherId</th>
+      <th>resumeProcessDay</th>
+      <th>resumeProcessRate</th>
+      <th>salary</th>
+      <th>score</th>
+      <th>secondType</th>
+      <th>skillLables</th>
+      <th>thirdType</th>
+      <th>workYear</th>
+      <th>year</th>
+      <th>month</th>
+      <th>day</th>
+      <th>weekday</th>
+    </tr>
+    <tr>
+      <th>no</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>北京</td>
+      <td>达疆网络科技（上海）有限公司</td>
+      <td>32836</td>
+      <td>['年底双薪', '绩效奖金', '岗位晋升', '定期体检']</td>
+      <td>达达-京东到家</td>
+      <td>2000人以上</td>
+      <td>2019-12-02 20:38:25</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>产品|需求|项目类</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>消费生活</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:33:07</td>
+      <td>0</td>
+      <td>成长快、氛围好、领导好</td>
+      <td>6638350</td>
+      <td>['BI', '数据分析']</td>
+      <td>数据分析岗</td>
+      <td>7855636</td>
+      <td>1</td>
+      <td>100</td>
+      <td>15k-30k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['BI', '数据分析']</td>
+      <td>BI</td>
+      <td>3-5年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>北京</td>
+      <td>北京音娱时光科技有限公司</td>
+      <td>286568</td>
+      <td>['年底双薪', '绩效奖金', '带薪年假', '免费健身']</td>
+      <td>音娱时光</td>
+      <td>50-150人</td>
+      <td>2019-12-03 11:23:35</td>
+      <td>本科</td>
+      <td>A轮</td>
+      <td>产品|需求|项目类</td>
+      <td>11:23发布</td>
+      <td>today</td>
+      <td>移动互联网</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:23:38</td>
+      <td>0</td>
+      <td>技术大牛多；免费餐饮；氛围好；</td>
+      <td>6263661</td>
+      <td>['SQL', 'BI', 'SPSS']</td>
+      <td>数据分析</td>
+      <td>12147286</td>
+      <td>1</td>
+      <td>100</td>
+      <td>10k-18k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['SQL', 'BI', 'SPSS']</td>
+      <td>数据分析</td>
+      <td>1-3年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>北京</td>
+      <td>北京千喜鹤餐饮管理有限公司</td>
+      <td>278964</td>
+      <td>[]</td>
+      <td>千喜鹤</td>
+      <td>2000人以上</td>
+      <td>2019-12-03 10:35:09</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>产品|需求|项目类</td>
+      <td>10:35发布</td>
+      <td>today</td>
+      <td>消费生活</td>
+      <td>['移动互联网', '视频', 'SQL']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:08:34</td>
+      <td>0</td>
+      <td>福利好，五险一金，住房补助</td>
+      <td>6660141</td>
+      <td>['移动互联网', '视频', 'SQL']</td>
+      <td>数据分析</td>
+      <td>6436858</td>
+      <td>0</td>
+      <td>0</td>
+      <td>20k-30k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['SQL', '数据分析']</td>
+      <td>数据分析</td>
+      <td>3-5年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>北京</td>
+      <td>吉林省海生电子商务有限公司</td>
+      <td>399744</td>
+      <td>[]</td>
+      <td>吉林省海生电子商务有限公司</td>
+      <td>少于15人</td>
+      <td>2019-12-03 10:35:56</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>产品|需求|项目类</td>
+      <td>10:35发布</td>
+      <td>today</td>
+      <td>电商</td>
+      <td>['其他']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:30:37</td>
+      <td>0</td>
+      <td>五险一金</td>
+      <td>6660148</td>
+      <td>['其他']</td>
+      <td>数据分析</td>
+      <td>10978749</td>
+      <td>0</td>
+      <td>0</td>
+      <td>33k-50k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['数据分析']</td>
+      <td>数据分析</td>
+      <td>3-5年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>北京</td>
+      <td>韦博网讯科技（北京）有限公司</td>
+      <td>580170</td>
+      <td>[]</td>
+      <td>WPIC</td>
+      <td>50-150人</td>
+      <td>2019-12-03 12:10:22</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>产品|需求|项目类</td>
+      <td>12:10发布</td>
+      <td>today</td>
+      <td>电商,软件开发</td>
+      <td>['电商']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:54:22</td>
+      <td>0</td>
+      <td>待遇优厚 ，良好的发展前景</td>
+      <td>6590101</td>
+      <td>['电商']</td>
+      <td>数据分析</td>
+      <td>13213101</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10k-15k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['数据分析']</td>
+      <td>产品|需求|项目类</td>
+      <td>1-3年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3135</th>
+      <td>天津</td>
+      <td>清博津商（天津）教育科技有限公司</td>
+      <td>260578</td>
+      <td>[]</td>
+      <td>清博津商</td>
+      <td>15-50人</td>
+      <td>2019-11-13 15:55:55</td>
+      <td>不限</td>
+      <td>不需要融资</td>
+      <td>运营|编辑|客服类</td>
+      <td>2019-11-13</td>
+      <td>overSevenDays</td>
+      <td>数据服务,教育</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>1</td>
+      <td>兼职</td>
+      <td>2019-11-13 15:55:45</td>
+      <td>0</td>
+      <td>大数据行业优势，工作氛围好</td>
+      <td>6579749</td>
+      <td>['审核', '内容审核', '信息']</td>
+      <td>审核实习生（春节短期）</td>
+      <td>8913003</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1k-2k</td>
+      <td>0</td>
+      <td>审核</td>
+      <td>['审核', '内容审核', '信息']</td>
+      <td>信息审核</td>
+      <td>应届毕业生</td>
+      <td>2019</td>
+      <td>11</td>
+      <td>13</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3136</th>
+      <td>天津</td>
+      <td>上海礼紫股权投资基金管理有限公司</td>
+      <td>264817</td>
+      <td>[]</td>
+      <td>礼紫股权投资</td>
+      <td>500-2000人</td>
+      <td>2019-11-04 09:02:04</td>
+      <td>不限</td>
+      <td>未融资</td>
+      <td>运营|编辑|客服类</td>
+      <td>2019-11-04</td>
+      <td>overSevenDays</td>
+      <td>金融</td>
+      <td>['社交', '运营']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-11-14 16:23:36</td>
+      <td>0</td>
+      <td>旅游团建、内部晋升、待遇优厚、提供住宿</td>
+      <td>6270749</td>
+      <td>['社交', '运营']</td>
+      <td>运营助理</td>
+      <td>9535048</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6k-8k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>['运营']</td>
+      <td>运营助理|专员</td>
+      <td>不限</td>
+      <td>2019</td>
+      <td>11</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3137</th>
+      <td>天津</td>
+      <td>北京达佳互联信息技术有限公司</td>
+      <td>1880</td>
+      <td>['股票期权', '弹性工作', '定期体检', '岗位晋升']</td>
+      <td>快手</td>
+      <td>2000人以上</td>
+      <td>2019-12-03 10:16:28</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>运营|编辑|客服类</td>
+      <td>10:16发布</td>
+      <td>today</td>
+      <td>文娱丨内容</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:01:37</td>
+      <td>0</td>
+      <td>五险一金,绩效奖金,餐补,房补</td>
+      <td>5051153</td>
+      <td>['运营', '用户运营']</td>
+      <td>运营编辑团队leader</td>
+      <td>10506720</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8k-15k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>['运营', '用户运营']</td>
+      <td>用户运营</td>
+      <td>3-5年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3138</th>
+      <td>天津</td>
+      <td>北京河狸家信息技术有限公司</td>
+      <td>25854</td>
+      <td>['高配福利', '弹性时间', 'BAT￥', '逗逼伙伴']</td>
+      <td>河狸家</td>
+      <td>500-2000人</td>
+      <td>2019-12-02 17:03:54</td>
+      <td>不限</td>
+      <td>C轮</td>
+      <td>运营|编辑|客服类</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>移动互联网</td>
+      <td>['电商', '商家运营']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:25:10</td>
+      <td>0</td>
+      <td>五险一金</td>
+      <td>6624059</td>
+      <td>['电商', '商家运营']</td>
+      <td>商家运营-天津</td>
+      <td>14725914</td>
+      <td>3</td>
+      <td>1</td>
+      <td>6k-8k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>['商家运营']</td>
+      <td>商家运营</td>
+      <td>不限</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3139</th>
+      <td>天津</td>
+      <td>北京河狸家信息技术有限公司</td>
+      <td>25854</td>
+      <td>['高配福利', '弹性时间', 'BAT￥', '逗逼伙伴']</td>
+      <td>河狸家</td>
+      <td>500-2000人</td>
+      <td>2019-12-02 17:03:56</td>
+      <td>本科</td>
+      <td>C轮</td>
+      <td>运营|编辑|客服类</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>移动互联网</td>
+      <td>['移动互联网']</td>
+      <td>0</td>
+      <td>1</td>
+      <td>全职</td>
+      <td>2019-12-03 11:25:10</td>
+      <td>0</td>
+      <td>转正机会</td>
+      <td>6633633</td>
+      <td>['移动互联网']</td>
+      <td>运营实习生-天津</td>
+      <td>14725914</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2k-4k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>[]</td>
+      <td>运营助理|专员</td>
+      <td>应届毕业生</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>3140 rows × 36 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 捕获薪资字段以获取工资上下限</span></span><br><span class="line">temp = df1.salary.<span class="built_in">str</span>.extract(<span class="string">r&#x27;(\d+)[kK]?-(\d+)[kK]?&#x27;</span>)</span><br><span class="line"><span class="comment"># 将DataFrame中的str映射成int</span></span><br><span class="line">temp = temp.applymap(<span class="built_in">int</span>)</span><br><span class="line"><span class="comment"># 沿1轴计算均值</span></span><br><span class="line"><span class="comment"># axis = 1,表示对所有的列的每一行进行操作</span></span><br><span class="line">df1[<span class="string">&#x27;msal&#x27;</span>] = temp.mean(axis = <span class="number">1</span>)</span><br><span class="line">df1</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>companyFullName</th>
+      <th>companyId</th>
+      <th>companyLabelList</th>
+      <th>companyShortName</th>
+      <th>companySize</th>
+      <th>createTime</th>
+      <th>education</th>
+      <th>financeStage</th>
+      <th>firstType</th>
+      <th>formatCreateTime</th>
+      <th>imState</th>
+      <th>industryField</th>
+      <th>industryLables</th>
+      <th>isHotHire</th>
+      <th>isSchoolJob</th>
+      <th>jobNature</th>
+      <th>lastLogin</th>
+      <th>pcShow</th>
+      <th>positionAdvantage</th>
+      <th>positionId</th>
+      <th>positionLables</th>
+      <th>positionName</th>
+      <th>publisherId</th>
+      <th>resumeProcessDay</th>
+      <th>resumeProcessRate</th>
+      <th>salary</th>
+      <th>score</th>
+      <th>secondType</th>
+      <th>skillLables</th>
+      <th>thirdType</th>
+      <th>workYear</th>
+      <th>year</th>
+      <th>month</th>
+      <th>day</th>
+      <th>weekday</th>
+      <th>msal</th>
+    </tr>
+    <tr>
+      <th>no</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>北京</td>
+      <td>达疆网络科技（上海）有限公司</td>
+      <td>32836</td>
+      <td>['年底双薪', '绩效奖金', '岗位晋升', '定期体检']</td>
+      <td>达达-京东到家</td>
+      <td>2000人以上</td>
+      <td>2019-12-02 20:38:25</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>产品|需求|项目类</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>消费生活</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:33:07</td>
+      <td>0</td>
+      <td>成长快、氛围好、领导好</td>
+      <td>6638350</td>
+      <td>['BI', '数据分析']</td>
+      <td>数据分析岗</td>
+      <td>7855636</td>
+      <td>1</td>
+      <td>100</td>
+      <td>15k-30k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['BI', '数据分析']</td>
+      <td>BI</td>
+      <td>3-5年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>2</td>
+      <td>0</td>
+      <td>22.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>北京</td>
+      <td>北京音娱时光科技有限公司</td>
+      <td>286568</td>
+      <td>['年底双薪', '绩效奖金', '带薪年假', '免费健身']</td>
+      <td>音娱时光</td>
+      <td>50-150人</td>
+      <td>2019-12-03 11:23:35</td>
+      <td>本科</td>
+      <td>A轮</td>
+      <td>产品|需求|项目类</td>
+      <td>11:23发布</td>
+      <td>today</td>
+      <td>移动互联网</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:23:38</td>
+      <td>0</td>
+      <td>技术大牛多；免费餐饮；氛围好；</td>
+      <td>6263661</td>
+      <td>['SQL', 'BI', 'SPSS']</td>
+      <td>数据分析</td>
+      <td>12147286</td>
+      <td>1</td>
+      <td>100</td>
+      <td>10k-18k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['SQL', 'BI', 'SPSS']</td>
+      <td>数据分析</td>
+      <td>1-3年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>3</td>
+      <td>1</td>
+      <td>14.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>北京</td>
+      <td>北京千喜鹤餐饮管理有限公司</td>
+      <td>278964</td>
+      <td>[]</td>
+      <td>千喜鹤</td>
+      <td>2000人以上</td>
+      <td>2019-12-03 10:35:09</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>产品|需求|项目类</td>
+      <td>10:35发布</td>
+      <td>today</td>
+      <td>消费生活</td>
+      <td>['移动互联网', '视频', 'SQL']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:08:34</td>
+      <td>0</td>
+      <td>福利好，五险一金，住房补助</td>
+      <td>6660141</td>
+      <td>['移动互联网', '视频', 'SQL']</td>
+      <td>数据分析</td>
+      <td>6436858</td>
+      <td>0</td>
+      <td>0</td>
+      <td>20k-30k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['SQL', '数据分析']</td>
+      <td>数据分析</td>
+      <td>3-5年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>3</td>
+      <td>1</td>
+      <td>25.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>北京</td>
+      <td>吉林省海生电子商务有限公司</td>
+      <td>399744</td>
+      <td>[]</td>
+      <td>吉林省海生电子商务有限公司</td>
+      <td>少于15人</td>
+      <td>2019-12-03 10:35:56</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>产品|需求|项目类</td>
+      <td>10:35发布</td>
+      <td>today</td>
+      <td>电商</td>
+      <td>['其他']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:30:37</td>
+      <td>0</td>
+      <td>五险一金</td>
+      <td>6660148</td>
+      <td>['其他']</td>
+      <td>数据分析</td>
+      <td>10978749</td>
+      <td>0</td>
+      <td>0</td>
+      <td>33k-50k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['数据分析']</td>
+      <td>数据分析</td>
+      <td>3-5年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>3</td>
+      <td>1</td>
+      <td>41.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>北京</td>
+      <td>韦博网讯科技（北京）有限公司</td>
+      <td>580170</td>
+      <td>[]</td>
+      <td>WPIC</td>
+      <td>50-150人</td>
+      <td>2019-12-03 12:10:22</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>产品|需求|项目类</td>
+      <td>12:10发布</td>
+      <td>today</td>
+      <td>电商,软件开发</td>
+      <td>['电商']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:54:22</td>
+      <td>0</td>
+      <td>待遇优厚 ，良好的发展前景</td>
+      <td>6590101</td>
+      <td>['电商']</td>
+      <td>数据分析</td>
+      <td>13213101</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10k-15k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['数据分析']</td>
+      <td>产品|需求|项目类</td>
+      <td>1-3年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>3</td>
+      <td>1</td>
+      <td>12.5</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3135</th>
+      <td>天津</td>
+      <td>清博津商（天津）教育科技有限公司</td>
+      <td>260578</td>
+      <td>[]</td>
+      <td>清博津商</td>
+      <td>15-50人</td>
+      <td>2019-11-13 15:55:55</td>
+      <td>不限</td>
+      <td>不需要融资</td>
+      <td>运营|编辑|客服类</td>
+      <td>2019-11-13</td>
+      <td>overSevenDays</td>
+      <td>数据服务,教育</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>1</td>
+      <td>兼职</td>
+      <td>2019-11-13 15:55:45</td>
+      <td>0</td>
+      <td>大数据行业优势，工作氛围好</td>
+      <td>6579749</td>
+      <td>['审核', '内容审核', '信息']</td>
+      <td>审核实习生（春节短期）</td>
+      <td>8913003</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1k-2k</td>
+      <td>0</td>
+      <td>审核</td>
+      <td>['审核', '内容审核', '信息']</td>
+      <td>信息审核</td>
+      <td>应届毕业生</td>
+      <td>2019</td>
+      <td>11</td>
+      <td>13</td>
+      <td>2</td>
+      <td>1.5</td>
+    </tr>
+    <tr>
+      <th>3136</th>
+      <td>天津</td>
+      <td>上海礼紫股权投资基金管理有限公司</td>
+      <td>264817</td>
+      <td>[]</td>
+      <td>礼紫股权投资</td>
+      <td>500-2000人</td>
+      <td>2019-11-04 09:02:04</td>
+      <td>不限</td>
+      <td>未融资</td>
+      <td>运营|编辑|客服类</td>
+      <td>2019-11-04</td>
+      <td>overSevenDays</td>
+      <td>金融</td>
+      <td>['社交', '运营']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-11-14 16:23:36</td>
+      <td>0</td>
+      <td>旅游团建、内部晋升、待遇优厚、提供住宿</td>
+      <td>6270749</td>
+      <td>['社交', '运营']</td>
+      <td>运营助理</td>
+      <td>9535048</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6k-8k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>['运营']</td>
+      <td>运营助理|专员</td>
+      <td>不限</td>
+      <td>2019</td>
+      <td>11</td>
+      <td>4</td>
+      <td>0</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>3137</th>
+      <td>天津</td>
+      <td>北京达佳互联信息技术有限公司</td>
+      <td>1880</td>
+      <td>['股票期权', '弹性工作', '定期体检', '岗位晋升']</td>
+      <td>快手</td>
+      <td>2000人以上</td>
+      <td>2019-12-03 10:16:28</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>运营|编辑|客服类</td>
+      <td>10:16发布</td>
+      <td>today</td>
+      <td>文娱丨内容</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:01:37</td>
+      <td>0</td>
+      <td>五险一金,绩效奖金,餐补,房补</td>
+      <td>5051153</td>
+      <td>['运营', '用户运营']</td>
+      <td>运营编辑团队leader</td>
+      <td>10506720</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8k-15k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>['运营', '用户运营']</td>
+      <td>用户运营</td>
+      <td>3-5年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>3</td>
+      <td>1</td>
+      <td>11.5</td>
+    </tr>
+    <tr>
+      <th>3138</th>
+      <td>天津</td>
+      <td>北京河狸家信息技术有限公司</td>
+      <td>25854</td>
+      <td>['高配福利', '弹性时间', 'BAT￥', '逗逼伙伴']</td>
+      <td>河狸家</td>
+      <td>500-2000人</td>
+      <td>2019-12-02 17:03:54</td>
+      <td>不限</td>
+      <td>C轮</td>
+      <td>运营|编辑|客服类</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>移动互联网</td>
+      <td>['电商', '商家运营']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:25:10</td>
+      <td>0</td>
+      <td>五险一金</td>
+      <td>6624059</td>
+      <td>['电商', '商家运营']</td>
+      <td>商家运营-天津</td>
+      <td>14725914</td>
+      <td>3</td>
+      <td>1</td>
+      <td>6k-8k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>['商家运营']</td>
+      <td>商家运营</td>
+      <td>不限</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>2</td>
+      <td>0</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>3139</th>
+      <td>天津</td>
+      <td>北京河狸家信息技术有限公司</td>
+      <td>25854</td>
+      <td>['高配福利', '弹性时间', 'BAT￥', '逗逼伙伴']</td>
+      <td>河狸家</td>
+      <td>500-2000人</td>
+      <td>2019-12-02 17:03:56</td>
+      <td>本科</td>
+      <td>C轮</td>
+      <td>运营|编辑|客服类</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>移动互联网</td>
+      <td>['移动互联网']</td>
+      <td>0</td>
+      <td>1</td>
+      <td>全职</td>
+      <td>2019-12-03 11:25:10</td>
+      <td>0</td>
+      <td>转正机会</td>
+      <td>6633633</td>
+      <td>['移动互联网']</td>
+      <td>运营实习生-天津</td>
+      <td>14725914</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2k-4k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>[]</td>
+      <td>运营助理|专员</td>
+      <td>应届毕业生</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>3140 rows × 37 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 排序和TopN</span></span><br><span class="line">df1.sort_values(by = <span class="string">&#x27;msal&#x27;</span>,ascending=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>companyFullName</th>
+      <th>companyId</th>
+      <th>companyLabelList</th>
+      <th>companyShortName</th>
+      <th>companySize</th>
+      <th>createTime</th>
+      <th>education</th>
+      <th>financeStage</th>
+      <th>firstType</th>
+      <th>formatCreateTime</th>
+      <th>imState</th>
+      <th>industryField</th>
+      <th>industryLables</th>
+      <th>isHotHire</th>
+      <th>isSchoolJob</th>
+      <th>jobNature</th>
+      <th>lastLogin</th>
+      <th>pcShow</th>
+      <th>positionAdvantage</th>
+      <th>positionId</th>
+      <th>positionLables</th>
+      <th>positionName</th>
+      <th>publisherId</th>
+      <th>resumeProcessDay</th>
+      <th>resumeProcessRate</th>
+      <th>salary</th>
+      <th>score</th>
+      <th>secondType</th>
+      <th>skillLables</th>
+      <th>thirdType</th>
+      <th>workYear</th>
+      <th>year</th>
+      <th>month</th>
+      <th>day</th>
+      <th>weekday</th>
+      <th>msal</th>
+    </tr>
+    <tr>
+      <th>no</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2084</th>
+      <td>武汉</td>
+      <td>北京一一万物科技有限公司</td>
+      <td>132108</td>
+      <td>['年底双薪', '午餐补助', '弹性工作', '扁平管理']</td>
+      <td>伴伴</td>
+      <td>50-150人</td>
+      <td>2019-12-03 11:00:12</td>
+      <td>不限</td>
+      <td>不需要融资</td>
+      <td>运营|编辑|客服类</td>
+      <td>11:00发布</td>
+      <td>today</td>
+      <td>移动互联网,社交</td>
+      <td>['移动互联网']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>兼职</td>
+      <td>2019-12-03 10:57:20</td>
+      <td>0</td>
+      <td>时间自由、工作环境好、薪资待遇高</td>
+      <td>6660359</td>
+      <td>['移动互联网']</td>
+      <td>应用商店维护实习生</td>
+      <td>4515587</td>
+      <td>1</td>
+      <td>49</td>
+      <td>100k-200k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>[]</td>
+      <td>网络推广</td>
+      <td>不限</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>3</td>
+      <td>1</td>
+      <td>150.0</td>
+    </tr>
+    <tr>
+      <th>2547</th>
+      <td>西安</td>
+      <td>西安嗅链信息技术有限公司</td>
+      <td>117426867</td>
+      <td>[]</td>
+      <td>嗅链信息</td>
+      <td>50-150人</td>
+      <td>2019-12-02 22:37:11</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>综合职能|高级管理</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>区块链</td>
+      <td>['企业服务', '合伙人', '区域管理', '事业部管理']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 08:26:16</td>
+      <td>0</td>
+      <td>年薪百万</td>
+      <td>6659442</td>
+      <td>['企业服务', '合伙人', '区域管理', '事业部管理']</td>
+      <td>总监</td>
+      <td>15729179</td>
+      <td>0</td>
+      <td>0</td>
+      <td>45k-90k</td>
+      <td>0</td>
+      <td>高级管理职位</td>
+      <td>['合伙人', '区域管理', '事业部管理']</td>
+      <td>COO</td>
+      <td>3-5年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>2</td>
+      <td>0</td>
+      <td>67.5</td>
+    </tr>
+    <tr>
+      <th>2542</th>
+      <td>西安</td>
+      <td>西安嗅链信息技术有限公司</td>
+      <td>117426867</td>
+      <td>[]</td>
+      <td>嗅链信息</td>
+      <td>50-150人</td>
+      <td>2019-12-02 22:37:11</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>综合职能|高级管理</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>区块链</td>
+      <td>['企业服务', '合伙人', '区域管理', '事业部管理']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 08:26:16</td>
+      <td>0</td>
+      <td>年薪百万</td>
+      <td>6659442</td>
+      <td>['企业服务', '合伙人', '区域管理', '事业部管理']</td>
+      <td>总监</td>
+      <td>15729179</td>
+      <td>0</td>
+      <td>0</td>
+      <td>45k-90k</td>
+      <td>0</td>
+      <td>高级管理职位</td>
+      <td>['合伙人', '区域管理', '事业部管理']</td>
+      <td>COO</td>
+      <td>3-5年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>2</td>
+      <td>0</td>
+      <td>67.5</td>
+    </tr>
+    <tr>
+      <th>1072</th>
+      <td>深圳</td>
+      <td>维沃移动通信有限公司</td>
+      <td>19875</td>
+      <td>['年终分红', '带薪年假', '年度旅游', '岗位晋升']</td>
+      <td>vivo</td>
+      <td>2000人以上</td>
+      <td>2019-11-20 17:19:04</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>产品|需求|项目类</td>
+      <td>2019-11-20</td>
+      <td>sevenDays</td>
+      <td>硬件</td>
+      <td>['移动互联网']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-11-29 10:34:39</td>
+      <td>0</td>
+      <td>股票期权,精英团队,弹性工作</td>
+      <td>5505916</td>
+      <td>['移动互联网']</td>
+      <td>商业数据分析师</td>
+      <td>4036782</td>
+      <td>0</td>
+      <td>0</td>
+      <td>50k-80k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>[]</td>
+      <td>数据分析</td>
+      <td>3-5年</td>
+      <td>2019</td>
+      <td>11</td>
+      <td>20</td>
+      <td>2</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>1074</th>
+      <td>深圳</td>
+      <td>维沃移动通信有限公司</td>
+      <td>19875</td>
+      <td>['年终分红', '带薪年假', '年度旅游', '岗位晋升']</td>
+      <td>vivo</td>
+      <td>2000人以上</td>
+      <td>2019-11-20 17:19:04</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>产品|需求|项目类</td>
+      <td>2019-11-20</td>
+      <td>sevenDays</td>
+      <td>硬件</td>
+      <td>['移动互联网']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-11-29 10:34:39</td>
+      <td>0</td>
+      <td>弹性工作,股票期权,大数据平台 千万用户</td>
+      <td>5948719</td>
+      <td>['移动互联网']</td>
+      <td>商业数据分析师 (003969)</td>
+      <td>4036782</td>
+      <td>0</td>
+      <td>0</td>
+      <td>50k-80k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>[]</td>
+      <td>数据分析</td>
+      <td>3-5年</td>
+      <td>2019</td>
+      <td>11</td>
+      <td>20</td>
+      <td>2</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3135</th>
+      <td>天津</td>
+      <td>清博津商（天津）教育科技有限公司</td>
+      <td>260578</td>
+      <td>[]</td>
+      <td>清博津商</td>
+      <td>15-50人</td>
+      <td>2019-11-13 15:55:55</td>
+      <td>不限</td>
+      <td>不需要融资</td>
+      <td>运营|编辑|客服类</td>
+      <td>2019-11-13</td>
+      <td>overSevenDays</td>
+      <td>数据服务,教育</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>1</td>
+      <td>兼职</td>
+      <td>2019-11-13 15:55:45</td>
+      <td>0</td>
+      <td>大数据行业优势，工作氛围好</td>
+      <td>6579749</td>
+      <td>['审核', '内容审核', '信息']</td>
+      <td>审核实习生（春节短期）</td>
+      <td>8913003</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1k-2k</td>
+      <td>0</td>
+      <td>审核</td>
+      <td>['审核', '内容审核', '信息']</td>
+      <td>信息审核</td>
+      <td>应届毕业生</td>
+      <td>2019</td>
+      <td>11</td>
+      <td>13</td>
+      <td>2</td>
+      <td>1.5</td>
+    </tr>
+    <tr>
+      <th>1169</th>
+      <td>广州</td>
+      <td>网易（杭州）网络有限公司</td>
+      <td>329</td>
+      <td>['节日礼物', '技能培训', '免费班车', '带薪年假']</td>
+      <td>网易</td>
+      <td>2000人以上</td>
+      <td>2019-12-01 16:30:07</td>
+      <td>本科</td>
+      <td>上市公司</td>
+      <td>市场|商务类</td>
+      <td>2天前发布</td>
+      <td>disabled</td>
+      <td>电商</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>1</td>
+      <td>实习</td>
+      <td>2019-12-03 11:20:24</td>
+      <td>0</td>
+      <td>平台好 、导师制、包三餐</td>
+      <td>5808948</td>
+      <td>['数据分析']</td>
+      <td>数据分析实习生</td>
+      <td>262031</td>
+      <td>2</td>
+      <td>62</td>
+      <td>1k-2k</td>
+      <td>0</td>
+      <td>市场|营销</td>
+      <td>['数据分析']</td>
+      <td>商业数据分析</td>
+      <td>应届毕业生</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>1</td>
+      <td>6</td>
+      <td>1.5</td>
+    </tr>
+    <tr>
+      <th>507</th>
+      <td>上海</td>
+      <td>宜家（中国）投资有限公司</td>
+      <td>560057</td>
+      <td>['年底双薪', '带薪年假', '定期体检', '弹性工作']</td>
+      <td>宜家</td>
+      <td>2000人以上</td>
+      <td>2019-12-03 10:20:51</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>产品|需求|项目类</td>
+      <td>10:20发布</td>
+      <td>today</td>
+      <td>消费生活</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 11:26:31</td>
+      <td>0</td>
+      <td>员工餐厅 企业年金 超长年假 外企福利</td>
+      <td>6046040</td>
+      <td>['数据分析', '可视化', 'SQL']</td>
+      <td>高级数据分析师</td>
+      <td>5883282</td>
+      <td>1</td>
+      <td>17</td>
+      <td>1k-2k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['数据分析', '可视化', 'SQL']</td>
+      <td>数据分析</td>
+      <td>5-10年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1.5</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>深圳</td>
+      <td>九章天璇投资咨询（深圳）有限公司</td>
+      <td>543962</td>
+      <td>[]</td>
+      <td>九章天璇</td>
+      <td>少于15人</td>
+      <td>2019-11-23 10:07:43</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>产品|需求|项目类</td>
+      <td>2019-11-23</td>
+      <td>today</td>
+      <td>金融,数据服务</td>
+      <td>['互联网金融', '大数据', '数据分析']</td>
+      <td>0</td>
+      <td>1</td>
+      <td>实习</td>
+      <td>2019-12-02 18:29:30</td>
+      <td>0</td>
+      <td>金融 AI 大数据</td>
+      <td>6514680</td>
+      <td>['互联网金融', '大数据', '数据分析']</td>
+      <td>数据分析实习生</td>
+      <td>10701138</td>
+      <td>1</td>
+      <td>100</td>
+      <td>1k-2k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['数据分析']</td>
+      <td>数据分析</td>
+      <td>应届毕业生</td>
+      <td>2019</td>
+      <td>11</td>
+      <td>23</td>
+      <td>5</td>
+      <td>1.5</td>
+    </tr>
+    <tr>
+      <th>915</th>
+      <td>深圳</td>
+      <td>中国平安人寿保险股份有限公司</td>
+      <td>140014</td>
+      <td>['绩效奖金', '带薪年假', '定期体检', '节日礼物']</td>
+      <td>平安人寿</td>
+      <td>2000人以上</td>
+      <td>2019-12-03 00:00:12</td>
+      <td>本科</td>
+      <td>上市公司</td>
+      <td>产品|需求|项目类</td>
+      <td>00:00发布</td>
+      <td>disabled</td>
+      <td>金融</td>
+      <td>['金融']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-02 10:01:28</td>
+      <td>0</td>
+      <td>五险一金,绩效奖金,节日福利,定期体检</td>
+      <td>6095621</td>
+      <td>['金融']</td>
+      <td>0222JM-数据分析师</td>
+      <td>7915574</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1k-1k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>[]</td>
+      <td>其他数据分析</td>
+      <td>1-3年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>3140 rows × 37 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df1.nlargest(<span class="number">10</span>,<span class="string">&#x27;msal&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>companyFullName</th>
+      <th>companyId</th>
+      <th>companyLabelList</th>
+      <th>companyShortName</th>
+      <th>companySize</th>
+      <th>createTime</th>
+      <th>education</th>
+      <th>financeStage</th>
+      <th>firstType</th>
+      <th>formatCreateTime</th>
+      <th>imState</th>
+      <th>industryField</th>
+      <th>industryLables</th>
+      <th>isHotHire</th>
+      <th>isSchoolJob</th>
+      <th>jobNature</th>
+      <th>lastLogin</th>
+      <th>pcShow</th>
+      <th>positionAdvantage</th>
+      <th>positionId</th>
+      <th>positionLables</th>
+      <th>positionName</th>
+      <th>publisherId</th>
+      <th>resumeProcessDay</th>
+      <th>resumeProcessRate</th>
+      <th>salary</th>
+      <th>score</th>
+      <th>secondType</th>
+      <th>skillLables</th>
+      <th>thirdType</th>
+      <th>workYear</th>
+      <th>year</th>
+      <th>month</th>
+      <th>day</th>
+      <th>weekday</th>
+      <th>msal</th>
+    </tr>
+    <tr>
+      <th>no</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2084</th>
+      <td>武汉</td>
+      <td>北京一一万物科技有限公司</td>
+      <td>132108</td>
+      <td>['年底双薪', '午餐补助', '弹性工作', '扁平管理']</td>
+      <td>伴伴</td>
+      <td>50-150人</td>
+      <td>2019-12-03 11:00:12</td>
+      <td>不限</td>
+      <td>不需要融资</td>
+      <td>运营|编辑|客服类</td>
+      <td>11:00发布</td>
+      <td>today</td>
+      <td>移动互联网,社交</td>
+      <td>['移动互联网']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>兼职</td>
+      <td>2019-12-03 10:57:20</td>
+      <td>0</td>
+      <td>时间自由、工作环境好、薪资待遇高</td>
+      <td>6660359</td>
+      <td>['移动互联网']</td>
+      <td>应用商店维护实习生</td>
+      <td>4515587</td>
+      <td>1</td>
+      <td>49</td>
+      <td>100k-200k</td>
+      <td>0</td>
+      <td>运营</td>
+      <td>[]</td>
+      <td>网络推广</td>
+      <td>不限</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>3</td>
+      <td>1</td>
+      <td>150.0</td>
+    </tr>
+    <tr>
+      <th>2542</th>
+      <td>西安</td>
+      <td>西安嗅链信息技术有限公司</td>
+      <td>117426867</td>
+      <td>[]</td>
+      <td>嗅链信息</td>
+      <td>50-150人</td>
+      <td>2019-12-02 22:37:11</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>综合职能|高级管理</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>区块链</td>
+      <td>['企业服务', '合伙人', '区域管理', '事业部管理']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 08:26:16</td>
+      <td>0</td>
+      <td>年薪百万</td>
+      <td>6659442</td>
+      <td>['企业服务', '合伙人', '区域管理', '事业部管理']</td>
+      <td>总监</td>
+      <td>15729179</td>
+      <td>0</td>
+      <td>0</td>
+      <td>45k-90k</td>
+      <td>0</td>
+      <td>高级管理职位</td>
+      <td>['合伙人', '区域管理', '事业部管理']</td>
+      <td>COO</td>
+      <td>3-5年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>2</td>
+      <td>0</td>
+      <td>67.5</td>
+    </tr>
+    <tr>
+      <th>2547</th>
+      <td>西安</td>
+      <td>西安嗅链信息技术有限公司</td>
+      <td>117426867</td>
+      <td>[]</td>
+      <td>嗅链信息</td>
+      <td>50-150人</td>
+      <td>2019-12-02 22:37:11</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>综合职能|高级管理</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>区块链</td>
+      <td>['企业服务', '合伙人', '区域管理', '事业部管理']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 08:26:16</td>
+      <td>0</td>
+      <td>年薪百万</td>
+      <td>6659442</td>
+      <td>['企业服务', '合伙人', '区域管理', '事业部管理']</td>
+      <td>总监</td>
+      <td>15729179</td>
+      <td>0</td>
+      <td>0</td>
+      <td>45k-90k</td>
+      <td>0</td>
+      <td>高级管理职位</td>
+      <td>['合伙人', '区域管理', '事业部管理']</td>
+      <td>COO</td>
+      <td>3-5年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>2</td>
+      <td>0</td>
+      <td>67.5</td>
+    </tr>
+    <tr>
+      <th>1072</th>
+      <td>深圳</td>
+      <td>维沃移动通信有限公司</td>
+      <td>19875</td>
+      <td>['年终分红', '带薪年假', '年度旅游', '岗位晋升']</td>
+      <td>vivo</td>
+      <td>2000人以上</td>
+      <td>2019-11-20 17:19:04</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>产品|需求|项目类</td>
+      <td>2019-11-20</td>
+      <td>sevenDays</td>
+      <td>硬件</td>
+      <td>['移动互联网']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-11-29 10:34:39</td>
+      <td>0</td>
+      <td>股票期权,精英团队,弹性工作</td>
+      <td>5505916</td>
+      <td>['移动互联网']</td>
+      <td>商业数据分析师</td>
+      <td>4036782</td>
+      <td>0</td>
+      <td>0</td>
+      <td>50k-80k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>[]</td>
+      <td>数据分析</td>
+      <td>3-5年</td>
+      <td>2019</td>
+      <td>11</td>
+      <td>20</td>
+      <td>2</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>1074</th>
+      <td>深圳</td>
+      <td>维沃移动通信有限公司</td>
+      <td>19875</td>
+      <td>['年终分红', '带薪年假', '年度旅游', '岗位晋升']</td>
+      <td>vivo</td>
+      <td>2000人以上</td>
+      <td>2019-11-20 17:19:04</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>产品|需求|项目类</td>
+      <td>2019-11-20</td>
+      <td>sevenDays</td>
+      <td>硬件</td>
+      <td>['移动互联网']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-11-29 10:34:39</td>
+      <td>0</td>
+      <td>弹性工作,股票期权,大数据平台 千万用户</td>
+      <td>5948719</td>
+      <td>['移动互联网']</td>
+      <td>商业数据分析师 (003969)</td>
+      <td>4036782</td>
+      <td>0</td>
+      <td>0</td>
+      <td>50k-80k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>[]</td>
+      <td>数据分析</td>
+      <td>3-5年</td>
+      <td>2019</td>
+      <td>11</td>
+      <td>20</td>
+      <td>2</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>978</th>
+      <td>深圳</td>
+      <td>深圳依时货拉拉科技有限公司</td>
+      <td>41178</td>
+      <td>['技能培训', '专项奖金', '绩效奖金', '扁平管理']</td>
+      <td>货拉拉</td>
+      <td>2000人以上</td>
+      <td>2019-11-25 16:55:07</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>产品|需求|项目类</td>
+      <td>2019-11-25</td>
+      <td>today</td>
+      <td>移动互联网,消费生活</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 10:56:45</td>
+      <td>0</td>
+      <td>发展空间大</td>
+      <td>6069939</td>
+      <td>['BI', '商业', '数据分析']</td>
+      <td>资深数据分析师(J11772)</td>
+      <td>765920</td>
+      <td>1</td>
+      <td>100</td>
+      <td>50k-70k</td>
+      <td>0</td>
+      <td>数据分析</td>
+      <td>['BI', '商业', '数据分析']</td>
+      <td>BI</td>
+      <td>5-10年</td>
+      <td>2019</td>
+      <td>11</td>
+      <td>25</td>
+      <td>0</td>
+      <td>60.0</td>
+    </tr>
+    <tr>
+      <th>1071</th>
+      <td>深圳</td>
+      <td>维沃移动通信有限公司</td>
+      <td>19875</td>
+      <td>['年终分红', '带薪年假', '年度旅游', '岗位晋升']</td>
+      <td>vivo</td>
+      <td>2000人以上</td>
+      <td>2019-11-20 17:19:03</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>开发|测试|运维类</td>
+      <td>2019-11-20</td>
+      <td>sevenDays</td>
+      <td>硬件</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-11-29 10:34:39</td>
+      <td>0</td>
+      <td>股票期权,精英团队,弹性工作</td>
+      <td>6474297</td>
+      <td>['数据分析']</td>
+      <td>商业数据分析经理</td>
+      <td>4036782</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40k-80k</td>
+      <td>0</td>
+      <td>数据开发</td>
+      <td>['数据分析']</td>
+      <td>数据分析</td>
+      <td>5-10年</td>
+      <td>2019</td>
+      <td>11</td>
+      <td>20</td>
+      <td>2</td>
+      <td>60.0</td>
+    </tr>
+    <tr>
+      <th>1866</th>
+      <td>南京</td>
+      <td>上海冰鉴信息科技有限公司</td>
+      <td>93049</td>
+      <td>['福利关怀丰厚', '组织管理扁平', '年终奖金丰厚', '技术实力强大']</td>
+      <td>冰鉴科技</td>
+      <td>150-500人</td>
+      <td>2019-12-02 13:48:10</td>
+      <td>博士</td>
+      <td>C轮</td>
+      <td>金融类</td>
+      <td>1天前发布</td>
+      <td>today</td>
+      <td>信息安全,数据服务</td>
+      <td>[]</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-03 09:49:45</td>
+      <td>0</td>
+      <td>六险一金、年假、下午茶、年终2-4个月</td>
+      <td>6608166</td>
+      <td>['风险评估', '授信审查', '风控']</td>
+      <td>模型总监</td>
+      <td>10816955</td>
+      <td>1</td>
+      <td>40</td>
+      <td>50k-70k</td>
+      <td>0</td>
+      <td>风控</td>
+      <td>['风险评估', '授信审查', '风控']</td>
+      <td>风控</td>
+      <td>3-5年</td>
+      <td>2019</td>
+      <td>12</td>
+      <td>2</td>
+      <td>0</td>
+      <td>60.0</td>
+    </tr>
+    <tr>
+      <th>2445</th>
+      <td>武汉</td>
+      <td>北京字节跳动科技有限公司</td>
+      <td>62</td>
+      <td>['扁平管理', '弹性工作', '大厨定制三餐', '就近租房补贴']</td>
+      <td>字节跳动</td>
+      <td>2000人以上</td>
+      <td>2019-11-21 11:15:59</td>
+      <td>本科</td>
+      <td>C轮</td>
+      <td>开发|测试|运维类</td>
+      <td>2019-11-21</td>
+      <td>today</td>
+      <td>文娱丨内容</td>
+      <td>['后端开发']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-02 14:48:46</td>
+      <td>0</td>
+      <td>六险一金，高薪期权，免费三餐，租房补贴</td>
+      <td>5949709</td>
+      <td>['后端开发']</td>
+      <td>后端架构师-武汉</td>
+      <td>12014567</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40k-80k</td>
+      <td>0</td>
+      <td>后端开发</td>
+      <td>[]</td>
+      <td>其他后端开发</td>
+      <td>不限</td>
+      <td>2019</td>
+      <td>11</td>
+      <td>21</td>
+      <td>3</td>
+      <td>60.0</td>
+    </tr>
+    <tr>
+      <th>2507</th>
+      <td>武汉</td>
+      <td>北京字节跳动科技有限公司</td>
+      <td>62</td>
+      <td>['扁平管理', '弹性工作', '大厨定制三餐', '就近租房补贴']</td>
+      <td>字节跳动</td>
+      <td>2000人以上</td>
+      <td>2019-11-21 11:15:59</td>
+      <td>本科</td>
+      <td>C轮</td>
+      <td>开发|测试|运维类</td>
+      <td>2019-11-21</td>
+      <td>today</td>
+      <td>文娱丨内容</td>
+      <td>['后端开发']</td>
+      <td>0</td>
+      <td>0</td>
+      <td>全职</td>
+      <td>2019-12-02 14:48:46</td>
+      <td>0</td>
+      <td>六险一金，高薪期权，免费三餐，租房补贴</td>
+      <td>5949709</td>
+      <td>['后端开发']</td>
+      <td>后端架构师-武汉</td>
+      <td>12014567</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40k-80k</td>
+      <td>0</td>
+      <td>后端开发</td>
+      <td>[]</td>
+      <td>其他后端开发</td>
+      <td>不限</td>
+      <td>2019</td>
+      <td>11</td>
+      <td>21</td>
+      <td>3</td>
+      <td>60.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ser = df1.groupby(<span class="string">&#x27;city&#x27;</span>).msal.mean()</span><br><span class="line">ser</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>city
+上海    20.198630
+北京    21.044444
+南京    13.411157
+厦门    12.139098
+天津    10.400000
+广州    14.800562
+成都    12.573333
+杭州    20.122881
+武汉    12.401111
+深圳    19.473077
+苏州    13.826531
+西安     9.340237
+长沙     9.394737
+Name: msal, dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ser.plot(kind = <span class="string">&#x27;bar&#x27;</span>)</span><br><span class="line">plt.xticks(rotation = <span class="number">0</span>)  <span class="comment"># 横坐标旋转度数</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p>​<br><img data-src="output_27_0.svg" alt="svg"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_mean</span>(<span class="params">group</span>):</span></span><br><span class="line">    <span class="keyword">return</span> np.<span class="built_in">round</span>(np.mean(group),<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SAC --&gt; Split - Aggragate - Combine</span></span><br><span class="line">df1.groupby(<span class="string">&#x27;city&#x27;</span>).msal.agg([<span class="string">&#x27;max&#x27;</span>,<span class="string">&#x27;min&#x27;</span>,my_mean,np.ptp])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>max</th>
+      <th>min</th>
+      <th>my_mean</th>
+      <th>ptp</th>
+    </tr>
+    <tr>
+      <th>city</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>上海</th>
+      <td>45.0</td>
+      <td>1.5</td>
+      <td>20.2</td>
+      <td>43.5</td>
+    </tr>
+    <tr>
+      <th>北京</th>
+      <td>52.5</td>
+      <td>2.5</td>
+      <td>21.0</td>
+      <td>50.0</td>
+    </tr>
+    <tr>
+      <th>南京</th>
+      <td>60.0</td>
+      <td>1.5</td>
+      <td>13.4</td>
+      <td>58.5</td>
+    </tr>
+    <tr>
+      <th>厦门</th>
+      <td>37.5</td>
+      <td>3.0</td>
+      <td>12.1</td>
+      <td>34.5</td>
+    </tr>
+    <tr>
+      <th>天津</th>
+      <td>37.5</td>
+      <td>1.5</td>
+      <td>10.4</td>
+      <td>36.0</td>
+    </tr>
+    <tr>
+      <th>广州</th>
+      <td>40.0</td>
+      <td>1.5</td>
+      <td>14.8</td>
+      <td>38.5</td>
+    </tr>
+    <tr>
+      <th>成都</th>
+      <td>50.0</td>
+      <td>1.5</td>
+      <td>12.6</td>
+      <td>48.5</td>
+    </tr>
+    <tr>
+      <th>杭州</th>
+      <td>55.0</td>
+      <td>3.5</td>
+      <td>20.1</td>
+      <td>51.5</td>
+    </tr>
+    <tr>
+      <th>武汉</th>
+      <td>150.0</td>
+      <td>2.5</td>
+      <td>12.4</td>
+      <td>147.5</td>
+    </tr>
+    <tr>
+      <th>深圳</th>
+      <td>65.0</td>
+      <td>1.0</td>
+      <td>19.5</td>
+      <td>64.0</td>
+    </tr>
+    <tr>
+      <th>苏州</th>
+      <td>42.5</td>
+      <td>3.5</td>
+      <td>13.8</td>
+      <td>39.0</td>
+    </tr>
+    <tr>
+      <th>西安</th>
+      <td>67.5</td>
+      <td>2.5</td>
+      <td>9.3</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>长沙</th>
+      <td>25.0</td>
+      <td>3.0</td>
+      <td>9.4</td>
+      <td>22.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对多个列进行数据聚合不同的列使用不同的聚合方式</span></span><br><span class="line"><span class="comment"># 同一个列也可以作用多个聚合函数</span></span><br><span class="line">df1.groupby(<span class="string">&#x27;city&#x27;</span>)[[<span class="string">&#x27;msal&#x27;</span>,<span class="string">&#x27;companyId&#x27;</span>]].agg(&#123;</span><br><span class="line">    <span class="string">&#x27;msal&#x27;</span>:my_mean,</span><br><span class="line">    <span class="string">&#x27;companyId&#x27;</span>:[<span class="string">&#x27;nunique&#x27;</span>,<span class="string">&#x27;count&#x27;</span>]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead tr th &#123;
+    text-align: left;
+&#125;
+
+.dataframe thead tr:last-of-type th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>msal</th>
+      <th colspan="2" halign="left">companyId</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>my_mean</th>
+      <th>nunique</th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>city</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>上海</th>
+      <td>20.2</td>
+      <td>204</td>
+      <td>365</td>
+    </tr>
+    <tr>
+      <th>北京</th>
+      <td>21.0</td>
+      <td>246</td>
+      <td>450</td>
+    </tr>
+    <tr>
+      <th>南京</th>
+      <td>13.4</td>
+      <td>135</td>
+      <td>242</td>
+    </tr>
+    <tr>
+      <th>厦门</th>
+      <td>12.1</td>
+      <td>70</td>
+      <td>133</td>
+    </tr>
+    <tr>
+      <th>天津</th>
+      <td>10.4</td>
+      <td>49</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>广州</th>
+      <td>14.8</td>
+      <td>124</td>
+      <td>178</td>
+    </tr>
+    <tr>
+      <th>成都</th>
+      <td>12.6</td>
+      <td>250</td>
+      <td>450</td>
+    </tr>
+    <tr>
+      <th>杭州</th>
+      <td>20.1</td>
+      <td>80</td>
+      <td>118</td>
+    </tr>
+    <tr>
+      <th>武汉</th>
+      <td>12.4</td>
+      <td>246</td>
+      <td>450</td>
+    </tr>
+    <tr>
+      <th>深圳</th>
+      <td>19.5</td>
+      <td>142</td>
+      <td>260</td>
+    </tr>
+    <tr>
+      <th>苏州</th>
+      <td>13.8</td>
+      <td>68</td>
+      <td>98</td>
+    </tr>
+    <tr>
+      <th>西安</th>
+      <td>9.3</td>
+      <td>113</td>
+      <td>169</td>
+    </tr>
+    <tr>
+      <th>长沙</th>
+      <td>9.4</td>
+      <td>90</td>
+      <td>152</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<h3 id="透视表"><a href="#透视表" class="headerlink" title="透视表"></a>透视表</h3><blockquote>
+<p>什么是透视表：根据A统计B</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成透视表  DataFrame、A、B、聚合函数</span></span><br><span class="line">pd.pivot_table(data=df1,   <span class="comment"># DataFrame</span></span><br><span class="line">               index = <span class="string">&#x27;city&#x27;</span>,   <span class="comment"># A 被透视对象 原表格数据项(groupby属性)</span></span><br><span class="line">               values = [<span class="string">&#x27;msal&#x27;</span>,<span class="string">&#x27;companyId&#x27;</span>],   <span class="comment"># B 需要透视的数据</span></span><br><span class="line">               aggfunc = &#123;   <span class="comment"># 聚合函数</span></span><br><span class="line">                   <span class="string">&#x27;msal&#x27;</span>:my_mean,</span><br><span class="line">                   <span class="string">&#x27;companyId&#x27;</span>:<span class="string">&#x27;nunique&#x27;</span></span><br><span class="line">               &#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>companyId</th>
+      <th>msal</th>
+    </tr>
+    <tr>
+      <th>city</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>上海</th>
+      <td>204</td>
+      <td>20.2</td>
+    </tr>
+    <tr>
+      <th>北京</th>
+      <td>246</td>
+      <td>21.0</td>
+    </tr>
+    <tr>
+      <th>南京</th>
+      <td>135</td>
+      <td>13.4</td>
+    </tr>
+    <tr>
+      <th>厦门</th>
+      <td>70</td>
+      <td>12.1</td>
+    </tr>
+    <tr>
+      <th>天津</th>
+      <td>49</td>
+      <td>10.4</td>
+    </tr>
+    <tr>
+      <th>广州</th>
+      <td>124</td>
+      <td>14.8</td>
+    </tr>
+    <tr>
+      <th>成都</th>
+      <td>250</td>
+      <td>12.6</td>
+    </tr>
+    <tr>
+      <th>杭州</th>
+      <td>80</td>
+      <td>20.1</td>
+    </tr>
+    <tr>
+      <th>武汉</th>
+      <td>246</td>
+      <td>12.4</td>
+    </tr>
+    <tr>
+      <th>深圳</th>
+      <td>142</td>
+      <td>19.5</td>
+    </tr>
+    <tr>
+      <th>苏州</th>
+      <td>68</td>
+      <td>13.8</td>
+    </tr>
+    <tr>
+      <th>西安</th>
+      <td>113</td>
+      <td>9.3</td>
+    </tr>
+    <tr>
+      <th>长沙</th>
+      <td>90</td>
+      <td>9.4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df2 = pd.read_excel(<span class="string">&#x27;../files/data/2020年销售数据.xlsx&#x27;</span>)</span><br><span class="line">df2</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>销售日期</th>
+      <th>销售信息</th>
+      <th>销售区域</th>
+      <th>销售渠道</th>
+      <th>销售订单</th>
+      <th>品牌</th>
+      <th>售价</th>
+      <th>销售数量</th>
+      <th>销售额</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020-01-01</td>
+      <td>上海拼多多订单182894-455</td>
+      <td>上海</td>
+      <td>拼多多</td>
+      <td>182894-455</td>
+      <td>八匹马</td>
+      <td>99</td>
+      <td>83</td>
+      <td>8217</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020-01-01</td>
+      <td>上海抖音订单205635-402</td>
+      <td>上海</td>
+      <td>抖音</td>
+      <td>205635-402</td>
+      <td>八匹马</td>
+      <td>219</td>
+      <td>29</td>
+      <td>6351</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020-01-01</td>
+      <td>上海天猫订单205654-021</td>
+      <td>上海</td>
+      <td>天猫</td>
+      <td>205654-021</td>
+      <td>八匹马</td>
+      <td>169</td>
+      <td>85</td>
+      <td>14365</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2020-01-01</td>
+      <td>上海天猫订单205654-519</td>
+      <td>上海</td>
+      <td>天猫</td>
+      <td>205654-519</td>
+      <td>八匹马</td>
+      <td>169</td>
+      <td>14</td>
+      <td>2366</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2020-01-01</td>
+      <td>上海天猫订单377781-010</td>
+      <td>上海</td>
+      <td>天猫</td>
+      <td>377781-010</td>
+      <td>皮皮虾</td>
+      <td>249</td>
+      <td>61</td>
+      <td>15189</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1940</th>
+      <td>2020-12-30</td>
+      <td>北京京东订单D89677</td>
+      <td>北京</td>
+      <td>京东</td>
+      <td>D89677</td>
+      <td>花花姑娘</td>
+      <td>269</td>
+      <td>26</td>
+      <td>6994</td>
+    </tr>
+    <tr>
+      <th>1941</th>
+      <td>2020-12-30</td>
+      <td>福建实体订单182719-050</td>
+      <td>福建</td>
+      <td>实体</td>
+      <td>182719-050</td>
+      <td>八匹马</td>
+      <td>79</td>
+      <td>97</td>
+      <td>7663</td>
+    </tr>
+    <tr>
+      <th>1942</th>
+      <td>2020-12-31</td>
+      <td>福建实体订单G70083</td>
+      <td>福建</td>
+      <td>实体</td>
+      <td>G70083</td>
+      <td>花花姑娘</td>
+      <td>269</td>
+      <td>55</td>
+      <td>14795</td>
+    </tr>
+    <tr>
+      <th>1943</th>
+      <td>2020-12-31</td>
+      <td>福建抖音订单211471-902/704</td>
+      <td>福建</td>
+      <td>抖音</td>
+      <td>211471-902/704</td>
+      <td>八匹马</td>
+      <td>59</td>
+      <td>59</td>
+      <td>3481</td>
+    </tr>
+    <tr>
+      <th>1944</th>
+      <td>2020-12-31</td>
+      <td>福建天猫订单211807-050</td>
+      <td>福建</td>
+      <td>天猫</td>
+      <td>211807-050</td>
+      <td>八匹马</td>
+      <td>99</td>
+      <td>27</td>
+      <td>2673</td>
+    </tr>
+  </tbody>
+</table>
+<p>1945 rows × 9 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 月度销售额</span></span><br><span class="line">pd.pivot_table(data = df2,</span><br><span class="line">               index = <span class="string">&#x27;品牌&#x27;</span>,</span><br><span class="line">               columns= [<span class="string">&#x27;销售区域&#x27;</span>],</span><br><span class="line">               values = [<span class="string">&#x27;销售额&#x27;</span>],</span><br><span class="line">               aggfunc =np.<span class="built_in">sum</span>,</span><br><span class="line">               margins=<span class="literal">True</span>,   <span class="comment"># 添加总计列</span></span><br><span class="line">               margins_name=<span class="string">&#x27;总计&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead tr th &#123;
+    text-align: left;
+&#125;
+
+.dataframe thead tr:last-of-type th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="9" halign="left">销售额</th>
+    </tr>
+    <tr>
+      <th>销售区域</th>
+      <th>上海</th>
+      <th>北京</th>
+      <th>南京</th>
+      <th>安徽</th>
+      <th>广东</th>
+      <th>江苏</th>
+      <th>浙江</th>
+      <th>福建</th>
+      <th>总计</th>
+    </tr>
+    <tr>
+      <th>品牌</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>八匹马</th>
+      <td>1689384.0</td>
+      <td>1703513.0</td>
+      <td>317169.0</td>
+      <td>239382.0</td>
+      <td>214443.0</td>
+      <td>24992.0</td>
+      <td>3927.0</td>
+      <td>1141836.0</td>
+      <td>5334646</td>
+    </tr>
+    <tr>
+      <th>啊哟喂</th>
+      <td>168858.0</td>
+      <td>259090.0</td>
+      <td>49847.0</td>
+      <td>13697.0</td>
+      <td>26677.0</td>
+      <td>19104.0</td>
+      <td>8843.0</td>
+      <td>147043.0</td>
+      <td>693159</td>
+    </tr>
+    <tr>
+      <th>壁虎</th>
+      <td>1573379.0</td>
+      <td>1381350.0</td>
+      <td>195633.0</td>
+      <td>148002.0</td>
+      <td>22146.0</td>
+      <td>5475.0</td>
+      <td>202228.0</td>
+      <td>1150766.0</td>
+      <td>4678979</td>
+    </tr>
+    <tr>
+      <th>皮皮虾</th>
+      <td>2939357.0</td>
+      <td>2365844.0</td>
+      <td>480544.0</td>
+      <td>55771.0</td>
+      <td>95826.0</td>
+      <td>99989.0</td>
+      <td>NaN</td>
+      <td>1854940.0</td>
+      <td>7892271</td>
+    </tr>
+    <tr>
+      <th>花花姑娘</th>
+      <td>5239511.0</td>
+      <td>6767920.0</td>
+      <td>724108.0</td>
+      <td>438611.0</td>
+      <td>1258857.0</td>
+      <td>387519.0</td>
+      <td>472864.0</td>
+      <td>5883642.0</td>
+      <td>21173032</td>
+    </tr>
+    <tr>
+      <th>总计</th>
+      <td>11610489.0</td>
+      <td>12477717.0</td>
+      <td>1767301.0</td>
+      <td>895463.0</td>
+      <td>1617949.0</td>
+      <td>537079.0</td>
+      <td>687862.0</td>
+      <td>10178227.0</td>
+      <td>39772087</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 品牌销售占比</span></span><br><span class="line">temp = pd.pivot_table(data = df2,</span><br><span class="line">                     index = <span class="string">&#x27;品牌&#x27;</span>,</span><br><span class="line">                     values = <span class="string">&#x27;销售额&#x27;</span>,</span><br><span class="line">                     aggfunc = <span class="string">&#x27;sum&#x27;</span>,</span><br><span class="line">                     margins=<span class="literal">True</span>,</span><br><span class="line">                     margins_name=<span class="string">&#x27;总计&#x27;</span>)</span><br><span class="line">temp</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>销售额</th>
+    </tr>
+    <tr>
+      <th>品牌</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>八匹马</th>
+      <td>5334646</td>
+    </tr>
+    <tr>
+      <th>啊哟喂</th>
+      <td>693159</td>
+    </tr>
+    <tr>
+      <th>壁虎</th>
+      <td>4678979</td>
+    </tr>
+    <tr>
+      <th>皮皮虾</th>
+      <td>7892271</td>
+    </tr>
+    <tr>
+      <th>花花姑娘</th>
+      <td>21173032</td>
+    </tr>
+    <tr>
+      <th>总计</th>
+      <td>39772087</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 品牌销售占比</span></span><br><span class="line">temp.plot(kind = <span class="string">&#x27;pie&#x27;</span>,autopct = <span class="string">&#x27;%.2f%%&#x27;</span>,subplots=<span class="literal">True</span>)</span><br><span class="line">plt.show</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;function matplotlib.pyplot.show(close=None, block=None)&gt;
+</code></pre>
+<p>​<br><img data-src="output_35_1.svg" alt="svg"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 各地区销售额</span></span><br><span class="line">pd.pivot_table(data = df2,</span><br><span class="line">              index = <span class="string">&#x27;销售区域&#x27;</span>,</span><br><span class="line">              values = [<span class="string">&#x27;销售额&#x27;</span>],</span><br><span class="line">              columns = <span class="string">&#x27;品牌&#x27;</span>,</span><br><span class="line">              aggfunc = <span class="string">&#x27;sum&#x27;</span>,</span><br><span class="line">              margins=<span class="literal">True</span>,</span><br><span class="line">              margins_name=<span class="string">&#x27;总计&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead tr th &#123;
+    text-align: left;
+&#125;
+
+.dataframe thead tr:last-of-type th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="6" halign="left">销售额</th>
+    </tr>
+    <tr>
+      <th>品牌</th>
+      <th>八匹马</th>
+      <th>啊哟喂</th>
+      <th>壁虎</th>
+      <th>皮皮虾</th>
+      <th>花花姑娘</th>
+      <th>总计</th>
+    </tr>
+    <tr>
+      <th>销售区域</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>上海</th>
+      <td>1689384.0</td>
+      <td>168858.0</td>
+      <td>1573379.0</td>
+      <td>2939357.0</td>
+      <td>5239511.0</td>
+      <td>11610489</td>
+    </tr>
+    <tr>
+      <th>北京</th>
+      <td>1703513.0</td>
+      <td>259090.0</td>
+      <td>1381350.0</td>
+      <td>2365844.0</td>
+      <td>6767920.0</td>
+      <td>12477717</td>
+    </tr>
+    <tr>
+      <th>南京</th>
+      <td>317169.0</td>
+      <td>49847.0</td>
+      <td>195633.0</td>
+      <td>480544.0</td>
+      <td>724108.0</td>
+      <td>1767301</td>
+    </tr>
+    <tr>
+      <th>安徽</th>
+      <td>239382.0</td>
+      <td>13697.0</td>
+      <td>148002.0</td>
+      <td>55771.0</td>
+      <td>438611.0</td>
+      <td>895463</td>
+    </tr>
+    <tr>
+      <th>广东</th>
+      <td>214443.0</td>
+      <td>26677.0</td>
+      <td>22146.0</td>
+      <td>95826.0</td>
+      <td>1258857.0</td>
+      <td>1617949</td>
+    </tr>
+    <tr>
+      <th>江苏</th>
+      <td>24992.0</td>
+      <td>19104.0</td>
+      <td>5475.0</td>
+      <td>99989.0</td>
+      <td>387519.0</td>
+      <td>537079</td>
+    </tr>
+    <tr>
+      <th>浙江</th>
+      <td>3927.0</td>
+      <td>8843.0</td>
+      <td>202228.0</td>
+      <td>NaN</td>
+      <td>472864.0</td>
+      <td>687862</td>
+    </tr>
+    <tr>
+      <th>福建</th>
+      <td>1141836.0</td>
+      <td>147043.0</td>
+      <td>1150766.0</td>
+      <td>1854940.0</td>
+      <td>5883642.0</td>
+      <td>10178227</td>
+    </tr>
+    <tr>
+      <th>总计</th>
+      <td>5334646.0</td>
+      <td>693159.0</td>
+      <td>4678979.0</td>
+      <td>7892271.0</td>
+      <td>21173032.0</td>
+      <td>39772087</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 各渠道品牌销量</span></span><br><span class="line">pd.pivot_table(data = df2,</span><br><span class="line">              index = [<span class="string">&#x27;销售渠道&#x27;</span>],</span><br><span class="line">              columns = [<span class="string">&#x27;品牌&#x27;</span>],</span><br><span class="line">              values =[<span class="string">&#x27;销售数量&#x27;</span>],</span><br><span class="line">              aggfunc = <span class="string">&#x27;sum&#x27;</span>,</span><br><span class="line">              margins = <span class="literal">True</span>,</span><br><span class="line">              margins_name = <span class="string">&#x27;总计&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead tr th &#123;
+    text-align: left;
+&#125;
+
+.dataframe thead tr:last-of-type th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="6" halign="left">销售数量</th>
+    </tr>
+    <tr>
+      <th>品牌</th>
+      <th>八匹马</th>
+      <th>啊哟喂</th>
+      <th>壁虎</th>
+      <th>皮皮虾</th>
+      <th>花花姑娘</th>
+      <th>总计</th>
+    </tr>
+    <tr>
+      <th>销售渠道</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>京东</th>
+      <td>5428</td>
+      <td>733</td>
+      <td>3199</td>
+      <td>3090</td>
+      <td>9072</td>
+      <td>21522</td>
+    </tr>
+    <tr>
+      <th>天猫</th>
+      <td>9416</td>
+      <td>926</td>
+      <td>4824</td>
+      <td>5980</td>
+      <td>15881</td>
+      <td>37027</td>
+    </tr>
+    <tr>
+      <th>实体</th>
+      <td>3600</td>
+      <td>462</td>
+      <td>2174</td>
+      <td>2684</td>
+      <td>4991</td>
+      <td>13911</td>
+    </tr>
+    <tr>
+      <th>抖音</th>
+      <td>2978</td>
+      <td>541</td>
+      <td>2065</td>
+      <td>1995</td>
+      <td>4966</td>
+      <td>12545</td>
+    </tr>
+    <tr>
+      <th>拼多多</th>
+      <td>5722</td>
+      <td>719</td>
+      <td>3119</td>
+      <td>3750</td>
+      <td>9088</td>
+      <td>22398</td>
+    </tr>
+    <tr>
+      <th>总计</th>
+      <td>27144</td>
+      <td>3381</td>
+      <td>15381</td>
+      <td>17499</td>
+      <td>43998</td>
+      <td>107403</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不同售价区间的阅读销量占比</span></span><br><span class="line"><span class="comment"># 分箱，将连续的数据放到离散的箱子中基于分箱的结果在进行分组</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;MAX:&#x27;</span>,df2[<span class="string">&#x27;售价&#x27;</span>].<span class="built_in">max</span>())</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;MIN:&#x27;</span>,df2[<span class="string">&#x27;售价&#x27;</span>].<span class="built_in">min</span>())</span><br><span class="line">box = pd.cut(df2[<span class="string">&#x27;售价&#x27;</span>],bins = [<span class="number">50</span>,<span class="number">300</span>,<span class="number">550</span>,<span class="number">800</span>,<span class="number">1050</span>,<span class="number">1300</span>,<span class="number">1550</span>])</span><br><span class="line">temp2 = df2.groupby(box)[<span class="string">&#x27;售价&#x27;</span>].count()</span><br><span class="line">temp2</span><br></pre></td></tr></table></figure>
+
+<pre><code>MAX: 1499
+MIN: 59
+
+
+
+
+
+售价
+(50, 300]       917
+(300, 550]      745
+(550, 800]      171
+(800, 1050]      74
+(1050, 1300]     32
+(1300, 1550]      6
+Name: 售价, dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">temp2.plot(kind = <span class="string">&#x27;pie&#x27;</span>,autopct = <span class="string">&#x27;%.2f%%&#x27;</span>)</span><br><span class="line">plt.show</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;function matplotlib.pyplot.show(close=None, block=None)&gt;
+</code></pre>
+<p>​<br><img data-src="output_39_1.svg" alt="svg"><br>​    </p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2021-09-17 19:01:40" itemprop="dateModified" datetime="2021-09-17T19:01:40+08:00">2021-09-17</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="HoneyGrapefruit WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="HoneyGrapefruit Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="HoneyGrapefruit PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>HoneyGrapefruit <i class="ic i-at"><em>@</em></i>宗志雄的技术专栏
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://babybear.top/2021/09/27/Pandas%20%E8%BF%9B%E9%98%B6/" title="">http://babybear.top/2021/09/27/Pandas 进阶/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/09/27/NumPy%E7%9A%84%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8(example)/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclhnx9glj20zk0m8npd.jpg" title="Untitled">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Untitled</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2021/09/27/Pandas%20%E5%85%A5%E9%97%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeudstjqj20zk0m8k3r.jpg" title="Untitled">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Untitled</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E8%88%AC%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">数据分析的一般流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-1"><span class="toc-number">2.</span> <span class="toc-text">Example 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example-2"><span class="toc-number">3.</span> <span class="toc-text">Example 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%8F%E8%A7%86%E8%A1%A8"><span class="toc-number">4.</span> <span class="toc-text">透视表</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="HoneyGrapefruit"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">HoneyGrapefruit</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">25</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hvbmVHcmFwZWZydWl0" title="https:&#x2F;&#x2F;github.com&#x2F;HoneGrapefruit"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/09/27/NumPy%E7%9A%84%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8(example)/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/09/27/Pandas%20%E5%85%A5%E9%97%A8/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/11/%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4(%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%B0%81%E8%A3%85%E4%B8%BA%E6%96%B9%E6%B3%95/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/NumPy%E7%9A%84%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8(example)/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%20-%20xpath%E8%A7%A3%E6%9E%90XML%E3%80%81HTML/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/DB%20-%20database/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/python%20%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8A%9E%E5%85%AC%20-%20%E9%82%AE%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E9%80%81/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Pymysql%20%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E6%89%B9%E5%A4%84%E7%90%86/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%20%20%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/11/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HoneyGrapefruit @ Super Bear</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/09/27/Pandas 进阶/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

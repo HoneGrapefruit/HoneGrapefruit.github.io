@@ -1,0 +1,588 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="宗志雄的技术专栏" href="http://babybear.top/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="宗志雄的技术专栏" href="http://babybear.top/atom.xml" />
+<link rel="alternate" type="application/json" title="宗志雄的技术专栏" href="http://babybear.top/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="http://babybear.top/2021/09/27/Python%E9%98%9F%E5%88%97%20%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%20%20%E8%BF%9B%E7%A8%8B%E6%B1%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
+
+
+
+  <title>
+ |
+Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2021-09-27 10:24:13">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-09-27T10:24:13+08:00">2021-09-27</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Super Bear</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4baakhj20zk0m8h5q.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicliierfjj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipewr8iypj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclga70tsj20zk0m84mr.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexw3o58j20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipet4bz0yj20zk0m8e81.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh">
+  <link itemprop="mainEntityOfPage" href="http://babybear.top/2021/09/27/Python%E9%98%9F%E5%88%97%20%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%20%20%E8%BF%9B%E7%A8%8B%E6%B1%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="HoneyGrapefruit">
+    <meta itemprop="description" content="人生苦短，我用Python, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="宗志雄的技术专栏">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="Python队列-线程池-进程池-基本概念以及使用方法"><a href="#Python队列-线程池-进程池-基本概念以及使用方法" class="headerlink" title="Python队列  线程池  进程池 基本概念以及使用方法"></a>Python队列  线程池  进程池 基本概念以及使用方法</h1><h2 id="线程、进程概念"><a href="#线程、进程概念" class="headerlink" title="线程、进程概念"></a>线程、进程概念</h2><p>算是对上一篇文章的回顾，具体细节参见上文。</p>
+<h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>进程：一个正在运行的应用程序就是一个进程。一个进程是运行在其专用且受保护的内存空间中</p>
+<p>线程：一个进程要执行任务必须要有线程。</p>
+<p>进程  —  车间         线程  —  车间工人</p>
+<p>线程的特点：一个线程执行多个任务是串行执行的</p>
+<p>多线程：一个进程中有多个线程。多线程可以并行(同时)执行多个任务</p>
+<p>多线程原理：多线程技术是通过利用CPU空闲时间干活来提高程序执行效率</p>
+<h4 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h4><p>一个应用程序默认对应一个进程，这个进程(主进程)中默认有一个线程(主线程)</p>
+<h6 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br></pre></td></tr></table></figure>
+
+<p>1)、直接使用Thread类</p>
+<p>线程对象 = Thread(target = 函数,args = 参数对应的元组)</p>
+<p>线程对象.start()</p>
+<p>线程对象.join()</p>
+<p>2)、使用Thread类的子类</p>
+<p>class 线程子类(Thread):</p>
+<p>​    def _ <em>init</em>_(self):</p>
+<p>​        super()._ <em>init</em>_()</p>
+<p>​        实现线程对象任务需要的额外数据对应的属性</p>
+<p>​    def run(self) -&gt; None:</p>
+<p>​        线程任务<br>​<br>​        </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process</span><br></pre></td></tr></table></figure>
+
+<p>3)、进程</p>
+<p>进程对象 = Thread(target = 函数,args = 参数对应的元组)</p>
+<p>进程对象.start()</p>
+<p>进程对象.join()</p>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><h4 id="线程队列"><a href="#线程队列" class="headerlink" title="线程队列"></a>线程队列</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Queue</span><br></pre></td></tr></table></figure>
+
+<p>Queue模块中的队列，只能保存一般数据或者多线程中产生的数据(多用于多线程,自带线程安全属性)<br>但是不能用来存储多进程产生的数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 1、队列基本用法</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1)、创建队列对象</span></span><br><span class="line">    queue = Queue()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2)、添加数据(进)  ---  队列对象.put(数据)</span></span><br><span class="line">    queue.put(<span class="number">9</span>)</span><br><span class="line">    queue.put(<span class="number">99</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3)、获取数据(出)  ---  队列对象.get()</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;队列queue中元素个数:<span class="subst">&#123;queue.qsize()&#125;</span>&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(queue.get())</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;队列queue中元素个数:<span class="subst">&#123;queue.qsize()&#125;</span>&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(queue.get())</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;队列queue中元素个数:<span class="subst">&#123;queue.qsize()&#125;</span>&#x27;</span>)</span><br><span class="line">    <span class="comment"># 4)、获取队列中元素个数:队列对象.qsize()</span></span><br><span class="line">    <span class="comment"># 5)、通过get获取数据的时候如果队列中没有数据，get方法会等待，直到队列有数据或超时</span></span><br><span class="line">    <span class="built_in">print</span>(queue.get(timeout=<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="队列在线程中的使用方法"><a href="#队列在线程中的使用方法" class="headerlink" title="队列在线程中的使用方法"></a>队列在线程中的使用方法</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Queue,Empty</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br></pre></td></tr></table></figure>
+
+<p>模拟电影下载函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span>(<span class="params">movie_name</span>):</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;movie_name&#125;</span>开始下载&#x27;</span>)</span><br><span class="line">    time.sleep(randint(<span class="number">1</span>,<span class="number">5</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;movie_name&#125;</span>下载完成&#x27;</span>)</span><br><span class="line">    queue.put(<span class="string">f&#x27;<span class="subst">&#123;movie_name&#125;</span>数据&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>处理数据函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deal_data</span>():</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">        data = queue.get()</span><br><span class="line">        <span class="keyword">if</span>(data == <span class="string">&#x27;End&#x27;</span>):</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;处理<span class="subst">&#123;data&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    queue = Queue()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建子线程处理数据(方式三对应的代码)</span></span><br><span class="line">    deal_thread = Thread(target=deal_data)</span><br><span class="line">    deal_thread.start()</span><br><span class="line"></span><br><span class="line">    threads = []</span><br><span class="line">    names = [<span class="string">f&#x27;电影<span class="subst">&#123;x&#125;</span>&#x27;</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">11</span>)]</span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> names:</span><br><span class="line">        thread = Thread(target=download,args=(name,))</span><br><span class="line">        thread.start()</span><br><span class="line">        threads.append(thread)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取队列数据方式1:能做到子线程得到数据主线程能立马处理数据，但数据处理完程序无法结束</span></span><br><span class="line">    <span class="comment"># while(True):</span></span><br><span class="line">    <span class="comment">#     data = queue.get()</span></span><br><span class="line">    <span class="comment">#     print(f&#x27;处理&#123;data&#125;数据&#x27;)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取队列数据方式2:能做到子线程得到数据主线程能立马处理数据，通过超时来判断数据是否处理完成</span></span><br><span class="line">    <span class="comment"># while(True):</span></span><br><span class="line">    <span class="comment">#     try:</span></span><br><span class="line">    <span class="comment">#         data = queue.get(timeout=5)</span></span><br><span class="line">    <span class="comment">#         print(f&#x27;处理&#123;data&#125;数据&#x27;)</span></span><br><span class="line">    <span class="comment">#     except Empty:</span></span><br><span class="line">    <span class="comment">#         break</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3、在所有下载数据的线程都结束的时候在队列中添加结束标记,在子线程去获取队列来处理</span></span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> threads:</span><br><span class="line">        t.join()</span><br><span class="line"></span><br><span class="line">    queue.put(<span class="string">&#x27;End&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>定义全局变量可以在任何一个线程中使用。</p>
+<h4 id="进程队列"><a href="#进程队列" class="headerlink" title="进程队列"></a>进程队列</h4><p><em><strong>全局变量无法解决数据的跨进程使用,但可以采用返回值</strong></em><br>1)、基本操作</p>
+<p>​    创建队列对象:Queue()</p>
+<p>​    添加数据：队列对象.put(数据)</p>
+<p>​    获取数据：队列对象.get() / 队列对象.get(timeout = 超时时间)</p>
+<p>2)、注意事项</p>
+<p>如果想要使用一个队列对象获取不同进程</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process,Queue,current_process</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span>(<span class="params">movie_name,q:Queue</span>):</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;movie_name&#125;</span>开始下载&#x27;</span>)</span><br><span class="line">    time.sleep(randint(<span class="number">1</span>,<span class="number">5</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;movie_name&#125;</span>下载完成&#x27;</span>)</span><br><span class="line">    q.put(<span class="string">f&#x27;<span class="subst">&#123;movie_name&#125;</span>&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(current_process())</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deal_data</span>(<span class="params">q:Queue</span>):</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">        data = q.get()</span><br><span class="line">        <span class="keyword">if</span>(data == <span class="string">&#x27;End&#x27;</span>):</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;处理<span class="subst">&#123;data&#125;</span>&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(current_process())</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    queue = Queue()</span><br><span class="line"></span><br><span class="line">    process = Process(target=download,args=(<span class="string">&#x27;电影1&#x27;</span>,queue))</span><br><span class="line">    process.start()</span><br><span class="line">    process.join()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(queue.get())</span><br></pre></td></tr></table></figure>
+
+<p>练习：使用多个进程同时下载多个电影，将下载的电影数据保存到队列中，在一个新的进程中去处理下载到的数据</p>
+<p>做到：边下载边处理，下载完就处理完，处理完程序马上结束</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">processes = []</span><br><span class="line">names = [<span class="string">f&#x27;电影<span class="subst">&#123;x&#125;</span>&#x27;</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">11</span>)]</span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</span><br><span class="line">    p = Process(target=download,args=(name,queue))</span><br><span class="line">    p.start()</span><br><span class="line">    processes.append(p)</span><br><span class="line"></span><br><span class="line">p1 = Process(target=deal_data,args=(queue,))</span><br><span class="line">p1.start()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> p <span class="keyword">in</span> processes:</span><br><span class="line">    p.join()</span><br><span class="line"></span><br><span class="line">queue.put(<span class="string">&#x27;End&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> concurrent.futures <span class="keyword">import</span> ThreadPoolExecutor</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> current_thread</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span>(<span class="params">movie_name</span>):</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;movie_name&#125;</span>开始下载&#x27;</span>)</span><br><span class="line">    time.sleep(randint(<span class="number">1</span>,<span class="number">5</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;movie_name&#125;</span>下载完成&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(current_thread())</span><br></pre></td></tr></table></figure>
+
+<p>线程池的工作原理 : 提前创建指定个数的线程，保存到一个线程池中</p>
+<p>​                                  然后再往线程池中添加若干个任务，线程池自动为线程分配任务</p>
+<ol>
+<li>创建线程池,确定线程池中线程数量</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pool = ThreadPoolExecutor(max_workers = <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>往线程池中添加任务</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">names = [<span class="string">f&#x27;电影<span class="subst">&#123;x&#125;</span>&#x27;</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>)]</span><br></pre></td></tr></table></figure>
+
+<p>​    1)、一次添加一个任务<br>​    线程池.submit(函数,参数1,参数2…)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</span><br><span class="line">    pool.submit(download,name)</span><br></pre></td></tr></table></figure>
+
+<p>​    2)、一次性添加多个任务<br>​    线程.map(函数,包含所有任务的参数的序列)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pool.<span class="built_in">map</span>(download,names)</span><br></pre></td></tr></table></figure>
+
+<p>​    3)、关闭线程池</p>
+<p>​    线程池.shutdown()  —  关闭线程池以后,线程池无法再添加任务,但是不影响已经添加的任务的执    行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pool.shutdown()</span><br></pre></td></tr></table></figure>
+
+<h4 id="线程池的使用及功能"><a href="#线程池的使用及功能" class="headerlink" title="线程池的使用及功能"></a>线程池的使用及功能</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span>(<span class="params">movie_name,x</span>):</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;movie_name&#125;</span>-<span class="subst">&#123;x&#125;</span>开始下载&#x27;</span>)</span><br><span class="line">    time.sleep(randint(<span class="number">1</span>, <span class="number">5</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;movie_name&#125;</span>-<span class="subst">&#123;x&#125;</span>下载完成&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> movie_name</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1、创建线程池</span></span><br><span class="line">    pool = ThreadPoolExecutor(max_workers = <span class="number">30</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2、添加任务</span></span><br><span class="line">    <span class="comment"># 线程池.submit(函数)  ---  函数可以是有任意多个参数的函数;返回值是一个可操作的future对象</span></span><br><span class="line">    <span class="comment"># 线程池.map(函数)  ---  函数只能为有且只有一个参数的函数;返回值没法控制和操作</span></span><br><span class="line">    pool.submit(download, <span class="string">&#x27;天若有情&#x27;</span>, <span class="number">9</span>)</span><br><span class="line">    all_movies = [pool.submit(download, <span class="string">f&#x27;电影<span class="subst">&#123;x&#125;</span>&#x27;</span>, x * <span class="number">9</span>) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">100</span>)]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3、等待任务完成</span></span><br><span class="line">    <span class="comment"># wait(all_movies,return_when = ALL_COMPLETED)</span></span><br><span class="line">    <span class="comment"># print(&#x27;所有电影下载完成!&#x27;)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4、获取任务函数的返回值</span></span><br><span class="line">    <span class="keyword">for</span> movie <span class="keyword">in</span> as_completed(all_movies):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;--------------------<span class="subst">&#123;movie.result()&#125;</span>--------------------&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="进程池"><a href="#进程池" class="headerlink" title="进程池"></a>进程池</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span>(<span class="params">movie_name</span>):</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;movie_name&#125;</span>开始下载&#x27;</span>)</span><br><span class="line">    time.sleep(randint(<span class="number">1</span>, <span class="number">5</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;movie_name&#125;</span>下载完成&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> movie_name</span><br></pre></td></tr></table></figure>
+
+<p>1)、一次添加一个任务</p>
+<p>a.进程池对象.apply(函数, 参数)  —  同步/串行(一个一个执行);进程池中的多个任务串行执行</p>
+<p>b.进程池对象.apply_async(函数, 参数)  —  异步/并行;必须配合close()、join()一起使用</p>
+<p>函数 - 任务对应的函数的函数名</p>
+<p>参数 - 元组;调用任务函数的时候的实参,需要多少个实参,元祖中就有多少个元素</p>
+<p>2)、一次添加多个任务</p>
+<p>进程池对象.map(函数,参数序列)  —  序列中有多少个元素就添加多少个任务;</p>
+<p>​                      进程池中的任务并行,进程池中的任务和主进程串行</p>
+<p>进程池.map_async(函数,参数序列)  —  进程池中的任务和主程序并行执行</p>
+<p>map 和 map_async的返回值是所有任务对应的函数的返回值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    pool = Pool(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># -------------------------------------------------------------------</span></span><br><span class="line">    <span class="comment"># pool.apply(download, (&#x27;天若有情&#x27;,))</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment"># for movie in range(20):</span></span><br><span class="line">    <span class="comment">#     pool.apply_async(download, (f&#x27;电影&#123;movie&#125;&#x27;,))</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># result = pool.map_async(download,[f&#x27;电影&#123;x&#125;&#x27; for x in range(20)])</span></span><br><span class="line">    result = pool.map_async(download,[<span class="string">f&#x27;电影<span class="subst">&#123;x&#125;</span>&#x27;</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>)])</span><br><span class="line">    <span class="comment">#--------------------------------------------------------------------</span></span><br><span class="line">    <span class="comment"># 3、关闭进程池阻止向进程池内添加任务</span></span><br><span class="line">    pool.close()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4、等待进程池内的任务全都结束</span></span><br><span class="line">    pool.join()</span><br><span class="line">    <span class="built_in">print</span>(result.get())   <span class="comment">#map_async</span></span><br><span class="line">    <span class="built_in">print</span>(result)   <span class="comment">#map</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="线程池的使用-—-51job爬取"><a href="#线程池的使用-—-51job爬取" class="headerlink" title="线程池的使用  —  51job爬取"></a>线程池的使用  —  51job爬取</h6><p>网页数据获取函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_one_page</span>(<span class="params">page:<span class="built_in">int</span></span>):</span></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4542.2 Safari/537.36&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    url = <span class="string">f&#x27;https://search.51job.com/list/090200,000000,0000,00,9,99,%25E6%2595%25B0%25E6%258D%25AE%25E5%2588%2586%25E6%259E%2590,2,<span class="subst">&#123;page&#125;</span>.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=&#x27;</span></span><br><span class="line">    response = requests.get(url, headers = headers)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># return response.text</span></span><br><span class="line">    <span class="comment"># 正则选取网页中接口数据</span></span><br><span class="line">    json = findall(<span class="string">r&#x27;window.__SEARCH_RESULT__ = (.+?)&lt;/script&gt;&#x27;</span>,response.text)[<span class="number">0</span>]</span><br><span class="line">    <span class="comment"># return json</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># json数据转python字典数据</span></span><br><span class="line">    messages = loads(json)</span><br><span class="line">    <span class="comment"># return messages</span></span><br><span class="line">    job_message = []</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 遍历字典中&#x27;engine_search_result&#x27;列表将岗位信息添加到job_message中</span></span><br><span class="line">    <span class="keyword">for</span> result <span class="keyword">in</span> messages[<span class="string">&#x27;engine_search_result&#x27;</span>]:</span><br><span class="line">        job_message.append(&#123;</span><br><span class="line">            <span class="string">&#x27;岗位名称&#x27;</span>:result[<span class="string">&#x27;job_name&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;公司名称&#x27;</span>: result[<span class="string">&#x27;company_name&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;公司详情网址&#x27;</span>: result[<span class="string">&#x27;company_href&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;薪资待遇&#x27;</span>: result[<span class="string">&#x27;providesalary_text&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;工作地点&#x27;</span>: result[<span class="string">&#x27;workarea_text&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;公司类型&#x27;</span>: result[<span class="string">&#x27;companytype_text&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;福利待遇&#x27;</span>: result[<span class="string">&#x27;jobwelf&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;公司方向&#x27;</span>: result[<span class="string">&#x27;companyind_text&#x27;</span>]</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="keyword">return</span> job_message</span><br></pre></td></tr></table></figure>
+
+<p>创建线程池</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pool = ThreadPoolExecutor(max_workers=20)</span><br><span class="line">all_jobs = []</span><br></pre></td></tr></table></figure>
+
+<p>添加任务</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> page <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">176</span>):</span><br><span class="line">    all_jobs.append(pool.submit(get_one_page,page))</span><br></pre></td></tr></table></figure>
+
+<p>在主线程中写入保存数据(此时主线程空闲)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">file = <span class="built_in">open</span>(<span class="string">&#x27;files/jobs.csv&#x27;</span>,<span class="string">&#x27;a&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">writer = csv.DictWriter(file,[<span class="string">&#x27;岗位名称&#x27;</span>,<span class="string">&#x27;公司名称&#x27;</span>,<span class="string">&#x27;公司详情网址&#x27;</span>,<span class="string">&#x27;薪资待遇&#x27;</span>,<span class="string">&#x27;工作地点&#x27;</span>,<span class="string">&#x27;公司类型&#x27;</span>,<span class="string">&#x27;福利待遇&#x27;</span>,<span class="string">&#x27;公司方向&#x27;</span>])</span><br><span class="line">writer.writeheader()</span><br><span class="line"><span class="keyword">for</span> job <span class="keyword">in</span> as_completed(all_jobs):</span><br><span class="line">    writer.writerows(job.result())</span><br></pre></td></tr></table></figure>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2021-08-18 19:25:40" itemprop="dateModified" datetime="2021-08-18T19:25:40+08:00">2021-08-18</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="HoneyGrapefruit WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="HoneyGrapefruit Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="HoneyGrapefruit PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>HoneyGrapefruit <i class="ic i-at"><em>@</em></i>宗志雄的技术专栏
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://babybear.top/2021/09/27/Python%E9%98%9F%E5%88%97%20%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%20%20%E8%BF%9B%E7%A8%8B%E6%B1%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="">http://babybear.top/2021/09/27/Python队列  线程池  进程池 基本概念以及使用方法/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/09/27/Python%20%E5%85%89%E5%AD%A6%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicivghyooj20zk0m8dir.jpg" title="Untitled">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Untitled</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2021/09/27/requests%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitf0kl1j20zk0m87fe.jpg" title="Untitled">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Untitled</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python%E9%98%9F%E5%88%97-%E7%BA%BF%E7%A8%8B%E6%B1%A0-%E8%BF%9B%E7%A8%8B%E6%B1%A0-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">Python队列  线程池  进程池 基本概念以及使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E3%80%81%E8%BF%9B%E7%A8%8B%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">线程、进程概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.0.2.0.1.</span> <span class="toc-text">使用方法</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%9F%E5%88%97"><span class="toc-number">1.2.</span> <span class="toc-text">队列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E9%98%9F%E5%88%97"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">线程队列</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%98%9F%E5%88%97%E5%9C%A8%E7%BA%BF%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.0.1.1.</span> <span class="toc-text">队列在线程中的使用方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E9%98%9F%E5%88%97"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">进程队列</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-number">1.3.</span> <span class="toc-text">线程池</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%8A%9F%E8%83%BD"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">线程池的使用及功能</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%B1%A0"><span class="toc-number">1.4.</span> <span class="toc-text">进程池</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%BD%BF%E7%94%A8-%E2%80%94-51job%E7%88%AC%E5%8F%96"><span class="toc-number">1.4.0.0.0.1.</span> <span class="toc-text">线程池的使用  —  51job爬取</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="HoneyGrapefruit"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">HoneyGrapefruit</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">25</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hvbmVHcmFwZWZydWl0" title="https:&#x2F;&#x2F;github.com&#x2F;HoneGrapefruit"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/09/27/Python%20%E5%85%89%E5%AD%A6%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/09/27/requests%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%20%20%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/%E4%BD%BF%E7%94%A8selenium%E4%B8%8E%E7%BD%91%E9%A1%B5%E4%BA%A4%E4%BA%92%E3%80%81%E5%B5%8C%E5%A5%97%E7%BD%91%E9%A1%B5%E7%88%AC%E5%8F%96/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/NumPy%E7%9A%84%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8(example)/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%20%E5%85%89%E5%AD%A6%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/DB%20-%20database/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/requests%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/24/MySQL%20%E7%AE%80%E6%98%93%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/%E8%AE%A4%E8%AF%86Numpy/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/11/%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4(%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)/" title="Untitled">Untitled</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HoneyGrapefruit @ Super Bear</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/09/27/Python队列  线程池  进程池 基本概念以及使用方法/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

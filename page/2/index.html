@@ -1,0 +1,649 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="宗志雄的技术专栏" href="http://babybear.top/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="宗志雄的技术专栏" href="http://babybear.top/atom.xml" />
+<link rel="alternate" type="application/json" title="宗志雄的技术专栏" href="http://babybear.top/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="http://babybear.top/page/2/">
+
+
+
+  <title>Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+            <a href="/" class="logo" rel="start"><p class="artboard">Super Bear</p>
+              <h1 itemprop="name headline" class="title">宗志雄的技术专栏</h1>
+            </a>
+            <p class="meta" itemprop="description">= 人生苦短，我用Python =</p>
+          
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Super Bear</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipesng5oej20zk0m87d4.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexw3o58j20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclj61ylzj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitf0kl1j20zk0m87fe.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclga70tsj20zk0m84mr.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="index wrap">
+    <div class="segments posts">
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2021/09/27/requests%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86%E4%BB%A5%E5%8F%8Aselenium%E7%9A%84%E4%BD%BF%E7%94%A8(%E6%B7%98%E5%AE%9D%E7%BB%95%E8%BF%87%E7%99%BB%E5%BD%95%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AE)/" itemprop="url" title="Untitled"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gicit31ffoj20zk0m8naf.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2021-09-27 10:24:13">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2021-09-27T10:24:13+08:00">2021-09-27</time>
+  </span>
+</div>
+
+    <h3><a href="/2021/09/27/requests%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86%E4%BB%A5%E5%8F%8Aselenium%E7%9A%84%E4%BD%BF%E7%94%A8(%E6%B7%98%E5%AE%9D%E7%BB%95%E8%BF%87%E7%99%BB%E5%BD%95%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AE)/" itemprop="url" title="Untitled">Untitled</a></h3>
+    <div class="excerpt">
+        requests添加代理以及selenium的使用(淘宝绕过登录爬取数据)requests添加代理获取代理IP(蘑菇代理) — 会返回一个网址
+1234567891011def get_ip(): response = requests.get(&amp;#x27;返回的网址&amp;#x27;) if(response.text[0] == &amp;#x27;&amp;#123;&amp;#x27;): print(&amp;#x27;IP提取频率过快！10秒后再试试吧!&amp;#x27;) return None return [ip for ip in...
+    </div>
+    <a href="/2021/09/27/requests%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86%E4%BB%A5%E5%8F%8Aselenium%E7%9A%84%E4%BD%BF%E7%94%A8(%E6%B7%98%E5%AE%9D%E7%BB%95%E8%BF%87%E7%99%BB%E5%BD%95%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AE)/" itemprop="url" title="Untitled" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2021/09/27/requests%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" title="Untitled"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gicitzannuj20zk0m8b29.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2021-09-27 10:24:13">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2021-09-27T10:24:13+08:00">2021-09-27</time>
+  </span>
+</div>
+
+    <h3><a href="/2021/09/27/requests%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" title="Untitled">Untitled</a></h3>
+    <div class="excerpt">
+        requests的使用方法直接获取1import requests
+
+python基于HTTP协议进行网络请求的第三方库
+发送请求 1、requests.get(url, *, headers, params, proxies) — 发送get请求
+​ 2、requests.post(url, *, headers, params, proxies) — 发送post请求​参数:
+​ url — 请求地址(一个网站的网址、接口的地址、图片地址等)
+​ headers — 设置请求头(设置cookie和UserAgent)
+​ params — 设置参数
+​ proxies —...
+    </div>
+    <a href="/2021/09/27/requests%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" title="Untitled" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2021/09/27/Python%E9%98%9F%E5%88%97%20%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%20%20%E8%BF%9B%E7%A8%8B%E6%B1%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" title="Untitled"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gicliierfjj20zk0m8npd.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2021-09-27 10:24:13">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2021-09-27T10:24:13+08:00">2021-09-27</time>
+  </span>
+</div>
+
+    <h3><a href="/2021/09/27/Python%E9%98%9F%E5%88%97%20%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%20%20%E8%BF%9B%E7%A8%8B%E6%B1%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" title="Untitled">Untitled</a></h3>
+    <div class="excerpt">
+        Python队列 线程池 进程池 基本概念以及使用方法线程、进程概念算是对上一篇文章的回顾，具体细节参见上文。
+概念进程：一个正在运行的应用程序就是一个进程。一个进程是运行在其专用且受保护的内存空间中
+线程：一个进程要执行任务必须要有线程。
+进程 — 车间 线程 — 车间工人
+线程的特点：一个线程执行多个任务是串行执行的
+多线程：一个进程中有多个线程。多线程可以并行(同时)执行多个任务
+多线程原理：多线程技术是通过利用CPU空闲时间干活来提高程序执行效率
+多线程一个应用程序默认对应一个进程，这个进程(主进程)中默认有一个线程(主线程)
+使用方法1from threading import...
+    </div>
+    <a href="/2021/09/27/Python%E9%98%9F%E5%88%97%20%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%20%20%E8%BF%9B%E7%A8%8B%E6%B1%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" title="Untitled" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2021/09/27/Python%20%E5%85%89%E5%AD%A6%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" itemprop="url" title="Untitled"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipesng5oej20zk0m87d4.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2021-09-27 10:24:13">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2021-09-27T10:24:13+08:00">2021-09-27</time>
+  </span>
+</div>
+
+    <h3><a href="/2021/09/27/Python%20%E5%85%89%E5%AD%A6%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" itemprop="url" title="Untitled">Untitled</a></h3>
+    <div class="excerpt">
+        Python 光学文字识别easyocr光学文字识别主要应用于文字验证码、滑块等类型的登录验证。
+首先需要的是第三方库 easyocr(有点大1.5G左右)。
+安装导入后使用：
+12reader = easyocr.Reader([&amp;#x27;ch_sim&amp;#x27;,&amp;#x27;en&amp;#x27;],gpu = False)print(reader.readtext(&amp;#x27;file/IDcard.jpg&amp;#x27;,detail = 0))
+
+列表中参数表示可识别文字语言种类。***’ch_sim’ - 简体中文 ‘en’ -...
+    </div>
+    <a href="/2021/09/27/Python%20%E5%85%89%E5%AD%A6%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" itemprop="url" title="Untitled" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2021/09/27/Python%20-%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E8%BF%9B%E7%A8%8B/" itemprop="url" title="Untitled"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gicmnywqgpj20zk0m8dwx.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2021-09-27 10:24:13">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2021-09-27T10:24:13+08:00">2021-09-27</time>
+  </span>
+</div>
+
+    <h3><a href="/2021/09/27/Python%20-%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E8%BF%9B%E7%A8%8B/" itemprop="url" title="Untitled">Untitled</a></h3>
+    <div class="excerpt">
+        Python - 多线程与多进程多线程程序默认都是单线程(这个默认线程又叫主线程，其他的线程都叫子线程)
+Thread类的对象就是线程对象,程序需要多少个子线程就创建多少个Thread的对象
+123import timefrom datetime import datetimefrom threading import Thread,current_thread
+
+模拟电影下载线程：
+12345def download(movie_name:str):...
+    </div>
+    <a href="/2021/09/27/Python%20-%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E8%BF%9B%E7%A8%8B/" itemprop="url" title="Untitled" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2021/09/27/Python%20-%20xpath%E8%A7%A3%E6%9E%90XML%E3%80%81HTML/" itemprop="url" title="Untitled"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giph4wqtg4j20zk0m8x6p.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2021-09-27 10:24:13">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2021-09-27T10:24:13+08:00">2021-09-27</time>
+  </span>
+</div>
+
+    <h3><a href="/2021/09/27/Python%20-%20xpath%E8%A7%A3%E6%9E%90XML%E3%80%81HTML/" itemprop="url" title="Untitled">Untitled</a></h3>
+    <div class="excerpt">
+        Python - xpath解析XML、HTML绝对路径:HTML / body / div / a
+相对路径: ./a
+专业术语
+树:整个HTML或XML结构
+节点:HTML中的每个标签，XML中标签就是节点
+根节点:树的第一个节点，HTML的根节点就是HTML标签
+属性:节点属性(HTML中就是标签属性)
+1from lxml import...
+    </div>
+    <a href="/2021/09/27/Python%20-%20xpath%E8%A7%A3%E6%9E%90XML%E3%80%81HTML/" itemprop="url" title="Untitled" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2021/09/27/Python%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%B0%81%E8%A3%85%E4%B8%BA%E6%96%B9%E6%B3%95/" itemprop="url" title="Untitled"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2021-09-27 10:23:31">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2021-09-27T10:23:31+08:00">2021-09-27</time>
+  </span>
+</div>
+
+    <h3><a href="/2021/09/27/Python%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%B0%81%E8%A3%85%E4%B8%BA%E6%96%B9%E6%B3%95/" itemprop="url" title="Untitled">Untitled</a></h3>
+    <div class="excerpt">
+        Python重复代码自动封装为方法编写代码时重复代码不仅会让程序员更加疲劳甚至代码的重复率过高还会让人质疑能力；所以重复代码的封装也很有必要。
+Refactor&amp;gt;Extract&amp;gt;Method
+    </div>
+    <a href="/2021/09/27/Python%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%B0%81%E8%A3%85%E4%B8%BA%E6%96%B9%E6%B3%95/" itemprop="url" title="Untitled" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2021/09/27/Python%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%20%20%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" itemprop="url" title="Untitled"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giclize41wj20zk0m87gk.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2021-09-27 10:23:31">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2021-09-27T10:23:31+08:00">2021-09-27</time>
+  </span>
+</div>
+
+    <h3><a href="/2021/09/27/Python%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%20%20%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" itemprop="url" title="Untitled">Untitled</a></h3>
+    <div class="excerpt">
+        Python 装饰器基础用法 基本格式装饰器： 用一个函数去装饰另一个函数或类，为其提供额外的能力 实现了一种名为代理模式的经典设计模式
+​ 横切关注功能(cross-concern):跟正常的业务没有必然联系的功能​ 这样的功能最适合用装饰器(代理模式)来实现
+举个例子：现有模仿下载与上传并记录这个过程耗时功能的函数：
+下载：
+1234567def download(filename): start_time = time.time() print(f&amp;#x27;开始下载&amp;#123;filename&amp;#125;&amp;#x27;)...
+    </div>
+    <a href="/2021/09/27/Python%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%20%20%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" itemprop="url" title="Untitled" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2021/09/27/Python%20Web%20%E6%A1%86%E6%9E%B6%20Flask%E7%9A%84%E6%9C%80%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" itemprop="url" title="Untitled"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giclxxcb6rj20zk0m8b29.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2021-09-27 10:23:31">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2021-09-27T10:23:31+08:00">2021-09-27</time>
+  </span>
+</div>
+
+    <h3><a href="/2021/09/27/Python%20Web%20%E6%A1%86%E6%9E%B6%20Flask%E7%9A%84%E6%9C%80%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" itemprop="url" title="Untitled">Untitled</a></h3>
+    <div class="excerpt">
+        Python Web 框架 Flask的最基本使用首先还是第三方库Flask的安装；终端执行pip install flask即可
+1import flask
+
+导入包后创建flask对象
+1app = flask.Flask(__name__)
+
+注意：括号中的_ _name__参数需要自己添加
+再用创建好的对象指定网页访问路径
+123@app.route(&amp;#x27;/&amp;#x27;)def index(): return &amp;#x27;&amp;lt;h1&amp;gt;Hello...
+    </div>
+    <a href="/2021/09/27/Python%20Web%20%E6%A1%86%E6%9E%B6%20Flask%E7%9A%84%E6%9C%80%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" itemprop="url" title="Untitled" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2021/09/27/Pymysql%20%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E6%89%B9%E5%A4%84%E7%90%86/" itemprop="url" title="Untitled"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipeu7txpzj20zk0m81kx.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="Created: 2021-09-27 10:23:31">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2021-09-27T10:23:31+08:00">2021-09-27</time>
+  </span>
+</div>
+
+    <h3><a href="/2021/09/27/Pymysql%20%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E6%89%B9%E5%A4%84%E7%90%86/" itemprop="url" title="Untitled">Untitled</a></h3>
+    <div class="excerpt">
+        Pymysql 连接数据库增删改查操作与批处理首先还是第三方库的安装：
+pymysql —-&amp;gt; 纯Python编写,安装一定会成功
+mysqlclient —-&amp;gt; 底层用C编写,安装不一定会成功
+1import pymysql
+
+第一步:创建连接12connection = pymysql.connect(host=&amp;#x27;127.0.0.1&amp;#x27;, port=3306, user=&amp;#x27;root&amp;#x27;,...
+    </div>
+    <a href="/2021/09/27/Pymysql%20%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E6%89%B9%E5%A4%84%E7%90%86/" itemprop="url" title="Untitled" class="btn">more...</a>
+  </div>
+</article>
+
+    </div>
+
+  </div>
+
+  
+  <nav class="pagination">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/"><i class="ic i-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="ic i-angle-right" aria-label="Next page"></i></a>
+    </div>
+  </nav>
+
+
+
+        </div>
+        <div id="sidebar">
+          
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+      </div>
+      <div class="related panel pjax" data-title="Related">
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="HoneyGrapefruit"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">HoneyGrapefruit</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">25</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hvbmVHcmFwZWZydWl0" title="https:&#x2F;&#x2F;github.com&#x2F;HoneGrapefruit"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/page/3/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/%E8%AE%A4%E8%AF%86Numpy/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%20Web%20%E6%A1%86%E6%9E%B6%20Flask%E7%9A%84%E6%9C%80%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/11/%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4(%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/11/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%20-%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E8%BF%9B%E7%A8%8B/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%20%E5%85%89%E5%AD%A6%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Pandas%20%E8%BF%9B%E9%98%B6/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/24/MySQL%20%E7%AE%80%E6%98%93%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/requests%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Pymysql%20%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E6%89%B9%E5%A4%84%E7%90%86/" title="Untitled">Untitled</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HoneyGrapefruit @ Super Bear</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'page/2/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

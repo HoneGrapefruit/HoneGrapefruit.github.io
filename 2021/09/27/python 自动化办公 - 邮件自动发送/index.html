@@ -1,0 +1,525 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="宗志雄的技术专栏" href="http://babybear.top/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="宗志雄的技术专栏" href="http://babybear.top/atom.xml" />
+<link rel="alternate" type="application/json" title="宗志雄的技术专栏" href="http://babybear.top/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="http://babybear.top/2021/09/27/python%20%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8A%9E%E5%85%AC%20-%20%E9%82%AE%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E9%80%81/">
+
+
+
+  <title>
+ |
+Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2021-09-27 10:24:47">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-09-27T10:24:47+08:00">2021-09-27</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Super Bear</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclwrdwyaj20zk0m8are.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipevgoki5j20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicis081o9j20zk0m8dmr.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipey0a334j20zk0m8qpt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciukx8a7j20zk0m8aio.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclxp31goj20zk0m8qv5.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh">
+  <link itemprop="mainEntityOfPage" href="http://babybear.top/2021/09/27/python%20%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8A%9E%E5%85%AC%20-%20%E9%82%AE%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E9%80%81/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="HoneyGrapefruit">
+    <meta itemprop="description" content="人生苦短，我用Python, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="宗志雄的技术专栏">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="python-自动化办公-邮件自动发送"><a href="#python-自动化办公-邮件自动发送" class="headerlink" title="python 自动化办公 - 邮件自动发送"></a>python 自动化办公 - 邮件自动发送</h1><h2 id="获取授权码"><a href="#获取授权码" class="headerlink" title="获取授权码"></a>获取授权码</h2><p>设置&gt;账户&gt;POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务 </p>
+<p>选择开启</p>
+<p>邮件的自动发送只依赖python自带类库就能解决:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"><span class="comment"># smtplib  ---  登录邮箱,发送邮件</span></span><br><span class="line"><span class="keyword">from</span> email.mime.multipart <span class="keyword">import</span> MIMEMultipart   <span class="comment">#构件邮箱对象</span></span><br><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>连接邮箱服务器<br>smtplib.SMTP_SSL(服务器地址,邮箱服务端口)  —  连接邮箱服务器并返回一个连接对象</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">connect = smtplib.SMTP_SSL(<span class="string">&#x27;smtp.qq.com&#x27;</span>, <span class="number">465</span>,<span class="string">&#x27;utf-8&#x27;</span>)  <span class="comment">#465 / 25 都是邮箱端口</span></span><br><span class="line"><span class="comment">#若出现编码格式报错添加</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>登录邮箱</p>
+<p>连接对象.login(账号,密码)</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connect.login(&#x27;******@qq.com&#x27;,&#x27;授权码&#x27;)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>准备邮件</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1、创建邮件对象</span></span><br><span class="line">email = MIMEMultipart()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2、设置邮件主题</span></span><br><span class="line"><span class="comment"># Header(邮件主题,编码方式)</span></span><br><span class="line">email[<span class="string">&#x27;Subject&#x27;</span>] = Header(<span class="string">&#x27;邮件自动发送!&#x27;</span>,<span class="string">&#x27;utf-8&#x27;</span>).encode()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置邮件接受者信息(收件人)</span></span><br><span class="line">email[<span class="string">&#x27;To&#x27;</span>] = <span class="string">&#x27;*****@qq.com&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置邮件发送者信息(发件人)</span></span><br><span class="line">email[<span class="string">&#x27;From&#x27;</span>] = <span class="string">&#x27;*@qq.com&lt;1016226614@qq.com&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>添加正文</li>
+</ol>
+<p>MIMEText(文字内容,类型,编码方式)<br>类型  —  plain(普通文字)、HTML(超文本)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">text = MIMEText(<span class="string">&#x27;Hello??&#x27;</span>,<span class="string">&#x27;plain&#x27;</span>,<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">email.attach(text)</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><p>通过连接发送邮件</p>
+<p>连接对象.sendmail(发件人,收件人,邮件对象.as_string())</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">connect.sendmail(<span class="string">&#x27;***@qq.com&#x27;</span>,<span class="string">&#x27;***@qq.com&#x27;</span>,email.as_string())</span><br><span class="line">connect.quit()</span><br></pre></td></tr></table></figure>
+
+<h2 id="附件发送"><a href="#附件发送" class="headerlink" title="附件发送"></a>附件发送</h2><p>连接邮箱服务器登录同上；不再赘述</p>
+<p>1、打开图片读取图片二进制数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image_data = <span class="built_in">open</span>(<span class="string">&#x27;files/image/1.png&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>).read()</span><br></pre></td></tr></table></figure>
+
+<p>2、创建图片对象</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image = MIMEImage(image_data)</span><br></pre></td></tr></table></figure>
+
+<p>3、设置图片为附件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image[<span class="string">&#x27;Content-Disposition&#x27;</span>] = <span class="string">&#x27;attachment; filename=&quot;文件名&quot;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>4、将附件添加到邮件对象中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">email.attach(image)</span><br></pre></td></tr></table></figure>
+
+<p>xlsx文件发送：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">file_data = <span class="built_in">open</span>(<span class="string">&#x27;files/task.xlsx&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>).read()</span><br><span class="line"><span class="comment"># 设置为base64，二进制编码方式utf-8</span></span><br><span class="line">file = MIMEText(file_data,<span class="string">&#x27;base64&#x27;</span>,<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"><span class="comment"># 文件名最好给上后缀名以便于预览</span></span><br><span class="line">file[<span class="string">&#x27;Content-Disposition&#x27;</span>] = <span class="string">&#x27;attachment; filename=&quot;Task.xlsx&quot;&#x27;</span></span><br><span class="line">email.attach(file)</span><br><span class="line"><span class="comment"># 其余文件发送为附件同xlsx</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="发送超文本内容"><a href="#发送超文本内容" class="headerlink" title="发送超文本内容"></a>发送超文本内容</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">content = <span class="built_in">open</span>(<span class="string">&#x27;files/content.html&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>).read()</span><br><span class="line">text = MIMEText(content,<span class="string">&#x27;html&#x27;</span>,<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">email.attach(text)</span><br><span class="line"></span><br><span class="line"><span class="comment"># --------------------多张本地照片添加--------------------</span></span><br><span class="line">all_images = os.listdir(<span class="string">&#x27;files/img&#x27;</span>)   <span class="comment"># 获取要添加照片路径列表</span></span><br><span class="line"><span class="comment"># print(all_images)</span></span><br><span class="line"><span class="keyword">for</span> img <span class="keyword">in</span> all_images:</span><br><span class="line">    image_data = <span class="built_in">open</span>(<span class="string">f&#x27;files/img/<span class="subst">&#123;img&#125;</span>&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>).read() <span class="comment">#依次读取获取到的图片</span></span><br><span class="line">    image = MIMEImage(image_data)    <span class="comment">#创建图片对象</span></span><br><span class="line">    image_id = img.split(<span class="string">&#x27;.&#x27;</span>)[<span class="number">0</span>]     <span class="comment">#获取图片名称(后缀前内容)</span></span><br><span class="line">    image.add_header(<span class="string">&#x27;Content-ID&#x27;</span>,<span class="string">f&#x27;&lt;<span class="subst">&#123;image_id&#125;</span>&gt;&#x27;</span>)  <span class="comment">#依次为他们设置头</span></span><br><span class="line">    email.attach(image)  <span class="comment">#设置好ID后依次添加进邮件</span></span><br><span class="line"><span class="comment"># HTML文件中使用这类图片时使用 cid:图片头 方式(例：src=&quot;cid:index_dh&quot;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># --------------------单张本地照片添加--------------------</span></span><br><span class="line"><span class="comment"># 添加本地图片到正文中</span></span><br><span class="line"><span class="comment"># image_data = open(&#x27;files/img/tx.jpg&#x27;, &#x27;rb&#x27;).read()</span></span><br><span class="line"><span class="comment"># image = MIMEImage(image_data)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># # 为本地图片添加&#x27;Content-ID&#x27;,&#x27;&lt;image1&gt;&#x27;，同样的HTML文件中的src为src=&quot;cid:image1&quot;</span></span><br><span class="line"><span class="comment"># image.add_header(&#x27;Content-ID&#x27;,&#x27;&lt;image1&gt;&#x27;)</span></span><br><span class="line"><span class="comment"># email.attach(image)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="文件批量发送"><a href="#文件批量发送" class="headerlink" title="文件批量发送"></a>文件批量发送</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">all_files = os.listdir(<span class="string">&#x27;files/otherfiles&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> all_files:</span><br><span class="line">    txt_data = <span class="built_in">open</span>(<span class="string">f&#x27;files/otherfiles/<span class="subst">&#123;file&#125;</span>&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>).read()</span><br><span class="line">    txt = MIMEText(txt_data, <span class="string">&#x27;base64&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    txt_name = file.split(<span class="string">&#x27;.&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    txt_last = file.split(<span class="string">&#x27;.&#x27;</span>)[<span class="number">1</span>]</span><br><span class="line">    <span class="built_in">print</span>(txt_last)</span><br><span class="line">    txt[<span class="string">&#x27;Content-Disposition&#x27;</span>] = <span class="string">f&#x27;attachment; filename=&quot;<span class="subst">&#123;txt_name&#125;</span>.<span class="subst">&#123;txt_last&#125;</span>&quot;&#x27;</span></span><br><span class="line">    email.attach(txt)</span><br></pre></td></tr></table></figure>
+
+<p>源码及HTML文件授权码获取及详细教程：链接: <span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMV9MdkdSRUhNcE5nMEtHMzVmVTZEOWc=">https://pan.baidu.com/s/1_LvGREHMpNg0KG35fU6D9g</span> 提取码: v648</p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2021-08-05 22:12:45" itemprop="dateModified" datetime="2021-08-05T22:12:45+08:00">2021-08-05</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="HoneyGrapefruit WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="HoneyGrapefruit Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="HoneyGrapefruit PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>HoneyGrapefruit <i class="ic i-at"><em>@</em></i>宗志雄的技术专栏
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://babybear.top/2021/09/27/python%20%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8A%9E%E5%85%AC%20-%20%E9%82%AE%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E9%80%81/" title="">http://babybear.top/2021/09/27/python 自动化办公 - 邮件自动发送/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/09/27/%E4%BD%BF%E7%94%A8selenium%E4%B8%8E%E7%BD%91%E9%A1%B5%E4%BA%A4%E4%BA%92%E3%80%81%E5%B5%8C%E5%A5%97%E7%BD%91%E9%A1%B5%E7%88%AC%E5%8F%96/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeu1usa7j20zk0m8b29.jpg" title="Untitled">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Untitled</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2021/09/27/Python%E5%8A%9E%E5%85%AC%E8%87%AA%E5%8A%A8%E5%8C%96%20-%20Excel%E3%80%81CSV%E3%80%81PDF/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4lm9i7j20zk0m84qp.jpg" title="Untitled">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Untitled</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python-%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8A%9E%E5%85%AC-%E9%82%AE%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E9%80%81"><span class="toc-number">1.</span> <span class="toc-text">python 自动化办公 - 邮件自动发送</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%8E%88%E6%9D%83%E7%A0%81"><span class="toc-number">1.1.</span> <span class="toc-text">获取授权码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6%E5%8F%91%E9%80%81"><span class="toc-number">1.2.</span> <span class="toc-text">附件发送</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E9%80%81%E8%B6%85%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9"><span class="toc-number">1.3.</span> <span class="toc-text">发送超文本内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E5%8F%91%E9%80%81"><span class="toc-number">1.4.</span> <span class="toc-text">文件批量发送</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="HoneyGrapefruit"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">HoneyGrapefruit</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">25</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hvbmVHcmFwZWZydWl0" title="https:&#x2F;&#x2F;github.com&#x2F;HoneGrapefruit"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/09/27/%E4%BD%BF%E7%94%A8selenium%E4%B8%8E%E7%BD%91%E9%A1%B5%E4%BA%A4%E4%BA%92%E3%80%81%E5%B5%8C%E5%A5%97%E7%BD%91%E9%A1%B5%E7%88%AC%E5%8F%96/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/09/27/Python%E5%8A%9E%E5%85%AC%E8%87%AA%E5%8A%A8%E5%8C%96%20-%20Excel%E3%80%81CSV%E3%80%81PDF/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%20Web%20%E6%A1%86%E6%9E%B6%20Flask%E7%9A%84%E6%9C%80%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%E5%8A%9E%E5%85%AC%E8%87%AA%E5%8A%A8%E5%8C%96%20-%20Excel%E3%80%81CSV%E3%80%81PDF/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/requests%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86%E4%BB%A5%E5%8F%8Aselenium%E7%9A%84%E4%BD%BF%E7%94%A8(%E6%B7%98%E5%AE%9D%E7%BB%95%E8%BF%87%E7%99%BB%E5%BD%95%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AE)/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%B0%81%E8%A3%85%E4%B8%BA%E6%96%B9%E6%B3%95/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/python%20%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8A%9E%E5%85%AC%20-%20%E9%82%AE%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E9%80%81/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%E9%98%9F%E5%88%97%20%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%20%20%E8%BF%9B%E7%A8%8B%E6%B1%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/%E6%89%93%E5%8C%85%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%96%B9%E6%B3%95/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/%E7%88%AC%E8%99%AB%E5%87%86%E5%A4%87%20-%20%E8%AE%A4%E8%AF%86HTML&css/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%20%E5%85%89%E5%AD%A6%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/11/%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4(%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)/" title="Untitled">Untitled</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HoneyGrapefruit @ Super Bear</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/09/27/python 自动化办公 - 邮件自动发送/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

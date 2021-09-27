@@ -1,0 +1,4149 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="宗志雄的技术专栏" href="http://babybear.top/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="宗志雄的技术专栏" href="http://babybear.top/atom.xml" />
+<link rel="alternate" type="application/json" title="宗志雄的技术专栏" href="http://babybear.top/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="http://babybear.top/2021/09/27/Pandas%20%E5%85%A5%E9%97%A8/">
+
+
+
+  <title>
+ |
+Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2021-09-27 10:25:17">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-09-27T10:25:17+08:00">2021-09-27</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Super Bear</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciuv0socj20zk0m8qes.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclh0m9pdj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeybxm1pj20zk0m8niv.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicivghyooj20zk0m8dir.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclflwv2aj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh">
+  <link itemprop="mainEntityOfPage" href="http://babybear.top/2021/09/27/Pandas%20%E5%85%A5%E9%97%A8/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="HoneyGrapefruit">
+    <meta itemprop="description" content="人生苦短，我用Python, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="宗志雄的技术专栏">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="Pandas-入门"><a href="#Pandas-入门" class="headerlink" title="Pandas 入门"></a>Pandas 入门</h2><ol>
+<li>‘Series’：数据系列，代表一维数据，较numpy中的一维数组更强大；</li>
+<li>‘DataFrame’：数据窗/数据框/数据表，代表二维数据，封装了数据分析常用的各种方法；</li>
+<li>‘Index’：索引，为Series和DataFrame提供数据索引服务。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;STFangsong&#x27;</span>]</span><br><span class="line">plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%config InlineBackend.figure_format = <span class="string">&#x27;svg&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-1-Series"><a href="#1-1-Series" class="headerlink" title="1.1 Series"></a>1.1 Series</h3><p>可自定义索引，默认为0,1,2,3…</p>
+<p>自定义索引后仍可使用默认索引，也可使用逆向索引</p>
+<p>未自定义默认索引不允许使用逆向索引</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建Series对象</span></span><br><span class="line"><span class="comment"># 方式一</span></span><br><span class="line">ser1 = pd.Series(data = [<span class="number">12</span>,<span class="number">54</span>,<span class="number">78</span>,<span class="number">95</span>],index = [<span class="string">f&#x27;<span class="subst">&#123;x&#125;</span>季度&#x27;</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;一二三四&#x27;</span>])</span><br><span class="line">ser1</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>一季度    12
+二季度    54
+三季度    78
+四季度    95
+dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ser1[<span class="string">&#x27;一季度&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>12
+</code></pre>
+<p>多条数据取出来仍为一个系列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ser1[ser1 &gt;= <span class="number">60</span>]</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>三季度    78
+四季度    95
+dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 花式索引</span></span><br><span class="line">ser1[[<span class="string">&#x27;一季度&#x27;</span>,<span class="string">&#x27;三季度&#x27;</span>]]</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>一季度    12
+三季度    78
+dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方式二</span></span><br><span class="line">ser2 = pd.Series(data=&#123;<span class="string">&#x27;一季度&#x27;</span>:<span class="number">253</span>,<span class="string">&#x27;二季度&#x27;</span>:<span class="number">563</span>,<span class="string">&#x27;三季度&#x27;</span>:<span class="number">193</span>,<span class="string">&#x27;四季度&#x27;</span>:<span class="number">245</span>&#125;)</span><br><span class="line">ser2</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>一季度    253
+二季度    563
+三季度    193
+四季度    245
+dtype: int64
+</code></pre>
+<h6 id="Series-属性"><a href="#Series-属性" class="headerlink" title="Series 属性"></a>Series 属性</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ser2.二季度</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>563
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ser2数据类型</span></span><br><span class="line">ser2.dtype</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>dtype(&#39;int64&#39;)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ser2类型</span></span><br><span class="line"><span class="built_in">type</span>(ser2)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>pandas.core.series.Series
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ser2索引</span></span><br><span class="line">ser2.index</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>Index([&#39;一季度&#39;, &#39;二季度&#39;, &#39;三季度&#39;, &#39;四季度&#39;], dtype=&#39;object&#39;)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ser2值</span></span><br><span class="line">ser2.values</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>array([253, 563, 193, 245], dtype=int64)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ser2元素个数</span></span><br><span class="line">ser2.size</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>4
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ser2元素是否唯一,True:唯一</span></span><br><span class="line">ser2.is_unique</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>True
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ser2是否含有空值,False:不含有</span></span><br><span class="line">ser2.hasnans</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>False
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ser2.loc[<span class="string">&#x27;二季度&#x27;</span>:<span class="string">&#x27;四季度&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>二季度    563
+三季度    193
+四季度    245
+dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ser2是否单调</span></span><br><span class="line">ser2.is_monotonic</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>False
+</code></pre>
+<h6 id="Series-方法"><a href="#Series-方法" class="headerlink" title="Series 方法"></a>Series 方法</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取描述性统计信息   ---&gt;   集中趋势</span></span><br><span class="line"><span class="built_in">print</span>(ser2.<span class="built_in">sum</span>())  <span class="comment">#求和</span></span><br><span class="line"><span class="built_in">print</span>(ser2.mean())  <span class="comment">#平均值</span></span><br><span class="line"><span class="built_in">print</span>(ser2.median())   <span class="comment">#中位数</span></span><br><span class="line"><span class="built_in">print</span>(ser2.quantile())   <span class="comment"># 中位数</span></span><br><span class="line"><span class="built_in">print</span>(ser2.mode())   <span class="comment">#众数 - 出现频次相同全都打印</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>1254
+313.5
+249.0
+249.0
+0    193
+1    245
+2    253
+3    563
+dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取描述性统计信息   ---&gt;   离散趋势</span></span><br><span class="line"><span class="built_in">print</span>(ser2.<span class="built_in">max</span>())  <span class="comment">#最大值</span></span><br><span class="line"><span class="built_in">print</span>(ser2.<span class="built_in">min</span>())  <span class="comment">#最小值</span></span><br><span class="line"><span class="built_in">print</span>(ser2.var())  <span class="comment">#方差</span></span><br><span class="line"><span class="built_in">print</span>(ser2.std())  <span class="comment">#标准差</span></span><br><span class="line"><span class="built_in">print</span>(ser2.quantile(<span class="number">0.25</span>))  <span class="comment">#下四分位数(0.25,0.5,0.75)默认为0.5(中位数)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>563
+193
+28374.333333333332
+168.44682642701622
+232.0
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 数据系列描述</span></span><br><span class="line">ser2.describe()</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>count      4.000000
+mean     313.500000
+std      168.446826
+min      193.000000
+25%      232.000000
+50%      249.000000
+75%      330.500000
+max      563.000000
+dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ser3 = pd.Series(data=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">9</span>,<span class="number">5</span>,<span class="number">9</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">9</span>])</span><br><span class="line">ser3</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>0     1
+1     2
+2     5
+3     9
+4     5
+5     9
+6     1
+7     6
+8     4
+9     1
+10    9
+dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 去重   ---&gt; ndarray(返回数组)</span></span><br><span class="line">ser3.unique()</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>array([1, 2, 5, 9, 6, 4], dtype=int64)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 去重后元素个数</span></span><br><span class="line">ser3.nunique()</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>6
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 元素重复频次（按频次降序排列）</span></span><br><span class="line">ser3.value_counts()</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>1    3
+9    3
+5    2
+2    1
+6    1
+4    1
+dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除重复元素 ---&gt;series(去重)</span></span><br><span class="line"><span class="comment"># 保留相同元素的第一个（默认）</span></span><br><span class="line">ser3.drop_duplicates()</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>0    1
+1    2
+2    5
+3    9
+7    6
+8    4
+dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 去重  保留相同元素的最后一个</span></span><br><span class="line">ser3.drop_duplicates(keep = <span class="string">&#x27;last&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>1     2
+4     5
+7     6
+8     4
+9     1
+10    9
+dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 去重  相同元素一个不留，只保留不同元素</span></span><br><span class="line">ser3.drop_duplicates(keep = <span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>1    2
+7    6
+8    4
+dtype: int64
+</code></pre>
+<p>上面去重方法均未改变原数据系列(ser3)<br>想要在原数据系列做修改设置inplace = True</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># inplace - 是否就地删除(改变ser3)</span></span><br><span class="line"><span class="comment"># True - 就地操作，不返回新对象   ---&gt; None</span></span><br><span class="line"><span class="comment"># False(默认值) - 返回操作后的新对象   ---&gt; Series</span></span><br><span class="line">ser3.drop_duplicates(keep=<span class="literal">False</span>,inplace=<span class="literal">True</span>)</span><br><span class="line">ser3</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>1    2
+7    6
+8    4
+dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ser4 = pd.Series(data=[<span class="number">10</span>, <span class="number">20</span>, np.NaN, <span class="number">30</span>, np.NaN])</span><br><span class="line">ser4</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>0    10.0
+1    20.0
+2     NaN
+3    30.0
+4     NaN
+dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除指定索引数据，原数据系列不变</span></span><br><span class="line">ser4.drop(index = [<span class="number">2</span>,<span class="number">4</span>])</span><br><span class="line"><span class="comment"># ser4.drop(index = 2)</span></span><br></pre></td></tr></table></figure>
+
+
+<pre><code>0    10.0
+1    20.0
+3    30.0
+dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 判断是否为空</span></span><br><span class="line">ser4.isnull()</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>0    False
+1    False
+2     True
+3    False
+4     True
+dtype: bool
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除空值</span></span><br><span class="line">ser4.dropna()</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>0    10.0
+1    20.0
+3    30.0
+dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 填充空值   指定值</span></span><br><span class="line">ser4.fillna(<span class="number">50</span>)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>0    10.0
+1    20.0
+2    50.0
+3    30.0
+4    50.0
+dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 填充空值   邻近的前面的值</span></span><br><span class="line">ser4.fillna(method=<span class="string">&#x27;ffill&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>0    10.0
+1    20.0
+2    20.0
+3    30.0
+4    30.0
+dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 填充空值   邻近的后面的值</span></span><br><span class="line">ser4.fillna(method=<span class="string">&#x27;bfill&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>0    10.0
+1    20.0
+2    30.0
+3    30.0
+4     NaN
+dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 填充空值   可使用级联操作</span></span><br><span class="line">ser4.fillna(method=<span class="string">&#x27;bfill&#x27;</span>).fillna(method=<span class="string">&#x27;ffill&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>0    10.0
+1    20.0
+2    30.0
+3    30.0
+4    30.0
+dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 给索引(Unicode编码)排序</span></span><br><span class="line"><span class="comment"># ord(&#x27;三&#x27;) = 19977,ord(&#x27;二&#x27;) = 20108(这就是为什么打印结果三季度在二季度前面的原因)</span></span><br><span class="line"><span class="comment"># ascending - 升序/降序  默认为True(升序)</span></span><br><span class="line">ser1.sort_index()</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>一季度    12
+三季度    78
+二季度    54
+四季度    95
+dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 值排序</span></span><br><span class="line">ser1.sort_values(ascending=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>四季度    95
+三季度    78
+二季度    54
+一季度    12
+dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Top - N </span></span><br><span class="line">ser1.nlargest(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>四季度    95
+三季度    78
+dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Min - N </span></span><br><span class="line">ser1.nsmallest(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>一季度    12
+二季度    54
+dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ser5 = pd.Series([<span class="string">&#x27;cat&#x27;</span>, <span class="string">&#x27;dog&#x27;</span>, np.nan, <span class="string">&#x27;rabbit&#x27;</span>])</span><br><span class="line">ser5</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>0       cat
+1       dog
+2       NaN
+3    rabbit
+dtype: object
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 格式化  na_action=&#x27;ignore&#x27;忽略空值</span></span><br><span class="line">ser5.<span class="built_in">map</span>(<span class="string">&#x27;I am a &#123;&#125;&#x27;</span>.<span class="built_in">format</span>,na_action=<span class="string">&#x27;ignore&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>0       I am a cat
+1       I am a dog
+2              NaN
+3    I am a rabbit
+dtype: object
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ser6 = pd.Series(np.random.randint(<span class="number">30</span>,<span class="number">80</span>,<span class="number">10</span>))</span><br><span class="line">ser6</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>0    77
+1    67
+2    49
+3    41
+4    62
+5    41
+6    57
+7    64
+8    39
+9    56
+dtype: int32
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">handle</span>(<span class="params">score</span>):</span></span><br><span class="line">    <span class="keyword">return</span> score ** <span class="number">0.5</span> * <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># map</span></span><br><span class="line">np.<span class="built_in">round</span>(ser6.<span class="built_in">map</span>(handle),<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>0    88.0
+1    82.0
+2    70.0
+3    64.0
+4    79.0
+5    64.0
+6    75.0
+7    80.0
+8    62.0
+9    75.0
+dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 应用</span></span><br><span class="line">np.<span class="built_in">round</span>(ser6.apply(handle),<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>0    88.0
+1    82.0
+2    70.0
+3    64.0
+4    79.0
+5    64.0
+6    75.0
+7    80.0
+8    62.0
+9    75.0
+dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ser1</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>一季度    12
+二季度    54
+三季度    78
+四季度    95
+dtype: int64
+</code></pre>
+<p>线性归一化：<br>$$<br>X’ = \frac{X_{i} - X_{min}}{X_{max} - X_{min}}<br>$$</p>
+<p>零均值归一化(标准化)：<br>$$<br>X’ = \frac{X_{i} - μ}{σ}<br>$$<br>其中 x 为某个特征的原始值， μ为该特征在所有样本中的平均值，σ 为该特征在所有样本中的标准差， X’ 为经过标准化处理后的特征值 ~ N(0, 1)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 线性归一化</span></span><br><span class="line">ser1.<span class="built_in">map</span>(<span class="keyword">lambda</span> x: (x - ser1.<span class="built_in">min</span>()) / (ser1.<span class="built_in">max</span>() - ser1.<span class="built_in">min</span>()))</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>一季度    0.000000
+二季度    0.506024
+三季度    0.795181
+四季度    1.000000
+dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ser1.plot(kind = <span class="string">&#x27;bar&#x27;</span>)</span><br><span class="line">plt.xticks(rotation = <span class="number">0</span>)   <span class="comment"># x坐标描述旋转0度</span></span><br><span class="line"><span class="comment"># 添加网格线</span></span><br><span class="line">plt.grid(<span class="literal">True</span>,alpha = <span class="number">0.5</span>,axis = <span class="string">&#x27;y&#x27;</span>,linestyle = <span class="string">&#x27;:&#x27;</span>)</span><br><span class="line">plt.show</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;function matplotlib.pyplot.show(close=None, block=None)&gt;
+</code></pre>
+<p>​<br><img data-src="output_54_1.svg" alt="svg"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 饼图</span></span><br><span class="line">ser1.plot(kind = <span class="string">&#x27;pie&#x27;</span>,autopct = <span class="string">&#x27;%.2f%%&#x27;</span>)  <span class="comment"># 自动显示百分比。要显示百分号要写两个%%,第一个表示转义字符</span></span><br><span class="line">plt.ylabel(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">plt.show</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;function matplotlib.pyplot.show(close=None, block=None)&gt;
+</code></pre>
+<p>​<br><img data-src="output_55_1.svg" alt="svg"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 零均值归一化</span></span><br><span class="line">temp_ser = ser1.<span class="built_in">map</span>(<span class="keyword">lambda</span> x: (x - ser1.mean()) / ser1.std())</span><br><span class="line"><span class="comment"># print(np.std(ser1))   # 总体标准偏差(计算结果/N)</span></span><br><span class="line"><span class="comment"># print(ser1.std())   # 样本标准偏差(计算结果/(N-1))</span></span><br><span class="line">temp_ser</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>一季度   -1.326261
+二季度   -0.159707
+三季度    0.506896
+四季度    0.979072
+dtype: float64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;均值：&#x27;</span>,temp_ser.mean())</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;标准差&#x27;</span>,temp_ser.std())</span><br></pre></td></tr></table></figure>
+
+<pre><code>均值： 0.0
+标准差 1.0
+</code></pre>
+<h3 id="1-2-DataFrame"><a href="#1-2-DataFrame" class="headerlink" title="1.2 DataFrame"></a>1.2 DataFrame</h3><h4 id="1-2-1-创建DataFrame对象"><a href="#1-2-1-创建DataFrame对象" class="headerlink" title="1.2.1 创建DataFrame对象"></a>1.2.1 创建DataFrame对象</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一种：通过二维数组创建DataFrame(参考基本使用文章分数例子)</span></span><br><span class="line"><span class="comment"># 第二种：通过字典创建DataFrame(参考Numpy高级使用波士顿房价)</span></span><br><span class="line"><span class="comment"># 第三种：读取CSV文件创建DataFrame</span></span><br><span class="line">df = pd.read_csv(<span class="string">&#x27;../files/data/订单.csv&#x27;</span>,encoding = <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">df</span><br><span class="line"><span class="comment"># 参数设置</span></span><br><span class="line"><span class="comment"># sep = &#x27;&#x27;指定分隔符，默认为逗号；nrows = 20：控制读取行数</span></span><br><span class="line"><span class="comment"># skiprows = [5,6] - 跳过指定行  skiprows = range(1,11) - 跳过1-10行（0行是表头）</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>订单编号</th>
+      <th>标题</th>
+      <th>价格</th>
+      <th>购买数量</th>
+      <th>外部系统编号</th>
+      <th>商品属性</th>
+      <th>套餐信息</th>
+      <th>备注</th>
+      <th>订单状态</th>
+      <th>商家编码</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>266170127728</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>1</td>
+      <td>456026429338</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>456026429338</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>254450690237</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>1</td>
+      <td>456026429338</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>456026429338</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>254450690237</td>
+      <td>swisse护肝片 澳洲</td>
+      <td>170</td>
+      <td>1</td>
+      <td>931177058999</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>931177058999</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>254406313174</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>1</td>
+      <td>456026429338</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>456026429338</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>254407814052</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>1</td>
+      <td>456026429338</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>456026429338</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1827</th>
+      <td>235295148424</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>1</td>
+      <td>456026429338</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>交易关闭</td>
+      <td>456026429338</td>
+    </tr>
+    <tr>
+      <th>1828</th>
+      <td>244853521870</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>1</td>
+      <td>456026429338</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>交易成功</td>
+      <td>456026429338</td>
+    </tr>
+    <tr>
+      <th>1829</th>
+      <td>222644397061</td>
+      <td>澳洲swisse蔓越莓胶</td>
+      <td>175</td>
+      <td>1</td>
+      <td>931177059169</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>交易成功</td>
+      <td>931177059169</td>
+    </tr>
+    <tr>
+      <th>1830</th>
+      <td>235247255688</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>2</td>
+      <td>456026429338</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>交易成功</td>
+      <td>456026429338</td>
+    </tr>
+    <tr>
+      <th>1831</th>
+      <td>244824365989</td>
+      <td>KAWAI鱼肝油丸(蓝罐</td>
+      <td>238</td>
+      <td>1</td>
+      <td>498704931842</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>交易成功</td>
+      <td>498704931842</td>
+    </tr>
+  </tbody>
+</table>
+<p>1832 rows × 10 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 取指定位置的指定行</span></span><br><span class="line">temp_df = pd.read_csv(<span class="string">&#x27;../files/data/订单.csv&#x27;</span>,encoding = <span class="string">&#x27;utf-8&#x27;</span>,</span><br><span class="line">                     nrows = <span class="number">20</span>, skiprows = <span class="built_in">range</span>(<span class="number">50</span>,<span class="number">70</span>))</span><br><span class="line">temp_df</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>订单编号</th>
+      <th>标题</th>
+      <th>价格</th>
+      <th>购买数量</th>
+      <th>外部系统编号</th>
+      <th>商品属性</th>
+      <th>套餐信息</th>
+      <th>备注</th>
+      <th>订单状态</th>
+      <th>商家编码</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>266170127728</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>1</td>
+      <td>456026429338</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>456026429338</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>254450690237</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>1</td>
+      <td>456026429338</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>456026429338</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>254450690237</td>
+      <td>swisse护肝片 澳洲</td>
+      <td>170</td>
+      <td>1</td>
+      <td>931177058999</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>931177058999</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>254406313174</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>1</td>
+      <td>456026429338</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>456026429338</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>254407814052</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>1</td>
+      <td>456026429338</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>456026429338</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>254219808661</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>2</td>
+      <td>456026429338</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>456026429338</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>266114204270</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>2</td>
+      <td>456026429338</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>456026429338</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>228811777226</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>2</td>
+      <td>456026429033</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>456026429033</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>266100464345</td>
+      <td>澳洲蔓越莓胶囊30粒sw</td>
+      <td>175</td>
+      <td>1</td>
+      <td>931177059169</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>等待买家付款</td>
+      <td>931177059169</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>266081487348</td>
+      <td>澳洲蔓越莓胶囊30粒sw</td>
+      <td>175</td>
+      <td>1</td>
+      <td>931177059169</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>等待买家付款</td>
+      <td>931177059169</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>266048403449</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>1</td>
+      <td>456026429338</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>456026429338</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>254145112402</td>
+      <td>KAWAI 鱼肝油钙丸</td>
+      <td>238</td>
+      <td>1</td>
+      <td>498704921261</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>498704921261</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>228793438409</td>
+      <td>美国进口普利普莱叶黄素软</td>
+      <td>329</td>
+      <td>1</td>
+      <td>ecms-tz-0010</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>ecms-tz-0010</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>228791918374</td>
+      <td>美国进口普利普莱叶黄素软</td>
+      <td>329</td>
+      <td>1</td>
+      <td>ecms-tz-0010</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>买家已付款，等待卖家发货</td>
+      <td>ecms-tz-0010</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>254100912323</td>
+      <td>日本kawai卡哇伊肝油</td>
+      <td>259</td>
+      <td>1</td>
+      <td>498704921251</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>交易关闭</td>
+      <td>498704921251</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>266137702384</td>
+      <td>日本fancl美白丸全身</td>
+      <td>204</td>
+      <td>1</td>
+      <td>490804934732</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>490804934732</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>266045321080</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>1</td>
+      <td>456026429338</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>456026429338</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>265915323005</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>1</td>
+      <td>456026429338</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>尽快发货，谢谢！</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>456026429338</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>266003725097</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>1</td>
+      <td>456026429033</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>456026429033</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>266003205038</td>
+      <td>日本代购新谷酵素夜迟减肥</td>
+      <td>399</td>
+      <td>1</td>
+      <td>456026429338</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>卖家已发货，等待买家确认</td>
+      <td>456026429338</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第四种：读取Excel文件创建DataFrame</span></span><br><span class="line">df1 = pd.read_excel(<span class="string">&#x27;../files/data/2020年销售数据.xlsx&#x27;</span>,sheet_name = <span class="string">&#x27;Sheet1&#x27;</span>)</span><br><span class="line">df1</span><br><span class="line"><span class="comment"># 参数设置</span></span><br><span class="line"><span class="comment"># sheet_name = &#x27;SheetName&#x27;指定读取的工作表，默认为活跃表</span></span><br><span class="line"><span class="comment"># header = RowNumber 指定表头行；默认为0</span></span><br><span class="line"><span class="comment"># use_cols = (ColName1,ColName2...)  指定只读列</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>销售日期</th>
+      <th>销售信息</th>
+      <th>销售区域</th>
+      <th>销售渠道</th>
+      <th>销售订单</th>
+      <th>品牌</th>
+      <th>售价</th>
+      <th>销售数量</th>
+      <th>销售额</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020-01-01</td>
+      <td>上海拼多多订单182894-455</td>
+      <td>上海</td>
+      <td>拼多多</td>
+      <td>182894-455</td>
+      <td>八匹马</td>
+      <td>99</td>
+      <td>83</td>
+      <td>8217</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020-01-01</td>
+      <td>上海抖音订单205635-402</td>
+      <td>上海</td>
+      <td>抖音</td>
+      <td>205635-402</td>
+      <td>八匹马</td>
+      <td>219</td>
+      <td>29</td>
+      <td>6351</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020-01-01</td>
+      <td>上海天猫订单205654-021</td>
+      <td>上海</td>
+      <td>天猫</td>
+      <td>205654-021</td>
+      <td>八匹马</td>
+      <td>169</td>
+      <td>85</td>
+      <td>14365</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2020-01-01</td>
+      <td>上海天猫订单205654-519</td>
+      <td>上海</td>
+      <td>天猫</td>
+      <td>205654-519</td>
+      <td>八匹马</td>
+      <td>169</td>
+      <td>14</td>
+      <td>2366</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2020-01-01</td>
+      <td>上海天猫订单377781-010</td>
+      <td>上海</td>
+      <td>天猫</td>
+      <td>377781-010</td>
+      <td>皮皮虾</td>
+      <td>249</td>
+      <td>61</td>
+      <td>15189</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1940</th>
+      <td>2020-12-30</td>
+      <td>北京京东订单D89677</td>
+      <td>北京</td>
+      <td>京东</td>
+      <td>D89677</td>
+      <td>花花姑娘</td>
+      <td>269</td>
+      <td>26</td>
+      <td>6994</td>
+    </tr>
+    <tr>
+      <th>1941</th>
+      <td>2020-12-30</td>
+      <td>福建实体订单182719-050</td>
+      <td>福建</td>
+      <td>实体</td>
+      <td>182719-050</td>
+      <td>八匹马</td>
+      <td>79</td>
+      <td>97</td>
+      <td>7663</td>
+    </tr>
+    <tr>
+      <th>1942</th>
+      <td>2020-12-31</td>
+      <td>福建实体订单G70083</td>
+      <td>福建</td>
+      <td>实体</td>
+      <td>G70083</td>
+      <td>花花姑娘</td>
+      <td>269</td>
+      <td>55</td>
+      <td>14795</td>
+    </tr>
+    <tr>
+      <th>1943</th>
+      <td>2020-12-31</td>
+      <td>福建抖音订单211471-902/704</td>
+      <td>福建</td>
+      <td>抖音</td>
+      <td>211471-902/704</td>
+      <td>八匹马</td>
+      <td>59</td>
+      <td>59</td>
+      <td>3481</td>
+    </tr>
+    <tr>
+      <th>1944</th>
+      <td>2020-12-31</td>
+      <td>福建天猫订单211807-050</td>
+      <td>福建</td>
+      <td>天猫</td>
+      <td>211807-050</td>
+      <td>八匹马</td>
+      <td>99</td>
+      <td>27</td>
+      <td>2673</td>
+    </tr>
+  </tbody>
+</table>
+<p>1945 rows × 9 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df2 = pd.read_csv(<span class="string">&#x27;../files/data/2018年北京积分落户数据.csv&#x27;</span>,encoding = <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">df2</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+      <th>birthday</th>
+      <th>company</th>
+      <th>score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>杨效丰</td>
+      <td>1972-12</td>
+      <td>北京利德华福电气技术有限公司</td>
+      <td>122.59</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>纪丰伟</td>
+      <td>1974-12</td>
+      <td>北京航天数据股份有限公司</td>
+      <td>121.25</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>王永</td>
+      <td>1974-05</td>
+      <td>品牌联盟(北京)咨询股份公司</td>
+      <td>118.96</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>杨静</td>
+      <td>1975-07</td>
+      <td>中科专利商标代理有限责任公司</td>
+      <td>118.21</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>张凯江</td>
+      <td>1974-11</td>
+      <td>北京阿里巴巴云计算技术有限公司</td>
+      <td>117.79</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>6014</th>
+      <td>6015</td>
+      <td>孙宏波</td>
+      <td>1978-08</td>
+      <td>华为海洋网络有限公司北京科技分公司</td>
+      <td>90.75</td>
+    </tr>
+    <tr>
+      <th>6015</th>
+      <td>6016</td>
+      <td>刘丽香</td>
+      <td>1976-11</td>
+      <td>福斯（上海）流体设备有限公司北京分公司</td>
+      <td>90.75</td>
+    </tr>
+    <tr>
+      <th>6016</th>
+      <td>6017</td>
+      <td>周崧</td>
+      <td>1977-10</td>
+      <td>赢创德固赛（中国）投资有限公司</td>
+      <td>90.75</td>
+    </tr>
+    <tr>
+      <th>6017</th>
+      <td>6018</td>
+      <td>赵妍</td>
+      <td>1979-07</td>
+      <td>澳科利耳医疗器械（北京）有限公司</td>
+      <td>90.75</td>
+    </tr>
+    <tr>
+      <th>6018</th>
+      <td>6019</td>
+      <td>贺锐</td>
+      <td>1981-06</td>
+      <td>北京宝洁技术有限公司</td>
+      <td>90.75</td>
+    </tr>
+  </tbody>
+</table>
+<p>6019 rows × 5 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df3 = pd.read_excel(<span class="string">&#x27;../files/data/口罩销售数据.xlsx&#x27;</span>)</span><br><span class="line">df3</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>日期</th>
+      <th>销售城市</th>
+      <th>产品类别</th>
+      <th>销售员</th>
+      <th>数量</th>
+      <th>单价</th>
+      <th>金额</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020-01-01</td>
+      <td>广州</td>
+      <td>纯棉口罩</td>
+      <td>王大锤</td>
+      <td>6</td>
+      <td>1</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020-01-01</td>
+      <td>武汉</td>
+      <td>明星口罩</td>
+      <td>秦红棉</td>
+      <td>30</td>
+      <td>30</td>
+      <td>900</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020-01-01</td>
+      <td>深圳</td>
+      <td>明星口罩</td>
+      <td>秦红棉</td>
+      <td>2</td>
+      <td>30</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2020-01-03</td>
+      <td>上海</td>
+      <td>防雾霾口罩</td>
+      <td>白元芳</td>
+      <td>63</td>
+      <td>28</td>
+      <td>1764</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2020-01-04</td>
+      <td>武汉</td>
+      <td>明星口罩</td>
+      <td>白元芳</td>
+      <td>25</td>
+      <td>30</td>
+      <td>750</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>994</th>
+      <td>2020-12-30</td>
+      <td>南昌</td>
+      <td>医用口罩</td>
+      <td>陆小凤</td>
+      <td>163</td>
+      <td>3</td>
+      <td>489</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>2020-12-31</td>
+      <td>武汉</td>
+      <td>纯棉口罩</td>
+      <td>王大锤</td>
+      <td>23</td>
+      <td>1</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>2020-12-31</td>
+      <td>上海</td>
+      <td>医用口罩</td>
+      <td>王大锤</td>
+      <td>259</td>
+      <td>3</td>
+      <td>777</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>2020-12-31</td>
+      <td>上海</td>
+      <td>N95口罩</td>
+      <td>白元芳</td>
+      <td>25</td>
+      <td>25</td>
+      <td>625</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>2020-12-31</td>
+      <td>武汉</td>
+      <td>防雾霾口罩</td>
+      <td>陆小凤</td>
+      <td>50</td>
+      <td>28</td>
+      <td>1400</td>
+    </tr>
+  </tbody>
+</table>
+<p>999 rows × 7 columns</p>
+</div>
+
+<p>安装pymysql</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!pip install pymysql</span><br></pre></td></tr></table></figure>
+
+<pre><code>Looking in indexes: https://pypi.doubanio.com/simple
+Requirement already satisfied: pymysql in d:\programs\python\python38\lib\site-packages (1.0.2)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">conn = pymysql.connect(host = <span class="string">&#x27;localhost&#x27;</span>,port = <span class="number">3306</span>,user = <span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">                      password = <span class="string">&#x27;YourPassword&#x27;</span>,database = <span class="string">&#x27;DatabaseName&#x27;</span>,charset = <span class="string">&#x27;utf8mb4&#x27;</span>)</span><br><span class="line">conn  <span class="comment"># 检查连接结果</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;pymysql.connections.Connection at 0x22232ea2b50&gt;
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第五种：通过SQL数据库读取创建DataFrame</span></span><br><span class="line">dept_df = pd.read_sql(<span class="string">&#x27;select dno ,dname,dloc from tb_dept&#x27;</span>,conn,</span><br><span class="line">                     index_col = <span class="string">&#x27;dno&#x27;</span>)<span class="comment"># 设置索引为dno列</span></span><br><span class="line">dept_df</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dname</th>
+      <th>dloc</th>
+    </tr>
+    <tr>
+      <th>dno</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10</th>
+      <td>会计部</td>
+      <td>北京</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>研发部</td>
+      <td>成都</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>销售部</td>
+      <td>重庆</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>运维部</td>
+      <td>深圳</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">emp_df = pd.read_sql(<span class="string">&#x27;select eno ,ename,job,mgr,sal from tb_emp&#x27;</span>,conn,</span><br><span class="line">                     index_col = <span class="string">&#x27;eno&#x27;</span>)   <span class="comment"># 索引列(将指定的列作为索引列)</span></span><br><span class="line">emp_df</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ename</th>
+      <th>job</th>
+      <th>mgr</th>
+      <th>sal</th>
+    </tr>
+    <tr>
+      <th>eno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1359</th>
+      <td>胡一刀</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>1800</td>
+    </tr>
+    <tr>
+      <th>2056</th>
+      <td>乔峰</td>
+      <td>分析师</td>
+      <td>7800.0</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <th>3088</th>
+      <td>李莫愁</td>
+      <td>设计师</td>
+      <td>2056.0</td>
+      <td>3500</td>
+    </tr>
+    <tr>
+      <th>3211</th>
+      <td>张无忌</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>3233</th>
+      <td>丘处机</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3400</td>
+    </tr>
+    <tr>
+      <th>3244</th>
+      <td>欧阳锋</td>
+      <td>程序员</td>
+      <td>3088.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>3251</th>
+      <td>张翠山</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>3344</th>
+      <td>黄蓉</td>
+      <td>销售主管</td>
+      <td>7800.0</td>
+      <td>3000</td>
+    </tr>
+    <tr>
+      <th>3577</th>
+      <td>杨过</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2200</td>
+    </tr>
+    <tr>
+      <th>3588</th>
+      <td>朱九真</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>4466</th>
+      <td>苗人凤</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>5234</th>
+      <td>郭靖</td>
+      <td>出纳</td>
+      <td>5566.0</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>5566</th>
+      <td>宋远桥</td>
+      <td>会计师</td>
+      <td>7800.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>7800</th>
+      <td>张三丰</td>
+      <td>总裁</td>
+      <td>NaN</td>
+      <td>9000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看表信息</span></span><br><span class="line">emp_df.info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 14 entries, 1359 to 7800
+Data columns (total 4 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   ename   14 non-null     object 
+ 1   job     14 non-null     object 
+ 2   mgr     13 non-null     float64
+ 3   sal     14 non-null     int64  
+dtypes: float64(1), int64(1), object(2)
+memory usage: 560.0+ bytes
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 取到的每一列都是数据系列</span></span><br><span class="line">emp_df[<span class="string">&#x27;ename&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>eno
+1359    胡一刀
+2056     乔峰
+3088    李莫愁
+3211    张无忌
+3233    丘处机
+3244    欧阳锋
+3251    张翠山
+3344     黄蓉
+3577     杨过
+3588    朱九真
+4466    苗人凤
+5234     郭靖
+5566    宋远桥
+7800    张三丰
+Name: ename, dtype: object
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单取某一行也是数据系列</span></span><br><span class="line"><span class="comment"># obj.loc[index]</span></span><br><span class="line">emp_df.loc[<span class="number">1359</span>]</span><br><span class="line">emp_df.loc[[<span class="number">1359</span>,<span class="number">5566</span>]]   <span class="comment">#花式索引</span></span><br></pre></td></tr></table></figure>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ename</th>
+      <th>job</th>
+      <th>mgr</th>
+      <th>sal</th>
+    </tr>
+    <tr>
+      <th>eno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1359</th>
+      <td>胡一刀</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>1800</td>
+    </tr>
+    <tr>
+      <th>5566</th>
+      <td>宋远桥</td>
+      <td>会计师</td>
+      <td>7800.0</td>
+      <td>4000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 切片&amp;整数（默认）索引</span></span><br><span class="line">emp_df.iloc[<span class="number">0</span>:<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ename</th>
+      <th>job</th>
+      <th>mgr</th>
+      <th>sal</th>
+    </tr>
+    <tr>
+      <th>eno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1359</th>
+      <td>胡一刀</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>1800</td>
+    </tr>
+    <tr>
+      <th>2056</th>
+      <td>乔峰</td>
+      <td>分析师</td>
+      <td>7800.0</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <th>3088</th>
+      <td>李莫愁</td>
+      <td>设计师</td>
+      <td>2056.0</td>
+      <td>3500</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改某单元跟值</span></span><br><span class="line">emp_df.loc[<span class="number">1359</span>,<span class="string">&#x27;ename&#x27;</span>] = <span class="string">&#x27;胡二刀&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">emp_df</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ename</th>
+      <th>job</th>
+      <th>mgr</th>
+      <th>sal</th>
+    </tr>
+    <tr>
+      <th>eno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1359</th>
+      <td>胡二刀</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>1800</td>
+    </tr>
+    <tr>
+      <th>2056</th>
+      <td>乔峰</td>
+      <td>分析师</td>
+      <td>7800.0</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <th>3088</th>
+      <td>李莫愁</td>
+      <td>设计师</td>
+      <td>2056.0</td>
+      <td>3500</td>
+    </tr>
+    <tr>
+      <th>3211</th>
+      <td>张无忌</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>3233</th>
+      <td>丘处机</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3400</td>
+    </tr>
+    <tr>
+      <th>3244</th>
+      <td>欧阳锋</td>
+      <td>程序员</td>
+      <td>3088.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>3251</th>
+      <td>张翠山</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>3344</th>
+      <td>黄蓉</td>
+      <td>销售主管</td>
+      <td>7800.0</td>
+      <td>3000</td>
+    </tr>
+    <tr>
+      <th>3577</th>
+      <td>杨过</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2200</td>
+    </tr>
+    <tr>
+      <th>3588</th>
+      <td>朱九真</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>4466</th>
+      <td>苗人凤</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>5234</th>
+      <td>郭靖</td>
+      <td>出纳</td>
+      <td>5566.0</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>5566</th>
+      <td>宋远桥</td>
+      <td>会计师</td>
+      <td>7800.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>7800</th>
+      <td>张三丰</td>
+      <td>总裁</td>
+      <td>NaN</td>
+      <td>9000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<h6 id="索引行时必须使用索引器-obj-loc-RowIndex"><a href="#索引行时必须使用索引器-obj-loc-RowIndex" class="headerlink" title="索引行时必须使用索引器 obj.loc [ RowIndex]"></a>索引行时必须使用索引器 obj.loc [ RowIndex]</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看前某行，默认为5</span></span><br><span class="line">emp_df.head()</span><br></pre></td></tr></table></figure>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ename</th>
+      <th>job</th>
+      <th>mgr</th>
+      <th>sal</th>
+    </tr>
+    <tr>
+      <th>eno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1359</th>
+      <td>胡二刀</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>1800</td>
+    </tr>
+    <tr>
+      <th>2056</th>
+      <td>乔峰</td>
+      <td>分析师</td>
+      <td>7800.0</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <th>3088</th>
+      <td>李莫愁</td>
+      <td>设计师</td>
+      <td>2056.0</td>
+      <td>3500</td>
+    </tr>
+    <tr>
+      <th>3211</th>
+      <td>张无忌</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>3233</th>
+      <td>丘处机</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3400</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看后三行，默认为5</span></span><br><span class="line">emp_df.tail(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ename</th>
+      <th>job</th>
+      <th>mgr</th>
+      <th>sal</th>
+    </tr>
+    <tr>
+      <th>eno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5234</th>
+      <td>郭靖</td>
+      <td>出纳</td>
+      <td>5566.0</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>5566</th>
+      <td>宋远桥</td>
+      <td>会计师</td>
+      <td>7800.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>7800</th>
+      <td>张三丰</td>
+      <td>总裁</td>
+      <td>NaN</td>
+      <td>9000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加列</span></span><br><span class="line">emp_df[<span class="string">&#x27;婚姻状态&#x27;</span>] = <span class="string">&#x27;未婚&#x27;</span></span><br><span class="line">emp_df</span><br></pre></td></tr></table></figure>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ename</th>
+      <th>job</th>
+      <th>mgr</th>
+      <th>sal</th>
+      <th>婚姻状态</th>
+    </tr>
+    <tr>
+      <th>eno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1359</th>
+      <td>胡二刀</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>1800</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>2056</th>
+      <td>乔峰</td>
+      <td>分析师</td>
+      <td>7800.0</td>
+      <td>5000</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3088</th>
+      <td>李莫愁</td>
+      <td>设计师</td>
+      <td>2056.0</td>
+      <td>3500</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3211</th>
+      <td>张无忌</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3200</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3233</th>
+      <td>丘处机</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3400</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3244</th>
+      <td>欧阳锋</td>
+      <td>程序员</td>
+      <td>3088.0</td>
+      <td>3200</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3251</th>
+      <td>张翠山</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>4000</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3344</th>
+      <td>黄蓉</td>
+      <td>销售主管</td>
+      <td>7800.0</td>
+      <td>3000</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3577</th>
+      <td>杨过</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2200</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3588</th>
+      <td>朱九真</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2500</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>4466</th>
+      <td>苗人凤</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>2500</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>5234</th>
+      <td>郭靖</td>
+      <td>出纳</td>
+      <td>5566.0</td>
+      <td>2000</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>5566</th>
+      <td>宋远桥</td>
+      <td>会计师</td>
+      <td>7800.0</td>
+      <td>4000</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>7800</th>
+      <td>张三丰</td>
+      <td>总裁</td>
+      <td>NaN</td>
+      <td>9000</td>
+      <td>未婚</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">emp_df.loc[<span class="number">3088</span>,<span class="string">&#x27;婚姻状态&#x27;</span>] = <span class="string">&#x27;已婚&#x27;</span></span><br><span class="line">emp_df</span><br></pre></td></tr></table></figure>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ename</th>
+      <th>job</th>
+      <th>mgr</th>
+      <th>sal</th>
+      <th>婚姻状态</th>
+    </tr>
+    <tr>
+      <th>eno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1359</th>
+      <td>胡二刀</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>1800</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>2056</th>
+      <td>乔峰</td>
+      <td>分析师</td>
+      <td>7800.0</td>
+      <td>5000</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3088</th>
+      <td>李莫愁</td>
+      <td>设计师</td>
+      <td>2056.0</td>
+      <td>3500</td>
+      <td>已婚</td>
+    </tr>
+    <tr>
+      <th>3211</th>
+      <td>张无忌</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3200</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3233</th>
+      <td>丘处机</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3400</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3244</th>
+      <td>欧阳锋</td>
+      <td>程序员</td>
+      <td>3088.0</td>
+      <td>3200</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3251</th>
+      <td>张翠山</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>4000</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3344</th>
+      <td>黄蓉</td>
+      <td>销售主管</td>
+      <td>7800.0</td>
+      <td>3000</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3577</th>
+      <td>杨过</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2200</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3588</th>
+      <td>朱九真</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2500</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>4466</th>
+      <td>苗人凤</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>2500</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>5234</th>
+      <td>郭靖</td>
+      <td>出纳</td>
+      <td>5566.0</td>
+      <td>2000</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>5566</th>
+      <td>宋远桥</td>
+      <td>会计师</td>
+      <td>7800.0</td>
+      <td>4000</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>7800</th>
+      <td>张三丰</td>
+      <td>总裁</td>
+      <td>NaN</td>
+      <td>9000</td>
+      <td>未婚</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加行</span></span><br><span class="line">emp_df.loc[<span class="number">9999</span>]=&#123;<span class="string">&#x27;ename&#x27;</span>:<span class="string">&#x27;蜘蛛侠&#x27;</span>,<span class="string">&#x27;job&#x27;</span>:<span class="string">&#x27;架构师&#x27;</span>,<span class="string">&#x27;mgr&#x27;</span>:np.nan,<span class="string">&#x27;sal&#x27;</span>:<span class="number">9000</span>,<span class="string">&#x27;婚姻状态&#x27;</span>:<span class="string">&#x27;未婚&#x27;</span>&#125;</span><br><span class="line">emp_df</span><br></pre></td></tr></table></figure>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ename</th>
+      <th>job</th>
+      <th>mgr</th>
+      <th>sal</th>
+      <th>婚姻状态</th>
+    </tr>
+    <tr>
+      <th>eno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1359</th>
+      <td>胡二刀</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>1800</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>2056</th>
+      <td>乔峰</td>
+      <td>分析师</td>
+      <td>7800.0</td>
+      <td>5000</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3088</th>
+      <td>李莫愁</td>
+      <td>设计师</td>
+      <td>2056.0</td>
+      <td>3500</td>
+      <td>已婚</td>
+    </tr>
+    <tr>
+      <th>3211</th>
+      <td>张无忌</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3200</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3233</th>
+      <td>丘处机</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3400</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3244</th>
+      <td>欧阳锋</td>
+      <td>程序员</td>
+      <td>3088.0</td>
+      <td>3200</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3251</th>
+      <td>张翠山</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>4000</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3344</th>
+      <td>黄蓉</td>
+      <td>销售主管</td>
+      <td>7800.0</td>
+      <td>3000</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3577</th>
+      <td>杨过</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2200</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>3588</th>
+      <td>朱九真</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2500</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>4466</th>
+      <td>苗人凤</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>2500</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>5234</th>
+      <td>郭靖</td>
+      <td>出纳</td>
+      <td>5566.0</td>
+      <td>2000</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>5566</th>
+      <td>宋远桥</td>
+      <td>会计师</td>
+      <td>7800.0</td>
+      <td>4000</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>7800</th>
+      <td>张三丰</td>
+      <td>总裁</td>
+      <td>NaN</td>
+      <td>9000</td>
+      <td>未婚</td>
+    </tr>
+    <tr>
+      <th>9999</th>
+      <td>蜘蛛侠</td>
+      <td>架构师</td>
+      <td>NaN</td>
+      <td>9000</td>
+      <td>未婚</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除指定列   inplace = True - 在原表上做修改</span></span><br><span class="line"><span class="comment"># emp_df.drop(columns = [&#x27;婚姻状态&#x27;],inplace=True)</span></span><br><span class="line">emp_df</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ename</th>
+      <th>job</th>
+      <th>mgr</th>
+      <th>sal</th>
+    </tr>
+    <tr>
+      <th>eno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1359</th>
+      <td>胡二刀</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>1800</td>
+    </tr>
+    <tr>
+      <th>2056</th>
+      <td>乔峰</td>
+      <td>分析师</td>
+      <td>7800.0</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <th>3088</th>
+      <td>李莫愁</td>
+      <td>设计师</td>
+      <td>2056.0</td>
+      <td>3500</td>
+    </tr>
+    <tr>
+      <th>3211</th>
+      <td>张无忌</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>3233</th>
+      <td>丘处机</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3400</td>
+    </tr>
+    <tr>
+      <th>3244</th>
+      <td>欧阳锋</td>
+      <td>程序员</td>
+      <td>3088.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>3251</th>
+      <td>张翠山</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>3344</th>
+      <td>黄蓉</td>
+      <td>销售主管</td>
+      <td>7800.0</td>
+      <td>3000</td>
+    </tr>
+    <tr>
+      <th>3577</th>
+      <td>杨过</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2200</td>
+    </tr>
+    <tr>
+      <th>3588</th>
+      <td>朱九真</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>4466</th>
+      <td>苗人凤</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>5234</th>
+      <td>郭靖</td>
+      <td>出纳</td>
+      <td>5566.0</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>5566</th>
+      <td>宋远桥</td>
+      <td>会计师</td>
+      <td>7800.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>7800</th>
+      <td>张三丰</td>
+      <td>总裁</td>
+      <td>NaN</td>
+      <td>9000</td>
+    </tr>
+    <tr>
+      <th>9999</th>
+      <td>蜘蛛侠</td>
+      <td>架构师</td>
+      <td>NaN</td>
+      <td>9000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除指定行</span></span><br><span class="line">emp_df.drop(index = <span class="number">9999</span>,inplace=<span class="literal">True</span>)</span><br><span class="line">emp_df</span><br></pre></td></tr></table></figure>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ename</th>
+      <th>job</th>
+      <th>mgr</th>
+      <th>sal</th>
+    </tr>
+    <tr>
+      <th>eno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1359</th>
+      <td>胡二刀</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>1800</td>
+    </tr>
+    <tr>
+      <th>2056</th>
+      <td>乔峰</td>
+      <td>分析师</td>
+      <td>7800.0</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <th>3088</th>
+      <td>李莫愁</td>
+      <td>设计师</td>
+      <td>2056.0</td>
+      <td>3500</td>
+    </tr>
+    <tr>
+      <th>3211</th>
+      <td>张无忌</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>3233</th>
+      <td>丘处机</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3400</td>
+    </tr>
+    <tr>
+      <th>3244</th>
+      <td>欧阳锋</td>
+      <td>程序员</td>
+      <td>3088.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>3251</th>
+      <td>张翠山</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>3344</th>
+      <td>黄蓉</td>
+      <td>销售主管</td>
+      <td>7800.0</td>
+      <td>3000</td>
+    </tr>
+    <tr>
+      <th>3577</th>
+      <td>杨过</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2200</td>
+    </tr>
+    <tr>
+      <th>3588</th>
+      <td>朱九真</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>4466</th>
+      <td>苗人凤</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>5234</th>
+      <td>郭靖</td>
+      <td>出纳</td>
+      <td>5566.0</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>5566</th>
+      <td>宋远桥</td>
+      <td>会计师</td>
+      <td>7800.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>7800</th>
+      <td>张三丰</td>
+      <td>总裁</td>
+      <td>NaN</td>
+      <td>9000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改列名</span></span><br><span class="line">emp_df.rename(columns=&#123;<span class="string">&#x27;ename&#x27;</span>:<span class="string">&#x27;姓名&#x27;</span>,<span class="string">&#x27;job&#x27;</span>:<span class="string">&#x27;职位&#x27;</span>,<span class="string">&#x27;mgr&#x27;</span>:<span class="string">&#x27;主管&#x27;</span>,<span class="string">&#x27;sal&#x27;</span>:<span class="string">&#x27;薪水&#x27;</span>&#125;,inplace=<span class="literal">True</span>)</span><br><span class="line">emp_df</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>姓名</th>
+      <th>职位</th>
+      <th>主管</th>
+      <th>薪水</th>
+    </tr>
+    <tr>
+      <th>eno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1359</th>
+      <td>胡二刀</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>1800</td>
+    </tr>
+    <tr>
+      <th>2056</th>
+      <td>乔峰</td>
+      <td>分析师</td>
+      <td>7800.0</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <th>3088</th>
+      <td>李莫愁</td>
+      <td>设计师</td>
+      <td>2056.0</td>
+      <td>3500</td>
+    </tr>
+    <tr>
+      <th>3211</th>
+      <td>张无忌</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>3233</th>
+      <td>丘处机</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3400</td>
+    </tr>
+    <tr>
+      <th>3244</th>
+      <td>欧阳锋</td>
+      <td>程序员</td>
+      <td>3088.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>3251</th>
+      <td>张翠山</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>3344</th>
+      <td>黄蓉</td>
+      <td>销售主管</td>
+      <td>7800.0</td>
+      <td>3000</td>
+    </tr>
+    <tr>
+      <th>3577</th>
+      <td>杨过</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2200</td>
+    </tr>
+    <tr>
+      <th>3588</th>
+      <td>朱九真</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>4466</th>
+      <td>苗人凤</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>5234</th>
+      <td>郭靖</td>
+      <td>出纳</td>
+      <td>5566.0</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>5566</th>
+      <td>宋远桥</td>
+      <td>会计师</td>
+      <td>7800.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>7800</th>
+      <td>张三丰</td>
+      <td>总裁</td>
+      <td>NaN</td>
+      <td>9000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 调整列顺序(重新调整)</span></span><br><span class="line">emp_df1 = emp_df.reindex(columns=[<span class="string">&#x27;姓名&#x27;</span>,<span class="string">&#x27;职位&#x27;</span>,<span class="string">&#x27;薪水&#x27;</span>,<span class="string">&#x27;主管&#x27;</span>])</span><br><span class="line">emp_df1</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>姓名</th>
+      <th>职位</th>
+      <th>薪水</th>
+      <th>主管</th>
+    </tr>
+    <tr>
+      <th>eno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1359</th>
+      <td>胡二刀</td>
+      <td>销售员</td>
+      <td>1800</td>
+      <td>3344.0</td>
+    </tr>
+    <tr>
+      <th>2056</th>
+      <td>乔峰</td>
+      <td>分析师</td>
+      <td>5000</td>
+      <td>7800.0</td>
+    </tr>
+    <tr>
+      <th>3088</th>
+      <td>李莫愁</td>
+      <td>设计师</td>
+      <td>3500</td>
+      <td>2056.0</td>
+    </tr>
+    <tr>
+      <th>3211</th>
+      <td>张无忌</td>
+      <td>程序员</td>
+      <td>3200</td>
+      <td>2056.0</td>
+    </tr>
+    <tr>
+      <th>3233</th>
+      <td>丘处机</td>
+      <td>程序员</td>
+      <td>3400</td>
+      <td>2056.0</td>
+    </tr>
+    <tr>
+      <th>3244</th>
+      <td>欧阳锋</td>
+      <td>程序员</td>
+      <td>3200</td>
+      <td>3088.0</td>
+    </tr>
+    <tr>
+      <th>3251</th>
+      <td>张翠山</td>
+      <td>程序员</td>
+      <td>4000</td>
+      <td>2056.0</td>
+    </tr>
+    <tr>
+      <th>3344</th>
+      <td>黄蓉</td>
+      <td>销售主管</td>
+      <td>3000</td>
+      <td>7800.0</td>
+    </tr>
+    <tr>
+      <th>3577</th>
+      <td>杨过</td>
+      <td>会计</td>
+      <td>2200</td>
+      <td>5566.0</td>
+    </tr>
+    <tr>
+      <th>3588</th>
+      <td>朱九真</td>
+      <td>会计</td>
+      <td>2500</td>
+      <td>5566.0</td>
+    </tr>
+    <tr>
+      <th>4466</th>
+      <td>苗人凤</td>
+      <td>销售员</td>
+      <td>2500</td>
+      <td>3344.0</td>
+    </tr>
+    <tr>
+      <th>5234</th>
+      <td>郭靖</td>
+      <td>出纳</td>
+      <td>2000</td>
+      <td>5566.0</td>
+    </tr>
+    <tr>
+      <th>5566</th>
+      <td>宋远桥</td>
+      <td>会计师</td>
+      <td>4000</td>
+      <td>7800.0</td>
+    </tr>
+    <tr>
+      <th>7800</th>
+      <td>张三丰</td>
+      <td>总裁</td>
+      <td>9000</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重新设置索引，将eno重置为正常列（去掉之前设置的索引列）</span></span><br><span class="line">emp_df.reset_index(inplace=<span class="literal">True</span>)</span><br><span class="line">emp_df</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>eno</th>
+      <th>姓名</th>
+      <th>职位</th>
+      <th>主管</th>
+      <th>薪水</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1359</td>
+      <td>胡二刀</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>1800</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2056</td>
+      <td>乔峰</td>
+      <td>分析师</td>
+      <td>7800.0</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3088</td>
+      <td>李莫愁</td>
+      <td>设计师</td>
+      <td>2056.0</td>
+      <td>3500</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3211</td>
+      <td>张无忌</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3233</td>
+      <td>丘处机</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3400</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3244</td>
+      <td>欧阳锋</td>
+      <td>程序员</td>
+      <td>3088.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>3251</td>
+      <td>张翠山</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>3344</td>
+      <td>黄蓉</td>
+      <td>销售主管</td>
+      <td>7800.0</td>
+      <td>3000</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>3577</td>
+      <td>杨过</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2200</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>3588</td>
+      <td>朱九真</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>4466</td>
+      <td>苗人凤</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>5234</td>
+      <td>郭靖</td>
+      <td>出纳</td>
+      <td>5566.0</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>5566</td>
+      <td>宋远桥</td>
+      <td>会计师</td>
+      <td>7800.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>7800</td>
+      <td>张三丰</td>
+      <td>总裁</td>
+      <td>NaN</td>
+      <td>9000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置索引，将某列设置为索引</span></span><br><span class="line">emp_df2 = emp_df.set_index(<span class="string">&#x27;eno&#x27;</span>)</span><br><span class="line">emp_df2</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>姓名</th>
+      <th>职位</th>
+      <th>主管</th>
+      <th>薪水</th>
+    </tr>
+    <tr>
+      <th>eno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1359</th>
+      <td>胡二刀</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>1800</td>
+    </tr>
+    <tr>
+      <th>2056</th>
+      <td>乔峰</td>
+      <td>分析师</td>
+      <td>7800.0</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <th>3088</th>
+      <td>李莫愁</td>
+      <td>设计师</td>
+      <td>2056.0</td>
+      <td>3500</td>
+    </tr>
+    <tr>
+      <th>3211</th>
+      <td>张无忌</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>3233</th>
+      <td>丘处机</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3400</td>
+    </tr>
+    <tr>
+      <th>3244</th>
+      <td>欧阳锋</td>
+      <td>程序员</td>
+      <td>3088.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>3251</th>
+      <td>张翠山</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>3344</th>
+      <td>黄蓉</td>
+      <td>销售主管</td>
+      <td>7800.0</td>
+      <td>3000</td>
+    </tr>
+    <tr>
+      <th>3577</th>
+      <td>杨过</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2200</td>
+    </tr>
+    <tr>
+      <th>3588</th>
+      <td>朱九真</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>4466</th>
+      <td>苗人凤</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>5234</th>
+      <td>郭靖</td>
+      <td>出纳</td>
+      <td>5566.0</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>5566</th>
+      <td>宋远桥</td>
+      <td>会计师</td>
+      <td>7800.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>7800</th>
+      <td>张三丰</td>
+      <td>总裁</td>
+      <td>NaN</td>
+      <td>9000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置多个索引</span></span><br><span class="line">emp_df3 = emp_df.set_index([<span class="string">&#x27;eno&#x27;</span>,<span class="string">&#x27;姓名&#x27;</span>])</span><br><span class="line">emp_df3</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>职位</th>
+      <th>主管</th>
+      <th>薪水</th>
+    </tr>
+    <tr>
+      <th>eno</th>
+      <th>姓名</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1359</th>
+      <th>胡二刀</th>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>1800</td>
+    </tr>
+    <tr>
+      <th>2056</th>
+      <th>乔峰</th>
+      <td>分析师</td>
+      <td>7800.0</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <th>3088</th>
+      <th>李莫愁</th>
+      <td>设计师</td>
+      <td>2056.0</td>
+      <td>3500</td>
+    </tr>
+    <tr>
+      <th>3211</th>
+      <th>张无忌</th>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>3233</th>
+      <th>丘处机</th>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3400</td>
+    </tr>
+    <tr>
+      <th>3244</th>
+      <th>欧阳锋</th>
+      <td>程序员</td>
+      <td>3088.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>3251</th>
+      <th>张翠山</th>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>3344</th>
+      <th>黄蓉</th>
+      <td>销售主管</td>
+      <td>7800.0</td>
+      <td>3000</td>
+    </tr>
+    <tr>
+      <th>3577</th>
+      <th>杨过</th>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2200</td>
+    </tr>
+    <tr>
+      <th>3588</th>
+      <th>朱九真</th>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>4466</th>
+      <th>苗人凤</th>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>5234</th>
+      <th>郭靖</th>
+      <td>出纳</td>
+      <td>5566.0</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>5566</th>
+      <th>宋远桥</th>
+      <td>会计师</td>
+      <td>7800.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>7800</th>
+      <th>张三丰</th>
+      <td>总裁</td>
+      <td>NaN</td>
+      <td>9000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">emp_df3.reset_index(level = <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>姓名</th>
+      <th>职位</th>
+      <th>主管</th>
+      <th>薪水</th>
+    </tr>
+    <tr>
+      <th>eno</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1359</th>
+      <td>胡二刀</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>1800</td>
+    </tr>
+    <tr>
+      <th>2056</th>
+      <td>乔峰</td>
+      <td>分析师</td>
+      <td>7800.0</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <th>3088</th>
+      <td>李莫愁</td>
+      <td>设计师</td>
+      <td>2056.0</td>
+      <td>3500</td>
+    </tr>
+    <tr>
+      <th>3211</th>
+      <td>张无忌</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>3233</th>
+      <td>丘处机</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>3400</td>
+    </tr>
+    <tr>
+      <th>3244</th>
+      <td>欧阳锋</td>
+      <td>程序员</td>
+      <td>3088.0</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>3251</th>
+      <td>张翠山</td>
+      <td>程序员</td>
+      <td>2056.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>3344</th>
+      <td>黄蓉</td>
+      <td>销售主管</td>
+      <td>7800.0</td>
+      <td>3000</td>
+    </tr>
+    <tr>
+      <th>3577</th>
+      <td>杨过</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2200</td>
+    </tr>
+    <tr>
+      <th>3588</th>
+      <td>朱九真</td>
+      <td>会计</td>
+      <td>5566.0</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>4466</th>
+      <td>苗人凤</td>
+      <td>销售员</td>
+      <td>3344.0</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>5234</th>
+      <td>郭靖</td>
+      <td>出纳</td>
+      <td>5566.0</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>5566</th>
+      <td>宋远桥</td>
+      <td>会计师</td>
+      <td>7800.0</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>7800</th>
+      <td>张三丰</td>
+      <td>总裁</td>
+      <td>NaN</td>
+      <td>9000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2021-09-16 19:38:53" itemprop="dateModified" datetime="2021-09-16T19:38:53+08:00">2021-09-16</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="HoneyGrapefruit WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="HoneyGrapefruit Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="HoneyGrapefruit PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>HoneyGrapefruit <i class="ic i-at"><em>@</em></i>宗志雄的技术专栏
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://babybear.top/2021/09/27/Pandas%20%E5%85%A5%E9%97%A8/" title="">http://babybear.top/2021/09/27/Pandas 入门/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/09/27/Pandas%20%E8%BF%9B%E9%98%B6/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciryrr3rj20zk0m8nhk.jpg" title="Untitled">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Untitled</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2021/09/27/%E8%AE%A4%E8%AF%86Numpy/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclffsa1cj20zk0m811l.jpg" title="Untitled">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Untitled</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Pandas-%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">Pandas 入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Series"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Series</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Series-%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.0.0.1.</span> <span class="toc-text">Series 属性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Series-%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.0.0.2.</span> <span class="toc-text">Series 方法</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-DataFrame"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 DataFrame</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-%E5%88%9B%E5%BB%BADataFrame%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.2.1 创建DataFrame对象</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E8%A1%8C%E6%97%B6%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8%E7%B4%A2%E5%BC%95%E5%99%A8-obj-loc-RowIndex"><span class="toc-number">1.2.1.0.1.</span> <span class="toc-text">索引行时必须使用索引器 obj.loc [ RowIndex]</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="HoneyGrapefruit"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">HoneyGrapefruit</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">25</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hvbmVHcmFwZWZydWl0" title="https:&#x2F;&#x2F;github.com&#x2F;HoneGrapefruit"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/09/27/Pandas%20%E8%BF%9B%E9%98%B6/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/09/27/%E8%AE%A4%E8%AF%86Numpy/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/11/%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4(%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%20-%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E8%BF%9B%E7%A8%8B/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%B0%81%E8%A3%85%E4%B8%BA%E6%96%B9%E6%B3%95/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/NumPy%E7%9A%84%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8(example)/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%20%E5%85%89%E5%AD%A6%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Pandas%20%E8%BF%9B%E9%98%B6/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/requests%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Pandas%20%E5%85%A5%E9%97%A8/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%AE%89%E8%A3%85%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2%E6%8F%92%E4%BB%B6%20%20%20npm%20install%20hexo-deployer-git%20--save%20%E7%9A%84%E9%97%AE%E9%A2%98(Hexo%E6%A1%86%E6%9E%B6)/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/11/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HoneyGrapefruit @ Super Bear</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/09/27/Pandas 入门/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

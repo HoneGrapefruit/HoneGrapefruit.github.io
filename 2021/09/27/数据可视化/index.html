@@ -1,0 +1,1684 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="宗志雄的技术专栏" href="http://babybear.top/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="宗志雄的技术专栏" href="http://babybear.top/atom.xml" />
+<link rel="alternate" type="application/json" title="宗志雄的技术专栏" href="http://babybear.top/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="http://babybear.top/2021/09/27/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">
+
+
+
+  <title>
+ |
+Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2021-09-27 10:25:17">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-09-27T10:25:17+08:00">2021-09-27</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Super Bear</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipesng5oej20zk0m87d4.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclxxcb6rj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4wqtg4j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclj61ylzj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciuv0socj20zk0m8qes.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipetfk5zwj20zk0m8e81.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh">
+  <link itemprop="mainEntityOfPage" href="http://babybear.top/2021/09/27/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="HoneyGrapefruit">
+    <meta itemprop="description" content="人生苦短，我用Python, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="宗志雄的技术专栏">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;STFangsong&#x27;</span>]</span><br><span class="line">plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%config InlineBackend.figure_format = <span class="string">&#x27;svg&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-数据可视化"><a href="#1-数据可视化" class="headerlink" title="1 数据可视化"></a>1 数据可视化</h2><h3 id="1-1-Matplotlib"><a href="#1-1-Matplotlib" class="headerlink" title="1.1 Matplotlib"></a>1.1 Matplotlib</h3><p>画图给内部人员看，主要用于数据探索，核心组件包含：</p>
+<ul>
+<li>画布 – figure() – 绘图的基础</li>
+<li>坐标系 – subplot() – 一个画布上可以有多个坐标系</li>
+<li>坐标轴 – <code>plot()</code> / <code>scatter()</code> / <code>bar()</code> / <code>pie()</code> / <code>hist()</code> / <code>boxplot()</code><ul>
+<li>趋势 - 折线图</li>
+<li>关系 - 散点图</li>
+<li>差异 - 柱状图</li>
+<li>占比 - 饼图</li>
+<li>分布 - 直方图</li>
+<li>描述性统计信息 - 箱线图(盒须图)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(-<span class="number">2</span> * np.pi, <span class="number">2</span>* np.pi, <span class="number">120</span>)</span><br><span class="line">y1 = np.sin(x)</span><br><span class="line">y2 = np.cos(x)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建画布</span></span><br><span class="line">plt.figure(figsize = (<span class="number">6</span>,<span class="number">4</span>),dpi = <span class="number">120</span>)</span><br><span class="line"><span class="comment"># 创建坐标系</span></span><br><span class="line">ax = plt.subplot(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">ax.spines[<span class="string">&#x27;top&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;right&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;bottom&#x27;</span>].set_position(<span class="string">&#x27;center&#x27;</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;left&#x27;</span>].set_position(<span class="string">&#x27;center&#x27;</span>)</span><br><span class="line"><span class="comment"># 绘图 - 定制线条样式及颜色</span></span><br><span class="line">plt.plot(x, y1, color = np.random.rand(<span class="number">3</span>),marker = <span class="string">&#x27;*&#x27;</span>,linestyle = <span class="string">&#x27;-&#x27;</span>,label = <span class="string">&#x27;正弦&#x27;</span>)</span><br><span class="line">plt.plot(x, y2, color = np.random.rand(<span class="number">3</span>),marker = <span class="string">&#x27;p&#x27;</span>,linestyle = <span class="string">&#x27;--&#x27;</span>,label = <span class="string">&#x27;余弦&#x27;</span>)</span><br><span class="line"><span class="comment"># 图表标题</span></span><br><span class="line">plt.title(<span class="string">r&#x27;正弦$sin(\alpha)$和余弦$cos(\beta)$曲线&#x27;</span>)</span><br><span class="line"><span class="comment"># 图表图例 默认在最佳位置（best）可更改</span></span><br><span class="line"><span class="comment"># best、upper right、upper left、lower left、lower right、right、center left、center right、lower center、upper center、center</span></span><br><span class="line">plt.legend(loc = <span class="string">&#x27;best&#x27;</span>)</span><br><span class="line"><span class="comment"># 定制网格线</span></span><br><span class="line">plt.grid(axis = <span class="string">&#x27;y&#x27;</span>,alpha = <span class="number">0.25</span>,linestyle = <span class="string">&#x27;--&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img data-src="output_6_0.svg" alt="svg"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建画布</span></span><br><span class="line">plt.figure(figsize = (<span class="number">8</span>,<span class="number">4</span>),dpi = <span class="number">120</span>)</span><br><span class="line"><span class="comment"># 创建多个坐标系</span></span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>)  <span class="comment"># 第1行1列 第1个位置</span></span><br><span class="line">plt.plot(x, y1, color = np.random.rand(<span class="number">3</span>),marker = <span class="string">&#x27;*&#x27;</span>,linestyle = <span class="string">&#x27;-&#x27;</span>,label = <span class="string">&#x27;正弦&#x27;</span>)</span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>)  <span class="comment"># 第1行2列 第2个位置</span></span><br><span class="line">plt.plot(x, y2, color = np.random.rand(<span class="number">3</span>),marker = <span class="string">&#x27;p&#x27;</span>,linestyle = <span class="string">&#x27;--&#x27;</span>,label = <span class="string">&#x27;余弦&#x27;</span>)</span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>)  <span class="comment"># 第2行1列 第2个位置  占据整行</span></span><br><span class="line"><span class="comment"># 绘制散点图，不能定制linestyle但可以根据值的大小设置阶梯色(C参数，cmap指定阶梯色颜色)以及点大小（S参数）</span></span><br><span class="line">plt.scatter(x, y1, c = np.<span class="built_in">abs</span>(y1 * <span class="number">20</span>),cmap = <span class="string">&#x27;spring&#x27;</span>,marker = <span class="string">&#x27;*&#x27;</span>,s = np.<span class="built_in">abs</span>(y1*<span class="number">20</span>),label = <span class="string">&#x27;正弦&#x27;</span>)</span><br><span class="line">plt.plot(x, y2, color = np.random.rand(<span class="number">3</span>),marker = <span class="string">&#x27;p&#x27;</span>,linestyle = <span class="string">&#x27;-.&#x27;</span>,label = <span class="string">&#x27;余弦&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img data-src="output_7_0.svg" alt="svg"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装gif插件</span></span><br><span class="line"><span class="comment"># !pip install gif</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gif</span><br><span class="line"><span class="keyword">import</span> IPython.display <span class="keyword">as</span> disp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制动图</span></span><br><span class="line"><span class="meta">@gif.frame</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw</span>(<span class="params">xi</span>):</span></span><br><span class="line">    plt.subplots(<span class="number">1</span>, figsize=(<span class="number">10</span>, <span class="number">4</span>), dpi=<span class="number">120</span>)</span><br><span class="line">    plt.plot(xi, np.sin(xi), marker=<span class="string">&#x27;x&#x27;</span>, color=<span class="string">&#x27;r&#x27;</span>, linestyle=<span class="string">&#x27;--&#x27;</span>)</span><br><span class="line">    plt.xlim([-<span class="number">7</span>, <span class="number">7</span>])</span><br><span class="line">    plt.xticks(np.arange(-<span class="number">2</span> * np.pi, <span class="number">2</span> * np.pi + <span class="number">1</span>, <span class="number">0.5</span> * np.pi))</span><br><span class="line">    plt.ylim([-<span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">frames = []</span><br><span class="line">x = np.linspace(-<span class="number">2</span> * np.pi, <span class="number">2</span> * np.pi, <span class="number">120</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(x.size // <span class="number">4</span>):</span><br><span class="line">    frame = draw(x[:(i + <span class="number">1</span>) * <span class="number">4</span>])</span><br><span class="line">    frames.append(frame)</span><br><span class="line">gif.save(frames, <span class="string">&#x27;../files/result/a.gif&#x27;</span>, duration=<span class="number">0.2</span>, unit=<span class="string">&#x27;s&#x27;</span>)</span><br><span class="line">disp.HTML(<span class="string">&#x27;&lt;img src=&quot;a.gif&quot;&gt;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<img data-src="a.gif">
+
+
+
+<h4 id="饼图"><a href="#饼图" class="headerlink" title="饼图"></a>饼图</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 饼图</span></span><br><span class="line">plt.figure(figsize=(<span class="number">6</span>, <span class="number">4</span>), dpi=<span class="number">120</span>)</span><br><span class="line">data = np.random.randint(<span class="number">100</span>, <span class="number">500</span>, <span class="number">7</span>)</span><br><span class="line"><span class="built_in">print</span>(data)</span><br><span class="line">labels = [<span class="string">&#x27;苹果&#x27;</span>, <span class="string">&#x27;香蕉&#x27;</span>, <span class="string">&#x27;桃子&#x27;</span>, <span class="string">&#x27;荔枝&#x27;</span>, <span class="string">&#x27;石榴&#x27;</span>, <span class="string">&#x27;山竹&#x27;</span>, <span class="string">&#x27;榴莲&#x27;</span>]</span><br><span class="line">plt.pie(</span><br><span class="line">    <span class="comment"># 数据</span></span><br><span class="line">    data,</span><br><span class="line">    <span class="comment"># 自动显示百分比</span></span><br><span class="line">    autopct=<span class="string">&#x27;%.1f%%&#x27;</span>,</span><br><span class="line">    <span class="comment"># 饼图的半径</span></span><br><span class="line">    radius=<span class="number">1</span>,</span><br><span class="line">    <span class="comment"># 百分比文字到圆心的距离</span></span><br><span class="line">    pctdistance=<span class="number">0.8</span>,</span><br><span class="line">    <span class="comment"># 分离距离</span></span><br><span class="line">    explode=[<span class="number">0.05</span>, <span class="number">0</span>, <span class="number">0.1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">    <span class="comment"># 显示阴影</span></span><br><span class="line">    shadow=<span class="literal">True</span>,</span><br><span class="line">    <span class="comment"># 字体属性</span></span><br><span class="line">    textprops=<span class="built_in">dict</span>(fontsize=<span class="number">8</span>, color=<span class="string">&#x27;k&#x27;</span>),</span><br><span class="line">    <span class="comment"># 楔子属性</span></span><br><span class="line">    wedgeprops=<span class="built_in">dict</span>(linewidth=<span class="number">1</span>, width=<span class="number">0.35</span>),</span><br><span class="line">    <span class="comment"># 标签</span></span><br><span class="line">    labels=labels</span><br><span class="line">)</span><br><span class="line"><span class="comment"># plt.legend(loc = &#x27;upper right&#x27;)</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<pre><code>[155 483 166 234 476 272 361]
+</code></pre>
+<p><img data-src="output_11_1.svg" alt="svg"></p>
+<h4 id="柱状图"><a href="#柱状图" class="headerlink" title="柱状图"></a>柱状图</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 柱状图</span></span><br><span class="line">labels = np.arange(<span class="number">4</span>)</span><br><span class="line">group1 = np.random.randint(<span class="number">20</span>, <span class="number">50</span>, <span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(group1)</span><br><span class="line">group2 = np.random.randint(<span class="number">10</span>, <span class="number">60</span>, <span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(group2)</span><br><span class="line"><span class="comment"># group后面的参数是柱子的宽度。总宽为1，设置为0.5则铺满。默认居中。</span></span><br><span class="line"><span class="comment"># 为避免重叠，令第一个柱子显示位置向前一半第二个珠子向后一半</span></span><br><span class="line">plt.bar(labels - <span class="number">0.1</span>, group1, <span class="number">0.2</span>, label=<span class="string">&#x27;销售A组&#x27;</span>)</span><br><span class="line">plt.bar(labels + <span class="number">0.1</span>, group2, <span class="number">0.2</span>, label=<span class="string">&#x27;销售B组&#x27;</span>)</span><br><span class="line"><span class="comment"># labels运算时还是0-3，而显示为列表（Q1、Q2、...）</span></span><br><span class="line">plt.xticks(np.arange(<span class="number">4</span>), labels=[<span class="string">&#x27;Q1&#x27;</span>, <span class="string">&#x27;Q2&#x27;</span>, <span class="string">&#x27;Q3&#x27;</span>, <span class="string">&#x27;Q4&#x27;</span>])</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<pre><code>[44 49 38 27]
+[49 47 18 35]
+</code></pre>
+<p><img data-src="output_13_1.svg" alt="svg"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 堆叠柱状图</span></span><br><span class="line">labels = [<span class="string">&#x27;Q1&#x27;</span>, <span class="string">&#x27;Q2&#x27;</span>, <span class="string">&#x27;Q3&#x27;</span>, <span class="string">&#x27;Q4&#x27;</span>]</span><br><span class="line">group1 = np.random.randint(<span class="number">20</span>, <span class="number">50</span>, <span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(group1)</span><br><span class="line">group2 = np.random.randint(<span class="number">10</span>, <span class="number">60</span>, <span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(group2)</span><br><span class="line">group3 = np.random.randint(<span class="number">30</span>, <span class="number">40</span>, <span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(group3)</span><br><span class="line">plt.bar(labels, group1, <span class="number">0.4</span>, label=<span class="string">&#x27;销售A组&#x27;</span>)</span><br><span class="line"><span class="comment"># 通过bottom属性设置数据堆叠</span></span><br><span class="line"><span class="comment"># bottom = group1 - group2的底部为group1</span></span><br><span class="line">plt.bar(labels, group2, <span class="number">0.4</span>, bottom=group1, label=<span class="string">&#x27;销售B组&#x27;</span>)</span><br><span class="line">plt.bar(labels, group3, <span class="number">0.4</span>, bottom=group1 + group2, label=<span class="string">&#x27;销售C组&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<pre><code>[44 39 44 24]
+[35 34 15 11]
+[34 34 33 38]
+</code></pre>
+<p><img data-src="output_14_1.svg" alt="svg"></p>
+<h4 id="面积图"><a href="#面积图" class="headerlink" title="面积图"></a>面积图</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 面积图</span></span><br><span class="line">plt.figure(figsize=(<span class="number">6</span>, <span class="number">3</span>))</span><br><span class="line">days = np.arange(<span class="number">7</span>)</span><br><span class="line">sleeping = [<span class="number">7</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line">eating = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>]</span><br><span class="line">working = [<span class="number">7</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">playing = [<span class="number">8</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">9</span>, <span class="number">9</span>, <span class="number">11</span>, <span class="number">9</span>]</span><br><span class="line">plt.stackplot(days, sleeping, eating, working, playing)</span><br><span class="line">plt.legend([<span class="string">&#x27;睡觉&#x27;</span>, <span class="string">&#x27;吃饭&#x27;</span>, <span class="string">&#x27;工作&#x27;</span>, <span class="string">&#x27;玩耍&#x27;</span>], fontsize=<span class="number">10</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img data-src="output_16_0.svg" alt="svg"></p>
+<h4 id="雷达图-映射在极坐标的折线图"><a href="#雷达图-映射在极坐标的折线图" class="headerlink" title="雷达图 - 映射在极坐标的折线图"></a>雷达图 - 映射在极坐标的折线图</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 雷达图（极坐标折线图）</span></span><br><span class="line">labels = np.array([<span class="string">&#x27;速度&#x27;</span>, <span class="string">&#x27;力量&#x27;</span>, <span class="string">&#x27;经验&#x27;</span>, <span class="string">&#x27;防守&#x27;</span>, <span class="string">&#x27;发球&#x27;</span>, <span class="string">&#x27;技术&#x27;</span>])</span><br><span class="line">malong_values = np.array([<span class="number">93</span>, <span class="number">95</span>, <span class="number">98</span>, <span class="number">92</span>, <span class="number">96</span>, <span class="number">97</span>])</span><br><span class="line">shuigu_values = np.array([<span class="number">30</span>, <span class="number">40</span>, <span class="number">65</span>, <span class="number">80</span>, <span class="number">45</span>, <span class="number">60</span>])</span><br><span class="line">angles = np.linspace(<span class="number">0</span>, <span class="number">2</span> * np.pi, labels.size, endpoint=<span class="literal">False</span>)</span><br><span class="line"><span class="comment"># 加一条数据让图形闭合</span></span><br><span class="line">malong_values = np.concatenate((malong_values, [malong_values[<span class="number">0</span>]]))</span><br><span class="line">shuigu_values = np.concatenate((shuigu_values, [shuigu_values[<span class="number">0</span>]]))</span><br><span class="line">angles = np.concatenate((angles, [angles[<span class="number">0</span>]]))</span><br><span class="line">plt.figure(figsize=(<span class="number">4</span>, <span class="number">4</span>), dpi=<span class="number">120</span>)</span><br><span class="line">ax = plt.subplot(projection=<span class="string">&#x27;polar&#x27;</span>)</span><br><span class="line"><span class="comment"># 绘图和填充</span></span><br><span class="line">plt.plot(angles, malong_values, color=<span class="string">&#x27;r&#x27;</span>, marker=<span class="string">&#x27;o&#x27;</span>, linestyle=<span class="string">&#x27;--&#x27;</span>, linewidth=<span class="number">2</span>)</span><br><span class="line">plt.fill(angles, malong_values, color=<span class="string">&#x27;r&#x27;</span>, alpha=<span class="number">0.3</span>)</span><br><span class="line">plt.plot(angles, shuigu_values, color=<span class="string">&#x27;y&#x27;</span>, marker=<span class="string">&#x27;o&#x27;</span>, linestyle=<span class="string">&#x27;--&#x27;</span>, linewidth=<span class="number">2</span>)</span><br><span class="line">plt.fill(angles, shuigu_values, color=<span class="string">&#x27;y&#x27;</span>, alpha=<span class="number">0.2</span>)</span><br><span class="line"><span class="comment"># 设置文字标签</span></span><br><span class="line">ax.set_thetagrids(angles[:-<span class="number">1</span>] * <span class="number">180</span> / np.pi, labels, fontsize=<span class="number">10</span>)</span><br><span class="line"><span class="comment"># 设置网格线</span></span><br><span class="line">ax.set_rgrids([<span class="number">0</span>, <span class="number">20</span>, <span class="number">40</span>, <span class="number">60</span>, <span class="number">80</span>, <span class="number">100</span>], fontsize=<span class="number">10</span>)</span><br><span class="line">ax.legend([<span class="string">&#x27;马龙&#x27;</span>, <span class="string">&#x27;水谷隼&#x27;</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img data-src="output_18_0.svg" alt="svg"></p>
+<h4 id="玫瑰图-映射在极坐标的柱状图"><a href="#玫瑰图-映射在极坐标的柱状图" class="headerlink" title="玫瑰图 - 映射在极坐标的柱状图"></a>玫瑰图 - 映射在极坐标的柱状图</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 玫瑰图（圆形柱状图）</span></span><br><span class="line">x = np.array([<span class="string">f&#x27;A-Q<span class="subst">&#123;i&#125;</span>&#x27;</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>)] + [<span class="string">f&#x27;B-Q<span class="subst">&#123;i&#125;</span>&#x27;</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>)])</span><br><span class="line">y = np.array(group1.tolist() + group2.tolist())</span><br><span class="line"><span class="built_in">print</span>(y)</span><br><span class="line">theta = np.linspace(<span class="number">0</span>, <span class="number">2</span> * np.pi, x.size, endpoint=<span class="literal">False</span>)</span><br><span class="line">width = <span class="number">2</span> * np.pi / x.size</span><br><span class="line">colors = np.random.rand(<span class="number">8</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment"># 将柱状图投影到极坐标，将坐标系映射到极坐标</span></span><br><span class="line">ax = plt.subplot(projection=<span class="string">&#x27;polar&#x27;</span>)</span><br><span class="line">plt.bar(theta, y, width=width, color=colors, bottom=<span class="number">0</span>)</span><br><span class="line">ax.set_thetagrids(theta * <span class="number">180</span> / np.pi, x, fontsize=<span class="number">10</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<pre><code>[44 39 44 24 35 34 15 11]
+</code></pre>
+<p><img data-src="output_20_1.svg" alt="svg"></p>
+<h4 id="3D-柱状图"><a href="#3D-柱状图" class="headerlink" title="3D 柱状图"></a>3D 柱状图</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3D柱状图</span></span><br><span class="line"><span class="comment"># 将整个平面(X,Z)放在一个坐标轴(Y)上</span></span><br><span class="line">plt.figure(figsize=(<span class="number">8</span>, <span class="number">4</span>), dpi=<span class="number">120</span>)</span><br><span class="line"><span class="comment"># 将坐标系映射到3d</span></span><br><span class="line">ax = plt.subplot(projection=<span class="string">&#x27;3d&#x27;</span>)</span><br><span class="line"></span><br><span class="line">colors = [<span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;b&#x27;</span>]</span><br><span class="line">yticks = <span class="built_in">range</span>(<span class="number">2020</span>, <span class="number">2017</span>, -<span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> idx, y <span class="keyword">in</span> <span class="built_in">enumerate</span>(yticks):</span><br><span class="line">    x_data = [<span class="string">f&#x27;<span class="subst">&#123;x&#125;</span>季度&#x27;</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&#x27;一二三四&#x27;</span>]</span><br><span class="line">    z_data = np.random.randint(<span class="number">100</span>, <span class="number">600</span>, <span class="number">4</span>)</span><br><span class="line">    ax.bar(x_data, z_data, zs=y, zdir=<span class="string">&#x27;y&#x27;</span>, color=colors[idx], alpha=<span class="number">0.5</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">&#x27;季度&#x27;</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">&#x27;年份&#x27;</span>)</span><br><span class="line">ax.set_zlabel(<span class="string">&#x27;销量&#x27;</span>)</span><br><span class="line">ax.set_yticks(yticks)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img data-src="output_22_0.svg" alt="svg"></p>
+<h4 id="箱线图"><a href="#箱线图" class="headerlink" title="箱线图"></a>箱线图</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 箱线图</span></span><br><span class="line">data = np.random.randint(<span class="number">10</span>, <span class="number">100</span>, <span class="number">50</span>)</span><br><span class="line">data = np.append(data, <span class="number">185</span>)</span><br><span class="line">data = np.append(data, <span class="number">175</span>)</span><br><span class="line">data = np.append(data, <span class="number">166</span>)</span><br><span class="line"><span class="built_in">print</span>(pd.Series(data).describe())</span><br><span class="line">plt.boxplot(data, whis=<span class="number">1.5</span>, showmeans=<span class="literal">True</span>, notch=<span class="literal">True</span>)</span><br><span class="line">plt.ylim([<span class="number">0</span>, <span class="number">200</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<pre><code>count     53.000000
+mean      61.132075
+std       38.412757
+min       10.000000
+25%       36.000000
+50%       52.000000
+75%       85.000000
+max      185.000000
+dtype: float64
+</code></pre>
+<p><img data-src="output_24_1.svg" alt="svg"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!pip install jieba</span><br></pre></td></tr></table></figure>
+
+<pre><code>Looking in indexes: https://pypi.doubanio.com/simple
+Requirement already satisfied: jieba in d:\programs\python\python38\lib\site-packages (0.42.1)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取文件</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;../files/data/test.txt&#x27;</span>,encoding = <span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    content = file.read()</span><br><span class="line"><span class="comment"># 用空格替换换行符</span></span><br><span class="line">content = re.sub(<span class="string">r&#x27;\s&#x27;</span>,<span class="string">&#x27;&#x27;</span>,content)</span><br><span class="line"><span class="comment"># 用jieba分词</span></span><br><span class="line">words = jieba.lcut(content)</span><br><span class="line"><span class="built_in">len</span>(words)</span><br></pre></td></tr></table></figure>
+
+<pre><code>Building prefix dict from the default dictionary ...
+Loading model from cache C:\Users\zs\AppData\Local\Temp\jieba.cache
+Loading model cost 0.537 seconds.
+Prefix dict has been built successfully.
+
+
+
+
+
+3340
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取停词文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_stopwords</span>(<span class="params">file</span>):</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file, <span class="string">&#x27;r&#x27;</span>,encoding = <span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">        stopword_list = [word.strip(<span class="string">&#x27;\n&#x27;</span>) <span class="keyword">for</span> word <span class="keyword">in</span> file.readlines()]</span><br><span class="line">    <span class="keyword">return</span> stopword_list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">stop_words1 = get_stopwords(<span class="string">&#x27;../files/data/哈工大停用词表.txt&#x27;</span>)</span><br><span class="line">stop_words2 = get_stopwords(<span class="string">&#x27;../files/data/中文停用词库.txt&#x27;</span>)</span><br><span class="line"><span class="comment"># 将两个停词文件合并为集合 - 集合查找元素效率更高</span></span><br><span class="line">stop_words = <span class="built_in">set</span>(stop_words1 + stop_words2)</span><br><span class="line">stop_words</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&#123;&#39;&quot;&#39;,
+ &#39;#&#39;,
+ &#39;$&#39;,
+ &#39;&amp;&#39;,
+ &quot;&#39;&quot;,
+ &#39;(&#39;,
+ &#39;)&#39;,
+ &#39;*&#39;,
+ &#39;+&#39;,
+ &#39;,&#39;,
+ &#39;-&#39;,
+ &#39;-- &#39;,
+ &#39;. &#39;,
+ &#39;...&#39;,
+ &#39;......&#39;,
+ &#39;...................&#39;,
+ &#39;./&#39;,
+ &#39;.一&#39;,
+ &#39;.数&#39;,
+ &#39;.日 &#39;,
+ &#39;/&#39;,
+ &#39;//&#39;,
+ &#39;0&#39;,
+ &#39;1&#39;,
+ &#39;2&#39;,
+ &#39;3&#39;,
+ &#39;4&#39;,
+ &#39;5&#39;,
+ &#39;6&#39;,
+ &#39;7&#39;,
+ &#39;8&#39;,
+ &#39;9&#39;,
+ &#39;:&#39;,
+ &#39;://&#39;,
+ &#39;::&#39;,
+ &#39;;&#39;,
+ &#39;&lt;&#39;,
+ &#39;=&#39;,
+ &#39;&gt;&#39;,
+ &#39;?&#39;,
+ &#39;? &#39;,
+ &#39;@&#39;,
+ &#39;Lex &#39;,
+ &#39;[&#39;,
+ &#39;]&#39;,
+ &#39;_&#39;,
+ &#39;exp &#39;,
+ &#39;sub&#39;,
+ &#39;sup&#39;,
+ &#39;&#125;&#39;,
+ &#39;~~~~&#39;,
+ &#39;·&#39;,
+ &#39;×&#39;,
+ &#39;× &#39;,
+ &#39;××× &#39;,
+ &#39;Δ&#39;,
+ &#39;Ψ&#39;,
+ &#39;γ&#39;,
+ &#39;μ&#39;,
+ &#39;φ&#39;,
+ &#39;φ．&#39;,
+ &#39;В&#39;,
+ &#39;—&#39;,
+ &#39;——&#39;,
+ &#39;———&#39;,
+ &#39;‘&#39;,
+ &#39;’&#39;,
+ &#39;’‘ &#39;,
+ &#39;“&#39;,
+ &#39;”&#39;,
+ &#39;”，&#39;,
+ &#39;……&#39;,
+ &#39;…………………………………………………③&#39;,
+ &#39;′∈&#39;,
+ &#39;′｜&#39;,
+ &#39;℃ &#39;,
+ &#39;Ⅲ&#39;,
+ &#39;↑&#39;,
+ &#39;→&#39;,
+ &#39;∈［ &#39;,
+ &#39;∪φ∈&#39;,
+ &#39;≈ &#39;,
+ &#39;①&#39;,
+ &#39;②&#39;,
+ &#39;②ｃ&#39;,
+ &#39;③&#39;,
+ &#39;③］&#39;,
+ &#39;④&#39;,
+ &#39;⑤&#39;,
+ &#39;⑥&#39;,
+ &#39;⑦&#39;,
+ &#39;⑧&#39;,
+ &#39;⑨&#39;,
+ &#39;⑩&#39;,
+ &#39;──&#39;,
+ &#39;■&#39;,
+ &#39;▲&#39;,
+ &#39;、&#39;,
+ &#39;。&#39;,
+ &#39;〉&#39;,
+ &#39;《&#39;,
+ &#39;》&#39;,
+ &#39;》），&#39;,
+ &#39;」&#39;,
+ &#39;『&#39;,
+ &#39;』&#39;,
+ &#39;【&#39;,
+ &#39;】&#39;,
+ &#39;〔&#39;,
+ &#39;〕&#39;,
+ &#39;〕〔&#39;,
+ &#39;㈧ &#39;,
+ &#39;一&#39;,
+ &#39;一.&#39;,
+ &#39;一一&#39;,
+ &#39;一个&#39;,
+ &#39;一些&#39;,
+ &#39;一何&#39;,
+ &#39;一切&#39;,
+ &#39;一则&#39;,
+ &#39;一方面&#39;,
+ &#39;一旦&#39;,
+ &#39;一来&#39;,
+ &#39;一样&#39;,
+ &#39;一番&#39;,
+ &#39;一直&#39;,
+ &#39;一般&#39;,
+ &#39;一转眼&#39;,
+ &#39;万一&#39;,
+ &#39;上&#39;,
+ &#39;上下&#39;,
+ &#39;下&#39;,
+ &#39;不&#39;,
+ &#39;不仅&#39;,
+ &#39;不但&#39;,
+ &#39;不光&#39;,
+ &#39;不单&#39;,
+ &#39;不只&#39;,
+ &#39;不外乎&#39;,
+ &#39;不如&#39;,
+ &#39;不妨&#39;,
+ &#39;不尽&#39;,
+ &#39;不尽然&#39;,
+ &#39;不得&#39;,
+ &#39;不怕&#39;,
+ &#39;不惟&#39;,
+ &#39;不成&#39;,
+ &#39;不拘&#39;,
+ &#39;不料&#39;,
+ &#39;不是&#39;,
+ &#39;不比&#39;,
+ &#39;不然&#39;,
+ &#39;不特&#39;,
+ &#39;不独&#39;,
+ &#39;不管&#39;,
+ &#39;不至于&#39;,
+ &#39;不若&#39;,
+ &#39;不论&#39;,
+ &#39;不过&#39;,
+ &#39;不问&#39;,
+ &#39;与&#39;,
+ &#39;与其&#39;,
+ &#39;与其说&#39;,
+ &#39;与否&#39;,
+ &#39;与此同时&#39;,
+ &#39;且&#39;,
+ &#39;且不说&#39;,
+ &#39;且说&#39;,
+ &#39;两者&#39;,
+ &#39;个&#39;,
+ &#39;个别&#39;,
+ &#39;临&#39;,
+ &#39;为&#39;,
+ &#39;为了&#39;,
+ &#39;为什么&#39;,
+ &#39;为何&#39;,
+ &#39;为止&#39;,
+ &#39;为此&#39;,
+ &#39;为着&#39;,
+ &#39;乃&#39;,
+ &#39;乃至&#39;,
+ &#39;乃至于&#39;,
+ &#39;么&#39;,
+ &#39;之&#39;,
+ &#39;之一&#39;,
+ &#39;之所以&#39;,
+ &#39;之类&#39;,
+ &#39;乌乎&#39;,
+ &#39;乎&#39;,
+ &#39;乘&#39;,
+ &#39;也&#39;,
+ &#39;也好&#39;,
+ &#39;也就是说&#39;,
+ &#39;也罢&#39;,
+ &#39;了&#39;,
+ &#39;二来&#39;,
+ &#39;于&#39;,
+ &#39;于是&#39;,
+ &#39;于是乎&#39;,
+ &#39;云云&#39;,
+ &#39;云尔&#39;,
+ &#39;些&#39;,
+ &#39;亦&#39;,
+ &#39;人&#39;,
+ &#39;人们&#39;,
+ &#39;人家&#39;,
+ &#39;什么&#39;,
+ &#39;什么样&#39;,
+ &#39;今&#39;,
+ &#39;介于&#39;,
+ &#39;仍&#39;,
+ &#39;仍旧&#39;,
+ &#39;从&#39;,
+ &#39;从此&#39;,
+ &#39;从而&#39;,
+ &#39;他&#39;,
+ &#39;他人&#39;,
+ &#39;他们&#39;,
+ &#39;以&#39;,
+ &#39;以上&#39;,
+ &#39;以为&#39;,
+ &#39;以便&#39;,
+ &#39;以免&#39;,
+ &#39;以及&#39;,
+ &#39;以故&#39;,
+ &#39;以期&#39;,
+ &#39;以来&#39;,
+ &#39;以至&#39;,
+ &#39;以至于&#39;,
+ &#39;以致&#39;,
+ &#39;们&#39;,
+ &#39;任&#39;,
+ &#39;任何&#39;,
+ &#39;任凭&#39;,
+ &#39;似的&#39;,
+ &#39;但&#39;,
+ &#39;但凡&#39;,
+ &#39;但是&#39;,
+ &#39;何&#39;,
+ &#39;何以&#39;,
+ &#39;何况&#39;,
+ &#39;何处&#39;,
+ &#39;何时&#39;,
+ &#39;余外&#39;,
+ &#39;作为&#39;,
+ &#39;你&#39;,
+ &#39;你们&#39;,
+ &#39;使&#39;,
+ &#39;使得&#39;,
+ &#39;例如&#39;,
+ &#39;依&#39;,
+ &#39;依据&#39;,
+ &#39;依照&#39;,
+ &#39;便于&#39;,
+ &#39;俺&#39;,
+ &#39;俺们&#39;,
+ &#39;倘&#39;,
+ &#39;倘使&#39;,
+ &#39;倘或&#39;,
+ &#39;倘然&#39;,
+ &#39;倘若&#39;,
+ &#39;借&#39;,
+ &#39;假使&#39;,
+ &#39;假如&#39;,
+ &#39;假若&#39;,
+ &#39;傥然&#39;,
+ &#39;像&#39;,
+ &#39;儿&#39;,
+ &#39;元／吨&#39;,
+ &#39;先不先&#39;,
+ &#39;光是&#39;,
+ &#39;全体&#39;,
+ &#39;全部&#39;,
+ &#39;兮&#39;,
+ &#39;关于&#39;,
+ &#39;其&#39;,
+ &#39;其一&#39;,
+ &#39;其中&#39;,
+ &#39;其二&#39;,
+ &#39;其他&#39;,
+ &#39;其余&#39;,
+ &#39;其它&#39;,
+ &#39;其次&#39;,
+ &#39;具体地说&#39;,
+ &#39;具体说来&#39;,
+ &#39;兼之&#39;,
+ &#39;内&#39;,
+ &#39;再&#39;,
+ &#39;再其次&#39;,
+ &#39;再则&#39;,
+ &#39;再有&#39;,
+ &#39;再者&#39;,
+ &#39;再者说&#39;,
+ &#39;再说&#39;,
+ &#39;冒&#39;,
+ &#39;冲&#39;,
+ &#39;况且&#39;,
+ &#39;几&#39;,
+ &#39;几时&#39;,
+ &#39;凡&#39;,
+ &#39;凡是&#39;,
+ &#39;凭&#39;,
+ &#39;凭借&#39;,
+ &#39;出于&#39;,
+ &#39;出来&#39;,
+ &#39;分别&#39;,
+ &#39;则&#39;,
+ &#39;则甚&#39;,
+ &#39;别&#39;,
+ &#39;别人&#39;,
+ &#39;别处&#39;,
+ &#39;别是&#39;,
+ &#39;别的&#39;,
+ &#39;别管&#39;,
+ &#39;别说&#39;,
+ &#39;到&#39;,
+ &#39;前后&#39;,
+ &#39;前此&#39;,
+ &#39;前者&#39;,
+ &#39;加之&#39;,
+ &#39;加以&#39;,
+ &#39;即&#39;,
+ &#39;即令&#39;,
+ &#39;即使&#39;,
+ &#39;即便&#39;,
+ &#39;即如&#39;,
+ &#39;即或&#39;,
+ &#39;即若&#39;,
+ &#39;却&#39;,
+ &#39;去&#39;,
+ &#39;又&#39;,
+ &#39;又及&#39;,
+ &#39;及&#39;,
+ &#39;及其&#39;,
+ &#39;及至&#39;,
+ &#39;反之&#39;,
+ &#39;反而&#39;,
+ &#39;反过来&#39;,
+ &#39;反过来说&#39;,
+ &#39;受到&#39;,
+ &#39;另&#39;,
+ &#39;另一方面&#39;,
+ &#39;另外&#39;,
+ &#39;另悉&#39;,
+ &#39;只&#39;,
+ &#39;只当&#39;,
+ &#39;只怕&#39;,
+ &#39;只是&#39;,
+ &#39;只有&#39;,
+ &#39;只消&#39;,
+ &#39;只要&#39;,
+ &#39;只限&#39;,
+ &#39;叫&#39;,
+ &#39;叮咚&#39;,
+ &#39;可&#39;,
+ &#39;可以&#39;,
+ &#39;可是&#39;,
+ &#39;可见&#39;,
+ &#39;各&#39;,
+ &#39;各个&#39;,
+ &#39;各位&#39;,
+ &#39;各种&#39;,
+ &#39;各自&#39;,
+ &#39;同&#39;,
+ &#39;同时&#39;,
+ &#39;后&#39;,
+ &#39;后者&#39;,
+ &#39;向&#39;,
+ &#39;向使&#39;,
+ &#39;向着&#39;,
+ &#39;吓&#39;,
+ &#39;吗&#39;,
+ &#39;否则&#39;,
+ &#39;吧&#39;,
+ &#39;吧哒&#39;,
+ &#39;吱&#39;,
+ &#39;呀&#39;,
+ &#39;呃&#39;,
+ &#39;呕&#39;,
+ &#39;呗&#39;,
+ &#39;呜&#39;,
+ &#39;呜呼&#39;,
+ &#39;呢&#39;,
+ &#39;呵&#39;,
+ &#39;呵呵&#39;,
+ &#39;呸&#39;,
+ &#39;呼哧&#39;,
+ &#39;咋&#39;,
+ &#39;和&#39;,
+ &#39;咚&#39;,
+ &#39;咦&#39;,
+ &#39;咧&#39;,
+ &#39;咱&#39;,
+ &#39;咱们&#39;,
+ &#39;咳&#39;,
+ &#39;哇&#39;,
+ &#39;哈&#39;,
+ &#39;哈哈&#39;,
+ &#39;哉&#39;,
+ &#39;哎&#39;,
+ &#39;哎呀&#39;,
+ &#39;哎哟&#39;,
+ &#39;哗&#39;,
+ &#39;哟&#39;,
+ &#39;哦&#39;,
+ &#39;哩&#39;,
+ &#39;哪&#39;,
+ &#39;哪个&#39;,
+ &#39;哪些&#39;,
+ &#39;哪儿&#39;,
+ &#39;哪天&#39;,
+ &#39;哪年&#39;,
+ &#39;哪怕&#39;,
+ &#39;哪样&#39;,
+ &#39;哪边&#39;,
+ &#39;哪里&#39;,
+ &#39;哼&#39;,
+ &#39;哼唷&#39;,
+ &#39;唉&#39;,
+ &#39;唯有&#39;,
+ &#39;啊&#39;,
+ &#39;啐&#39;,
+ &#39;啥&#39;,
+ &#39;啦&#39;,
+ &#39;啪达&#39;,
+ &#39;啷当&#39;,
+ &#39;喂&#39;,
+ &#39;喏&#39;,
+ &#39;喔唷&#39;,
+ &#39;喽&#39;,
+ &#39;嗡&#39;,
+ &#39;嗡嗡&#39;,
+ &#39;嗬&#39;,
+ &#39;嗯&#39;,
+ &#39;嗳&#39;,
+ &#39;嘎&#39;,
+ &#39;嘎登&#39;,
+ &#39;嘘&#39;,
+ &#39;嘛&#39;,
+ &#39;嘻&#39;,
+ &#39;嘿&#39;,
+ &#39;嘿嘿&#39;,
+ &#39;因&#39;,
+ &#39;因为&#39;,
+ &#39;因了&#39;,
+ &#39;因此&#39;,
+ &#39;因着&#39;,
+ &#39;因而&#39;,
+ &#39;固然&#39;,
+ &#39;在&#39;,
+ &#39;在下&#39;,
+ &#39;在于&#39;,
+ &#39;地&#39;,
+ &#39;基于&#39;,
+ &#39;处在&#39;,
+ &#39;多&#39;,
+ &#39;多么&#39;,
+ &#39;多少&#39;,
+ &#39;大&#39;,
+ &#39;大家&#39;,
+ &#39;她&#39;,
+ &#39;她们&#39;,
+ &#39;好&#39;,
+ &#39;如&#39;,
+ &#39;如上&#39;,
+ &#39;如上所述&#39;,
+ &#39;如下&#39;,
+ &#39;如何&#39;,
+ &#39;如其&#39;,
+ &#39;如同&#39;,
+ &#39;如是&#39;,
+ &#39;如果&#39;,
+ &#39;如此&#39;,
+ &#39;如若&#39;,
+ &#39;始而&#39;,
+ &#39;孰料&#39;,
+ &#39;孰知&#39;,
+ &#39;宁&#39;,
+ &#39;宁可&#39;,
+ &#39;宁愿&#39;,
+ &#39;宁肯&#39;,
+ &#39;它&#39;,
+ &#39;它们&#39;,
+ &#39;对&#39;,
+ &#39;对于&#39;,
+ &#39;对待&#39;,
+ &#39;对方&#39;,
+ &#39;对比&#39;,
+ &#39;将&#39;,
+ &#39;小&#39;,
+ &#39;尔&#39;,
+ &#39;尔后&#39;,
+ &#39;尔尔&#39;,
+ &#39;尚且&#39;,
+ &#39;就&#39;,
+ &#39;就是&#39;,
+ &#39;就是了&#39;,
+ &#39;就是说&#39;,
+ &#39;就算&#39;,
+ &#39;就要&#39;,
+ &#39;尽&#39;,
+ &#39;尽管&#39;,
+ &#39;尽管如此&#39;,
+ &#39;岂但&#39;,
+ &#39;己&#39;,
+ &#39;已&#39;,
+ &#39;已矣&#39;,
+ &#39;巴&#39;,
+ &#39;巴巴&#39;,
+ &#39;并&#39;,
+ &#39;并且&#39;,
+ &#39;并非&#39;,
+ &#39;庶乎&#39;,
+ &#39;庶几&#39;,
+ &#39;开外&#39;,
+ &#39;开始&#39;,
+ &#39;归&#39;,
+ &#39;归齐&#39;,
+ &#39;当&#39;,
+ &#39;当地&#39;,
+ &#39;当然&#39;,
+ &#39;当着&#39;,
+ &#39;彼&#39;,
+ &#39;彼时&#39;,
+ &#39;彼此&#39;,
+ &#39;往&#39;,
+ &#39;待&#39;,
+ &#39;很&#39;,
+ &#39;得&#39;,
+ &#39;得了&#39;,
+ &#39;怎&#39;,
+ &#39;怎么&#39;,
+ &#39;怎么办&#39;,
+ &#39;怎么样&#39;,
+ &#39;怎奈&#39;,
+ &#39;怎样&#39;,
+ &#39;总之&#39;,
+ &#39;总的来看&#39;,
+ &#39;总的来说&#39;,
+ &#39;总的说来&#39;,
+ &#39;总而言之&#39;,
+ &#39;恰恰相反&#39;,
+ &#39;您&#39;,
+ &#39;惟其&#39;,
+ &#39;慢说&#39;,
+ &#39;我&#39;,
+ &#39;我们&#39;,
+ &#39;或&#39;,
+ &#39;或则&#39;,
+ &#39;或是&#39;,
+ &#39;或曰&#39;,
+ &#39;或者&#39;,
+ &#39;截至&#39;,
+ &#39;所&#39;,
+ &#39;所以&#39;,
+ &#39;所在&#39;,
+ &#39;所幸&#39;,
+ &#39;所有&#39;,
+ &#39;才&#39;,
+ &#39;才能&#39;,
+ &#39;打&#39;,
+ &#39;打从&#39;,
+ &#39;把&#39;,
+ &#39;抑或&#39;,
+ &#39;拿&#39;,
+ &#39;按&#39;,
+ &#39;按照&#39;,
+ &#39;换句话说&#39;,
+ &#39;换言之&#39;,
+ &#39;据&#39;,
+ &#39;据此&#39;,
+ &#39;接着&#39;,
+ &#39;故&#39;,
+ &#39;故此&#39;,
+ &#39;故而&#39;,
+ &#39;数/&#39;,
+ &#39;旁人&#39;,
+ &#39;无&#39;,
+ &#39;无宁&#39;,
+ &#39;无论&#39;,
+ &#39;既&#39;,
+ &#39;既往&#39;,
+ &#39;既是&#39;,
+ &#39;既然&#39;,
+ &#39;时候&#39;,
+ &#39;是&#39;,
+ &#39;是以&#39;,
+ &#39;是的&#39;,
+ &#39;曾&#39;,
+ &#39;替&#39;,
+ &#39;替代&#39;,
+ &#39;最&#39;,
+ &#39;有&#39;,
+ &#39;有些&#39;,
+ &#39;有关&#39;,
+ &#39;有及&#39;,
+ &#39;有时&#39;,
+ &#39;有的&#39;,
+ &#39;有的是&#39;,
+ &#39;望&#39;,
+ &#39;朝&#39;,
+ &#39;朝着&#39;,
+ &#39;末##末&#39;,
+ &#39;本&#39;,
+ &#39;本人&#39;,
+ &#39;本地&#39;,
+ &#39;本着&#39;,
+ &#39;本身&#39;,
+ &#39;来&#39;,
+ &#39;来着&#39;,
+ &#39;来自&#39;,
+ &#39;来说&#39;,
+ &#39;极了&#39;,
+ &#39;果然&#39;,
+ &#39;果真&#39;,
+ &#39;某&#39;,
+ &#39;某个&#39;,
+ &#39;某些&#39;,
+ &#39;某某&#39;,
+ &#39;根据&#39;,
+ &#39;欤&#39;,
+ &#39;正值&#39;,
+ &#39;正如&#39;,
+ &#39;正巧&#39;,
+ &#39;正是&#39;,
+ &#39;此&#39;,
+ &#39;此地&#39;,
+ &#39;此处&#39;,
+ &#39;此外&#39;,
+ &#39;此时&#39;,
+ &#39;此次&#39;,
+ &#39;此间&#39;,
+ &#39;毋宁&#39;,
+ &#39;每&#39;,
+ &#39;每当&#39;,
+ &#39;比&#39;,
+ &#39;比及&#39;,
+ &#39;比如&#39;,
+ &#39;比方&#39;,
+ &#39;没奈何&#39;,
+ &#39;沿&#39;,
+ &#39;沿着&#39;,
+ &#39;漫说&#39;,
+ &#39;焉&#39;,
+ &#39;然则&#39;,
+ &#39;然后&#39;,
+ &#39;然而&#39;,
+ &#39;照&#39;,
+ &#39;照着&#39;,
+ &#39;犹且&#39;,
+ &#39;犹自&#39;,
+ &#39;甚且&#39;,
+ &#39;甚么&#39;,
+ &#39;甚或&#39;,
+ &#39;甚而&#39;,
+ &#39;甚至&#39;,
+ &#39;甚至于&#39;,
+ &#39;用&#39;,
+ &#39;用来&#39;,
+ &#39;由&#39;,
+ &#39;由于&#39;,
+ &#39;由是&#39;,
+ &#39;由此&#39;,
+ &#39;由此可见&#39;,
+ &#39;的&#39;,
+ &#39;的确&#39;,
+ &#39;的话&#39;,
+ &#39;直到&#39;,
+ &#39;相对而言&#39;,
+ &#39;省得&#39;,
+ &#39;看&#39;,
+ &#39;眨眼&#39;,
+ &#39;着&#39;,
+ &#39;着呢&#39;,
+ &#39;矣&#39;,
+ &#39;矣乎&#39;,
+ &#39;矣哉&#39;,
+ &#39;离&#39;,
+ &#39;种&#39;,
+ &#39;竟而&#39;,
+ &#39;第&#39;,
+ &#39;第二&#39;,
+ &#39;等&#39;,
+ &#39;等到&#39;,
+ &#39;等等&#39;,
+ &#39;简言之&#39;,
+ &#39;管&#39;,
+ &#39;类如&#39;,
+ &#39;紧接着&#39;,
+ &#39;纵&#39;,
+ &#39;纵令&#39;,
+ &#39;纵使&#39;,
+ &#39;纵然&#39;,
+ &#39;经&#39;,
+ &#39;经过&#39;,
+ &#39;结果&#39;,
+ &#39;给&#39;,
+ &#39;继之&#39;,
+ &#39;继后&#39;,
+ &#39;继而&#39;,
+ &#39;综上所述&#39;,
+ &#39;罢了&#39;,
+ &#39;者&#39;,
+ &#39;而&#39;,
+ &#39;而且&#39;,
+ &#39;而况&#39;,
+ &#39;而后&#39;,
+ &#39;而外&#39;,
+ &#39;而已&#39;,
+ &#39;而是&#39;,
+ &#39;而言&#39;,
+ &#39;能&#39;,
+ &#39;能否&#39;,
+ &#39;腾&#39;,
+ &#39;自&#39;,
+ &#39;自个儿&#39;,
+ &#39;自从&#39;,
+ &#39;自各儿&#39;,
+ &#39;自后&#39;,
+ &#39;自家&#39;,
+ &#39;自己&#39;,
+ &#39;自打&#39;,
+ &#39;自身&#39;,
+ &#39;至&#39;,
+ &#39;至于&#39;,
+ &#39;至今&#39;,
+ &#39;至若&#39;,
+ &#39;致&#39;,
+ &#39;般的&#39;,
+ &#39;若&#39;,
+ &#39;若夫&#39;,
+ &#39;若是&#39;,
+ &#39;若果 &#39;,
+ &#39;若非&#39;,
+ &#39;莫不然&#39;,
+ &#39;莫如&#39;,
+ &#39;莫若&#39;,
+ &#39;虽&#39;,
+ &#39;虽则&#39;,
+ &#39;虽然&#39;,
+ &#39;虽说&#39;,
+ &#39;被&#39;,
+ &#39;要&#39;,
+ &#39;要不&#39;,
+ &#39;要不是&#39;,
+ &#39;要不然&#39;,
+ &#39;要么&#39;,
+ &#39;要是&#39;,
+ &#39;譬喻&#39;,
+ &#39;譬如&#39;,
+ &#39;让&#39;,
+ &#39;许多&#39;,
+ &#39;论&#39;,
+ &#39;设使&#39;,
+ &#39;设或&#39;,
+ &#39;设若&#39;,
+ &#39;诚如&#39;,
+ &#39;诚然&#39;,
+ &#39;该&#39;,
+ &#39;说来&#39;,
+ &#39;诸&#39;,
+ &#39;诸位&#39;,
+ &#39;诸如&#39;,
+ &#39;谁&#39;,
+ &#39;谁人&#39;,
+ &#39;谁料&#39;,
+ &#39;谁知&#39;,
+ &#39;贼死&#39;,
+ &#39;赖以&#39;,
+ &#39;赶&#39;,
+ &#39;起&#39;,
+ &#39;起见&#39;,
+ &#39;趁&#39;,
+ &#39;趁着&#39;,
+ &#39;越是&#39;,
+ &#39;距&#39;,
+ &#39;跟&#39;,
+ &#39;较&#39;,
+ &#39;较之&#39;,
+ &#39;边&#39;,
+ &#39;过&#39;,
+ &#39;还&#39;,
+ &#39;还是&#39;,
+ &#39;还有&#39;,
+ &#39;还要&#39;,
+ &#39;这&#39;,
+ &#39;这一来&#39;,
+ &#39;这个&#39;,
+ &#39;这么&#39;,
+ &#39;这么些&#39;,
+ &#39;这么样&#39;,
+ &#39;这么点儿&#39;,
+ &#39;这些&#39;,
+ &#39;这会儿&#39;,
+ &#39;这儿&#39;,
+ &#39;这就是说&#39;,
+ &#39;这时&#39;,
+ &#39;这样&#39;,
+ &#39;这次&#39;,
+ &#39;这般&#39;,
+ &#39;这边&#39;,
+ &#39;这里&#39;,
+ &#39;进而&#39;,
+ &#39;连&#39;,
+ &#39;连同&#39;,
+ &#39;逐步&#39;,
+ &#39;通过&#39;,
+ &#39;遵循&#39;,
+ &#39;遵照&#39;,
+ &#39;那&#39;,
+ &#39;那个&#39;,
+ &#39;那么&#39;,
+ &#39;那么些&#39;,
+ &#39;那么样&#39;,
+ &#39;那些&#39;,
+ &#39;那会儿&#39;,
+ &#39;那儿&#39;,
+ &#39;那时&#39;,
+ &#39;那样&#39;,
+ &#39;那般&#39;,
+ &#39;那边&#39;,
+ &#39;那里&#39;,
+ &#39;都&#39;,
+ &#39;鄙人&#39;,
+ &#39;鉴于&#39;,
+ &#39;针对&#39;,
+ &#39;阿&#39;,
+ &#39;除&#39;,
+ &#39;除了&#39;,
+ &#39;除外&#39;,
+ &#39;除开&#39;,
+ &#39;除此之外&#39;,
+ &#39;除非&#39;,
+ &#39;随&#39;,
+ &#39;随后&#39;,
+ &#39;随时&#39;,
+ &#39;随着&#39;,
+ &#39;难道说&#39;,
+ &#39;非但&#39;,
+ &#39;非徒&#39;,
+ &#39;非特&#39;,
+ &#39;非独&#39;,
+ &#39;靠&#39;,
+ &#39;顺&#39;,
+ &#39;顺着&#39;,
+ &#39;首先&#39;,
+ &#39;！&#39;,
+ &#39;＃&#39;,
+ &#39;％&#39;,
+ &#39;＆&#39;,
+ &#39;＇&#39;,
+ &#39;（&#39;,
+ &#39;）&#39;,
+ &#39;）÷（１－&#39;,
+ &#39;）、&#39;,
+ &#39;＊&#39;,
+ &#39;＋&#39;,
+ &#39;＋ξ&#39;,
+ &#39;＋＋&#39;,
+ &#39;，&#39;,
+ &#39;，也 &#39;,
+ &#39;－&#39;,
+ &#39;－β&#39;,
+ &#39;－－ &#39;,
+ &#39;－［＊］－&#39;,
+ &#39;．&#39;,
+ &#39;／&#39;,
+ &#39;０：２ &#39;,
+ &#39;１． &#39;,
+ &#39;１２％&#39;,
+ &#39;２．３％&#39;,
+ &#39;５：０  &#39;,
+ &#39;：&#39;,
+ &#39;；&#39;,
+ &#39;＜&#39;,
+ &#39;＜±&#39;,
+ &#39;＜Δ&#39;,
+ &#39;＜λ&#39;,
+ &#39;＜φ&#39;,
+ &#39;＜＜&#39;,
+ &#39;＝&#39;,
+ &#39;＝″&#39;,
+ &#39;＝☆&#39;,
+ &#39;＝（&#39;,
+ &#39;＝－&#39;,
+ &#39;＝［&#39;,
+ &#39;＝｛&#39;,
+ &#39;＞&#39;,
+ &#39;＞λ&#39;,
+ &#39;？&#39;,
+ &#39;Ａ&#39;,
+ &#39;ＬＩ&#39;,
+ &#39;Ｒ．Ｌ．&#39;,
+ &#39;ＺＸＦＩＴＬ&#39;,
+ &#39;［&#39;,
+ &#39;［①①］&#39;,
+ &#39;［①②］&#39;,
+ &#39;［①③］&#39;,
+ &#39;［①④］&#39;,
+ &#39;［①⑤］&#39;,
+ &#39;［①⑥］&#39;,
+ &#39;［①⑦］&#39;,
+ &#39;［①⑧］&#39;,
+ &#39;［①⑨］&#39;,
+ &#39;［①Ａ］&#39;,
+ &#39;［①Ｂ］&#39;,
+ &#39;［①Ｃ］&#39;,
+ &#39;［①Ｄ］&#39;,
+ &#39;［①Ｅ］&#39;,
+ &#39;［①］&#39;,
+ &#39;［①ａ］&#39;,
+ &#39;［①ｃ］&#39;,
+ &#39;［①ｄ］&#39;,
+ &#39;［①ｅ］&#39;,
+ &#39;［①ｆ］&#39;,
+ &#39;［①ｇ］&#39;,
+ &#39;［①ｈ］&#39;,
+ &#39;［①ｉ］&#39;,
+ &#39;［①ｏ］&#39;,
+ &#39;［②&#39;,
+ &#39;［②①］&#39;,
+ &#39;［②②］&#39;,
+ &#39;［②③］&#39;,
+ &#39;［②④&#39;,
+ &#39;［②⑤］&#39;,
+ &#39;［②⑥］&#39;,
+ &#39;［②⑦］&#39;,
+ &#39;［②⑧］&#39;,
+ &#39;［②⑩］&#39;,
+ &#39;［②Ｂ］ &#39;,
+ &#39;［②Ｇ］&#39;,
+ &#39;［②］&#39;,
+ &#39;［②ａ］&#39;,
+ &#39;［②ｂ］&#39;,
+ &#39;［②ｃ］ &#39;,
+ &#39;［②ｄ］&#39;,
+ &#39;［②ｅ］&#39;,
+ &#39;［②ｆ］&#39;,
+ &#39;［②ｇ］&#39;,
+ &#39;［②ｈ］&#39;,
+ &#39;［②ｉ］&#39;,
+ &#39;［②ｊ］&#39;,
+ &#39;［③①］&#39;,
+ &#39;［③⑩］&#39;,
+ &#39;［③Ｆ］&#39;,
+ &#39;［③］&#39;,
+ &#39;［③ａ］&#39;,
+ &#39;［③ｂ］&#39;,
+ &#39;［③ｃ］&#39;,
+ &#39;［③ｄ］&#39;,
+ &#39;［③ｅ］&#39;,
+ &#39;［③ｇ］&#39;,
+ &#39;［③ｈ］&#39;,
+ &#39;［④］&#39;,
+ &#39;［④ａ］&#39;,
+ &#39;［④ｂ］&#39;,
+ &#39;［④ｃ］&#39;,
+ &#39;［④ｄ］&#39;,
+ &#39;［④ｅ］&#39;,
+ &#39;［⑤］&#39;,
+ &#39;［⑤］］&#39;,
+ &#39;［⑤ａ］&#39;,
+ &#39;［⑤ｂ］&#39;,
+ &#39;［⑤ｄ］&#39;,
+ &#39;［⑤ｅ］&#39;,
+ &#39;［⑤ｆ］&#39;,
+ &#39;［⑥］&#39;,
+ &#39;［⑦］&#39;,
+ &#39;［⑧］&#39;,
+ &#39;［⑨］ &#39;,
+ &#39;［⑩］&#39;,
+ &#39;［＊］&#39;,
+ &#39;［－&#39;,
+ &#39;［］&#39;,
+ &#39;］&#39;,
+ &#39;］∧′＝［ &#39;,
+ &#39;］［&#39;,
+ &#39;＿&#39;,
+ &#39;ａ］&#39;,
+ &#39;ｂ］&#39;,
+ &#39;ｃ］&#39;,
+ &#39;ｅ］&#39;,
+ &#39;ｆ］&#39;,
+ &#39;ｎｇ昉&#39;,
+ &#39;｛－&#39;,
+ &#39;｝&#39;,
+ &#39;｝＞&#39;,
+ &#39;～&#39;,
+ &#39;～±&#39;,
+ &#39;～＋&#39;&#125;
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从分词的结果中去掉没有实际意义的停词</span></span><br><span class="line">words = [word <span class="keyword">for</span> word <span class="keyword">in</span> words <span class="keyword">if</span> word <span class="keyword">not</span> <span class="keyword">in</span> stop_words]</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(words))</span><br></pre></td></tr></table></figure>
+
+<pre><code>2378
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装wordCloud</span></span><br><span class="line"><span class="comment"># !pip install wordcloud</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> wordcloud <span class="keyword">import</span> WordCloud</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">txt = <span class="string">&#x27; &#x27;</span>.join(words)</span><br><span class="line">mask = np.array(Image.<span class="built_in">open</span>(<span class="string">&#x27;../files/data/china.jpg&#x27;</span>))</span><br><span class="line">wc = WordCloud(font_path=<span class="string">&#x27;E:\HTML\第二十七组 宗志雄 201808240838\第二十七组 宗志雄 201808240838\字体\字魂39号-肥宅快乐体.ttf&#x27;</span>,</span><br><span class="line">              width = <span class="number">1200</span>,</span><br><span class="line">              height = <span class="number">800</span>,</span><br><span class="line">              mask = mask,</span><br><span class="line">              max_words=<span class="number">100</span>,</span><br><span class="line">              background_color=<span class="string">&#x27;white&#x27;</span>)</span><br><span class="line">wc.generate(txt)</span><br><span class="line">wc.to_file(<span class="string">&#x27;../files/result/WordCloud.png&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;wordcloud.wordcloud.WordCloud at 0x1ef2a937220&gt;
+</code></pre>
+<h3 id="Seaborn"><a href="#Seaborn" class="headerlink" title="Seaborn"></a>Seaborn</h3><p>对Matplotlib做了封装，用默认的配置减少绘图参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装seaborn</span></span><br><span class="line"><span class="comment"># !pip install seaborn</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取小费数据</span></span><br><span class="line">tips = sns.load_dataset(<span class="string">&#x27;tips&#x27;</span>)</span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>total_bill</th>
+      <th>tip</th>
+      <th>sex</th>
+      <th>smoker</th>
+      <th>day</th>
+      <th>time</th>
+      <th>size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>16.99</td>
+      <td>1.01</td>
+      <td>Female</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10.34</td>
+      <td>1.66</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>21.01</td>
+      <td>3.50</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>23.68</td>
+      <td>3.31</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>24.59</td>
+      <td>3.61</td>
+      <td>Female</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 绘制柱状图，kde = True --&gt; 核密度估计 (一个参数就帮你解决了)</span></span><br><span class="line">sns.histplot(tips[<span class="string">&#x27;total_bill&#x27;</span>], bins=<span class="number">16</span>, color=<span class="string">&quot;purple&quot;</span>, kde=<span class="literal">True</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img data-src="output_34_0.svg" alt="svg"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 箱线图</span></span><br><span class="line">sns.violinplot(x=<span class="string">&#x27;day&#x27;</span>, y=<span class="string">&#x27;total_bill&#x27;</span>, data=tips)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img data-src="output_35_0.svg" alt="svg"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.jointplot(x=<span class="string">&#x27;total_bill&#x27;</span>, y=<span class="string">&#x27;tip&#x27;</span>, data=tips, color=<span class="string">&#x27;blue&#x27;</span>, kind=<span class="string">&#x27;hex&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img data-src="output_36_0.svg" alt="svg"></p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2021-09-23 19:05:00" itemprop="dateModified" datetime="2021-09-23T19:05:00+08:00">2021-09-23</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="HoneyGrapefruit WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="HoneyGrapefruit Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="HoneyGrapefruit PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>HoneyGrapefruit <i class="ic i-at"><em>@</em></i>宗志雄的技术专栏
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://babybear.top/2021/09/27/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" title="">http://babybear.top/2021/09/27/数据可视化/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/09/27/%E8%AE%A4%E8%AF%86Numpy/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicli3sbvtj20zk0m8x6p.jpg" title="Untitled">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Untitled</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">1.</span> <span class="toc-text">1 数据可视化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Matplotlib"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Matplotlib</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A5%BC%E5%9B%BE"><span class="toc-number">1.1.1.</span> <span class="toc-text">饼图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%B1%E7%8A%B6%E5%9B%BE"><span class="toc-number">1.1.2.</span> <span class="toc-text">柱状图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%A2%E7%A7%AF%E5%9B%BE"><span class="toc-number">1.1.3.</span> <span class="toc-text">面积图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%B7%E8%BE%BE%E5%9B%BE-%E6%98%A0%E5%B0%84%E5%9C%A8%E6%9E%81%E5%9D%90%E6%A0%87%E7%9A%84%E6%8A%98%E7%BA%BF%E5%9B%BE"><span class="toc-number">1.1.4.</span> <span class="toc-text">雷达图 - 映射在极坐标的折线图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%AB%E7%91%B0%E5%9B%BE-%E6%98%A0%E5%B0%84%E5%9C%A8%E6%9E%81%E5%9D%90%E6%A0%87%E7%9A%84%E6%9F%B1%E7%8A%B6%E5%9B%BE"><span class="toc-number">1.1.5.</span> <span class="toc-text">玫瑰图 - 映射在极坐标的柱状图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3D-%E6%9F%B1%E7%8A%B6%E5%9B%BE"><span class="toc-number">1.1.6.</span> <span class="toc-text">3D 柱状图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%B1%E7%BA%BF%E5%9B%BE"><span class="toc-number">1.1.7.</span> <span class="toc-text">箱线图</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Seaborn"><span class="toc-number">1.2.</span> <span class="toc-text">Seaborn</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="HoneyGrapefruit"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">HoneyGrapefruit</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">25</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hvbmVHcmFwZWZydWl0" title="https:&#x2F;&#x2F;github.com&#x2F;HoneGrapefruit"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%20-%20xpath%E8%A7%A3%E6%9E%90XML%E3%80%81HTML/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%20%E5%85%89%E5%AD%A6%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/11/%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4(%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%AE%89%E8%A3%85%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2%E6%8F%92%E4%BB%B6%20%20%20npm%20install%20hexo-deployer-git%20--save%20%E7%9A%84%E9%97%AE%E9%A2%98(Hexo%E6%A1%86%E6%9E%B6)/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/%E4%BD%BF%E7%94%A8selenium%E4%B8%8E%E7%BD%91%E9%A1%B5%E4%BA%A4%E4%BA%92%E3%80%81%E5%B5%8C%E5%A5%97%E7%BD%91%E9%A1%B5%E7%88%AC%E5%8F%96/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/11/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%E5%8A%9E%E5%85%AC%E8%87%AA%E5%8A%A8%E5%8C%96%20-%20Excel%E3%80%81CSV%E3%80%81PDF/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%20%20%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Pandas%20%E5%85%A5%E9%97%A8/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%E9%98%9F%E5%88%97%20%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%20%20%E8%BF%9B%E7%A8%8B%E6%B1%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="Untitled">Untitled</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HoneyGrapefruit @ Super Bear</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/09/27/数据可视化/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

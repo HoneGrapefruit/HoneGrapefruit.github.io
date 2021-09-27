@@ -1,0 +1,573 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="宗志雄的技术专栏" href="http://babybear.top/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="宗志雄的技术专栏" href="http://babybear.top/atom.xml" />
+<link rel="alternate" type="application/json" title="宗志雄的技术专栏" href="http://babybear.top/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="http://babybear.top/2021/09/27/Python%20-%20xpath%E8%A7%A3%E6%9E%90XML%E3%80%81HTML/">
+
+
+
+  <title>
+ |
+Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2021-09-27 10:24:13">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-09-27T10:24:13+08:00">2021-09-27</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Super Bear</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclh3brzpj20zk0m8ann.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclwuom7cj20zk0m8dvn.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipey84bjtj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipew28b65j20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclx29mstj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh">
+  <link itemprop="mainEntityOfPage" href="http://babybear.top/2021/09/27/Python%20-%20xpath%E8%A7%A3%E6%9E%90XML%E3%80%81HTML/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="HoneyGrapefruit">
+    <meta itemprop="description" content="人生苦短，我用Python, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="宗志雄的技术专栏">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="Python-xpath解析XML、HTML"><a href="#Python-xpath解析XML、HTML" class="headerlink" title="Python - xpath解析XML、HTML"></a>Python - xpath解析XML、HTML</h1><p>绝对路径:HTML / body / div / a</p>
+<p>相对路径: ./a</p>
+<p>专业术语</p>
+<p>树:整个HTML或XML结构</p>
+<p>节点:HTML中的每个标签，XML中标签就是节点</p>
+<p>根节点:树的第一个节点，HTML的根节点就是HTML标签</p>
+<p>属性:节点属性(HTML中就是标签属性)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br></pre></td></tr></table></figure>
+
+<h2 id="xpath解析xml"><a href="#xpath解析xml" class="headerlink" title="xpath解析xml"></a>xpath解析xml</h2><p>XML数据格式</p>
+<p>json数据与XML数据时两种通用的数据格式，用于不同语言之间进行数据交流</p>
+<p>将一个超市的商品数据进行传输:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">json:</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span>:<span class="string">&quot;永辉超市&quot;</span>,</span><br><span class="line">    <span class="string">&quot;address&quot;</span>:<span class="string">&quot;肖家河&quot;</span>,</span><br><span class="line">    <span class="string">&quot;goods&quot;</span>:[</span><br><span class="line">    &#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;泡面&quot;</span>,<span class="string">&quot;price&quot;</span>:<span class="number">3.5</span>,<span class="string">&quot;count&quot;</span>:<span class="number">50</span>&#125;</span><br><span class="line">    &#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;火腿肠&quot;</span>,<span class="string">&quot;price&quot;</span>:<span class="number">3</span>,<span class="string">&quot;count&quot;</span>:<span class="number">200</span>&#125;</span><br><span class="line">    &#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;矿泉水&quot;</span>,<span class="string">&quot;price&quot;</span>:<span class="number">2</span>,<span class="string">&quot;count&quot;</span>:<span class="number">30</span>&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">XML:</span><br><span class="line">&lt;supermarket&gt;</span><br><span class="line">    &lt;name&gt;永辉超市&lt;/name&gt;</span><br><span class="line"></span><br><span class="line">    &lt;address&gt;肖家河&lt;/address&gt;</span><br><span class="line"></span><br><span class="line">    &lt;goodsList&gt;</span><br><span class="line">        &lt;goods name = <span class="string">&quot;泡面&quot;</span> price = <span class="string">&quot;3.5&quot;</span> count = <span class="string">&quot;50&quot;</span>&gt;&lt;/goods&gt;</span><br><span class="line">        &lt;goods name = <span class="string">&quot;火腿肠&quot;</span> price = <span class="string">&quot;3&quot;</span> count = <span class="string">&quot;200&quot;</span>&gt;&lt;/goods&gt;</span><br><span class="line">        &lt;goods name = <span class="string">&quot;矿泉水&quot;</span> price = <span class="string">&quot;2&quot;</span> count = <span class="string">&quot;30&quot;</span>&gt;&lt;/goods&gt;</span><br><span class="line">    &lt;/goodsList&gt;</span><br><span class="line">    &lt;workerList&gt;</span><br><span class="line">      &lt;cashier name = <span class="string">&quot;张三&quot;</span> pay = <span class="string">&quot;4000&quot;</span>&gt;&lt;/cashier&gt;</span><br><span class="line">      &lt;shoppingGuide name = <span class="string">&quot;李四&quot;</span> pay = <span class="string">&quot;3000&quot;</span>&gt;&lt;/shoppingGuide&gt;</span><br><span class="line">    &lt;/workerList&gt;</span><br><span class="line">&lt;/supermarket&gt;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>准备数据</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">xml_data =<span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">&lt;supermarket&gt;</span></span><br><span class="line"><span class="string">    &lt;name&gt;永辉超市&lt;/name&gt;</span></span><br><span class="line"><span class="string">    &lt;address&gt;肖家河&lt;/address&gt;</span></span><br><span class="line"><span class="string">    &lt;goodsList&gt;</span></span><br><span class="line"><span class="string">        &lt;goods name = &quot;泡面&quot; price = &quot;3.5&quot; count = &quot;50&quot;&gt;&lt;/goods&gt;</span></span><br><span class="line"><span class="string">        &lt;goods name = &quot;火腿肠&quot; price = &quot;3&quot; count = &quot;200&quot;&gt;&lt;/goods&gt;</span></span><br><span class="line"><span class="string">        &lt;goods name = &quot;矿泉水&quot; price = &quot;2&quot; count = &quot;30&quot;&gt;&lt;/goods&gt;</span></span><br><span class="line"><span class="string">    &lt;/goodsList&gt;</span></span><br><span class="line"><span class="string">    &lt;workerList&gt;</span></span><br><span class="line"><span class="string">        &lt;cashier name = &quot;张三&quot; pay = &quot;4000&quot;&gt;&lt;/cashier&gt;</span></span><br><span class="line"><span class="string">        &lt;shoppingGuide name = &quot;李四&quot; pay = &quot;3000&quot;&gt;&lt;/shoppingGuide&gt;</span></span><br><span class="line"><span class="string">    &lt;/workerList&gt;</span></span><br><span class="line"><span class="string">&lt;/supermarket&gt;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>创建树对象,并且获取数据的根节点</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supermarket = etree.XML(xml_data)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>获取标签(获取节点)</p>
+<p>节点对象.xpath(路径)</p>
+<p>a.写绝对路:不管xpath前面的节点对象是什么,路径从根节点开始写</p>
+<p>写法:/绝对路径</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cashier = supermarket.xpath(<span class="string">&#x27;/supermarket/workerList/cashier&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>​        b.相对路径:用.表示当前节点,xpath前面是谁,当前节点就是谁</p>
+<p>​        ..表示当前节点的上层节点</p>
+<p>​        注意:./  可省略</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cashier = supermarket.xpath(<span class="string">&#x27;./workerList/cashier&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(cashier)   <span class="comment">#[&lt;Element cashier at 0x1d4299ba980&gt;]</span></span><br><span class="line"></span><br><span class="line">cashier = supermarket.xpath(<span class="string">&#x27;../workerList/cashier&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(cashier)</span><br></pre></td></tr></table></figure>
+
+<p>​        c.//路径  —  从任意位置开始全局搜索</p>
+<p>​        查找方式和功能和xpath前的节点无关</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">result = supermarket.xpath(<span class="string">&#x27;//cashier&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(result)   <span class="comment">#[&lt;Element cashier at 0x1d4299ba980&gt;]</span></span><br><span class="line"></span><br><span class="line">goods = supermarket.xpath(<span class="string">&#x27;//goodsList/goods&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(goods)  <span class="comment">#[&lt;Element goods at 0x1d4299ba9c0&gt;, &lt;Element goods at 0x1d4299baa00&gt;, &lt;Element goods at 0x1d4299baa40&gt;]</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>获取节点内容</p>
+<p>语法:获取节点的路径/text()</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name = supermarket.xpath(<span class="string">&#x27;./name/text()&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(name)   <span class="comment">#[&#x27;永辉超市&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><p>获取节点属性值</p>
+<p>语法:获取节点的路径/@属性名</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">goods = supermarket.xpath(&#x27;//goodsList/goods/@name&#x27;)</span><br><span class="line">print(goods)   #[&#x27;泡面&#x27;, &#x27;火腿肠&#x27;, &#x27;矿泉水&#x27;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="xpath解析HTML"><a href="#xpath解析HTML" class="headerlink" title="xpath解析HTML"></a>xpath解析HTML</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">html = etree.HTML(<span class="built_in">open</span>(<span class="string">&#x27;test.html&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>).read())</span><br><span class="line"></span><br><span class="line">h1 = html.xpath(<span class="string">&#x27;/html/body/h1&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(h1)   <span class="comment">#[&lt;Element h1 at 0x273af64aa40&gt;]</span></span><br><span class="line"></span><br><span class="line">h1 = html.xpath(<span class="string">&#x27;//h1&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(h1)   <span class="comment">#[&lt;Element h1 at 0x273af64aa40&gt;]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>加谓语(加条件)</p>
+<p>语法:选中标签的路径[谓语]</p>
+<p>1)、[N]  —  获取同层的第N个标签</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">p = html.xpath(<span class="string">&#x27;//p[1]/text()&#x27;</span>)   <span class="comment">#所在父标签的第一个p标签的第一个评标前内容</span></span><br><span class="line"><span class="built_in">print</span>(p)  <span class="comment">#[&#x27;肖家河大厦&#x27;, &#x27;泡面&#x27;, &#x27;矿泉水&#x27;, &#x27;面包&#x27;, &#x27;充电宝&#x27;]</span></span><br><span class="line"></span><br><span class="line">p = html.xpath(<span class="string">&#x27;./body/p/text()&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(p)   <span class="comment">#[&#x27;肖家河大厦&#x27;]</span></span><br><span class="line"></span><br><span class="line">result = html.xpath(<span class="string">&#x27;body/ul/li[2]/p/text()&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(result)   <span class="comment">#[&#x27;矿泉水&#x27;, &#x27;2&#x27;, &#x27;120&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<p>2)、[last()]  —  获取同层的最后一个标签</p>
+<p>[last() - N]  —  获取同层的倒数第(N+1)个标签</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">counts = html.xpath(<span class="string">&#x27;body/ul/li/p[last()]/text()&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(counts)   <span class="comment">#[&#x27;15&#x27;, &#x27;120&#x27;, &#x27;42&#x27;, &#x27;10&#x27;]</span></span><br><span class="line"></span><br><span class="line">bread = html.xpath(<span class="string">&#x27;body/ul/li[last() - 1]/p[last()]/text()&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(bread)   <span class="comment">#[&#x27;42&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<p>3)、[position() &gt; N]</p>
+<p>[position() &gt;= N]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">goods = html.xpath(<span class="string">&#x27;body/ul/li[position() &lt; 3]/p/text()&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(goods)   <span class="comment">#[&#x27;泡面&#x27;, &#x27;3.5&#x27;, &#x27;15&#x27;, &#x27;矿泉水&#x27;, &#x27;2&#x27;, &#x27;120&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<p>4)、[@属性名]  —  获取有指定属性的标签</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = html.xpath(<span class="string">&#x27;body/div/p[@class]/text()&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(result)   <span class="comment">#[&#x27;p1&#x27;, &#x27;p2&#x27;, &#x27;p4&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<p>[@属性名 = 属性值]  —  获取指定属性为指定值的标签</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = html.xpath(<span class="string">&#x27;body/div/p[@class = &quot;c1&quot;]/text()&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
+
+<p>5)、[标签 &gt;/&lt;/&gt;=/&lt;=/= 数据]  —  将标签按照指定子标签的内容进行筛选</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">prices = html.xpath(<span class="string">&#x27;body/ul/li[p[2]&gt;2]/p/text()&#x27;</span>)</span><br><span class="line">prices = html.xpath(<span class="string">&#x27;./body/ul/li[p[2]&gt;2]/p/text()&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(prices)</span><br></pre></td></tr></table></figure>
+
+<p>6、通配符  *</p>
+<p>获取最后一个div下的所有标签的内容</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">result = html.xpath(<span class="string">&#x27;body/div[last()]/*/text()&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(result)   <span class="comment">#[&#x27;p1&#x27;, &#x27;p2&#x27;, &#x27;a1&#x27;, &#x27;span1&#x27;]</span></span><br><span class="line"></span><br><span class="line">result = html.xpath(<span class="string">&#x27;body/div[last()]/*[@class]/text()&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(result)  <span class="comment">#[&#x27;p1&#x27;, &#x27;span1&#x27;]</span></span><br><span class="line"></span><br><span class="line">result = html.xpath(<span class="string">&#x27;body/div[last()]/*[@*]/text()&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(result)  <span class="comment">#[&#x27;p1&#x27;, &#x27;a1&#x27;, &#x27;span1&#x27;]</span></span><br><span class="line"></span><br><span class="line">result = html.xpath(<span class="string">&#x27;//img/@*&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(result)  <span class="comment">#[&#x27;https://image1.guazistatic.com/qn2107010956026670c8553db23db93154432c791292ae.jpg?imageView2/1/w/270/h/180/q/88&#x27;, &#x27;&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<p>7、分支(获取若干个路径)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = html.xpath(<span class="string">&#x27;body/ul/li/p[1]/text()|body/ul/li/p[2]/text()&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(result)   <span class="comment">#[&#x27;泡面&#x27;, &#x27;3.5&#x27;, &#x27;矿泉水&#x27;, &#x27;2&#x27;, &#x27;面包&#x27;, &#x27;5&#x27;, &#x27;充电宝&#x27;, &#x27;150&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="test-html"><a href="#test-html" class="headerlink" title="test.html"></a>test.html</h6><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>永辉超市<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>肖家河大厦<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;name&quot;</span>&gt;</span>泡面<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;price&quot;</span>&gt;</span>3.5<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;count&quot;</span>&gt;</span>15<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;name&quot;</span>&gt;</span>矿泉水<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;price&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;count&quot;</span>&gt;</span>120<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;name&quot;</span>&gt;</span>面包<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;price&quot;</span>&gt;</span>5<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;count&quot;</span>&gt;</span>42<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;name&quot;</span>&gt;</span>充电宝<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;price&quot;</span>&gt;</span>150<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;count&quot;</span>&gt;</span>10<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;&quot;</span>&gt;</span>p1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;c1&quot;</span>&gt;</span>p2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p1&quot;</span>&gt;</span>p3<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;c2&quot;</span>&gt;</span>p4<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;div1&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;&quot;</span>&gt;</span>p1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>p2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span>&gt;</span>a1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;&quot;</span>&gt;</span>span1<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://image1.guazistatic.com/qn2107010956026670c8553db23db93154432c791292ae.jpg?imageView2/1/w/270/h/180/q/88&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="xpath解析-豆瓣电影数据"><a href="#xpath解析-豆瓣电影数据" class="headerlink" title="xpath解析 豆瓣电影数据"></a>xpath解析 豆瓣电影数据</h4><p>导包</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium.webdriver <span class="keyword">import</span> Chrome</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> time</span><br></pre></td></tr></table></figure>
+
+<p>获取更多数据(翻页)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_more</span>():</span></span><br><span class="line">    more = browser.find_element_by_css_selector(<span class="string">&#x27;.more&#x27;</span>)</span><br><span class="line">    more.click()</span><br></pre></td></tr></table></figure>
+
+<p>获取网页数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_message</span>():</span></span><br><span class="line">    movie_name = []</span><br><span class="line">    movie_score = []</span><br><span class="line">    movie_poster = []</span><br><span class="line">    movie_detail = []</span><br><span class="line">    <span class="keyword">for</span> movie <span class="keyword">in</span> movies:</span><br><span class="line">        movie_name.append((movie.xpath(<span class="string">&#x27;div/img/@alt&#x27;</span>)))</span><br><span class="line">        movie_score.append(movie.xpath(<span class="string">&#x27;p/strong/text()&#x27;</span>))</span><br><span class="line">        movie_poster.append(movie.xpath(<span class="string">&#x27;div[@class = &quot;cover-wp&quot;]/img/@src&#x27;</span>))</span><br><span class="line">        movie_detail.append(movie.xpath(<span class="string">&#x27;@href&#x27;</span>))</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">zip</span>(movie_name,movie_score,movie_poster,movie_detail)</span><br></pre></td></tr></table></figure>
+
+<p>保存数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">writer</span>(<span class="params">m_message</span>):</span></span><br><span class="line">    file = <span class="built_in">open</span>(<span class="string">&#x27;files/douban/movies.csv&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    writer = csv.writer(file)</span><br><span class="line">    writer.writerow([<span class="string">&#x27;电影名称&#x27;</span>,<span class="string">&#x27;电影评分&#x27;</span>,<span class="string">&#x27;电影海报&#x27;</span>,<span class="string">&#x27;电影详情&#x27;</span>])</span><br><span class="line">    <span class="keyword">for</span> movie <span class="keyword">in</span> m_message:</span><br><span class="line">        writer.writerow(movie)</span><br><span class="line">    file.close()</span><br></pre></td></tr></table></figure>
+
+<p>调用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">browser = Chrome()</span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">121</span>,<span class="number">20</span>):</span><br><span class="line">    browser.get(<span class="string">f&#x27;https://movie.douban.com/explore#!type=movie&amp;tag=%E7%83%AD%E9%97%A8&amp;sort=recommend&amp;page_limit=20&amp;page_start=<span class="subst">&#123;index&#125;</span>&#x27;</span>)</span><br><span class="line">    tree = etree.HTML(browser.page_source)</span><br><span class="line">    movies = tree.xpath(<span class="string">&#x27;body/div[@id = &quot;wrapper&quot;]/div[@id = &quot;content&quot;]/div[@*]/div[@class = &quot;article&quot;]/div[@class = &quot;gaia&quot;]/div[@class = &quot;list-wp&quot;]/div/a&#x27;</span>)</span><br><span class="line">    writer(get_message())</span><br><span class="line">    get_more()</span><br><span class="line">    <span class="built_in">print</span>(index)</span><br><span class="line">    time.sleep(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2021-08-16 18:47:01" itemprop="dateModified" datetime="2021-08-16T18:47:01+08:00">2021-08-16</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="HoneyGrapefruit WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="HoneyGrapefruit Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="HoneyGrapefruit PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>HoneyGrapefruit <i class="ic i-at"><em>@</em></i>宗志雄的技术专栏
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://babybear.top/2021/09/27/Python%20-%20xpath%E8%A7%A3%E6%9E%90XML%E3%80%81HTML/" title="">http://babybear.top/2021/09/27/Python - xpath解析XML、HTML/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/09/27/Python%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%B0%81%E8%A3%85%E4%B8%BA%E6%96%B9%E6%B3%95/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeubcbajj20zk0m8h1h.jpg" title="Untitled">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Untitled</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2021/09/27/Python%20-%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E8%BF%9B%E7%A8%8B/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipew28b65j20zk0m8hdt.jpg" title="Untitled">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Untitled</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python-xpath%E8%A7%A3%E6%9E%90XML%E3%80%81HTML"><span class="toc-number">1.</span> <span class="toc-text">Python - xpath解析XML、HTML</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#xpath%E8%A7%A3%E6%9E%90xml"><span class="toc-number">1.1.</span> <span class="toc-text">xpath解析xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xpath%E8%A7%A3%E6%9E%90HTML"><span class="toc-number">1.2.</span> <span class="toc-text">xpath解析HTML</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#test-html"><span class="toc-number">1.2.0.0.0.1.</span> <span class="toc-text">test.html</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#xpath%E8%A7%A3%E6%9E%90-%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E6%95%B0%E6%8D%AE"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">xpath解析 豆瓣电影数据</span></a></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="HoneyGrapefruit"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">HoneyGrapefruit</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">25</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hvbmVHcmFwZWZydWl0" title="https:&#x2F;&#x2F;github.com&#x2F;HoneGrapefruit"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/09/27/Python%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%B0%81%E8%A3%85%E4%B8%BA%E6%96%B9%E6%B3%95/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/09/27/Python%20-%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E8%BF%9B%E7%A8%8B/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/%E6%89%93%E5%8C%85%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%96%B9%E6%B3%95/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/requests%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86%E4%BB%A5%E5%8F%8Aselenium%E7%9A%84%E4%BD%BF%E7%94%A8(%E6%B7%98%E5%AE%9D%E7%BB%95%E8%BF%87%E7%99%BB%E5%BD%95%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AE)/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/24/MySQL%20%E7%AE%80%E6%98%93%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%20Web%20%E6%A1%86%E6%9E%B6%20Flask%E7%9A%84%E6%9C%80%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/11/%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4(%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/11/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Pymysql%20%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E6%89%B9%E5%A4%84%E7%90%86/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%20-%20xpath%E8%A7%A3%E6%9E%90XML%E3%80%81HTML/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%E5%8A%9E%E5%85%AC%E8%87%AA%E5%8A%A8%E5%8C%96%20-%20Excel%E3%80%81CSV%E3%80%81PDF/" title="Untitled">Untitled</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Python%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%B0%81%E8%A3%85%E4%B8%BA%E6%96%B9%E6%B3%95/" title="Untitled">Untitled</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HoneyGrapefruit @ Super Bear</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/09/27/Python - xpath解析XML、HTML/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
