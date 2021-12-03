@@ -66,7 +66,7 @@
         <nav id="nav">
   <div class="inner">
     <div class="toggle">
-      <div class="lines" aria-label="切換導航欄">
+      <div class="lines" aria-label="ナビゲーションバーの切り替え">
         <span class="line"></span>
         <span class="line"></span>
         <span class="line"></span>
@@ -89,12 +89,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipevarprfj20zk0m8npd.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciukx8a7j20zk0m8aio.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciub8ja1j20zk0m81ky.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4fomxoj20zk0m8axp.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhnx9glj20zk0m8npd.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeuibk9fj20zk0m8ay2.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclfdu6exj20zk0m87hw.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicli3sbvtj20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclwuom7cj20zk0m8dvn.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipetv6p75j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclhtuo6nj20zk0m8ttm.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giciuja1j1j20zk0m8kjl.jpg"></li>
         </ul>
       </div>
     </header>
@@ -120,12 +120,12 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/09/27/requests%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86%E4%BB%A5%E5%8F%8Aselenium%E7%9A%84%E4%BD%BF%E7%94%A8(%E6%B7%98%E5%AE%9D%E7%BB%95%E8%BF%87%E7%99%BB%E5%BD%95%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AE)/" itemprop="url" title="未命名"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giclflwv2aj20zk0m84qp.jpg"></a>
+    <a href="/2021/09/27/%E6%89%93%E5%8C%85%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%96%B9%E6%B3%95/" itemprop="url" title="打包应用程序方法"><img data-src="https://tva1.sinaimg.cn/mw690/6833939bly1gipex2cdtbj20zk0m8x6p.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="創建時間：2021-09-27 10:24:13">
+  <span class="item" title="作成日：2021-09-27 10:24:13">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
@@ -133,24 +133,37 @@
   </span>
 </div>
 
-    <h3><a href="/2021/09/27/requests%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86%E4%BB%A5%E5%8F%8Aselenium%E7%9A%84%E4%BD%BF%E7%94%A8(%E6%B7%98%E5%AE%9D%E7%BB%95%E8%BF%87%E7%99%BB%E5%BD%95%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AE)/" itemprop="url" title="未命名">未命名</a></h3>
+    <h3><a href="/2021/09/27/%E6%89%93%E5%8C%85%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%96%B9%E6%B3%95/" itemprop="url" title="打包应用程序方法">打包应用程序方法</a></h3>
     <div class="excerpt">
-        requests添加代理以及selenium的使用(淘宝绕过登录爬取数据)requests添加代理获取代理IP(蘑菇代理) — 会返回一个网址
-1234567891011def get_ip(): response = requests.get(&amp;#x27;返回的网址&amp;#x27;) if(response.text[0] == &amp;#x27;&amp;#123;&amp;#x27;): print(&amp;#x27;IP提取频率过快！10秒后再试试吧!&amp;#x27;) return None return [ip for ip in...
+        1.打包没有窗口的应用程序：
+pyinstaller -F -n 应用名字 py文件名(py文件路径)
+例：pyinstaller -F -n app1 NoWindow.py，成功后文件在dist文件夹中
+2.打包有窗口的应用程序：
+1）不修改图标
+pyinstaller -F -w -n app名称 py文件名
+例：pyinstaller -F -w -n app2 Window1.py
+2）修改打包程序的图标，图标后缀名为.ico
+pyinstaller -F -w -n app名称 -i 图标路径 py文件名
+例：pyinstaller -F -w -n app3 -i...
     </div>
-    <a href="/2021/09/27/requests%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86%E4%BB%A5%E5%8F%8Aselenium%E7%9A%84%E4%BD%BF%E7%94%A8(%E6%B7%98%E5%AE%9D%E7%BB%95%E8%BF%87%E7%99%BB%E5%BD%95%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AE)/" itemprop="url" title="未命名" class="btn">more...</a>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/Python/" itemprop="url" title="Python"><i class="ic i-flag"></i>Python</a>
+      </span>
+    </div>
+    <a href="/2021/09/27/%E6%89%93%E5%8C%85%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%96%B9%E6%B3%95/" itemprop="url" title="打包应用程序方法" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/09/27/requests%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" title="未命名"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gicitf0kl1j20zk0m87fe.jpg"></a>
+    <a href="/2021/09/27/requests%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86%E4%BB%A5%E5%8F%8Aselenium%E7%9A%84%E4%BD%BF%E7%94%A8(%E6%B7%98%E5%AE%9D%E7%BB%95%E8%BF%87%E7%99%BB%E5%BD%95%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AE)/" itemprop="url" title="requests添加代理以及selenium的使用(淘宝绕过登录爬取数据)"><img data-src="https://tva1.sinaimg.cn/mw690/6833939bly1giclffsa1cj20zk0m811l.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="創建時間：2021-09-27 10:24:13">
+  <span class="item" title="作成日：2021-09-27 10:24:13">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
@@ -158,7 +171,37 @@
   </span>
 </div>
 
-    <h3><a href="/2021/09/27/requests%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" title="未命名">未命名</a></h3>
+    <h3><a href="/2021/09/27/requests%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86%E4%BB%A5%E5%8F%8Aselenium%E7%9A%84%E4%BD%BF%E7%94%A8(%E6%B7%98%E5%AE%9D%E7%BB%95%E8%BF%87%E7%99%BB%E5%BD%95%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AE)/" itemprop="url" title="requests添加代理以及selenium的使用(淘宝绕过登录爬取数据)">requests添加代理以及selenium的使用(淘宝绕过登录爬取数据)</a></h3>
+    <div class="excerpt">
+        requests添加代理以及selenium的使用(淘宝绕过登录爬取数据)requests添加代理获取代理IP(蘑菇代理) — 会返回一个网址
+1234567891011def get_ip(): response = requests.get(&amp;#x27;返回的网址&amp;#x27;) if(response.text[0] == &amp;#x27;&amp;#123;&amp;#x27;): print(&amp;#x27;IP提取频率过快！10秒后再试试吧!&amp;#x27;) return None return [ip for ip in...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/Python/" itemprop="url" title="Python"><i class="ic i-flag"></i>Python</a>
+      </span>
+    </div>
+    <a href="/2021/09/27/requests%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86%E4%BB%A5%E5%8F%8Aselenium%E7%9A%84%E4%BD%BF%E7%94%A8(%E6%B7%98%E5%AE%9D%E7%BB%95%E8%BF%87%E7%99%BB%E5%BD%95%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AE)/" itemprop="url" title="requests添加代理以及selenium的使用(淘宝绕过登录爬取数据)" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2021/09/27/requests%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" title="requests的使用方法"><img data-src="https://tva1.sinaimg.cn/mw690/6833939bly1giclwuom7cj20zk0m8dvn.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="作成日：2021-09-27 10:24:13">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2021-09-27T10:24:13+08:00">2021-09-27</time>
+  </span>
+</div>
+
+    <h3><a href="/2021/09/27/requests%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" title="requests的使用方法">requests的使用方法</a></h3>
     <div class="excerpt">
         requests的使用方法直接获取1import requests
 
@@ -170,19 +213,24 @@ python基于HTTP协议进行网络请求的第三方库
 ​ params — 设置参数
 ​ proxies —...
     </div>
-    <a href="/2021/09/27/requests%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" title="未命名" class="btn">more...</a>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/Python/" itemprop="url" title="Python"><i class="ic i-flag"></i>Python</a>
+      </span>
+    </div>
+    <a href="/2021/09/27/requests%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" title="requests的使用方法" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/09/27/Python%E9%98%9F%E5%88%97%20%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%20%20%E8%BF%9B%E7%A8%8B%E6%B1%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" title="未命名"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giclxfdlttj20zk0m8npd.jpg"></a>
+    <a href="/2021/09/27/Python%E9%98%9F%E5%88%97%20%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%20%20%E8%BF%9B%E7%A8%8B%E6%B1%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" title="Python队列  线程池  进程池 基本概念以及使用方法"><img data-src="https://tva1.sinaimg.cn/mw690/6833939bly1giclfdu6exj20zk0m87hw.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="創建時間：2021-09-27 10:24:13">
+  <span class="item" title="作成日：2021-09-27 10:24:13">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
@@ -190,7 +238,7 @@ python基于HTTP协议进行网络请求的第三方库
   </span>
 </div>
 
-    <h3><a href="/2021/09/27/Python%E9%98%9F%E5%88%97%20%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%20%20%E8%BF%9B%E7%A8%8B%E6%B1%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" title="未命名">未命名</a></h3>
+    <h3><a href="/2021/09/27/Python%E9%98%9F%E5%88%97%20%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%20%20%E8%BF%9B%E7%A8%8B%E6%B1%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" title="Python队列  线程池  进程池 基本概念以及使用方法">Python队列  线程池  进程池 基本概念以及使用方法</a></h3>
     <div class="excerpt">
         Python队列 线程池 进程池 基本概念以及使用方法线程、进程概念算是对上一篇文章的回顾，具体细节参见上文。
 概念进程：一个正在运行的应用程序就是一个进程。一个进程是运行在其专用且受保护的内存空间中
@@ -202,19 +250,24 @@ python基于HTTP协议进行网络请求的第三方库
 多线程一个应用程序默认对应一个进程，这个进程(主进程)中默认有一个线程(主线程)
 使用方法1from threading import...
     </div>
-    <a href="/2021/09/27/Python%E9%98%9F%E5%88%97%20%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%20%20%E8%BF%9B%E7%A8%8B%E6%B1%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" title="未命名" class="btn">more...</a>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/Python/" itemprop="url" title="Python"><i class="ic i-flag"></i>Python</a>
+      </span>
+    </div>
+    <a href="/2021/09/27/Python%E9%98%9F%E5%88%97%20%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%20%20%E8%BF%9B%E7%A8%8B%E6%B1%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" title="Python队列  线程池  进程池 基本概念以及使用方法" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/09/27/Python%20%E5%85%89%E5%AD%A6%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" itemprop="url" title="未命名"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></a>
+    <a href="/2021/09/27/Python%20%E5%85%89%E5%AD%A6%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" itemprop="url" title="Python 光学文字识别"><img data-src="https://tva1.sinaimg.cn/mw690/6833939bly1giclimtf7dj20zk0m8qav.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="創建時間：2021-09-27 10:24:13">
+  <span class="item" title="作成日：2021-09-27 10:24:13">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
@@ -222,7 +275,7 @@ python基于HTTP协议进行网络请求的第三方库
   </span>
 </div>
 
-    <h3><a href="/2021/09/27/Python%20%E5%85%89%E5%AD%A6%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" itemprop="url" title="未命名">未命名</a></h3>
+    <h3><a href="/2021/09/27/Python%20%E5%85%89%E5%AD%A6%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" itemprop="url" title="Python 光学文字识别">Python 光学文字识别</a></h3>
     <div class="excerpt">
         Python 光学文字识别easyocr光学文字识别主要应用于文字验证码、滑块等类型的登录验证。
 首先需要的是第三方库 easyocr(有点大1.5G左右)。
@@ -231,19 +284,24 @@ python基于HTTP协议进行网络请求的第三方库
 
 列表中参数表示可识别文字语言种类。***’ch_sim’ - 简体中文 ‘en’ -...
     </div>
-    <a href="/2021/09/27/Python%20%E5%85%89%E5%AD%A6%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" itemprop="url" title="未命名" class="btn">more...</a>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/Python/" itemprop="url" title="Python"><i class="ic i-flag"></i>Python</a>
+      </span>
+    </div>
+    <a href="/2021/09/27/Python%20%E5%85%89%E5%AD%A6%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" itemprop="url" title="Python 光学文字识别" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/09/27/Python%20-%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E8%BF%9B%E7%A8%8B/" itemprop="url" title="未命名"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giclg5ms2rj20zk0m8u0x.jpg"></a>
+    <a href="/2021/09/27/Python%20-%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E8%BF%9B%E7%A8%8B/" itemprop="url" title="Python - 多线程与多进程"><img data-src="https://tva1.sinaimg.cn/mw690/6833939bly1giclwuom7cj20zk0m8dvn.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="創建時間：2021-09-27 10:24:13">
+  <span class="item" title="作成日：2021-09-27 10:24:13">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
@@ -251,7 +309,7 @@ python基于HTTP协议进行网络请求的第三方库
   </span>
 </div>
 
-    <h3><a href="/2021/09/27/Python%20-%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E8%BF%9B%E7%A8%8B/" itemprop="url" title="未命名">未命名</a></h3>
+    <h3><a href="/2021/09/27/Python%20-%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E8%BF%9B%E7%A8%8B/" itemprop="url" title="Python - 多线程与多进程">Python - 多线程与多进程</a></h3>
     <div class="excerpt">
         Python - 多线程与多进程多线程程序默认都是单线程(这个默认线程又叫主线程，其他的线程都叫子线程)
 Thread类的对象就是线程对象,程序需要多少个子线程就创建多少个Thread的对象
@@ -260,19 +318,24 @@ Thread类的对象就是线程对象,程序需要多少个子线程就创建多�
 模拟电影下载线程：
 12345def download(movie_name:str):...
     </div>
-    <a href="/2021/09/27/Python%20-%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E8%BF%9B%E7%A8%8B/" itemprop="url" title="未命名" class="btn">more...</a>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/Python/" itemprop="url" title="Python"><i class="ic i-flag"></i>Python</a>
+      </span>
+    </div>
+    <a href="/2021/09/27/Python%20-%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E8%BF%9B%E7%A8%8B/" itemprop="url" title="Python - 多线程与多进程" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/09/27/Python%20-%20xpath%E8%A7%A3%E6%9E%90XML%E3%80%81HTML/" itemprop="url" title="未命名"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gicitcxhpij20zk0m8hdt.jpg"></a>
+    <a href="/2021/09/27/Python%20-%20xpath%E8%A7%A3%E6%9E%90XML%E3%80%81HTML/" itemprop="url" title="Python - xpath解析XML、HTML"><img data-src="https://tva1.sinaimg.cn/mw690/6833939bly1gipeyvx1d4j20zk0m8hdt.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="創建時間：2021-09-27 10:24:13">
+  <span class="item" title="作成日：2021-09-27 10:24:13">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
@@ -280,7 +343,7 @@ Thread类的对象就是线程对象,程序需要多少个子线程就创建多�
   </span>
 </div>
 
-    <h3><a href="/2021/09/27/Python%20-%20xpath%E8%A7%A3%E6%9E%90XML%E3%80%81HTML/" itemprop="url" title="未命名">未命名</a></h3>
+    <h3><a href="/2021/09/27/Python%20-%20xpath%E8%A7%A3%E6%9E%90XML%E3%80%81HTML/" itemprop="url" title="Python - xpath解析XML、HTML">Python - xpath解析XML、HTML</a></h3>
     <div class="excerpt">
         Python - xpath解析XML、HTML绝对路径:HTML / body / div / a
 相对路径: ./a
@@ -291,44 +354,24 @@ Thread类的对象就是线程对象,程序需要多少个子线程就创建多�
 属性:节点属性(HTML中就是标签属性)
 1from lxml import...
     </div>
-    <a href="/2021/09/27/Python%20-%20xpath%E8%A7%A3%E6%9E%90XML%E3%80%81HTML/" itemprop="url" title="未命名" class="btn">more...</a>
-  </div>
-</article>
-
-        
-<article class="item">
-  <div class="cover">
-    <a href="/2021/09/27/Python%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%B0%81%E8%A3%85%E4%B8%BA%E6%96%B9%E6%B3%95/" itemprop="url" title="未命名"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipet4bz0yj20zk0m8e81.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="創建時間：2021-09-27 10:23:31">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2021-09-27T10:23:31+08:00">2021-09-27</time>
-  </span>
-</div>
-
-    <h3><a href="/2021/09/27/Python%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%B0%81%E8%A3%85%E4%B8%BA%E6%96%B9%E6%B3%95/" itemprop="url" title="未命名">未命名</a></h3>
-    <div class="excerpt">
-        Python重复代码自动封装为方法编写代码时重复代码不仅会让程序员更加疲劳甚至代码的重复率过高还会让人质疑能力；所以重复代码的封装也很有必要。
-Refactor&amp;gt;Extract&amp;gt;Method
+    <div class="meta footer">
+      <span>
+        <a href="/categories/Python/" itemprop="url" title="Python"><i class="ic i-flag"></i>Python</a>
+      </span>
     </div>
-    <a href="/2021/09/27/Python%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%B0%81%E8%A3%85%E4%B8%BA%E6%96%B9%E6%B3%95/" itemprop="url" title="未命名" class="btn">more...</a>
+    <a href="/2021/09/27/Python%20-%20xpath%E8%A7%A3%E6%9E%90XML%E3%80%81HTML/" itemprop="url" title="Python - xpath解析XML、HTML" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/09/27/Python%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%20%20%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" itemprop="url" title="未命名"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipeuibk9fj20zk0m8ay2.jpg"></a>
+    <a href="/2021/09/27/Python%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%20%20%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" itemprop="url" title="Python 装饰器基础用法  基本格式"><img data-src="https://tva1.sinaimg.cn/mw690/6833939bly1gicliierfjj20zk0m8npd.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="創建時間：2021-09-27 10:23:31">
+  <span class="item" title="作成日：2021-09-27 10:23:31">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
@@ -336,7 +379,7 @@ Refactor&amp;gt;Extract&amp;gt;Method
   </span>
 </div>
 
-    <h3><a href="/2021/09/27/Python%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%20%20%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" itemprop="url" title="未命名">未命名</a></h3>
+    <h3><a href="/2021/09/27/Python%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%20%20%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" itemprop="url" title="Python 装饰器基础用法  基本格式">Python 装饰器基础用法  基本格式</a></h3>
     <div class="excerpt">
         Python 装饰器基础用法 基本格式装饰器： 用一个函数去装饰另一个函数或类，为其提供额外的能力 实现了一种名为代理模式的经典设计模式
 ​ 横切关注功能(cross-concern):跟正常的业务没有必然联系的功能​ 这样的功能最适合用装饰器(代理模式)来实现
@@ -344,19 +387,24 @@ Refactor&amp;gt;Extract&amp;gt;Method
 下载：
 1234567def download(filename): start_time = time.time() print(f&amp;#x27;开始下载&amp;#123;filename&amp;#125;&amp;#x27;)...
     </div>
-    <a href="/2021/09/27/Python%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%20%20%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" itemprop="url" title="未命名" class="btn">more...</a>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/Python/" itemprop="url" title="Python"><i class="ic i-flag"></i>Python</a>
+      </span>
+    </div>
+    <a href="/2021/09/27/Python%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%20%20%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" itemprop="url" title="Python 装饰器基础用法  基本格式" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/09/27/Python%20Web%20%E6%A1%86%E6%9E%B6%20Flask%E7%9A%84%E6%9C%80%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" itemprop="url" title="未命名"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></a>
+    <a href="/2021/09/27/Python%20Web%20%E6%A1%86%E6%9E%B6%20Flask%E7%9A%84%E6%9C%80%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" itemprop="url" title="Python Web 框架 Flask的最基本使用"><img data-src="https://tva1.sinaimg.cn/mw690/6833939bly1giph4lm9i7j20zk0m84qp.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="創建時間：2021-09-27 10:23:31">
+  <span class="item" title="作成日：2021-09-27 10:23:31">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
@@ -364,7 +412,7 @@ Refactor&amp;gt;Extract&amp;gt;Method
   </span>
 </div>
 
-    <h3><a href="/2021/09/27/Python%20Web%20%E6%A1%86%E6%9E%B6%20Flask%E7%9A%84%E6%9C%80%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" itemprop="url" title="未命名">未命名</a></h3>
+    <h3><a href="/2021/09/27/Python%20Web%20%E6%A1%86%E6%9E%B6%20Flask%E7%9A%84%E6%9C%80%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" itemprop="url" title="Python Web 框架 Flask的最基本使用">Python Web 框架 Flask的最基本使用</a></h3>
     <div class="excerpt">
         Python Web 框架 Flask的最基本使用首先还是第三方库Flask的安装；终端执行pip install flask即可
 1import flask
@@ -376,19 +424,24 @@ Refactor&amp;gt;Extract&amp;gt;Method
 再用创建好的对象指定网页访问路径
 123@app.route(&amp;#x27;/&amp;#x27;)def index(): return &amp;#x27;&amp;lt;h1&amp;gt;Hello...
     </div>
-    <a href="/2021/09/27/Python%20Web%20%E6%A1%86%E6%9E%B6%20Flask%E7%9A%84%E6%9C%80%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" itemprop="url" title="未命名" class="btn">more...</a>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/Python/" itemprop="url" title="Python"><i class="ic i-flag"></i>Python</a>
+      </span>
+    </div>
+    <a href="/2021/09/27/Python%20Web%20%E6%A1%86%E6%9E%B6%20Flask%E7%9A%84%E6%9C%80%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" itemprop="url" title="Python Web 框架 Flask的最基本使用" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/2021/09/27/Pymysql%20%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E6%89%B9%E5%A4%84%E7%90%86/" itemprop="url" title="未命名"><img data-src="https://tva3.sinaimg.cn/mw690/6833939bly1giciszlczyj20zk0m816d.jpg"></a>
+    <a href="/2021/09/27/Pymysql%20%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E6%89%B9%E5%A4%84%E7%90%86/" itemprop="url" title="Pymysql 连接数据库增删改查操作与批处理"><img data-src="https://tva1.sinaimg.cn/mw690/6833939bly1gicitspjpbj20zk0m81ky.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="創建時間：2021-09-27 10:23:31">
+  <span class="item" title="作成日：2021-09-27 10:23:31">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
@@ -396,7 +449,7 @@ Refactor&amp;gt;Extract&amp;gt;Method
   </span>
 </div>
 
-    <h3><a href="/2021/09/27/Pymysql%20%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E6%89%B9%E5%A4%84%E7%90%86/" itemprop="url" title="未命名">未命名</a></h3>
+    <h3><a href="/2021/09/27/Pymysql%20%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E6%89%B9%E5%A4%84%E7%90%86/" itemprop="url" title="Pymysql 连接数据库增删改查操作与批处理">Pymysql 连接数据库增删改查操作与批处理</a></h3>
     <div class="excerpt">
         Pymysql 连接数据库增删改查操作与批处理首先还是第三方库的安装：
 pymysql —-&amp;gt; 纯Python编写,安装一定会成功
@@ -405,7 +458,12 @@ mysqlclient —-&amp;gt; 底层用C编写,安装不一定会成功
 
 第一步:创建连接12connection = pymysql.connect(host=&amp;#x27;127.0.0.1&amp;#x27;, port=3306, user=&amp;#x27;root&amp;#x27;,...
     </div>
-    <a href="/2021/09/27/Pymysql%20%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E6%89%B9%E5%A4%84%E7%90%86/" itemprop="url" title="未命名" class="btn">more...</a>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/Python/" itemprop="url" title="Python"><i class="ic i-flag"></i>Python</a>
+      </span>
+    </div>
+    <a href="/2021/09/27/Pymysql%20%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E6%89%B9%E5%A4%84%E7%90%86/" itemprop="url" title="Pymysql 连接数据库增删改查操作与批处理" class="btn">more...</a>
   </div>
 </article>
 
@@ -416,7 +474,7 @@ mysqlclient —-&amp;gt; 底层用C编写,安装不一定会成功
   
   <nav class="pagination">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/"><i class="ic i-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="ic i-angle-right" aria-label="下一頁"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="ic i-angle-left" aria-label="前のページ"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="ic i-angle-right" aria-label="次のページ"></i></a>
     </div>
   </nav>
 
@@ -429,11 +487,11 @@ mysqlclient —-&amp;gt; 底层用C编写,安装不一定会成功
 
   <div class="panels">
     <div class="inner">
-      <div class="contents panel pjax" data-title="文章目錄">
+      <div class="contents panel pjax" data-title="見出し">
       </div>
-      <div class="related panel pjax" data-title="系列文章">
+      <div class="related panel pjax" data-title="関連記事">
       </div>
-      <div class="overview panel" data-title="本站概覽">
+      <div class="overview panel" data-title="概要">
         <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="image" itemprop="image" alt="HoneyGrapefruit"
       data-src="/images/avatar.jpg">
@@ -444,8 +502,14 @@ mysqlclient —-&amp;gt; 底层用C编写,安装不一定会成功
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">25</span>
-        <span class="name">文章</span>
+        <span class="count">24</span>
+        <span class="name">ポスト</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">3</span>
+        <span class="name">カテゴリ</span>
       </a>
     </div>
 </nav>
@@ -463,7 +527,7 @@ mysqlclient —-&amp;gt; 底层用C编写,安装不一定会成功
   
     
   <li class="item">
-    <a href="/" rel="section"><i class="ic i-home"></i>首頁</a>
+    <a href="/" rel="section"><i class="ic i-home"></i>ホーム</a>
   </li>
 
 
@@ -479,7 +543,7 @@ mysqlclient —-&amp;gt; 底层用C编写,安装不一定会成功
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/page/3/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/page/3/" rel="next" title="次の記事"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -494,102 +558,112 @@ mysqlclient —-&amp;gt; 底层用C编写,安装不一定会成功
         <div class="widgets">
           
 <div class="rpost pjax">
-  <h2>隨機文章</h2>
+  <h2>ランダムな記事</h2>
   <ul>
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/" title="カテゴリ 数据分析基础">数据分析基础</a>
 </div>
 
-    <span><a href="/2021/09/27/%E7%88%AC%E8%99%AB%E5%87%86%E5%A4%87%20-%20%E8%AE%A4%E8%AF%86HTML&css/" title="未命名">未命名</a></span>
+    <span><a href="/2021/09/27/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E8%AE%BA/" title="数据分析方法论">数据分析方法论</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Python/" title="カテゴリ Python">Python</a>
 </div>
 
-    <span><a href="/2021/09/27/python%20%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8A%9E%E5%85%AC%20-%20%E9%82%AE%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E9%80%81/" title="未命名">未命名</a></span>
+    <span><a href="/2021/09/11/%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4(%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)/" title="代码版本管理工具Git基本命令(基本使用)">代码版本管理工具Git基本命令(基本使用)</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Python/" title="カテゴリ Python">Python</a>
 </div>
 
-    <span><a href="/2021/09/11/hello-world/" title="Hello World">Hello World</a></span>
+    <span><a href="/2021/09/27/Pymysql%20%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E6%89%B9%E5%A4%84%E7%90%86/" title="Pymysql 连接数据库增删改查操作与批处理">Pymysql 连接数据库增删改查操作与批处理</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Python/" title="カテゴリ Python">Python</a>
 </div>
 
-    <span><a href="/2021/09/27/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" title="未命名">未命名</a></span>
+    <span><a href="/2021/09/27/Python%E5%8A%9E%E5%85%AC%E8%87%AA%E5%8A%A8%E5%8C%96%20-%20Excel%E3%80%81CSV%E3%80%81PDF/" title="Python办公自动化 - Excel、CSV、PDF">Python办公自动化 - Excel、CSV、PDF</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Python/" title="カテゴリ Python">Python</a>
 </div>
 
-    <span><a href="/2021/09/27/Python%E5%8A%9E%E5%85%AC%E8%87%AA%E5%8A%A8%E5%8C%96%20-%20Excel%E3%80%81CSV%E3%80%81PDF/" title="未命名">未命名</a></span>
+    <span><a href="/2021/09/27/Python%20Web%20%E6%A1%86%E6%9E%B6%20Flask%E7%9A%84%E6%9C%80%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="Python Web 框架 Flask的最基本使用">Python Web 框架 Flask的最基本使用</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Python/" title="カテゴリ Python">Python</a>
 </div>
 
-    <span><a href="/2021/09/27/Python%20%E5%85%89%E5%AD%A6%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" title="未命名">未命名</a></span>
+    <span><a href="/2021/09/27/python%20%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8A%9E%E5%85%AC%20-%20%E9%82%AE%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E9%80%81/" title="Python 自动化办公 - 邮件自动发送">Python 自动化办公 - 邮件自动发送</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/MySQL/" title="カテゴリ MySQL">MySQL</a>
 </div>
 
-    <span><a href="/2021/09/27/Python%20Web%20%E6%A1%86%E6%9E%B6%20Flask%E7%9A%84%E6%9C%80%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="未命名">未命名</a></span>
+    <span><a href="/2021/09/27/DB%20-%20database/" title="MySQL 基础语法及workbench ER图 转SQL语句">MySQL 基础语法及workbench ER图 转SQL语句</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Python/" title="カテゴリ Python">Python</a>
 </div>
 
-    <span><a href="/2021/09/27/Pymysql%20%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E6%89%B9%E5%A4%84%E7%90%86/" title="未命名">未命名</a></span>
+    <span><a href="/2021/09/27/%E4%BD%BF%E7%94%A8selenium%E4%B8%8E%E7%BD%91%E9%A1%B5%E4%BA%A4%E4%BA%92%E3%80%81%E5%B5%8C%E5%A5%97%E7%BD%91%E9%A1%B5%E7%88%AC%E5%8F%96/" title="使用selenium与网页交互、嵌套网页爬取">使用selenium与网页交互、嵌套网页爬取</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Python/" title="カテゴリ Python">Python</a>
 </div>
 
-    <span><a href="/2021/09/11/%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4(%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)/" title="未命名">未命名</a></span>
+    <span><a href="/2021/09/27/Python%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%20%20%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" title="Python 装饰器基础用法  基本格式">Python 装饰器基础用法  基本格式</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Python/" title="カテゴリ Python">Python</a>
 </div>
 
-    <span><a href="/2021/09/27/Python%E9%98%9F%E5%88%97%20%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%20%20%E8%BF%9B%E7%A8%8B%E6%B1%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="未命名">未命名</a></span>
+    <span><a href="/2021/09/27/Python%20-%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E8%BF%9B%E7%A8%8B/" title="Python - 多线程与多进程">Python - 多线程与多进程</a></span>
   </li>
 
   </ul>
 </div>
 <div>
-  <h2>最新評論</h2>
+  <h2>最近のコメント</h2>
   <ul class="leancloud-recent-comment"></ul>
 </div>
 
@@ -605,7 +679,7 @@ mysqlclient —-&amp;gt; 底层用C编写,安装不一定会成功
     <span class="author" itemprop="copyrightHolder">HoneyGrapefruit @ Super Bear</span>
   </div>
   <div class="powered-by">
-    基於 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
   </div>
 </div>
 
@@ -616,15 +690,15 @@ mysqlclient —-&amp;gt; 底层用C编写,安装不一定会成功
   var LOCAL = {
     path: 'page/2/',
     favicon: {
-      show: "（●´3｀●）復活成功",
-      hide: "(´Д｀)瀏覽器崩潰啦"
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
     },
     search : {
-      placeholder: "文章搜索",
-      empty: "關於 「 ${query} 」 ，什麼也沒搜到",
-      stats: "${time} ms 內找到 ${hits} 條結果"
+      placeholder: "検索…",
+      empty: "「 ${query} 」については何も見つかりませんでした",
+      stats: "${time} ms以内に ${hits} 件の結果が見つかりました"
     },
-    valine: true,fancybox: true,copyright: '複製成功，轉載請遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 協議。',
+    valine: true,fancybox: true,copyright: 'コピーは成功しました。 <br> 再印刷については、 ％s 契約に従ってください。',
     ignores : [
       function(uri) {
         return uri.includes('#');
