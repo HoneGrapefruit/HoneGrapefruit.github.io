@@ -30,7 +30,7 @@
 
 
   <title>
- |
+MySQL 简易学生选课系统查询语句 |
 Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
 <meta name="generator" content="Hexo 5.4.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -58,15 +58,15 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">
+  <h1 itemprop="name headline">MySQL 简易学生选课系统查询语句
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2021-09-24 09:23:29">
+  <span class="item" title="創建時間：2021-09-24 09:23:29">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
-    <span class="text">发表于</span>
+    <span class="text">發表於</span>
     <time itemprop="dateCreated datePublished" datetime="2021-09-24T09:23:29+08:00">2021-09-24</time>
   </span>
 </div>
@@ -77,7 +77,7 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
         <nav id="nav">
   <div class="inner">
     <div class="toggle">
-      <div class="lines" aria-label="切换导航栏">
+      <div class="lines" aria-label="切換導航欄">
         <span class="line"></span>
         <span class="line"></span>
         <span class="line"></span>
@@ -100,12 +100,12 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeuv80yoj20zk0m8kjl.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclxp31goj20zk0m8qv5.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclj61ylzj20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipet8c1a2j20zk0m8kct.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicis3attqj20zk0m8k7l.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeyvx1d4j20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeuv80yoj20zk0m8kjl.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitspjpbj20zk0m81ky.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeybxm1pj20zk0m8niv.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeyonbf9j20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipewkhf1zj20zk0m81kx.jpg"></li>
         </ul>
       </div>
     </header>
@@ -130,7 +130,7 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
     
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
-<span><a href="/">首页</a></span>
+<span><a href="/">首頁</a></span>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh">
@@ -149,8 +149,7 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>title:MySQL 简易学生选课系统查询语句</p>
-<h1 id="MySQL-简易学生选课系统查询语句"><a href="#MySQL-简易学生选课系统查询语句" class="headerlink" title="MySQL 简易学生选课系统查询语句"></a>MySQL 简易学生选课系统查询语句</h1><h4 id="1-创建school数据库"><a href="#1-创建school数据库" class="headerlink" title="1. 创建school数据库"></a>1. 创建school数据库</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">如果存在名为school的数据库就删除它</span><br><span class="line">drop database if exists `school`;</span><br><span class="line"></span><br><span class="line">创建名为school的数据库并设置默认的字符集和排序方式</span><br><span class="line">create database `school` default character set utf8mb4;</span><br></pre></td></tr></table></figure>
+    <h1 id="MySQL-简易学生选课系统查询语句"><a href="#MySQL-简易学生选课系统查询语句" class="headerlink" title="MySQL 简易学生选课系统查询语句"></a>MySQL 简易学生选课系统查询语句</h1><h4 id="1-创建school数据库"><a href="#1-创建school数据库" class="headerlink" title="1. 创建school数据库"></a>1. 创建school数据库</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">如果存在名为school的数据库就删除它</span><br><span class="line">drop database if exists `school`;</span><br><span class="line"></span><br><span class="line">创建名为school的数据库并设置默认的字符集和排序方式</span><br><span class="line">create database `school` default character set utf8mb4;</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-创建学院表、学生表、教师表、课程表、选课记录表："><a href="#2-创建学院表、学生表、教师表、课程表、选课记录表：" class="headerlink" title="2. 创建学院表、学生表、教师表、课程表、选课记录表："></a>2. 创建学院表、学生表、教师表、课程表、选课记录表：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">-- 创建学院表</span><br><span class="line">create table `tb_college`</span><br><span class="line">(</span><br><span class="line">`col_id` int unsigned auto_increment comment &#x27;编号&#x27;,</span><br><span class="line">`col_name` varchar(50) not null comment &#x27;名称&#x27;,</span><br><span class="line">`col_intro` varchar(500) default &#x27;&#x27; comment &#x27;介绍&#x27;,</span><br><span class="line">primary key (`col_id`)</span><br><span class="line">) engine=innodb auto_increment=1 comment &#x27;学院表&#x27;;</span><br><span class="line"></span><br><span class="line">-- 创建学生表</span><br><span class="line">create table `tb_student`</span><br><span class="line">(</span><br><span class="line">`stu_id` int unsigned not null comment &#x27;学号&#x27;,</span><br><span class="line">`stu_name` varchar(20) not null comment &#x27;姓名&#x27;,</span><br><span class="line">`stu_sex` boolean default 1 not null comment &#x27;性别&#x27;,</span><br><span class="line">`stu_birth` date not null comment &#x27;出生日期&#x27;,</span><br><span class="line">`stu_addr` varchar(255) default &#x27;&#x27; comment &#x27;籍贯&#x27;,</span><br><span class="line">`col_id` int unsigned not null comment &#x27;所属学院&#x27;,</span><br><span class="line">primary key (`stu_id`),</span><br><span class="line">constraint `fk_student_col_id` foreign key (`col_id`) references `tb_college` (`col_id`)</span><br><span class="line">) engine=innodb comment &#x27;学生表&#x27;;</span><br><span class="line"></span><br><span class="line">-- 创建教师表</span><br><span class="line">create table `tb_teacher`</span><br><span class="line">(</span><br><span class="line">`tea_id` int unsigned not null comment &#x27;工号&#x27;,</span><br><span class="line">`tea_name` varchar(20) not null comment &#x27;姓名&#x27;,</span><br><span class="line">`tea_title` varchar(10) default &#x27;助教&#x27; comment &#x27;职称&#x27;,</span><br><span class="line">`col_id` int unsigned not null comment &#x27;所属学院&#x27;,</span><br><span class="line">primary key (`tea_id`),</span><br><span class="line">constraint `fk_teacher_col_id` foreign key (`col_id`) references `tb_college` (`col_id`)</span><br><span class="line">) engine=innodb comment &#x27;老师表&#x27;;</span><br><span class="line"></span><br><span class="line">-- 创建课程表</span><br><span class="line">create table `tb_course`</span><br><span class="line">(</span><br><span class="line">`cou_id` int unsigned not null comment &#x27;编号&#x27;,</span><br><span class="line">`cou_name` varchar(50) not null comment &#x27;名称&#x27;,</span><br><span class="line">`cou_credit` int not null comment &#x27;学分&#x27;,</span><br><span class="line">`tea_id` int unsigned not null comment &#x27;授课老师&#x27;,</span><br><span class="line">primary key (`cou_id`),</span><br><span class="line">constraint `fk_course_tea_id` foreign key (`tea_id`) references `tb_teacher` (`tea_id`)</span><br><span class="line">) engine=innodb comment &#x27;课程表&#x27;;</span><br><span class="line"></span><br><span class="line">-- 创建选课记录表</span><br><span class="line">create table `tb_record`</span><br><span class="line">(</span><br><span class="line">`rec_id` bigint unsigned auto_increment comment &#x27;选课记录号&#x27;,</span><br><span class="line">`stu_id` int unsigned not null comment &#x27;学号&#x27;,</span><br><span class="line">`cou_id` int unsigned not null comment &#x27;课程编号&#x27;,</span><br><span class="line">`sel_date` date not null comment &#x27;选课日期&#x27;,</span><br><span class="line">`score` decimal(4,1) comment &#x27;考试成绩&#x27;,</span><br><span class="line">primary key (`rec_id`),</span><br><span class="line">constraint `fk_record_stu_id` foreign key (`stu_id`) references `tb_student` (`stu_id`),</span><br><span class="line">constraint `fk_record_cou_id` foreign key (`cou_id`) references `tb_course` (`cou_id`),</span><br><span class="line">constraint `uk_record_stu_cou` unique (`stu_id`, `cou_id`)</span><br><span class="line">) engine=innodb comment &#x27;选课记录表&#x27;;</span><br></pre></td></tr></table></figure>
 
@@ -166,15 +165,15 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
     <span class="icon">
       <i class="ic i-calendar-check"></i>
     </span>
-    <span class="text">更新于</span>
-    <time title="修改时间：2021-12-03 17:35:43" itemprop="dateModified" datetime="2021-12-03T17:35:43+08:00">2021-12-03</time>
+    <span class="text">更新於</span>
+    <time title="修改時間：2021-12-03 17:40:27" itemprop="dateModified" datetime="2021-12-03T17:40:27+08:00">2021-12-03</time>
   </span>
 </div>
 
       
 <div class="reward">
-  <button><i class="ic i-heartbeat"></i> 赞赏</button>
-  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <button><i class="ic i-heartbeat"></i> 打賞</button>
+  <p>請我喝[茶]~(￣▽￣)~*</p>
   <div id="qr">
       
       <div>
@@ -183,13 +182,13 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
       </div>
       
       <div>
-        <img data-src="/images/alipay.png" alt="HoneyGrapefruit 支付宝">
-        <p>支付宝</p>
+        <img data-src="/images/alipay.png" alt="HoneyGrapefruit 支付寶">
+        <p>支付寶</p>
       </div>
       
       <div>
-        <img data-src="/images/paypal.png" alt="HoneyGrapefruit 贝宝">
-        <p>贝宝</p>
+        <img data-src="/images/paypal.png" alt="HoneyGrapefruit PayPal">
+        <p>PayPal</p>
       </div>
   </div>
 </div>
@@ -199,14 +198,14 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
 <div id="copyright">
 <ul>
   <li class="author">
-    <strong>本文作者： </strong>HoneyGrapefruit <i class="ic i-at"><em>@</em></i>宗志雄的技术专栏
+    <strong>博主： </strong>HoneyGrapefruit <i class="ic i-at"><em>@</em></i>宗志雄的技术专栏
   </li>
   <li class="link">
-    <strong>本文链接：</strong>
-    <a href="http://babybear.top/2021/09/24/MySQL%20%E7%AE%80%E6%98%93%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" title="">http://babybear.top/2021/09/24/MySQL 简易学生选课系统查询语句/</a>
+    <strong>文章連結：</strong>
+    <a href="http://babybear.top/2021/09/24/MySQL%20%E7%AE%80%E6%98%93%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/" title="MySQL 简易学生选课系统查询语句">http://babybear.top/2021/09/24/MySQL 简易学生选课系统查询语句/</a>
   </li>
   <li class="license">
-    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+    <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 許可協議。轉載請註明出處！
   </li>
 </ul>
 </div>
@@ -222,7 +221,7 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
     <div class="item left">
       
 
-  <a href="/2021/09/11/%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4(%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicljitigmj20zk0m87fp.jpg" title="未命名">
+  <a href="/2021/09/11/%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4(%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipewr8iypj20zk0m8b29.jpg" title="未命名">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -232,7 +231,7 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
     <div class="item right">
       
 
-  <a href="/2021/09/27/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%AE%89%E8%A3%85%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2%E6%8F%92%E4%BB%B6%20%20%20npm%20install%20hexo-deployer-git%20--save%20%E7%9A%84%E9%97%AE%E9%A2%98(Hexo%E6%A1%86%E6%9E%B6)/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitcxhpij20zk0m8hdt.jpg" title="未命名">
+  <a href="/2021/09/27/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%AE%89%E8%A3%85%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2%E6%8F%92%E4%BB%B6%20%20%20npm%20install%20hexo-deployer-git%20--save%20%E7%9A%84%E9%97%AE%E9%A2%98(Hexo%E6%A1%86%E6%9E%B6)/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitzannuj20zk0m8b29.jpg" title="未命名">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>未命名</h3>
@@ -253,12 +252,12 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
 
   <div class="panels">
     <div class="inner">
-      <div class="contents panel pjax" data-title="文章目录">
+      <div class="contents panel pjax" data-title="文章目錄">
           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL-%E7%AE%80%E6%98%93%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.</span> <span class="toc-text">MySQL 简易学生选课系统查询语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BAschool%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">1. 创建school数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BA%E5%AD%A6%E9%99%A2%E8%A1%A8%E3%80%81%E5%AD%A6%E7%94%9F%E8%A1%A8%E3%80%81%E6%95%99%E5%B8%88%E8%A1%A8%E3%80%81%E8%AF%BE%E7%A8%8B%E8%A1%A8%E3%80%81%E9%80%89%E8%AF%BE%E8%AE%B0%E5%BD%95%E8%A1%A8%EF%BC%9A"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">2. 创建学院表、学生表、教师表、课程表、选课记录表：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">3.插入数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">4. 查询</span></a></li></ol></li></ol></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
-      <div class="overview panel" data-title="站点概览">
+      <div class="overview panel" data-title="本站概覽">
         <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="image" itemprop="image" alt="HoneyGrapefruit"
       data-src="/images/avatar.jpg">
@@ -288,7 +287,7 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
   
     
   <li class="item">
-    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+    <a href="/" rel="section"><i class="ic i-home"></i>首頁</a>
   </li>
 
 
@@ -321,7 +320,7 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
         <div class="widgets">
           
 <div class="rpost pjax">
-  <h2>随机文章</h2>
+  <h2>隨機文章</h2>
   <ul>
       
   <li class="item">
@@ -329,7 +328,7 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/09/27/Python%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%20%20%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" title="未命名">未命名</a></span>
+    <span><a href="/2021/09/27/%E4%BD%BF%E7%94%A8selenium%E4%B8%8E%E7%BD%91%E9%A1%B5%E4%BA%A4%E4%BA%92%E3%80%81%E5%B5%8C%E5%A5%97%E7%BD%91%E9%A1%B5%E7%88%AC%E5%8F%96/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -347,24 +346,6 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/09/27/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/09/27/Python%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%B0%81%E8%A3%85%E4%B8%BA%E6%96%B9%E6%B3%95/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2021/09/27/Pymysql%20%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E6%89%B9%E5%A4%84%E7%90%86/" title="未命名">未命名</a></span>
   </li>
 
@@ -374,7 +355,7 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/09/27/Python%20%E5%85%89%E5%AD%A6%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/" title="未命名">未命名</a></span>
+    <span><a href="/2021/09/27/Python%20Web%20%E6%A1%86%E6%9E%B6%20Flask%E7%9A%84%E6%9C%80%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -383,7 +364,25 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/09/27/python%20%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8A%9E%E5%85%AC%20-%20%E9%82%AE%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E9%80%81/" title="未命名">未命名</a></span>
+    <span><a href="/2021/09/27/%E8%AE%A4%E8%AF%86Numpy/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Pandas%20%E5%85%A5%E9%97%A8/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/09/27/Pandas%20%E8%BF%9B%E9%98%B6/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -401,7 +400,7 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/09/27/Python%20-%20xpath%E8%A7%A3%E6%9E%90XML%E3%80%81HTML/" title="未命名">未命名</a></span>
+    <span><a href="/2021/09/27/requests%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="未命名">未命名</a></span>
   </li>
 
       
@@ -410,13 +409,13 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/09/27/Pandas%20%E5%85%A5%E9%97%A8/" title="未命名">未命名</a></span>
+    <span><a href="/2021/09/27/Python%E9%98%9F%E5%88%97%20%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%20%20%E8%BF%9B%E7%A8%8B%E6%B1%A0%20%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="未命名">未命名</a></span>
   </li>
 
   </ul>
 </div>
 <div>
-  <h2>最新评论</h2>
+  <h2>最新評論</h2>
   <ul class="leancloud-recent-comment"></ul>
 </div>
 
@@ -432,7 +431,7 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
     <span class="author" itemprop="copyrightHolder">HoneyGrapefruit @ Super Bear</span>
   </div>
   <div class="powered-by">
-    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+    基於 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
   </div>
 </div>
 
@@ -443,15 +442,15 @@ Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
   var LOCAL = {
     path: '2021/09/24/MySQL 简易学生选课系统查询语句/',
     favicon: {
-      show: "（●´3｀●）やれやれだぜ",
-      hide: "(´Д｀)大変だ！"
+      show: "（●´3｀●）復活成功",
+      hide: "(´Д｀)瀏覽器崩潰啦"
     },
     search : {
       placeholder: "文章搜索",
-      empty: "关于 「 ${query} 」，什么也没搜到",
-      stats: "${time} ms 内找到 ${hits} 条结果"
+      empty: "關於 「 ${query} 」 ，什麼也沒搜到",
+      stats: "${time} ms 內找到 ${hits} 條結果"
     },
-    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    valine: true,fancybox: true,copyright: '複製成功，轉載請遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 協議。',
     ignores : [
       function(uri) {
         return uri.includes('#');
