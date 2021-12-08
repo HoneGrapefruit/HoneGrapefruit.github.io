@@ -1,0 +1,3764 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="宗志雄的技术专栏" href="http://babybear.top/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="宗志雄的技术专栏" href="http://babybear.top/atom.xml" />
+<link rel="alternate" type="application/json" title="宗志雄的技术专栏" href="http://babybear.top/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="http://babybear.top/2021/12/08/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/">
+
+
+
+  <title>
+数据预处理 - 数据分析基础 |
+Super Bear = 宗志雄的技术专栏 = 人生苦短，我用Python</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">数据预处理
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-12-08 19:17:18">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-12-08T19:17:18+08:00">2021-12-08</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Super Bear</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclga70tsj20zk0m84mr.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicli3sbvtj20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipetlbztpj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipewkhf1zj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giph4baakhj20zk0m8h5q.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/" itemprop="item" rel="index" title="分类于 数据分析基础"><span itemprop="name">数据分析基础</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh">
+  <link itemprop="mainEntityOfPage" href="http://babybear.top/2021/12/08/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="HoneyGrapefruit">
+    <meta itemprop="description" content="人生苦短，我用Python, ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="宗志雄的技术专栏">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="Dataframe-的数据预处理"><a href="#Dataframe-的数据预处理" class="headerlink" title="Dataframe 的数据预处理"></a>Dataframe 的数据预处理</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;STFangsong&#x27;</span>]</span><br><span class="line">plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%config InlineBackend.figure_format = <span class="string">&#x27;svg&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="0">
+<li><p>加载数据</p>
+<ul>
+<li><code>read_csv</code></li>
+<li><code>read_excel</code></li>
+<li><code>read_sql</code></li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>数据抽取</p>
+<ul>
+<li>布尔索引</li>
+<li><code>query</code></li>
+<li><code>drop</code></li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><p>数据清洗</p>
+<ul>
+<li>缺失值：<code>isnull</code>、<code>isna</code>、<code>dropna</code>、<code>fillna</code></li>
+<li>重复值：<code>duplicated</code>、<code>drop_duplicates</code>、<code>nunique</code></li>
+<li>异常值：<code>replace</code>、<code>drop</code><ul>
+<li>Z-score</li>
+<li>IQR</li>
+<li>DBScan</li>
+<li>Isolation Forest</li>
+</ul>
+</li>
+<li>预处理：<code>apply</code>、<code>transform</code>、<code>applymap</code><ul>
+<li><code>str</code>:<code>extract(regexp)</code>、<code>contains</code></li>
+<li><code>dt</code>:<code>year</code>、<code>quarter</code>、<code>month</code>、<code>day</code>、<code>weekday</code>…</li>
+<li><code>to_datetime</code></li>
+<li><code>cut(data,bins)</code>、<code>qcut(data,[0,0.1,0.25,0.5,0.75,0.9,1])</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="3">
+<li>数据透视<ul>
+<li>分组：<code>groupby</code> –&gt; <code>agg</code></li>
+<li>透视表：<code>pivot_table</code> –&gt; <code>index</code>、<code>columns</code>、<code>values</code>、<code>aggfunc</code></li>
+<li>交叉表：<code>crosstab</code></li>
+<li>排序：<code>sort_values(by,ascending)</code>、<code>sort_index(level)</code></li>
+<li>取头部：<code>nlargest</code>、<code>nsmallest</code></li>
+</ul>
+</li>
+</ol>
+<ol start="4">
+<li>可视化<ul>
+<li>绘图：<code>plot</code><ul>
+<li><code>kind</code>:<code>line</code>、<code>scatter</code>、<code>pie</code>、<code>bar</code>、<code>barh</code>、<code>hist</code>、<code>boxplot</code>…</li>
+<li><code>figsize</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="5">
+<li>业务洞察</li>
+</ol>
+<h2 id="数据分析师岗位信息数据预处理"><a href="#数据分析师岗位信息数据预处理" class="headerlink" title="数据分析师岗位信息数据预处理"></a>数据分析师岗位信息数据预处理</h2><h3 id="导入数据"><a href="#导入数据" class="headerlink" title="导入数据"></a>导入数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;../files/data/lagou.csv&#x27;</span>,</span><br><span class="line">                 usecols=[<span class="string">&#x27;city&#x27;</span>, <span class="string">&#x27;companyFullName&#x27;</span>, <span class="string">&#x27;companyLabelList&#x27;</span>, <span class="string">&#x27;companySize&#x27;</span>, <span class="string">&#x27;district&#x27;</span>, </span><br><span class="line">             <span class="string">&#x27;education&#x27;</span>, <span class="string">&#x27;financeStage&#x27;</span>, <span class="string">&#x27;industryField&#x27;</span>, <span class="string">&#x27;positionName&#x27;</span>, <span class="string">&#x27;salary&#x27;</span>,</span><br><span class="line">             <span class="string">&#x27;workYear&#x27;</span>])</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>companyFullName</th>
+      <th>companyLabelList</th>
+      <th>companySize</th>
+      <th>district</th>
+      <th>education</th>
+      <th>financeStage</th>
+      <th>industryField</th>
+      <th>positionName</th>
+      <th>salary</th>
+      <th>workYear</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>北京</td>
+      <td>达疆网络科技（上海）有限公司</td>
+      <td>['年底双薪', '绩效奖金', '岗位晋升', '定期体检']</td>
+      <td>2000人以上</td>
+      <td>大兴区</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>消费生活</td>
+      <td>数据分析岗</td>
+      <td>15k-30k</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>北京</td>
+      <td>北京音娱时光科技有限公司</td>
+      <td>['年底双薪', '绩效奖金', '带薪年假', '免费健身']</td>
+      <td>50-150人</td>
+      <td>海淀区</td>
+      <td>本科</td>
+      <td>A轮</td>
+      <td>移动互联网</td>
+      <td>数据分析</td>
+      <td>10k-18k</td>
+      <td>1-3年</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>北京</td>
+      <td>北京千喜鹤餐饮管理有限公司</td>
+      <td>[]</td>
+      <td>2000人以上</td>
+      <td>海淀区</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>消费生活</td>
+      <td>数据分析</td>
+      <td>20k-30k</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>北京</td>
+      <td>吉林省海生电子商务有限公司</td>
+      <td>[]</td>
+      <td>少于15人</td>
+      <td>朝阳区</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>电商</td>
+      <td>数据分析</td>
+      <td>33k-50k</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>北京</td>
+      <td>韦博网讯科技（北京）有限公司</td>
+      <td>[]</td>
+      <td>50-150人</td>
+      <td>朝阳区</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>电商,软件开发</td>
+      <td>数据分析</td>
+      <td>10k-15k</td>
+      <td>1-3年</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3135</th>
+      <td>天津</td>
+      <td>清博津商（天津）教育科技有限公司</td>
+      <td>[]</td>
+      <td>15-50人</td>
+      <td>和平区</td>
+      <td>不限</td>
+      <td>不需要融资</td>
+      <td>数据服务,教育</td>
+      <td>审核实习生（春节短期）</td>
+      <td>1k-2k</td>
+      <td>应届毕业生</td>
+    </tr>
+    <tr>
+      <th>3136</th>
+      <td>天津</td>
+      <td>上海礼紫股权投资基金管理有限公司</td>
+      <td>[]</td>
+      <td>500-2000人</td>
+      <td>河北区</td>
+      <td>不限</td>
+      <td>未融资</td>
+      <td>金融</td>
+      <td>运营助理</td>
+      <td>6k-8k</td>
+      <td>不限</td>
+    </tr>
+    <tr>
+      <th>3137</th>
+      <td>天津</td>
+      <td>北京达佳互联信息技术有限公司</td>
+      <td>['股票期权', '弹性工作', '定期体检', '岗位晋升']</td>
+      <td>2000人以上</td>
+      <td>西青区</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>文娱丨内容</td>
+      <td>运营编辑团队leader</td>
+      <td>8k-15k</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>3138</th>
+      <td>天津</td>
+      <td>北京河狸家信息技术有限公司</td>
+      <td>['高配福利', '弹性时间', 'BAT￥', '逗逼伙伴']</td>
+      <td>500-2000人</td>
+      <td>和平区</td>
+      <td>不限</td>
+      <td>C轮</td>
+      <td>移动互联网</td>
+      <td>商家运营-天津</td>
+      <td>6k-8k</td>
+      <td>不限</td>
+    </tr>
+    <tr>
+      <th>3139</th>
+      <td>天津</td>
+      <td>北京河狸家信息技术有限公司</td>
+      <td>['高配福利', '弹性时间', 'BAT￥', '逗逼伙伴']</td>
+      <td>500-2000人</td>
+      <td>和平区</td>
+      <td>本科</td>
+      <td>C轮</td>
+      <td>移动互联网</td>
+      <td>运营实习生-天津</td>
+      <td>2k-4k</td>
+      <td>应届毕业生</td>
+    </tr>
+  </tbody>
+</table>
+<p>3140 rows × 11 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 3140 entries, 0 to 3139
+Data columns (total 11 columns):
+ #   Column            Non-Null Count  Dtype 
+---  ------            --------------  ----- 
+ 0   city              3140 non-null   object
+ 1   companyFullName   3140 non-null   object
+ 2   companyLabelList  3140 non-null   object
+ 3   companySize       3140 non-null   object
+ 4   district          3133 non-null   object
+ 5   education         3140 non-null   object
+ 6   financeStage      3140 non-null   object
+ 7   industryField     3140 non-null   object
+ 8   positionName      3140 non-null   object
+ 9   salary            3140 non-null   object
+ 10  workYear          3140 non-null   object
+dtypes: object(11)
+memory usage: 270.0+ KB
+</code></pre>
+<h3 id="筛选出数据分析岗位"><a href="#筛选出数据分析岗位" class="headerlink" title="筛选出数据分析岗位"></a>筛选出数据分析岗位</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将df[&#x27;positionName&#x27;]处理成字符串后使用str.contains(&#x27;数据分析&#x27;)查找到包含数据分析关键字的岗位（返回布尔值）后使用布尔索引</span></span><br><span class="line">temp_df = df[df[<span class="string">&#x27;positionName&#x27;</span>].<span class="built_in">str</span>.contains(<span class="string">&#x27;数据分析&#x27;</span>)]</span><br></pre></td></tr></table></figure>
+
+<h3 id="将薪资处理成上下限的均值"><a href="#将薪资处理成上下限的均值" class="headerlink" title="将薪资处理成上下限的均值"></a>将薪资处理成上下限的均值</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 捕获组捕获薪资上下限</span></span><br><span class="line"><span class="comment"># str.extract(正则表达式) - 抽取正则表达式捕获组目标值</span></span><br><span class="line">avg_salary = temp_df.salary.<span class="built_in">str</span>.extract(<span class="string">r&#x27;(\d+)[Kk]?-(\d+)[Kk]&#x27;</span>).applymap(<span class="built_in">int</span>).mean(axis = <span class="number">1</span>)</span><br><span class="line">temp_df[<span class="string">&#x27;salary&#x27;</span>] = avg_salary</span><br><span class="line">temp_df</span><br></pre></td></tr></table></figure>
+
+<pre><code>C:\Users\zs\AppData\Local\Temp/ipykernel_12772/422559916.py:4: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  temp_df[&#39;salary&#39;] = avg_salary
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>companyFullName</th>
+      <th>companyLabelList</th>
+      <th>companySize</th>
+      <th>district</th>
+      <th>education</th>
+      <th>financeStage</th>
+      <th>industryField</th>
+      <th>positionName</th>
+      <th>salary</th>
+      <th>workYear</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>北京</td>
+      <td>达疆网络科技（上海）有限公司</td>
+      <td>['年底双薪', '绩效奖金', '岗位晋升', '定期体检']</td>
+      <td>2000人以上</td>
+      <td>大兴区</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>消费生活</td>
+      <td>数据分析岗</td>
+      <td>22.5</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>北京</td>
+      <td>北京音娱时光科技有限公司</td>
+      <td>['年底双薪', '绩效奖金', '带薪年假', '免费健身']</td>
+      <td>50-150人</td>
+      <td>海淀区</td>
+      <td>本科</td>
+      <td>A轮</td>
+      <td>移动互联网</td>
+      <td>数据分析</td>
+      <td>14.0</td>
+      <td>1-3年</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>北京</td>
+      <td>北京千喜鹤餐饮管理有限公司</td>
+      <td>[]</td>
+      <td>2000人以上</td>
+      <td>海淀区</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>消费生活</td>
+      <td>数据分析</td>
+      <td>25.0</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>北京</td>
+      <td>吉林省海生电子商务有限公司</td>
+      <td>[]</td>
+      <td>少于15人</td>
+      <td>朝阳区</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>电商</td>
+      <td>数据分析</td>
+      <td>41.5</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>北京</td>
+      <td>韦博网讯科技（北京）有限公司</td>
+      <td>[]</td>
+      <td>50-150人</td>
+      <td>朝阳区</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>电商,软件开发</td>
+      <td>数据分析</td>
+      <td>12.5</td>
+      <td>1-3年</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3065</th>
+      <td>天津</td>
+      <td>北京达佳互联信息技术有限公司</td>
+      <td>['股票期权', '弹性工作', '定期体检', '岗位晋升']</td>
+      <td>2000人以上</td>
+      <td>西青区</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>文娱丨内容</td>
+      <td>数据分析专员</td>
+      <td>9.0</td>
+      <td>1-3年</td>
+    </tr>
+    <tr>
+      <th>3069</th>
+      <td>天津</td>
+      <td>林之尚沃（天津）国际贸易有限公司</td>
+      <td>[]</td>
+      <td>15-50人</td>
+      <td>和平区</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>医疗丨健康</td>
+      <td>数据分析专员</td>
+      <td>8.0</td>
+      <td>1-3年</td>
+    </tr>
+    <tr>
+      <th>3070</th>
+      <td>天津</td>
+      <td>林之尚沃（天津）国际贸易有限公司</td>
+      <td>[]</td>
+      <td>15-50人</td>
+      <td>和平区</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>医疗丨健康</td>
+      <td>数据分析实习生</td>
+      <td>3.0</td>
+      <td>不限</td>
+    </tr>
+    <tr>
+      <th>3071</th>
+      <td>天津</td>
+      <td>西安格蒂电力有限公司</td>
+      <td>['技能培训', '带薪年假', '绩效奖金', '岗位晋升']</td>
+      <td>500-2000人</td>
+      <td>河北区</td>
+      <td>大专</td>
+      <td>未融资</td>
+      <td>企业服务</td>
+      <td>ETL/大数据/数据分析/实施</td>
+      <td>9.0</td>
+      <td>3-5年</td>
+    </tr>
+    <tr>
+      <th>3088</th>
+      <td>天津</td>
+      <td>谷川联行有限公司</td>
+      <td>['年底双薪', '技能培训', '带薪年假', '绩效奖金']</td>
+      <td>150-500人</td>
+      <td>西青区</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>软件开发,企业服务</td>
+      <td>BI工程师/数据分析师（天津）</td>
+      <td>10.0</td>
+      <td>不限</td>
+    </tr>
+  </tbody>
+</table>
+<p>1515 rows × 11 columns</p>
+</div>
+
+
+
+<h3 id="将工作经验改为最低要求"><a href="#将工作经验改为最低要求" class="headerlink" title="将工作经验改为最低要求"></a>将工作经验改为最低要求</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用正则表达式将工作经验改为最低要求</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">work_experience</span>(<span class="params">content</span>):</span></span><br><span class="line">    matcher = re.search(<span class="string">r&#x27;\d+&#x27;</span>,content)</span><br><span class="line">    result = matcher.group() <span class="keyword">if</span> matcher <span class="keyword">else</span> <span class="string">&#x27;0&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(result)</span><br><span class="line"></span><br><span class="line">temp_df[<span class="string">&#x27;workYear&#x27;</span>] = temp_df.workYear.apply(work_experience)</span><br><span class="line">temp_df</span><br><span class="line"><span class="comment"># apply - 作用在某行/某列  applymap - 作用在每个单元格</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>C:\Users\zs\AppData\Local\Temp/ipykernel_12772/490244383.py:9: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  temp_df[&#39;workYear&#39;] = temp_df.workYear.apply(work_experience)
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>companyFullName</th>
+      <th>companyLabelList</th>
+      <th>companySize</th>
+      <th>district</th>
+      <th>education</th>
+      <th>financeStage</th>
+      <th>industryField</th>
+      <th>positionName</th>
+      <th>salary</th>
+      <th>workYear</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>北京</td>
+      <td>达疆网络科技（上海）有限公司</td>
+      <td>['年底双薪', '绩效奖金', '岗位晋升', '定期体检']</td>
+      <td>2000人以上</td>
+      <td>大兴区</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>消费生活</td>
+      <td>数据分析岗</td>
+      <td>22.5</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>北京</td>
+      <td>北京音娱时光科技有限公司</td>
+      <td>['年底双薪', '绩效奖金', '带薪年假', '免费健身']</td>
+      <td>50-150人</td>
+      <td>海淀区</td>
+      <td>本科</td>
+      <td>A轮</td>
+      <td>移动互联网</td>
+      <td>数据分析</td>
+      <td>14.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>北京</td>
+      <td>北京千喜鹤餐饮管理有限公司</td>
+      <td>[]</td>
+      <td>2000人以上</td>
+      <td>海淀区</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>消费生活</td>
+      <td>数据分析</td>
+      <td>25.0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>北京</td>
+      <td>吉林省海生电子商务有限公司</td>
+      <td>[]</td>
+      <td>少于15人</td>
+      <td>朝阳区</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>电商</td>
+      <td>数据分析</td>
+      <td>41.5</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>北京</td>
+      <td>韦博网讯科技（北京）有限公司</td>
+      <td>[]</td>
+      <td>50-150人</td>
+      <td>朝阳区</td>
+      <td>本科</td>
+      <td>未融资</td>
+      <td>电商,软件开发</td>
+      <td>数据分析</td>
+      <td>12.5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3065</th>
+      <td>天津</td>
+      <td>北京达佳互联信息技术有限公司</td>
+      <td>['股票期权', '弹性工作', '定期体检', '岗位晋升']</td>
+      <td>2000人以上</td>
+      <td>西青区</td>
+      <td>本科</td>
+      <td>D轮及以上</td>
+      <td>文娱丨内容</td>
+      <td>数据分析专员</td>
+      <td>9.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3069</th>
+      <td>天津</td>
+      <td>林之尚沃（天津）国际贸易有限公司</td>
+      <td>[]</td>
+      <td>15-50人</td>
+      <td>和平区</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>医疗丨健康</td>
+      <td>数据分析专员</td>
+      <td>8.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3070</th>
+      <td>天津</td>
+      <td>林之尚沃（天津）国际贸易有限公司</td>
+      <td>[]</td>
+      <td>15-50人</td>
+      <td>和平区</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>医疗丨健康</td>
+      <td>数据分析实习生</td>
+      <td>3.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3071</th>
+      <td>天津</td>
+      <td>西安格蒂电力有限公司</td>
+      <td>['技能培训', '带薪年假', '绩效奖金', '岗位晋升']</td>
+      <td>500-2000人</td>
+      <td>河北区</td>
+      <td>大专</td>
+      <td>未融资</td>
+      <td>企业服务</td>
+      <td>ETL/大数据/数据分析/实施</td>
+      <td>9.0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3088</th>
+      <td>天津</td>
+      <td>谷川联行有限公司</td>
+      <td>['年底双薪', '技能培训', '带薪年假', '绩效奖金']</td>
+      <td>150-500人</td>
+      <td>西青区</td>
+      <td>本科</td>
+      <td>不需要融资</td>
+      <td>软件开发,企业服务</td>
+      <td>BI工程师/数据分析师（天津）</td>
+      <td>10.0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>1515 rows × 11 columns</p>
+</div>
+
+
+
+<h3 id="图表绘制"><a href="#图表绘制" class="headerlink" title="图表绘制"></a>图表绘制</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 找出各大城市（city）数据分析岗位的需求量并绘制柱状图。</span></span><br><span class="line">temp_ser = temp_df.groupby(<span class="string">&#x27;city&#x27;</span>).positionName.count()</span><br><span class="line">temp_ser.plot(kind = <span class="string">&#x27;bar&#x27;</span>,figsize = (<span class="number">8</span>,<span class="number">4</span>),color = <span class="string">&#x27;#98C3A1&#x27;</span>)</span><br><span class="line">plt.xticks(rotation = <span class="number">0</span>)</span><br><span class="line">plt.yticks(np.arange(<span class="number">50</span>,<span class="number">551</span>,<span class="number">100</span>))</span><br><span class="line">plt.xlabel(<span class="string">&#x27;城市&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;招聘需求数&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;各大城市数据分析岗位的需求量&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(temp_ser.size):</span><br><span class="line">    plt.text(i,temp_ser[i] + <span class="number">5</span>,temp_ser[i],ha = <span class="string">&#x27;center&#x27;</span>)</span><br><span class="line">plt.show()</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2. 找出不同领域（industryField）对数据分析的需求量并绘制饼图。</span></span><br><span class="line"><span class="comment"># 1)、将不同领域做划分并统计各个领域需求量</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 法一：</span></span><br><span class="line"><span class="comment"># temp_ser1 = temp_df[&#x27;industryField&#x27;].str.extract(r&#x27;([\u4e00-\u4e27\u4e29-\u9fa5]+)[,\u4e28]?([\u4e00-\u9fa5]+)?&#x27;)[0].value_counts()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 法二：</span></span><br><span class="line">temp_ser1 = temp_df.industryField.<span class="built_in">str</span>.split(<span class="string">r&#x27;[,，、|丨\s]&#x27;</span>, expand = <span class="literal">True</span>)[<span class="number">0</span>].value_counts()</span><br><span class="line"><span class="comment"># 2)、作图</span></span><br><span class="line">temp_ser1.nlargest(<span class="number">10</span>).plot(kind = <span class="string">&#x27;pie&#x27;</span>,autopct = <span class="string">&#x27;%.2f%%&#x27;</span>, figsize = (<span class="number">8</span>,<span class="number">4</span>))</span><br><span class="line">plt.title(<span class="string">&#x27;不同领域（industryField）对数据分析的需求量Top10&#x27;</span>)</span><br><span class="line"><span class="comment"># plt.legend(loc = &#x27;upper right&#x27;)</span></span><br><span class="line">plt.show()</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3. 分析各城市的薪资水平并绘制柱状图和折线图。</span></span><br><span class="line">temp_ser2 = np.<span class="built_in">round</span>(temp_df.groupby(<span class="string">&#x27;city&#x27;</span>).salary.mean(),<span class="number">2</span>)</span><br><span class="line">temp_ser2.plot(kind = <span class="string">&#x27;bar&#x27;</span>,figsize = (<span class="number">8</span>,<span class="number">4</span>), color = <span class="string">&#x27;#17BECF&#x27;</span>)</span><br><span class="line">plt.plot(temp_ser2.index,temp_ser2,color = <span class="string">&#x27;#98C3A1&#x27;</span>)</span><br><span class="line">plt.xticks(rotation = <span class="number">0</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;薪资(单位:K)&#x27;</span>)</span><br><span class="line">plt.grid(axis=<span class="string">&#x27;y&#x27;</span>, alpha = <span class="number">0.5</span>, linestyle = <span class="string">&#x27;--&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(temp_ser2.size):</span><br><span class="line">    plt.text(i,temp_ser2[i] + <span class="number">0.2</span>,temp_ser2[i],ha = <span class="string">&#x27;center&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;各城市的薪资水平&#x27;</span>)</span><br><span class="line">plt.show()</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+
+<h2 id="2020销售数据预处理"><a href="#2020销售数据预处理" class="headerlink" title="2020销售数据预处理"></a>2020销售数据预处理</h2><h3 id="导入数据-1"><a href="#导入数据-1" class="headerlink" title="导入数据"></a>导入数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sales_df = pd.read_excel(<span class="string">&#x27;../files/data/2020年销售数据-2.xlsx&#x27;</span>)</span><br><span class="line">sales_df</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>销售日期</th>
+      <th>销售区域</th>
+      <th>销售渠道</th>
+      <th>销售订单</th>
+      <th>品牌</th>
+      <th>售价</th>
+      <th>销售数量</th>
+      <th>销售额</th>
+      <th>Unnamed: 8</th>
+      <th>Unnamed: 9</th>
+      <th>...</th>
+      <th>Unnamed: 13</th>
+      <th>Unnamed: 14</th>
+      <th>Unnamed: 15</th>
+      <th>Unnamed: 16</th>
+      <th>Unnamed: 17</th>
+      <th>Unnamed: 18</th>
+      <th>Unnamed: 19</th>
+      <th>Unnamed: 20</th>
+      <th>Unnamed: 21</th>
+      <th>Unnamed: 22</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020-01-01</td>
+      <td>上海</td>
+      <td>拼多多</td>
+      <td>182894-455</td>
+      <td>八匹马</td>
+      <td>99</td>
+      <td>83</td>
+      <td>8217</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020-01-01</td>
+      <td>上海</td>
+      <td>抖音</td>
+      <td>205635-402</td>
+      <td>八匹马</td>
+      <td>219</td>
+      <td>29</td>
+      <td>6351</td>
+      <td>NaN</td>
+      <td>行标签</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020-01-01</td>
+      <td>上海</td>
+      <td>天猫</td>
+      <td>205654-021</td>
+      <td>八匹马</td>
+      <td>169</td>
+      <td>85</td>
+      <td>14365</td>
+      <td>NaN</td>
+      <td>1月</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2020-01-01</td>
+      <td>上海</td>
+      <td>天猫</td>
+      <td>205654-519</td>
+      <td>八匹马</td>
+      <td>169</td>
+      <td>14</td>
+      <td>2366</td>
+      <td>NaN</td>
+      <td>2月</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2020-01-01</td>
+      <td>上海</td>
+      <td>天猫</td>
+      <td>377781-010</td>
+      <td>皮皮虾</td>
+      <td>249</td>
+      <td>61</td>
+      <td>15189</td>
+      <td>NaN</td>
+      <td>3月</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1940</th>
+      <td>2020-12-30</td>
+      <td>北京</td>
+      <td>京东</td>
+      <td>D89677</td>
+      <td>花花姑娘</td>
+      <td>269</td>
+      <td>26</td>
+      <td>6994</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1941</th>
+      <td>2020-12-30</td>
+      <td>福建</td>
+      <td>实体</td>
+      <td>182719-050</td>
+      <td>八匹马</td>
+      <td>79</td>
+      <td>97</td>
+      <td>7663</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1942</th>
+      <td>2020-12-31</td>
+      <td>福建</td>
+      <td>实体</td>
+      <td>G70083</td>
+      <td>花花姑娘</td>
+      <td>269</td>
+      <td>55</td>
+      <td>14795</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1943</th>
+      <td>2020-12-31</td>
+      <td>福建</td>
+      <td>抖音</td>
+      <td>211471-902/704</td>
+      <td>八匹马</td>
+      <td>59</td>
+      <td>59</td>
+      <td>3481</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1944</th>
+      <td>2020-12-31</td>
+      <td>福建</td>
+      <td>天猫</td>
+      <td>211807-050</td>
+      <td>八匹马</td>
+      <td>99</td>
+      <td>27</td>
+      <td>2673</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>1945 rows × 23 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sales_df.info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 1945 entries, 0 to 1944
+Data columns (total 23 columns):
+ #   Column       Non-Null Count  Dtype         
+---  ------       --------------  -----         
+ 0   销售日期         1945 non-null   datetime64[ns]
+ 1   销售区域         1945 non-null   object        
+ 2   销售渠道         1945 non-null   object        
+ 3   销售订单         1945 non-null   object        
+ 4   品牌           1945 non-null   object        
+ 5   售价           1945 non-null   int64         
+ 6   销售数量         1945 non-null   int64         
+ 7   销售额          1945 non-null   int64         
+ 8   Unnamed: 8   0 non-null      float64       
+ 9   Unnamed: 9   40 non-null     object        
+ 10  Unnamed: 10  35 non-null     object        
+ 11  Unnamed: 11  12 non-null     object        
+ 12  Unnamed: 12  14 non-null     object        
+ 13  Unnamed: 13  14 non-null     object        
+ 14  Unnamed: 14  13 non-null     object        
+ 15  Unnamed: 15  12 non-null     object        
+ 16  Unnamed: 16  6 non-null      object        
+ 17  Unnamed: 17  7 non-null      object        
+ 18  Unnamed: 18  6 non-null      object        
+ 19  Unnamed: 19  6 non-null      object        
+ 20  Unnamed: 20  6 non-null      object        
+ 21  Unnamed: 21  6 non-null      object        
+ 22  Unnamed: 22  10 non-null     object        
+dtypes: datetime64[ns](1), float64(1), int64(3), object(18)
+memory usage: 349.6+ KB
+</code></pre>
+<h3 id="根据销售日期划分销售季度"><a href="#根据销售日期划分销售季度" class="headerlink" title="根据销售日期划分销售季度"></a>根据销售日期划分销售季度</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sales_df[<span class="string">&#x27;年&#x27;</span>] = sales_df.销售日期.dt.year</span><br><span class="line">sales_df[<span class="string">&#x27;季度&#x27;</span>] = sales_df.销售日期.dt.quarter</span><br><span class="line">sales_df[<span class="string">&#x27;月份&#x27;</span>] = sales_df.销售日期.dt.month</span><br><span class="line">sales_df</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>销售日期</th>
+      <th>销售区域</th>
+      <th>销售渠道</th>
+      <th>销售订单</th>
+      <th>品牌</th>
+      <th>售价</th>
+      <th>销售数量</th>
+      <th>销售额</th>
+      <th>Unnamed: 8</th>
+      <th>Unnamed: 9</th>
+      <th>...</th>
+      <th>Unnamed: 16</th>
+      <th>Unnamed: 17</th>
+      <th>Unnamed: 18</th>
+      <th>Unnamed: 19</th>
+      <th>Unnamed: 20</th>
+      <th>Unnamed: 21</th>
+      <th>Unnamed: 22</th>
+      <th>年</th>
+      <th>季度</th>
+      <th>月份</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020-01-01</td>
+      <td>上海</td>
+      <td>拼多多</td>
+      <td>182894-455</td>
+      <td>八匹马</td>
+      <td>99</td>
+      <td>83</td>
+      <td>8217</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020-01-01</td>
+      <td>上海</td>
+      <td>抖音</td>
+      <td>205635-402</td>
+      <td>八匹马</td>
+      <td>219</td>
+      <td>29</td>
+      <td>6351</td>
+      <td>NaN</td>
+      <td>行标签</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020-01-01</td>
+      <td>上海</td>
+      <td>天猫</td>
+      <td>205654-021</td>
+      <td>八匹马</td>
+      <td>169</td>
+      <td>85</td>
+      <td>14365</td>
+      <td>NaN</td>
+      <td>1月</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2020-01-01</td>
+      <td>上海</td>
+      <td>天猫</td>
+      <td>205654-519</td>
+      <td>八匹马</td>
+      <td>169</td>
+      <td>14</td>
+      <td>2366</td>
+      <td>NaN</td>
+      <td>2月</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2020-01-01</td>
+      <td>上海</td>
+      <td>天猫</td>
+      <td>377781-010</td>
+      <td>皮皮虾</td>
+      <td>249</td>
+      <td>61</td>
+      <td>15189</td>
+      <td>NaN</td>
+      <td>3月</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1940</th>
+      <td>2020-12-30</td>
+      <td>北京</td>
+      <td>京东</td>
+      <td>D89677</td>
+      <td>花花姑娘</td>
+      <td>269</td>
+      <td>26</td>
+      <td>6994</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>4</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1941</th>
+      <td>2020-12-30</td>
+      <td>福建</td>
+      <td>实体</td>
+      <td>182719-050</td>
+      <td>八匹马</td>
+      <td>79</td>
+      <td>97</td>
+      <td>7663</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>4</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1942</th>
+      <td>2020-12-31</td>
+      <td>福建</td>
+      <td>实体</td>
+      <td>G70083</td>
+      <td>花花姑娘</td>
+      <td>269</td>
+      <td>55</td>
+      <td>14795</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>4</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1943</th>
+      <td>2020-12-31</td>
+      <td>福建</td>
+      <td>抖音</td>
+      <td>211471-902/704</td>
+      <td>八匹马</td>
+      <td>59</td>
+      <td>59</td>
+      <td>3481</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>4</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1944</th>
+      <td>2020-12-31</td>
+      <td>福建</td>
+      <td>天猫</td>
+      <td>211807-050</td>
+      <td>八匹马</td>
+      <td>99</td>
+      <td>27</td>
+      <td>2673</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>4</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+<p>1945 rows × 26 columns</p>
+</div>
+
+
+
+<h3 id="计算销售额"><a href="#计算销售额" class="headerlink" title="计算销售额"></a>计算销售额</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sales_df[<span class="string">&#x27;销售额&#x27;</span>] = sales_df.售价 * sales_df.销售数量</span><br><span class="line">sales_df</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>销售日期</th>
+      <th>销售区域</th>
+      <th>销售渠道</th>
+      <th>销售订单</th>
+      <th>品牌</th>
+      <th>售价</th>
+      <th>销售数量</th>
+      <th>销售额</th>
+      <th>Unnamed: 8</th>
+      <th>Unnamed: 9</th>
+      <th>...</th>
+      <th>Unnamed: 16</th>
+      <th>Unnamed: 17</th>
+      <th>Unnamed: 18</th>
+      <th>Unnamed: 19</th>
+      <th>Unnamed: 20</th>
+      <th>Unnamed: 21</th>
+      <th>Unnamed: 22</th>
+      <th>年</th>
+      <th>季度</th>
+      <th>月份</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020-01-01</td>
+      <td>上海</td>
+      <td>拼多多</td>
+      <td>182894-455</td>
+      <td>八匹马</td>
+      <td>99</td>
+      <td>83</td>
+      <td>8217</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020-01-01</td>
+      <td>上海</td>
+      <td>抖音</td>
+      <td>205635-402</td>
+      <td>八匹马</td>
+      <td>219</td>
+      <td>29</td>
+      <td>6351</td>
+      <td>NaN</td>
+      <td>行标签</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020-01-01</td>
+      <td>上海</td>
+      <td>天猫</td>
+      <td>205654-021</td>
+      <td>八匹马</td>
+      <td>169</td>
+      <td>85</td>
+      <td>14365</td>
+      <td>NaN</td>
+      <td>1月</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2020-01-01</td>
+      <td>上海</td>
+      <td>天猫</td>
+      <td>205654-519</td>
+      <td>八匹马</td>
+      <td>169</td>
+      <td>14</td>
+      <td>2366</td>
+      <td>NaN</td>
+      <td>2月</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2020-01-01</td>
+      <td>上海</td>
+      <td>天猫</td>
+      <td>377781-010</td>
+      <td>皮皮虾</td>
+      <td>249</td>
+      <td>61</td>
+      <td>15189</td>
+      <td>NaN</td>
+      <td>3月</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1940</th>
+      <td>2020-12-30</td>
+      <td>北京</td>
+      <td>京东</td>
+      <td>D89677</td>
+      <td>花花姑娘</td>
+      <td>269</td>
+      <td>26</td>
+      <td>6994</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>4</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1941</th>
+      <td>2020-12-30</td>
+      <td>福建</td>
+      <td>实体</td>
+      <td>182719-050</td>
+      <td>八匹马</td>
+      <td>79</td>
+      <td>97</td>
+      <td>7663</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>4</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1942</th>
+      <td>2020-12-31</td>
+      <td>福建</td>
+      <td>实体</td>
+      <td>G70083</td>
+      <td>花花姑娘</td>
+      <td>269</td>
+      <td>55</td>
+      <td>14795</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>4</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1943</th>
+      <td>2020-12-31</td>
+      <td>福建</td>
+      <td>抖音</td>
+      <td>211471-902/704</td>
+      <td>八匹马</td>
+      <td>59</td>
+      <td>59</td>
+      <td>3481</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>4</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1944</th>
+      <td>2020-12-31</td>
+      <td>福建</td>
+      <td>天猫</td>
+      <td>211807-050</td>
+      <td>八匹马</td>
+      <td>99</td>
+      <td>27</td>
+      <td>2673</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020</td>
+      <td>4</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+<p>1945 rows × 26 columns</p>
+</div>
+
+
+
+<h3 id="各维度拆解及透视"><a href="#各维度拆解及透视" class="headerlink" title="各维度拆解及透视"></a>各维度拆解及透视</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1、统计月度销售额</span></span><br><span class="line">sales_df.groupby(<span class="string">&#x27;月份&#x27;</span>).销售额.<span class="built_in">sum</span>()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>月份
+1     5409855
+2     4608455
+3     4164972
+4     3996770
+5     3239005
+6     2817936
+7     3501304
+8     2948189
+9     2632960
+10    2375385
+11    2385283
+12    1691973
+Name: 销售额, dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 同时计算作用多个聚合函数</span></span><br><span class="line">sales_df.groupby(<span class="string">&#x27;月份&#x27;</span>).销售额.agg([np.<span class="built_in">sum</span>, np.<span class="built_in">max</span>, np.<span class="built_in">min</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sum</th>
+      <th>amax</th>
+      <th>amin</th>
+    </tr>
+    <tr>
+      <th>月份</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>5409855</td>
+      <td>115104</td>
+      <td>1035</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4608455</td>
+      <td>133411</td>
+      <td>1668</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4164972</td>
+      <td>93906</td>
+      <td>990</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3996770</td>
+      <td>114312</td>
+      <td>1089</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3239005</td>
+      <td>85914</td>
+      <td>1185</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2817936</td>
+      <td>116303</td>
+      <td>690</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>3501304</td>
+      <td>83930</td>
+      <td>944</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2948189</td>
+      <td>106711</td>
+      <td>1896</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2632960</td>
+      <td>120807</td>
+      <td>948</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2375385</td>
+      <td>87527</td>
+      <td>1089</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2385283</td>
+      <td>68324</td>
+      <td>1185</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>1691973</td>
+      <td>94905</td>
+      <td>897</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2、统计品牌销售占比</span></span><br><span class="line">temp = sales_df.groupby(<span class="string">&#x27;品牌&#x27;</span>).销售额.<span class="built_in">sum</span>()</span><br><span class="line">temp.plot(kind = <span class="string">&#x27;pie&#x27;</span>, autopct = <span class="string">&#x27;%.2f%%&#x27;</span>)</span><br><span class="line">plt.show()</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3、统计各地区月度销售额</span></span><br><span class="line"><span class="comment"># sales_df.groupby([&#x27;销售区域&#x27;, &#x27;月份&#x27;]).销售额.sum()</span></span><br><span class="line">pd.pivot_table(data = sales_df,</span><br><span class="line">              columns=[<span class="string">&#x27;月份&#x27;</span>],</span><br><span class="line">              index = [<span class="string">&#x27;销售区域&#x27;</span>],</span><br><span class="line">               values = [<span class="string">&#x27;销售额&#x27;</span>],</span><br><span class="line">              aggfunc = np.<span class="built_in">sum</span>,   <span class="comment"># 指定聚合函数（默认为np.mean）</span></span><br><span class="line">              fill_value=<span class="number">0</span>,   <span class="comment"># 空值填充值</span></span><br><span class="line">              margins=<span class="literal">True</span>,   <span class="comment"># 是否显示总计</span></span><br><span class="line">              margins_name=<span class="string">&#x27;总计&#x27;</span>   <span class="comment"># 设置总计名字</span></span><br><span class="line">              )</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead tr th &#123;
+    text-align: left;
+&#125;
+
+.dataframe thead tr:last-of-type th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="13" halign="left">销售额</th>
+    </tr>
+    <tr>
+      <th>月份</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>总计</th>
+    </tr>
+    <tr>
+      <th>销售区域</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>上海</th>
+      <td>1679125</td>
+      <td>1689527</td>
+      <td>1061193</td>
+      <td>1082187</td>
+      <td>841199</td>
+      <td>785404</td>
+      <td>863906</td>
+      <td>734937</td>
+      <td>1107693</td>
+      <td>412108</td>
+      <td>825169</td>
+      <td>528041</td>
+      <td>11610489</td>
+    </tr>
+    <tr>
+      <th>北京</th>
+      <td>1878234</td>
+      <td>1807787</td>
+      <td>1360666</td>
+      <td>1205989</td>
+      <td>807300</td>
+      <td>1216432</td>
+      <td>1219083</td>
+      <td>645727</td>
+      <td>390077</td>
+      <td>671608</td>
+      <td>678668</td>
+      <td>596146</td>
+      <td>12477717</td>
+    </tr>
+    <tr>
+      <th>南京</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>841032</td>
+      <td>0</td>
+      <td>0</td>
+      <td>710962</td>
+      <td>0</td>
+      <td>215307</td>
+      <td>1767301</td>
+    </tr>
+    <tr>
+      <th>安徽</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>341308</td>
+      <td>554155</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>895463</td>
+    </tr>
+    <tr>
+      <th>广东</th>
+      <td>0</td>
+      <td>0</td>
+      <td>388180</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>469390</td>
+      <td>365191</td>
+      <td>0</td>
+      <td>395188</td>
+      <td>0</td>
+      <td>1617949</td>
+    </tr>
+    <tr>
+      <th>江苏</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>537079</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>537079</td>
+    </tr>
+    <tr>
+      <th>浙江</th>
+      <td>0</td>
+      <td>0</td>
+      <td>248354</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>439508</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>687862</td>
+    </tr>
+    <tr>
+      <th>福建</th>
+      <td>1852496</td>
+      <td>1111141</td>
+      <td>1106579</td>
+      <td>830207</td>
+      <td>1036351</td>
+      <td>816100</td>
+      <td>577283</td>
+      <td>658627</td>
+      <td>769999</td>
+      <td>580707</td>
+      <td>486258</td>
+      <td>352479</td>
+      <td>10178227</td>
+    </tr>
+    <tr>
+      <th>总计</th>
+      <td>5409855</td>
+      <td>4608455</td>
+      <td>4164972</td>
+      <td>3996770</td>
+      <td>3239005</td>
+      <td>2817936</td>
+      <td>3501304</td>
+      <td>2948189</td>
+      <td>2632960</td>
+      <td>2375385</td>
+      <td>2385283</td>
+      <td>1691973</td>
+      <td>39772087</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 4、统计各渠道品牌销量</span></span><br><span class="line">sales_df.groupby([<span class="string">&#x27;销售渠道&#x27;</span>,<span class="string">&#x27;品牌&#x27;</span>]).销售额.<span class="built_in">sum</span>()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>销售渠道  品牌  
+京东    八匹马     1030702
+      啊哟喂      148487
+      壁虎       984961
+      皮皮虾     1362590
+      花花姑娘    4167728
+天猫    八匹马     1722144
+      啊哟喂      190694
+      壁虎      1489656
+      皮皮虾     2511090
+      花花姑娘    7785319
+实体    八匹马      843010
+      啊哟喂       99498
+      壁虎       702396
+      皮皮虾     1269346
+      花花姑娘    2234169
+抖音    八匹马      622542
+      啊哟喂      108039
+      壁虎       619105
+      皮皮虾      833905
+      花花姑娘    2599314
+拼多多   八匹马     1116248
+      啊哟喂      146441
+      壁虎       882861
+      皮皮虾     1915340
+      花花姑娘    4386502
+Name: 销售额, dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sales_df.pivot_table(index = [<span class="string">&#x27;销售渠道&#x27;</span>],</span><br><span class="line">                    columns=[<span class="string">&#x27;品牌&#x27;</span>],</span><br><span class="line">                    values = [<span class="string">&#x27;销售额&#x27;</span>],</span><br><span class="line">                    aggfunc=np.<span class="built_in">sum</span>,</span><br><span class="line">                    margins=<span class="literal">True</span>,</span><br><span class="line">                    margins_name=<span class="string">&#x27;总计&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead tr th &#123;
+    text-align: left;
+&#125;
+
+.dataframe thead tr:last-of-type th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="6" halign="left">销售额</th>
+    </tr>
+    <tr>
+      <th>品牌</th>
+      <th>八匹马</th>
+      <th>啊哟喂</th>
+      <th>壁虎</th>
+      <th>皮皮虾</th>
+      <th>花花姑娘</th>
+      <th>总计</th>
+    </tr>
+    <tr>
+      <th>销售渠道</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>京东</th>
+      <td>1030702</td>
+      <td>148487</td>
+      <td>984961</td>
+      <td>1362590</td>
+      <td>4167728</td>
+      <td>7694468</td>
+    </tr>
+    <tr>
+      <th>天猫</th>
+      <td>1722144</td>
+      <td>190694</td>
+      <td>1489656</td>
+      <td>2511090</td>
+      <td>7785319</td>
+      <td>13698903</td>
+    </tr>
+    <tr>
+      <th>实体</th>
+      <td>843010</td>
+      <td>99498</td>
+      <td>702396</td>
+      <td>1269346</td>
+      <td>2234169</td>
+      <td>5148419</td>
+    </tr>
+    <tr>
+      <th>抖音</th>
+      <td>622542</td>
+      <td>108039</td>
+      <td>619105</td>
+      <td>833905</td>
+      <td>2599314</td>
+      <td>4782905</td>
+    </tr>
+    <tr>
+      <th>拼多多</th>
+      <td>1116248</td>
+      <td>146441</td>
+      <td>882861</td>
+      <td>1915340</td>
+      <td>4386502</td>
+      <td>8447392</td>
+    </tr>
+    <tr>
+      <th>总计</th>
+      <td>5334646</td>
+      <td>693159</td>
+      <td>4678979</td>
+      <td>7892271</td>
+      <td>21173032</td>
+      <td>39772087</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 统计不同售价区间月度销量占比</span></span><br><span class="line"><span class="comment"># 1)、查找最小值</span></span><br><span class="line">min_price = sales_df[<span class="string">&#x27;售价&#x27;</span>].<span class="built_in">min</span>()</span><br><span class="line">max_price = sales_df[<span class="string">&#x27;售价&#x27;</span>].<span class="built_in">max</span>()</span><br><span class="line">min_price,max_price</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>(59, 1499)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2)、分箱</span></span><br><span class="line">bins = np.arange(min_price,max_price + <span class="number">1</span>, <span class="number">180</span>)</span><br><span class="line">bins</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([  59,  239,  419,  599,  779,  959, 1139, 1319, 1499], dtype=int64)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cate = pd.cut(sales_df.售价, bins)</span><br><span class="line">sales_df.groupby([cate,<span class="string">&#x27;月份&#x27;</span>]).销售数量.<span class="built_in">sum</span>()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>售价                月份
+(90.75, 95.75]    1       0
+                  2       0
+                  3       0
+                  4       0
+                  5       0
+                       ... 
+(115.75, 120.75]  8     178
+                  9      61
+                  10      0
+                  11    199
+                  12     77
+Name: 销售数量, Length: 72, dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3)、分箱数据透视各品牌月度求和</span></span><br><span class="line">sales_df_ = pd.pivot_table(data = sales_df,</span><br><span class="line">              index = cate,</span><br><span class="line">              columns=[<span class="string">&#x27;月份&#x27;</span>],</span><br><span class="line">              values = [<span class="string">&#x27;销售数量&#x27;</span>],</span><br><span class="line">              aggfunc = np.<span class="built_in">sum</span>)</span><br><span class="line">sales_df_</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead tr th &#123;
+    text-align: left;
+&#125;
+
+.dataframe thead tr:last-of-type th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="12" halign="left">销售数量</th>
+    </tr>
+    <tr>
+      <th>月份</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+    </tr>
+    <tr>
+      <th>售价</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>(59, 239]</th>
+      <td>3930</td>
+      <td>4152</td>
+      <td>3412</td>
+      <td>3407</td>
+      <td>3695</td>
+      <td>2800</td>
+      <td>2786</td>
+      <td>2275</td>
+      <td>2388</td>
+      <td>2947</td>
+      <td>3271</td>
+      <td>2651</td>
+    </tr>
+    <tr>
+      <th>(239, 419]</th>
+      <td>3874</td>
+      <td>3122</td>
+      <td>4295</td>
+      <td>2862</td>
+      <td>1950</td>
+      <td>2736</td>
+      <td>2554</td>
+      <td>2084</td>
+      <td>2219</td>
+      <td>2323</td>
+      <td>2037</td>
+      <td>1892</td>
+    </tr>
+    <tr>
+      <th>(419, 599]</th>
+      <td>2722</td>
+      <td>2194</td>
+      <td>2228</td>
+      <td>2813</td>
+      <td>2282</td>
+      <td>1459</td>
+      <td>2260</td>
+      <td>1742</td>
+      <td>1656</td>
+      <td>1288</td>
+      <td>1922</td>
+      <td>1049</td>
+    </tr>
+    <tr>
+      <th>(599, 779]</th>
+      <td>1067</td>
+      <td>864</td>
+      <td>661</td>
+      <td>503</td>
+      <td>621</td>
+      <td>455</td>
+      <td>713</td>
+      <td>644</td>
+      <td>589</td>
+      <td>454</td>
+      <td>82</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>(779, 959]</th>
+      <td>456</td>
+      <td>187</td>
+      <td>303</td>
+      <td>180</td>
+      <td>221</td>
+      <td>127</td>
+      <td>416</td>
+      <td>138</td>
+      <td>83</td>
+      <td>0</td>
+      <td>205</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>(959, 1139]</th>
+      <td>356</td>
+      <td>348</td>
+      <td>319</td>
+      <td>247</td>
+      <td>231</td>
+      <td>36</td>
+      <td>93</td>
+      <td>342</td>
+      <td>28</td>
+      <td>0</td>
+      <td>0</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>(1139, 1319]</th>
+      <td>382</td>
+      <td>414</td>
+      <td>20</td>
+      <td>199</td>
+      <td>38</td>
+      <td>239</td>
+      <td>119</td>
+      <td>89</td>
+      <td>118</td>
+      <td>113</td>
+      <td>0</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>(1319, 1499]</th>
+      <td>108</td>
+      <td>104</td>
+      <td>0</td>
+      <td>59</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>37</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ser = sales_df_.<span class="built_in">sum</span>()</span><br><span class="line">sales_df_ = np.<span class="built_in">round</span>(sales_df_.divide(ser) * <span class="number">100</span>, <span class="number">2</span>)</span><br><span class="line">sales_df_</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead tr th &#123;
+    text-align: left;
+&#125;
+
+.dataframe thead tr:last-of-type th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="12" halign="left">销售数量</th>
+    </tr>
+    <tr>
+      <th>月份</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+    </tr>
+    <tr>
+      <th>售价</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>(59, 239]</th>
+      <td>30.48</td>
+      <td>36.47</td>
+      <td>30.36</td>
+      <td>33.17</td>
+      <td>40.88</td>
+      <td>35.66</td>
+      <td>31.16</td>
+      <td>30.95</td>
+      <td>33.72</td>
+      <td>41.36</td>
+      <td>43.51</td>
+      <td>46.18</td>
+    </tr>
+    <tr>
+      <th>(239, 419]</th>
+      <td>30.04</td>
+      <td>27.42</td>
+      <td>38.22</td>
+      <td>27.87</td>
+      <td>21.58</td>
+      <td>34.84</td>
+      <td>28.57</td>
+      <td>28.35</td>
+      <td>31.34</td>
+      <td>32.60</td>
+      <td>27.10</td>
+      <td>32.96</td>
+    </tr>
+    <tr>
+      <th>(419, 599]</th>
+      <td>21.11</td>
+      <td>19.27</td>
+      <td>19.83</td>
+      <td>27.39</td>
+      <td>25.25</td>
+      <td>18.58</td>
+      <td>25.28</td>
+      <td>23.70</td>
+      <td>23.39</td>
+      <td>18.08</td>
+      <td>25.57</td>
+      <td>18.28</td>
+    </tr>
+    <tr>
+      <th>(599, 779]</th>
+      <td>8.27</td>
+      <td>7.59</td>
+      <td>5.88</td>
+      <td>4.90</td>
+      <td>6.87</td>
+      <td>5.79</td>
+      <td>7.97</td>
+      <td>8.76</td>
+      <td>8.32</td>
+      <td>6.37</td>
+      <td>1.09</td>
+      <td>0.37</td>
+    </tr>
+    <tr>
+      <th>(779, 959]</th>
+      <td>3.54</td>
+      <td>1.64</td>
+      <td>2.70</td>
+      <td>1.75</td>
+      <td>2.45</td>
+      <td>1.62</td>
+      <td>4.65</td>
+      <td>1.88</td>
+      <td>1.17</td>
+      <td>0.00</td>
+      <td>2.73</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>(959, 1139]</th>
+      <td>2.76</td>
+      <td>3.06</td>
+      <td>2.84</td>
+      <td>2.41</td>
+      <td>2.56</td>
+      <td>0.46</td>
+      <td>1.04</td>
+      <td>4.65</td>
+      <td>0.40</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.66</td>
+    </tr>
+    <tr>
+      <th>(1139, 1319]</th>
+      <td>2.96</td>
+      <td>3.64</td>
+      <td>0.18</td>
+      <td>1.94</td>
+      <td>0.42</td>
+      <td>3.04</td>
+      <td>1.33</td>
+      <td>1.21</td>
+      <td>1.67</td>
+      <td>1.59</td>
+      <td>0.00</td>
+      <td>0.56</td>
+    </tr>
+    <tr>
+      <th>(1319, 1499]</th>
+      <td>0.84</td>
+      <td>0.91</td>
+      <td>0.00</td>
+      <td>0.57</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.50</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sales_df_.applymap(<span class="keyword">lambda</span> x: <span class="string">f&#x27;<span class="subst">&#123;x&#125;</span>%&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead tr th &#123;
+    text-align: left;
+&#125;
+
+.dataframe thead tr:last-of-type th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="12" halign="left">销售数量</th>
+    </tr>
+    <tr>
+      <th>月份</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+    </tr>
+    <tr>
+      <th>售价</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>(59, 239]</th>
+      <td>30.48%</td>
+      <td>36.47%</td>
+      <td>30.36%</td>
+      <td>33.17%</td>
+      <td>40.88%</td>
+      <td>35.66%</td>
+      <td>31.16%</td>
+      <td>30.95%</td>
+      <td>33.72%</td>
+      <td>41.36%</td>
+      <td>43.51%</td>
+      <td>46.18%</td>
+    </tr>
+    <tr>
+      <th>(239, 419]</th>
+      <td>30.04%</td>
+      <td>27.42%</td>
+      <td>38.22%</td>
+      <td>27.87%</td>
+      <td>21.58%</td>
+      <td>34.84%</td>
+      <td>28.57%</td>
+      <td>28.35%</td>
+      <td>31.34%</td>
+      <td>32.6%</td>
+      <td>27.1%</td>
+      <td>32.96%</td>
+    </tr>
+    <tr>
+      <th>(419, 599]</th>
+      <td>21.11%</td>
+      <td>19.27%</td>
+      <td>19.83%</td>
+      <td>27.39%</td>
+      <td>25.25%</td>
+      <td>18.58%</td>
+      <td>25.28%</td>
+      <td>23.7%</td>
+      <td>23.39%</td>
+      <td>18.08%</td>
+      <td>25.57%</td>
+      <td>18.28%</td>
+    </tr>
+    <tr>
+      <th>(599, 779]</th>
+      <td>8.27%</td>
+      <td>7.59%</td>
+      <td>5.88%</td>
+      <td>4.9%</td>
+      <td>6.87%</td>
+      <td>5.79%</td>
+      <td>7.97%</td>
+      <td>8.76%</td>
+      <td>8.32%</td>
+      <td>6.37%</td>
+      <td>1.09%</td>
+      <td>0.37%</td>
+    </tr>
+    <tr>
+      <th>(779, 959]</th>
+      <td>3.54%</td>
+      <td>1.64%</td>
+      <td>2.7%</td>
+      <td>1.75%</td>
+      <td>2.45%</td>
+      <td>1.62%</td>
+      <td>4.65%</td>
+      <td>1.88%</td>
+      <td>1.17%</td>
+      <td>0.0%</td>
+      <td>2.73%</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <th>(959, 1139]</th>
+      <td>2.76%</td>
+      <td>3.06%</td>
+      <td>2.84%</td>
+      <td>2.41%</td>
+      <td>2.56%</td>
+      <td>0.46%</td>
+      <td>1.04%</td>
+      <td>4.65%</td>
+      <td>0.4%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>1.66%</td>
+    </tr>
+    <tr>
+      <th>(1139, 1319]</th>
+      <td>2.96%</td>
+      <td>3.64%</td>
+      <td>0.18%</td>
+      <td>1.94%</td>
+      <td>0.42%</td>
+      <td>3.04%</td>
+      <td>1.33%</td>
+      <td>1.21%</td>
+      <td>1.67%</td>
+      <td>1.59%</td>
+      <td>0.0%</td>
+      <td>0.56%</td>
+    </tr>
+    <tr>
+      <th>(1319, 1499]</th>
+      <td>0.84%</td>
+      <td>0.91%</td>
+      <td>0.0%</td>
+      <td>0.57%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.5%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">df1 = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">&quot;类别&quot;</span>: [<span class="string">&quot;手机&quot;</span>, <span class="string">&quot;手机&quot;</span>, <span class="string">&quot;手机&quot;</span>, <span class="string">&quot;手机&quot;</span>, <span class="string">&quot;手机&quot;</span>, <span class="string">&quot;电脑&quot;</span>, <span class="string">&quot;电脑&quot;</span>, <span class="string">&quot;电脑&quot;</span>, <span class="string">&quot;电脑&quot;</span>],</span><br><span class="line">    <span class="string">&quot;品牌&quot;</span>: [<span class="string">&quot;华为&quot;</span>, <span class="string">&quot;华为&quot;</span>, <span class="string">&quot;华为&quot;</span>, <span class="string">&quot;小米&quot;</span>, <span class="string">&quot;小米&quot;</span>, <span class="string">&quot;华为&quot;</span>, <span class="string">&quot;华为&quot;</span>, <span class="string">&quot;小米&quot;</span>, <span class="string">&quot;小米&quot;</span>],</span><br><span class="line">    <span class="string">&quot;等级&quot;</span>: [<span class="string">&quot;A类&quot;</span>, <span class="string">&quot;B类&quot;</span>, <span class="string">&quot;A类&quot;</span>, <span class="string">&quot;B类&quot;</span>, <span class="string">&quot;C类&quot;</span>, <span class="string">&quot;A类&quot;</span>, <span class="string">&quot;B类&quot;</span>, <span class="string">&quot;C类&quot;</span>, <span class="string">&quot;A类&quot;</span>],</span><br><span class="line">    <span class="string">&quot;A组&quot;</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>],</span><br><span class="line">    <span class="string">&quot;B组&quot;</span>: [<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">9</span>]</span><br><span class="line">&#125;)</span><br><span class="line">df1</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>类别</th>
+      <th>品牌</th>
+      <th>等级</th>
+      <th>A组</th>
+      <th>B组</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>手机</td>
+      <td>华为</td>
+      <td>A类</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>手机</td>
+      <td>华为</td>
+      <td>B类</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>手机</td>
+      <td>华为</td>
+      <td>A类</td>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>手机</td>
+      <td>小米</td>
+      <td>B类</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>手机</td>
+      <td>小米</td>
+      <td>C类</td>
+      <td>3</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>电脑</td>
+      <td>华为</td>
+      <td>A类</td>
+      <td>4</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>电脑</td>
+      <td>华为</td>
+      <td>B类</td>
+      <td>5</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>电脑</td>
+      <td>小米</td>
+      <td>C类</td>
+      <td>6</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>电脑</td>
+      <td>小米</td>
+      <td>A类</td>
+      <td>7</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 任务1：A组手机和电脑各卖出多少台</span></span><br><span class="line"><span class="comment"># 法一：</span></span><br><span class="line"><span class="comment"># df1.groupby([&#x27;类别&#x27;,&#x27;等级&#x27;]).A组.sum()</span></span><br><span class="line"><span class="comment"># 法二：</span></span><br><span class="line">pd.pivot_table(data = df1,</span><br><span class="line">              index = [<span class="string">&#x27;类别&#x27;</span>],</span><br><span class="line">              columns=[<span class="string">&#x27;等级&#x27;</span>],</span><br><span class="line">              values = [<span class="string">&#x27;A组&#x27;</span>],</span><br><span class="line">              aggfunc=np.<span class="built_in">sum</span>,</span><br><span class="line">              margins=<span class="literal">True</span>,</span><br><span class="line">              margins_name=<span class="string">&#x27;总计&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead tr th &#123;
+    text-align: left;
+&#125;
+
+.dataframe thead tr:last-of-type th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="4" halign="left">A组</th>
+    </tr>
+    <tr>
+      <th>等级</th>
+      <th>A类</th>
+      <th>B类</th>
+      <th>C类</th>
+      <th>总计</th>
+    </tr>
+    <tr>
+      <th>类别</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>手机</th>
+      <td>3</td>
+      <td>5</td>
+      <td>3</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>电脑</th>
+      <td>11</td>
+      <td>5</td>
+      <td>6</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>总计</th>
+      <td>14</td>
+      <td>10</td>
+      <td>9</td>
+      <td>33</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 任务2：A组不同品牌的手机和电脑各卖出多少台</span></span><br><span class="line">pd.pivot_table(data = df1,</span><br><span class="line">              index = [<span class="string">&#x27;类别&#x27;</span>],</span><br><span class="line">              columns=[<span class="string">&#x27;品牌&#x27;</span>],</span><br><span class="line">              values = [<span class="string">&#x27;A组&#x27;</span>],</span><br><span class="line">              aggfunc=np.<span class="built_in">sum</span>,</span><br><span class="line">              margins=<span class="literal">True</span>,</span><br><span class="line">              margins_name=<span class="string">&#x27;总计&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead tr th &#123;
+    text-align: left;
+&#125;
+
+.dataframe thead tr:last-of-type th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">A组</th>
+    </tr>
+    <tr>
+      <th>品牌</th>
+      <th>华为</th>
+      <th>小米</th>
+      <th>总计</th>
+    </tr>
+    <tr>
+      <th>类别</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>手机</th>
+      <td>5</td>
+      <td>6</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>电脑</th>
+      <td>9</td>
+      <td>13</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>总计</th>
+      <td>14</td>
+      <td>19</td>
+      <td>33</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 任务3：不同品牌的手机和电脑，A组和B组各卖出多少台</span></span><br><span class="line">pd.pivot_table(data = df1,</span><br><span class="line">              index = [<span class="string">&#x27;类别&#x27;</span>],</span><br><span class="line">              columns=[<span class="string">&#x27;品牌&#x27;</span>],</span><br><span class="line">              values = [<span class="string">&#x27;A组&#x27;</span>,<span class="string">&#x27;B组&#x27;</span>],</span><br><span class="line">              aggfunc=np.<span class="built_in">sum</span>,</span><br><span class="line">              margins=<span class="literal">True</span>,</span><br><span class="line">              margins_name=<span class="string">&#x27;总计&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead tr th &#123;
+    text-align: left;
+&#125;
+
+.dataframe thead tr:last-of-type th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">A组</th>
+      <th colspan="3" halign="left">B组</th>
+    </tr>
+    <tr>
+      <th>品牌</th>
+      <th>华为</th>
+      <th>小米</th>
+      <th>总计</th>
+      <th>华为</th>
+      <th>小米</th>
+      <th>总计</th>
+    </tr>
+    <tr>
+      <th>类别</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>手机</th>
+      <td>5</td>
+      <td>6</td>
+      <td>11</td>
+      <td>11</td>
+      <td>11</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>电脑</th>
+      <td>9</td>
+      <td>13</td>
+      <td>22</td>
+      <td>14</td>
+      <td>18</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>总计</th>
+      <td>14</td>
+      <td>19</td>
+      <td>33</td>
+      <td>25</td>
+      <td>29</td>
+      <td>54</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_luohu = pd.read_csv(<span class="string">&#x27;../files/data/2018年北京积分落户数据.csv&#x27;</span>)</span><br><span class="line">df_luohu</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+      <th>birthday</th>
+      <th>company</th>
+      <th>score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>杨效丰</td>
+      <td>1972-12</td>
+      <td>北京利德华福电气技术有限公司</td>
+      <td>122.59</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>纪丰伟</td>
+      <td>1974-12</td>
+      <td>北京航天数据股份有限公司</td>
+      <td>121.25</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>王永</td>
+      <td>1974-05</td>
+      <td>品牌联盟(北京)咨询股份公司</td>
+      <td>118.96</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>杨静</td>
+      <td>1975-07</td>
+      <td>中科专利商标代理有限责任公司</td>
+      <td>118.21</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>张凯江</td>
+      <td>1974-11</td>
+      <td>北京阿里巴巴云计算技术有限公司</td>
+      <td>117.79</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>6014</th>
+      <td>6015</td>
+      <td>孙宏波</td>
+      <td>1978-08</td>
+      <td>华为海洋网络有限公司北京科技分公司</td>
+      <td>90.75</td>
+    </tr>
+    <tr>
+      <th>6015</th>
+      <td>6016</td>
+      <td>刘丽香</td>
+      <td>1976-11</td>
+      <td>福斯（上海）流体设备有限公司北京分公司</td>
+      <td>90.75</td>
+    </tr>
+    <tr>
+      <th>6016</th>
+      <td>6017</td>
+      <td>周崧</td>
+      <td>1977-10</td>
+      <td>赢创德固赛（中国）投资有限公司</td>
+      <td>90.75</td>
+    </tr>
+    <tr>
+      <th>6017</th>
+      <td>6018</td>
+      <td>赵妍</td>
+      <td>1979-07</td>
+      <td>澳科利耳医疗器械（北京）有限公司</td>
+      <td>90.75</td>
+    </tr>
+    <tr>
+      <th>6018</th>
+      <td>6019</td>
+      <td>贺锐</td>
+      <td>1981-06</td>
+      <td>北京宝洁技术有限公司</td>
+      <td>90.75</td>
+    </tr>
+  </tbody>
+</table>
+<p>6019 rows × 5 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 根据company将落户人员分组，统计每个公司有多少积分落户人员？</span></span><br><span class="line">luohu_ser = df_luohu.groupby(<span class="string">&#x27;company&#x27;</span>).<span class="built_in">id</span>.count()</span><br><span class="line">luohu_ser.nlargest(<span class="number">20</span>).plot(kind = <span class="string">&#x27;bar&#x27;</span>,figsize = (<span class="number">8</span>,<span class="number">4</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(luohu_ser.nlargest(<span class="number">20</span>).size):</span><br><span class="line">    plt.text(i,luohu_ser.nlargest(<span class="number">20</span>)[i] + <span class="number">1</span>,luohu_ser.nlargest(<span class="number">20</span>)[i],ha = <span class="string">&#x27;center&#x27;</span>)</span><br><span class="line">plt.show()</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2. 根据年龄将落户人员分组，统计每个年龄段有多少人（建议5岁一个年龄段）？</span></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">date = pd.to_datetime(df_luohu.birthday)</span><br><span class="line">df_luohu[<span class="string">&#x27;age&#x27;</span>] = (datetime(<span class="number">2018</span>,<span class="number">7</span>,<span class="number">1</span>) - date).dt.days // <span class="number">365</span></span><br><span class="line">bins = np.arange(<span class="number">30</span>,<span class="number">61</span>,<span class="number">5</span>)</span><br><span class="line">box = pd.cut(df_luohu.age,bins,right = <span class="literal">False</span>)</span><br><span class="line">ser = df_luohu.groupby(box).name.count()</span><br><span class="line">ser.plot(kind = <span class="string">&#x27;bar&#x27;</span>)</span><br><span class="line">plt.xticks(rotation = <span class="number">0</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(ser.size):</span><br><span class="line">    plt.text(i,ser[i]+<span class="number">30</span>,ser[i],ha = <span class="string">&#x27;center&#x27;</span>)   <span class="comment">#数字居中显示</span></span><br><span class="line">plt.show()</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3. 根据落户积分将落户人员分组，统计每个积分段有多少人？</span></span><br><span class="line">max_score = df_luohu[<span class="string">&#x27;score&#x27;</span>].<span class="built_in">max</span>()</span><br><span class="line">min_score = df_luohu[<span class="string">&#x27;score&#x27;</span>].<span class="built_in">min</span>()</span><br><span class="line"></span><br><span class="line">bins = np.arange(min_score,max_score,<span class="number">5</span>)</span><br><span class="line">box = pd.cut(df_luohu.score,bins,right = <span class="literal">False</span>)</span><br><span class="line">ser = df_luohu.groupby(box).name.count()</span><br><span class="line">ser.plot(kind = <span class="string">&#x27;bar&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(ser.size):</span><br><span class="line">    plt.text(i,ser[i]+<span class="number">30</span>,ser[i],ha = <span class="string">&#x27;center&#x27;</span>)   <span class="comment">#数字居中显示</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p>​<br>​    </p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2021-12-08 19:20:29" itemprop="dateModified" datetime="2021-12-08T19:20:29+08:00">2021-12-08</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="HoneyGrapefruit 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="HoneyGrapefruit 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="HoneyGrapefruit 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>HoneyGrapefruit <i class="ic i-at"><em>@</em></i>宗志雄的技术专栏
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://babybear.top/2021/12/08/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/" title="数据预处理">http://babybear.top/2021/12/08/数据预处理/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/12/08/Pandas%20-%20Review/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipevo9j1jj20zk0m8e81.jpg" title="Pandas回顾及应用">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 数据分析基础</span>
+  <h3>Pandas回顾及应用</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2021/12/08/Numpy-Review/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicis3attqj20zk0m8k7l.jpg" title="Numpy 回顾及应用">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 数据分析基础</span>
+  <h3>Numpy 回顾及应用</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Dataframe-%E7%9A%84%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">Dataframe 的数据预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88%E5%B2%97%E4%BD%8D%E4%BF%A1%E6%81%AF%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">数据分析师岗位信息数据预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-number">1.1.1.</span> <span class="toc-text">导入数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%9B%E9%80%89%E5%87%BA%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B2%97%E4%BD%8D"><span class="toc-number">1.1.2.</span> <span class="toc-text">筛选出数据分析岗位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E8%96%AA%E8%B5%84%E5%A4%84%E7%90%86%E6%88%90%E4%B8%8A%E4%B8%8B%E9%99%90%E7%9A%84%E5%9D%87%E5%80%BC"><span class="toc-number">1.1.3.</span> <span class="toc-text">将薪资处理成上下限的均值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C%E6%94%B9%E4%B8%BA%E6%9C%80%E4%BD%8E%E8%A6%81%E6%B1%82"><span class="toc-number">1.1.4.</span> <span class="toc-text">将工作经验改为最低要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E7%BB%98%E5%88%B6"><span class="toc-number">1.1.5.</span> <span class="toc-text">图表绘制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2020%E9%94%80%E5%94%AE%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">2020销售数据预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">导入数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E9%94%80%E5%94%AE%E6%97%A5%E6%9C%9F%E5%88%92%E5%88%86%E9%94%80%E5%94%AE%E5%AD%A3%E5%BA%A6"><span class="toc-number">1.2.2.</span> <span class="toc-text">根据销售日期划分销售季度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E9%94%80%E5%94%AE%E9%A2%9D"><span class="toc-number">1.2.3.</span> <span class="toc-text">计算销售额</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E7%BB%B4%E5%BA%A6%E6%8B%86%E8%A7%A3%E5%8F%8A%E9%80%8F%E8%A7%86"><span class="toc-number">1.2.4.</span> <span class="toc-text">各维度拆解及透视</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2021/09/27/NumPy%E7%9A%84%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8(example)/" rel="bookmark" title="NumPy的高级应用">NumPy的高级应用</a></li><li><a href="/2021/09/27/Pandas%20%E8%BF%9B%E9%98%B6/" rel="bookmark" title="Pandas 进阶">Pandas 进阶</a></li><li><a href="/2021/09/27/Pandas%20%E5%85%A5%E9%97%A8/" rel="bookmark" title="Pandas 入门">Pandas 入门</a></li><li><a href="/2021/09/27/%E8%AE%A4%E8%AF%86Numpy/" rel="bookmark" title="认识NumPy">认识NumPy</a></li><li><a href="/2021/09/27/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E8%AE%BA/" rel="bookmark" title="数据分析方法论">数据分析方法论</a></li><li><a href="/2021/09/27/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="bookmark" title="数据可视化">数据可视化</a></li><li><a href="/2021/12/08/Pandas%20-%20Review/" rel="bookmark" title="Pandas回顾及应用">Pandas回顾及应用</a></li><li class="active"><a href="/2021/12/08/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/" rel="bookmark" title="数据预处理">数据预处理</a></li><li><a href="/2021/12/08/Numpy-Review/" rel="bookmark" title="Numpy 回顾及应用">Numpy 回顾及应用</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="HoneyGrapefruit"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">HoneyGrapefruit</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">32</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">4</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hvbmVHcmFwZWZydWl0" title="https:&#x2F;&#x2F;github.com&#x2F;HoneGrapefruit"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/12/08/Pandas%20-%20Review/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/12/08/Numpy-Review/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Python/" title="分类于 Python">Python</a>
+</div>
+
+    <span><a href="/2021/09/27/Python%20Web%20%E6%A1%86%E6%9E%B6%20Flask%E7%9A%84%E6%9C%80%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="Python Web 框架 Flask的最基本使用">Python Web 框架 Flask的最基本使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Python/" title="分类于 Python">Python</a>
+</div>
+
+    <span><a href="/2021/09/27/Python%20%E8%A3%85%E9%A5%B0%E5%99%A8%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%20%20%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F/" title="Python 装饰器基础用法  基本格式">Python 装饰器基础用法  基本格式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/" title="分类于 数据分析基础">数据分析基础</a>
+</div>
+
+    <span><a href="/2021/12/08/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/" title="数据预处理">数据预处理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Python/" title="分类于 Python">Python</a>
+</div>
+
+    <span><a href="/2021/12/06/BeautifulSoup%E7%9A%84%E7%94%A8%E6%B3%95/" title="BeautifulSoup的用法">BeautifulSoup的用法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/" title="分类于 数据分析基础">数据分析基础</a>
+</div>
+
+    <span><a href="/2021/12/08/Numpy-Review/" title="Numpy 回顾及应用">Numpy 回顾及应用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/" title="分类于 机器学习算法">机器学习算法</a>
+</div>
+
+    <span><a href="/2021/12/06/lr/" title="lr">lr</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Python/" title="分类于 Python">Python</a>
+</div>
+
+    <span><a href="/2021/09/27/%E6%89%93%E5%8C%85%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%96%B9%E6%B3%95/" title="打包应用程序方法">打包应用程序方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/" title="分类于 数据分析基础">数据分析基础</a>
+</div>
+
+    <span><a href="/2021/09/27/Pandas%20%E5%85%A5%E9%97%A8/" title="Pandas 入门">Pandas 入门</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Python/" title="分类于 Python">Python</a>
+</div>
+
+    <span><a href="/2021/09/27/%E7%88%AC%E8%99%AB%E5%87%86%E5%A4%87%20-%20%E8%AE%A4%E8%AF%86HTML&css/" title="爬虫准备">爬虫准备</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Python/" title="分类于 Python">Python</a>
+</div>
+
+    <span><a href="/2021/12/06/XPath%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Xpath的使用">Xpath的使用</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HoneyGrapefruit @ Super Bear</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/12/08/数据预处理/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
